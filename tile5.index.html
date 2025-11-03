@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Koala Spies Sydney – Tile 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg-dark: #1e1e1e;
+      --ink-light: #f5f5f5;
+      --ink-muted: #bbbbbb;
+      --light-bg: #f4f4f4;
+      --ink-dark: #222;
+      --accent5: #3498db;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg-dark);
+      color: var(--ink-light);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--light-bg);
+      color: var(--ink-dark);
+      text-align: center;
+      padding: 20px;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    .tile-header {
+      background: var(--accent5);
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .tile-header h2 {
+      margin: 0;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .tile-content p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--ink-muted);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--accent5);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: var(--light-bg);
+      color: var(--ink-dark);
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    footer nav a {
+      color: var(--ink-dark);
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Flipbook */
+    .flipbook {
+      width: 80%;
+      max-width: 800px;
+      height: 500px;
+      perspective: 2000px;
+      position: relative;
+      margin: 40px auto;
+    }
+
+    .book {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+    }
+
+    .page {
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      background: #fff; /* white pages */
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+
+    .page img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .left {
+      left: 0;
+      transform-origin: right center;
+      z-index: 2;
+    }
+
+    .right {
+      right: 0;
+      transform-origin: left center;
+      z-index: 1;
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    .controls button {
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Koala Spies Sydney
+  </header>
+
+  <main>
+    <div class="tile-header">
+      <h2>Tile 1 – Project Title</h2>
+    </div>
+
+    <div class="tile-content">
+      <p>
+        Chatbots don't buy chairs, don't let them write about them.
+        This is a detailed description of the project. You can write about the concept, 
+        the process, and what makes this work stand out. The quick brown fox jumps over 
+        the lazy dog. The quick brown fox jumps over the lazy dog.
+      </p>
+
+      
+      <a href="KSSindex.html" class="back-link">← Back to Portfolio</a>
+    </div>
+
+    <!-- Flipbook -->
+    <div class="flipbook">
+      <div class="book">
+        <div class="page left"><img src="untitled.jpg" alt="Page 1"></div>
+        <div class="page right"><img src="untitled.jpg" alt="Page 2"></div>
+      </div>
+      <div class="controls">
+        <button id="prev">❮ Prev</button>
+        <button id="next">Next ❯</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="KSSindex.html">Home</a>
+      <a href="Kssabout.index.html">About</a>
+      <a href="KSScontact.index.html">Contact</a>
+    </nav>
+  </footer>
+
+  <script>
+    const book = document.querySelector('.book');
+    const leftPage = document.querySelector('.page.left img');
+    const rightPage = document.querySelector('.page.right img');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+
+    const images = [
+      "Untitled.jpeg","Untitled.jpeg","3.jpg","4.jpg",
+      "5.jpg","6.jpg","7.jpg","8.jpg"
+    ];
+
+    let index = 0;
+
+    function updatePages() {
+      leftPage.src = images[index];
+      rightPage.src = images[index + 1] || "";
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (index < images.length - 2) {
+        index += 2;
+        updatePages();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (index > 0) {
+        index -= 2;
+        updatePages();
+      }
+    });
+
+    updatePages();
+  </script>
+</body>
+</html>
