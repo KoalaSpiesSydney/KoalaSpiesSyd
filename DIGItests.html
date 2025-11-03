@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>(Project Title Here)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
+
+  <style>
+:root {
+  --bg-dark: #1e1e1e;
+  --ink-light: #f5f5f5;
+  --ink-muted: #bbbbbb;
+  --light-bg: #f4f4f4;
+  --ink-dark: #222;
+  --accent1: #009688;
+  --accent2: #d35400;
+  --accent3: #f1c40f;
+  --accent4: #8e44ad;
+  --accent5: #3498db;
+  --accent6: #e67e22;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-dark);
+  color: var(--ink-light);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background: var(--light-bg);
+  color: var(--ink-dark);
+  text-align: center;
+  padding: 20px;
+font-family: "tt-modernoir", sans-serif;
+font-weight: 700;
+font-style: normal;
+  font-size: 5.2rem;
+  letter-spacing: 10px;
+}
+
+main {
+  flex: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.tile-header {
+  background: var(--bg-light);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 30px;
+  opacity: 100%;
+    background:
+    radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.2) 10%,
+      rgba(0, 0, 0, 0.15) 40%,
+      rgba(0, 0, 0, 0.3) 60%
+    ),
+   
+}
+
+.tile-header p {
+  color: var(--bg-light);
+  font-size: 1.1rem;
+  font-style: italic;
+
+}
+
+ul.aligned {
+  list-style-type: disc;
+  padding-left: 40px;
+}
+
+ul.aligned li {
+  margin-bottom: 12px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.case-study {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: start;
+  gap: 40px;
+  background: rgba(255,255,255,0.05);
+  padding: 40px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.case-study iframe {
+  width: 90%;
+  aspect-ratio: 12/16;
+  border: 3px solid var(--light-bg);
+  border-radius: 12px;
+  background: #000;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+aside img {
+  width: 100%;
+  max-width: 440px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+aside h2 {
+  color: var(--accent3);
+  font-size: 1.6rem;
+  margin: 0;
+}
+aside p {
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+aside q {
+  font-style: italic;
+  color: var(--ink-light);
+}
+aside cite {
+  display: block;
+  color: var(--accent2);
+  margin-top: 5px;
+
+}
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .case-study, .case-study {
+    grid-template-columns: 1fr;
+  }
+  aside {
+    align-items: center;
+    text-align: center;
+  }
+  aside img {
+    max-width: 200px;
+  }
+}
+.tile-header h1 {
+  font-size: 7rem;
+  margin-bottom: 0.5rem;
+}
+
+.tile-header h2 {
+   margin: 0;
+  font-family: "mazurquica-vf", sans-serif;
+  font-size: 3rem;
+  letter-spacing: 24px;
+  color: var(--accent6);
+  opacity: 90%;
+}
+
+.tile-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.text {
+  flex: 1 1 50%;
+}
+
+.text p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.media {
+  flex: 1 1 45%;
+}
+
+.media iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 12px;
+}
+
+.tile-footer {
+  margin-top: 2rem;
+  border-top: 1px solid #333;
+  padding-top: 1rem;
+}
+
+blockquote {
+  font-style: italic;
+  color: #ccc;
+  margin: 0;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 0.5rem;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .tile-body {
+    flex-direction: column;
+  }
+  .media iframe {
+    height: 220px;
+  }
+}
+
+
+.future-cases {
+  margin: 80px auto;
+  max-width: 1100px;
+  padding: 40px 20px;
+  background-color: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.future-item {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.future-item.reverse {
+  flex-direction: row-reverse;
+}
+
+.future-item img {
+  flex: 1;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+
+.future-item .text {
+  flex: 1;
+  color: var(--ink-light);
+}
+
+.future-item .text h2 {
+  font-size: 1.6rem;
+  color: var(--accent3);
+}
+
+footer {
+  background: var(--light-bg);
+  color: var(--ink-dark);
+  text-align: center;
+  padding: 15px;
+}
+
+footer nav a {
+  color: var(--ink-dark);
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer nav a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .tile-content, .future-item, .future-item.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <header>KOALA SPIES SYDNEY</header>
+
+  <main>
+    <section class="tile-header">
+      <h2>Digital tests for ELICOS</h2>
+
+        <p><q>Standardized tests are useful for ranking, but not for learning.</q><br><cite>— Sir Ken Robinson: </cite></p>
+    
+    </section>
+
+    <section>
+      <h1>Problems</h1>
+      <ul class="aligned">
+    
+    <li><strong> Adminstration Costs & Wastes:</strong> Schools rely on photocopied tests from textbooks or files, creating a printing cost and paper waste.
+    <li><strong> Classroom Disconnect:</strong> Teachers frequently adapt and personalise textbook content to better engage students, but assessments remain static and disconnected from classroom learning.</li>
+    <li><strong> Students: </strong> They perceive paper-based tests as tedious and irrelevant, with little resemblence to the future  high stake tests they will need to take to renew their visa.
+    <li><strong> Compliance: </strong> The tests seem like a task to tick off, rather than a tool for revision and independent learning.
+    </ul>        
+    <!-- ===== CASE STUDY 2 ===== -->
+    <section class="case-study reverse">
+      <iframe src="Coverpage.html"></iframe>
+      <aside>
+          <h1>Solution</h1>
+    <ul class="aligned">
+      <li><strong>Digital EPs via QR Codes:</strong> Artists hand their music directly to fans at gigs or wherever they choose.</li>
+      <li><strong>No Gatekeepers:</strong> Listeners access the music instantly—no algorithm or platform interference.</li>
+      <li><strong>Support Local:</strong> Fans connect directly with emerging and independent Australian talent.</li>
+    </ul>
+        <img src="studentanswer1.png" alt="Clovelly Kirtan">
+        <h2>Clovelly Kirtan Breese</h2>
+        <p>Born in Canada and trained in India, Summer now lives in Clovelly, sharing her music and yoga wisdom.</p>
+      </aside>
+</section>
+            <h1>Benefits</h1>
+    <ul class="aligned">
+      <li><strong>Artists keep creative and financial control.</strong></li>
+      <li>Fans discover authentic, local music easily.</li>
+      <li>Communities strengthen cultural identity through direct artist–audience connection.</li>
+      <li>Australia preserves its music industry against algorithmic gatekeeping.</li>
+    </ul>
+
+    <!-- ===== CASE STUDY 3 ===== -->
+
+  <!-- ===== CASE STUDY 2 ===== -->
+    <section class="case-study reverse">
+      <iframe src="Coverpage.html"></iframe>
+      <aside>
+          <h1>Solution</h1>
+    <ul class="aligned">
+      <li><strong>Digital EPs via QR Codes:</strong> Artists hand their music directly to fans at gigs or wherever they choose.</li>
+      <li><strong>No Gatekeepers:</strong> Listeners access the music instantly—no algorithm or platform interference.</li>
+      <li><strong>Support Local:</strong> Fans connect directly with emerging and independent Australian talent.</li>
+    </ul>
+        <img src="studentanswer1.png" alt="Clovelly Kirtan">
+        <h2>Clovelly Kirtan Breese</h2>
+        <p>
+          <q>“This app can be enjoyed offline — download updates weekly and listen during your social media detox.”</q>
+          <cite>— Summer Breaze Zarkasky</cite>
+        </p>
+        <p>Born in Canada and trained in India, Summer now lives in Clovelly, sharing her music and yoga wisdom.</p>
+      </aside>
+</section>
+            <h1>Benefits</h1>
+    <ul class="aligned">
+      <li><strong>Artists keep creative and financial control.</strong></li>
+      <li>Fans discover authentic, local music easily.</li>
+      <li>Communities strengthen cultural identity through direct artist–audience connection.</li>
+      <li>Australia preserves its music industry against algorithmic gatekeeping.</li>
+    </ul>
+
+  <footer class="tile-footer">
+    <blockquote>
+      <p>(Quote or testimonial placeholder)</p>
+      <cite>— (Author Name)</cite>
+    </blockquote>
+  </footer>
+</section>
+
+
+
+    <section class="future-cases">
+      <h1>(Future Projects or Case Studies)</h1>
+
+      <div class="future-item">
+        <img src="(future-image1.png)" alt="(Future project image)">
+        <div class="text">
+          <h2>(Future Project Title)</h2>
+          <p>(Description placeholder text.)</p>
+        </div>
+      </div>
+
+      <div class="future-item reverse">
+        <img src="(future-image2.png)" alt="(Future project image)">
+        <div class="text">
+          <h2>(Future Project Title)</h2>
+          <p>(Description placeholder text.)</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="KSSindex.html">Home</a>
+      <a href="(about-link.html)">About</a>
+      <a href="(contact-link.html)">Contact</a>
+      <a href="(extra-link.html)">More</a>
+    </nav>
+  </footer>
+</body>
+</html>
