@@ -95,15 +95,14 @@ ul.aligned li {
   margin-bottom: 30px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
-
-.case-study iframe {
+    .case-study iframe {
   width: 90%;
-  aspect-ratio: 12/16;
+  aspect-ratio: 1 / 1; /* perfect square */
+  height: auto;
   border: 3px solid var(--light-bg);
   border-radius: 12px;
-  background: #000;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
+
 aside {
   display: flex;
   flex-direction: column;
@@ -181,10 +180,10 @@ aside cite {
 .media {
   flex: 1 1 45%;
 }
-
 .media iframe {
   width: 100%;
-  height: 300px;
+  aspect-ratio: 1 / 1;
+  height: auto;
   border: none;
   border-radius: 12px;
 }
@@ -209,15 +208,13 @@ blockquote cite {
 }
 
 /* Mobile Responsive */
+
 @media (max-width: 768px) {
-  .tile-body {
-    flex-direction: column;
-  }
-  .media iframe {
-    height: 220px;
+  .media iframe,
+  .case-study iframe {
+    width: 100%;
   }
 }
-
 
 .future-cases {
   margin: 80px auto;
@@ -397,3 +394,4 @@ footer nav a:hover {
   </footer>
 </body>
 </html>
+
