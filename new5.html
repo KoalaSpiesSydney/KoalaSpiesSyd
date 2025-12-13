@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
   <style>
-:root {
+    :root {
   --bg-dark: #1e1e1e;
   --ink-light: #f5f5f5;
   --ink-muted: #bbbbbb;
@@ -15,40 +15,58 @@
   --accent1: #009688;
   --accent2: #d35400;
   --accent3: #f1c40f;
+
+  --radius: 16px;
+  --radius-sm: 12px;
+  --shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
 
 /* ===== Base ===== */
-body {
-  margin: 0;
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
   font-family: Arial, Helvetica, sans-serif;
   background: var(--bg-dark);
   color: var(--ink-light);
 }
-header {
+
+header{
   background: var(--light-bg);
   color: var(--ink-dark);
-  text-align: center;
-  padding: 20px;
-  font-family: "tt-modernoir", sans-serif;
-  font-weight: 700;
-  font-size: 4rem;
-  letter-spacing: 10px;
+  text-align:center;
+  padding:20px;
+  font-family:"tt-modernoir", sans-serif;
+  font-weight:700;
+  font-size:4rem;
+  letter-spacing:10px;
 }
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
+
+main{
+  max-width:1200px;
+  margin:0 auto;
+  padding:40px 20px;
+}
+
+/* ===== Lists (you use .aligned in HTML) ===== */
+ul.aligned{
+  list-style: disc;
+  padding-left: 28px;
+  margin: 0 0 16px;
+}
+ul.aligned li{
+  margin: 0 0 10px;
+  line-height: 1.55;
 }
 
 /* ===== Section Head ===== */
-.tile-header {
-  background: var(--accent1);
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  margin-bottom: 60px;
-   opacity: 90%;
-    background:
+.tile-header{
+  padding:20px;
+  border-radius: var(--radius-sm);
+  text-align:center;
+  margin-bottom:60px;
+  opacity:0.92;
+  background:
     radial-gradient(circle at center,
       rgba(255, 255, 255, 0.2) 10%,
       rgba(0, 0, 0, 0.15) 40%,
@@ -57,153 +75,200 @@ main {
     var(--accent1);
 }
 
-.tile-header h2 {
-  margin: 0;
-  font-family: "mazurquica-vf", sans-serif;
-  font-size: 3rem;
-  letter-spacing: 8px;
+.tile-header h2{
+  margin:0;
+  font-family:"mazurquica-vf", sans-serif;
+  font-size:3rem;
+  letter-spacing:8px;
   color: var(--accent3);
-  opacity: 90%;
 }
-.tile-header h3 {
-  font-family: "tt-modernoir", sans-serif;
-  font-size: 1.5rem;
+
+.tile-header h3{
+  margin: 6px 0 0;
+  font-family:"tt-modernoir", sans-serif;
+  font-size:1.5rem;
   color: var(--ink-dark);
-  margin-top: 5px;
+}
+
+.tile-header p{
+  margin: 12px 0 0;
+  color: rgba(255,255,255,0.9);
 }
 
 /* ===== CASE STUDY LAYOUT ===== */
-.case-study {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: start;
-  gap: 40px;
-  background: rgba(255,255,255,0.05);
-  padding: 40px;
-  border-radius: 16px;
-  margin-bottom: 80px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-}
 .case-study{
-  grid-template-columns: 0.9fr 1.1fr;
+  display:grid;
+  grid-template-columns: 1fr 1.15fr;  /* iframe | text */
+  gap:40px;
+  align-items:start;
 
+  background: rgba(255,255,255,0.05);
+  padding:40px;
+  border-radius: var(--radius);
+  margin-bottom:80px;
+  box-shadow: var(--shadow);
 }
-.media iframe {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  height: auto;
-  border: none;
-  border-radius: 12px;
+
+/* Reverse layout: text left, iframe right */
+.case-study.reverse{
+  grid-template-columns: 1.15fr 1fr; /* text | iframe */
+}
+.case-study.reverse iframe{ order: 2; }
+.case-study.reverse aside{ order: 1; }
+
+/* ===== Square iframe (THIS is the important fix) ===== */
+.case-study iframe{
+  width:100%;
+  aspect-ratio: 1 / 1;     /* perfect square */
+  height:auto;             /* don’t fight aspect-ratio */
+  display:block;
+
+  border:3px solid var(--light-bg);
+  border-radius: var(--radius-sm);
+  background:#000;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
 /* ===== ASIDE COLUMN ===== */
-aside {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 15px;
+aside{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:14px;
 }
-aside img {
-  width: 100%;
-  max-width: 240px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+
+aside h1{
+  margin:0;
+  font-size:2rem;
+  color: var(--accent3);
 }
-aside h2 {
+
+aside h2{
+  margin: 6px 0 0;
   color: var(--accent3);
   font-size: 1.6rem;
-  margin: 0;
 }
-aside p {
-  line-height: 1.6;
+
+aside p{
+  margin:0;
+  line-height:1.6;
   color: var(--ink-muted);
 }
-aside q {
+
+aside q{
   font-style: italic;
   color: var(--ink-light);
 }
-aside cite {
-  display: block;
+
+aside cite{
+  display:block;
   color: var(--accent2);
-  margin-top: 5px;
-}
-/* ===== Responsive ===== */
-    .media iframe {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  height: auto;
-  border: none;
-  border-radius: 12px;
+  margin-top:6px;
 }
 
-
-    @media (max-width: 768px) {
-  .media iframe,
-  .case-study iframe {
-    width: 100%;
-  
-  }
-  aside {
-    align-items: center;
-    text-align: center;
-  }
-  aside img {
-    max-width: 200px;
-  }
-      .case-study iframe,
-.media iframe {
-  object-fit: cover;
-  background: #000;
+aside img{
+  width:100%;
+  max-width:240px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-}
-future-cases {
-  margin: 80px auto;
-  max-width: 1100px;
-  padding: 40px 20px;
+/* ===== Future Cases ===== */
+.future-cases{
+  margin:80px auto;
+  max-width:1100px;
+  padding:40px 20px;
   background-color: rgba(255,255,255,0.05);
-  border-radius: 16px;
+  border-radius: var(--radius);
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
-.future-cases h1 {
-  text-align: center;
-  font-size: 2.2rem;
-  margin-bottom: 50px;
+.future-cases h1{
+  text-align:center;
+  font-size:2.2rem;
+  margin:0 0 50px;
   color: var(--accent2);
-  letter-spacing: 0.05em;
+  letter-spacing:0.05em;
 }
 
-.future-item {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  margin-bottom: 60px;
+.future-item{
+  display:flex;
+  align-items:center;
+  gap:30px;
+  margin-bottom:60px;
+}
+.future-item.reverse{
+  flex-direction: row-reverse;
 }
 
-.future-item img {
-  flex: 1;
-  width: 100%;
-  max-width: 450px;
-  border-radius: 12px;
+.future-item img{
+  flex:1;
+  width:100%;
+  max-width:450px;
+  border-radius: var(--radius-sm);
   box-shadow: 0 4px 16px rgba(0,0,0,0.25);
 }
 
-footer {
+.future-item .text{
+  flex:1;
+}
+
+/* ===== Footer ===== */
+footer{
   background: var(--light-bg);
   color: var(--ink-dark);
-  text-align: center;
-  padding: 15px;
+  text-align:center;
+  padding:15px;
 }
-footer nav a {
+
+footer nav a{
   color: var(--ink-dark);
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: bold;
+  margin:0 10px;
+  text-decoration:none;
+  font-weight:bold;
 }
-footer nav a:hover {
+
+footer nav a:hover{
   text-decoration: underline;
 }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px){
+  header{ font-size: 2.6rem; letter-spacing: 6px; }
+
+  .case-study{
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 22px;
+  }
+
+  /* On mobile, don’t bother “reversing” — stack neatly */
+  .case-study.reverse iframe,
+  .case-study.reverse aside{
+    order: initial;
+  }
+
+  aside{
+    align-items:center;
+    text-align:center;
+  }
+
+  aside img{
+    max-width: 220px;
+  }
+
+  .future-item,
+  .future-item.reverse{
+    flex-direction: column;
+    text-align:center;
+  }
+
+  .future-item img{
+    max-width: 520px;
+  }
+}
+
+
   </style>
 </head>
 
@@ -324,6 +389,7 @@ footer nav a:hover {
   </footer>
 </body>
 </html>
+
 
 
 
