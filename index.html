@@ -4,145 +4,250 @@
   <meta charset="UTF-8">
   <title>Koala Spies Sydney</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
   <style>
-    :root {
-      --bg-dark: #1e1e1e;     /* charcoal */
-      --ink-light: #f5f5f5;   /* main text */
-      --ink-muted: #bbbbbb;   /* secondary text */
-      --light-bg: #f4f4f4;    /* header/footer */
-      --ink-dark: #222;       /* for light areas */
+:root {
+  --bg-dark: #1e1e1e;     /* charcoal */
+  --ink-light: #f5f5f5;   /* main text */
+  --ink-muted: #bbbbbb;   /* secondary text */
+  --light-bg: #f4f4f4;    /* header/footer */
+  --ink-dark: #222;       /* for light areas */
 
-      /* accent palette */
-      --accent1: #009688;   /* teal */
-      --accent2: #d35400;   /* rust orange */
-      --accent3: #f1c40f;   /* gold */
-      --accent4: #8e44ad;   /* indigo purple */
-      --accent5: #3498db;   /* sky blue */
-      --accent6: #e67e22;   /* amber */
-    }
+  /* accent palette */
+  --accent1: #009688;   /* teal */
+  --accent2: #d35400;   /* rust orange */
+  --accent3: #f1c40f;   /* gold */
+  --accent4: #8e44ad;   /* indigo purple */
+  --accent5: #3498db;   /* sky blue */
+  --accent6: #e67e22;   /* amber */
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg-dark);
-      color: var(--ink-light);
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--ink-light);
+  color:var(--bg-dark);
+}
 
-    header {
-      background: var(--light-bg);
-      color: var(--ink-dark);
-      text-align: center;
-      padding: 20px;
-      font-size: 2rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
+header {
+  background: var(--light-bg);
+  color: var(--ink-dark);
+  text-align: center;
+  padding: 10px;
+font-family: "tt-modernoir", sans-serif;
+font-weight: 700;
+font-style: normal;
+  font-size: 5.2rem;
+  letter-spacing: 10px;
+}
 
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
 
-    .intro {
-      padding: 40px 20px;
-      text-align: center;
-    }
+.intro {
+  padding-top: 10px;
+  text-align: center;
+}
 
-    .intro h2 {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      color: var(--ink-light);
-    }
+.intro h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--ink-light);
+}
 
-    .intro p {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1rem;
-      line-height: 1.6;
-      color: var(--ink-muted);
-    }
+.intro p {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
 
-    .tiles {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 40px;
-    }
+.tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 40px;
 
-    .tile-link {
-      text-decoration: none;
-      color: inherit;
-    }
 
-    .tile {
-      position: relative;
-      padding-top: 100%; /* square shape */
-      border-radius: 12px;
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: bold;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+}
 
-    .tile:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.5);
-    }
+.tile-link {
+  text-decoration: none;
+  color: inherit;
+}
 
-    .tile-content {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      color: inherit;
-    }
+.tile {
+  position: relative;
+  padding-top: 100%; /* square shape */
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+}
 
-    .tile img {
-      width: 70%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      background: rgba(255,255,255,0.3);
-    }
+.tile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
 
-    .tile h3 {
-      margin: 0;
-      font-size: 1.1rem;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-    }
+.tile-content {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: inherit;
+}
 
-    /* individual tile colors */
-    .tiles a:nth-child(1) .tile { background: var(--accent1); }
-    .tiles a:nth-child(2) .tile { background: var(--accent2); }
-    .tiles a:nth-child(3) .tile { background: var(--accent3); color: var(--ink-dark); }
-    .tiles a:nth-child(4) .tile { background: var(--accent4); }
-    .tiles a:nth-child(5) .tile { background: var(--accent5); }
-    .tiles a:nth-child(6) .tile { background: var(--accent6); }
+.tile img {
+  width: 60%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 48px;
+  background: rgba(255,255,255,0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
 
-    footer {
-      margin-top: 60px;
-      background: var(--light-bg);
-      color: var(--ink-dark);
-      text-align: center;
-      padding: 15px;
-    }
+.tile h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
 
-    footer nav a {
-      color: var(--ink-dark);
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+/* individual tile colors with gradient overlay */
+.tiles a:nth-child(1) .tile {
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.1)),
+    var(--accent1);
+}
+/* individual tile colors with stronger gradient overlay */
+.tiles a:nth-child(1) .tile {
+  background:
+    radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(0, 0, 0, 0.15) 70%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    var(--accent2);
+}
+.tiles a:nth-child(2) .tile {
+  background:
+    radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(0, 0, 0, 0.15) 70%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    var(--accent1);
+}
+.tiles a:nth-child(3) .tile {
+  background:
+    radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(0, 0, 0, 0.15) 70%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    var(--accent3);
+  color: var(--ink-dark);
+}
+.tiles a:nth-child(4) .tile {
+  background:
+    radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(0, 0, 0, 0.15) 70%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    var(--accent4);
+}
+.tiles a:nth-child(5) .tile {
+  background:
+    radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(0, 0, 0, 0.15) 70%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    var(--accent5);
+}
+.tiles a:nth-child(6) .tile {
+  background:
+    radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(0, 0, 0, 0.15) 70%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    var(--accent6);
+}
 
-    footer nav a:hover {
-      text-decoration: underline;
-    }
+/* ===== Tile layout and title sizing ===== */
+.tile h3 {
+  margin: 0;
+  font-size: 1rem;              /* smaller title */
+  line-height: 1.4;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+/* Default (large screens): 3 columns */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* Medium screens (tablets: 768–1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .tiles {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .tile h3 {
+    font-size: 0.95rem;
+  }
+}
+
+/* Small screens (phones: <768px) */
+@media (max-width: 767px) {
+  .tiles {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .tile h3 {
+    font-size: 0.9rem;
+  }
+}
+
+footer {
+  margin-top: 60px;
+  background: var(--light-bg);
+  color: var(--ink-dark);
+  text-align: center;
+  padding: 15px;
+}
+
+footer nav a {
+  color: var(--ink-dark);
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 5px;
+}
+
+footer nav a:hover {
+  text-decoration: underline;
+}
+
   </style>
 </head>
 <body>
@@ -152,25 +257,26 @@
 
   <main>
     <section class="intro">
-      <h2>Who? What? Where?</h2>
       <p>
-        Help quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. 
+        The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. 
         The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. 
         The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. 
         The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+     
+   
       </p>
     </section>
 
     <section class="tiles">
-      <a href="tile1.index.html" class="tile-link">
+      <a href="DIGItests.html" class="tile-link">
         <div class="tile">
           <div class="tile-content">
             <img src="ModernEnglish.png" alt="Tile 1 image">
-            <h3>UX Design for Language Learning, ELICOS & Online Tests</h3>
+            <h3>UX Design Language Learning, ELICOS & Tests</h3>
           </div>
         </div>
       </a>
-      <a href="tile2.index.html" class="tile-link">
+      <a href="new5.html" class="tile-link">
         <div class="tile">
           <div class="tile-content">
          <img src="Ayeeyaposter.png" alt="Tile 5 image">
@@ -190,7 +296,7 @@
       <a href="tile4.index.html" class="tile-link">
         <div class="tile">
           <div class="tile-content">
-            <img src="Urapp.png" alt="Tile 4 image">
+            <img src="Urapp2.png" alt="Tile 4 image">
             <h3>UX design for an offline/ online community App</h3>
           </div>
         </div>
@@ -206,7 +312,7 @@
       <a href="tile6.index.html" class="tile-link">
         <div class="tile">
           <div class="tile-content">
-            <img src="https://via.placeholder.com/300" alt="Tile 6 image">
+            <img src="Koalaspiesquared.png" alt="Tile 6 image">
             <h3>Digital Art and Merch design</h3>
           </div>
         </div>
@@ -219,6 +325,7 @@
       <a href="#">Home</a>
       <a href="Kssabout.index.html">About</a>
       <a href="KSScontact.index.html">Contact</a>
+      <a href="Quotes">Quotes</a>
     </nav>
   </footer>
 </body>
