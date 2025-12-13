@@ -2,415 +2,223 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Koala Spies Sydney – Case Studies</title>
+  <title>Koala Spies Sydney</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
-
   <style>
-:root {
-  --bg-dark: #1e1e1e;
-  --ink-light: #f5f5f5;
-  --ink-muted: #bbbbbb;
-  --light-bg: #f4f4f4;
-  --ink-dark: #222;
-  --accent1: #009688;
-  --accent2: #d35400;
-  --accent3: #f1c40f;
+    :root {
+      --bg-dark: #1e1e1e;     /* charcoal */
+      --ink-light: #f5f5f5;   /* main text */
+      --ink-muted: #bbbbbb;   /* secondary text */
+      --light-bg: #f4f4f4;    /* header/footer */
+      --ink-dark: #222;       /* for light areas */
 
-  --radius: 16px;
-  --radius-sm: 12px;
-  --shadow: 0 4px 16px rgba(0,0,0,0.3);
-}
+      /* accent palette */
+      --accent1: #009688;   /* teal */
+      --accent2: #d35400;   /* rust orange */
+      --accent3: #f1c40f;   /* gold */
+      --accent4: #8e44ad;   /* indigo purple */
+      --accent5: #3498db;   /* sky blue */
+      --accent6: #e67e22;   /* amber */
+    }
 
-*{ box-sizing:border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg-dark);
+      color: var(--ink-light);
+    }
 
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg-dark);
-  color: var(--ink-light);
-}
+    header {
+      background: var(--light-bg);
+      color: var(--ink-dark);
+      text-align: center;
+      padding: 20px;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
 
-header {
-  background: var(--light-bg);
-  color: var(--ink-dark);
-  text-align: center;
-  padding: 20px;
-  font-family: "tt-modernoir", sans-serif;
-  font-weight: 700;
-  font-size: 4rem;
-  letter-spacing: 10px;
-}
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
+    .intro {
+      padding: 40px 20px;
+      text-align: center;
+    }
 
-/* ===== Section Head ===== */
-.tile-header {
-  padding: 20px;
-  border-radius: var(--radius-sm);
-  text-align: center;
-  margin-bottom: 60px;
-  opacity: 0.92;
-  background:
-    radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.2) 10%,
-      rgba(0, 0, 0, 0.15) 40%,
-      rgba(0, 0, 0, 0.3) 60%
-    ),
-    var(--accent1);
-}
+    .intro h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--ink-light);
+    }
 
-.tile-header h2 {
-  margin: 0;
-  font-family: "mazurquica-vf", sans-serif;
-  font-size: 3rem;
-  letter-spacing: 8px;
-  color: var(--accent3);
-  opacity: 0.95;
-}
+    .intro p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--ink-muted);
+    }
 
-.tile-header h3 {
-  font-family: "tt-modernoir", sans-serif;
-  font-size: 1.5rem;
-  color: var(--ink-dark);
-  margin: 6px 0 0;
-}
+    .tiles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 40px;
+    }
 
-.tile-header p{
-  margin: 12px 0 0;
-  color: rgba(255,255,255,0.9);
-}
+    .tile-link {
+      text-decoration: none;
+      color: inherit;
+    }
 
-/* ===== List formatting (you used .aligned) ===== */
-ul.aligned{
-  list-style: disc;
-  padding-left: 28px;
-  margin: 0 0 16px;
-}
-ul.aligned li{
-  margin: 0 0 10px;
-  line-height: 1.55;
-}
+    .tile {
+      position: relative;
+      padding-top: 100%; /* square shape */
+      border-radius: 12px;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-/* =========================================
-   CASE STUDY LAYOUT
-   - Default: iframe left, aside right
-   - Auto-stagger: every even flips
-   ========================================= */
+    .tile:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+    }
 
-/* Wrap ONLY the case studies so nth-child counts correctly */
-.case-studies{
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
-}
+    .tile-content {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: inherit;
+    }
 
-.case-study{
-  display: grid;
-  grid-template-columns: 1fr 1.15fr; /* iframe | aside */
-  gap: 40px;
-  align-items: start;
+    .tile img {
+      width: 70%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      background: rgba(255,255,255,0.3);
+    }
 
-  background: rgba(255,255,255,0.05);
-  padding: 40px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
+    .tile h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    }
 
-/* Square iframe (this is the real fix) */
-.case-study iframe{
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  height: auto;
-  display: block;
+    /* individual tile colors */
+    .tiles a:nth-child(1) .tile { background: var(--accent1); }
+    .tiles a:nth-child(2) .tile { background: var(--accent2); }
+    .tiles a:nth-child(3) .tile { background: var(--accent3); color: var(--ink-dark); }
+    .tiles a:nth-child(4) .tile { background: var(--accent4); }
+    .tiles a:nth-child(5) .tile { background: var(--accent5); }
+    .tiles a:nth-child(6) .tile { background: var(--accent6); }
 
-  border: 3px solid var(--light-bg);
-  border-radius: var(--radius-sm);
-  background: #000;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-}
+    footer {
+      margin-top: 60px;
+      background: var(--light-bg);
+      color: var(--ink-dark);
+      text-align: center;
+      padding: 15px;
+    }
 
-/* Aside styling */
-.case-study aside {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-}
+    footer nav a {
+      color: var(--ink-dark);
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-.case-study aside h1{
-  margin: 0;
-  font-size: 2rem;
-  color: var(--accent3);
-}
-
-.case-study aside h2 {
-  margin: 6px 0 0;
-  color: var(--accent3);
-  font-size: 1.6rem;
-}
-
-.case-study aside p {
-  margin: 0;
-  line-height: 1.6;
-  color: var(--ink-muted);
-}
-
-.case-study aside q {
-  font-style: italic;
-  color: var(--ink-light);
-}
-
-.case-study aside cite {
-  display: block;
-  color: var(--accent2);
-  margin-top: 6px;
-}
-
-.case-study aside img {
-  width: 100%;
-  max-width: 240px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* Auto-stagger: flip every even case-study */
-.case-studies .case-study:nth-child(even){
-  grid-template-columns: 1.15fr 1fr; /* aside | iframe */
-}
-.case-studies .case-study:nth-child(even) iframe{ order: 2; }
-.case-studies .case-study:nth-child(even) aside{ order: 1; }
-
-/* ===== Future Cases ===== */
-.future-cases {
-  margin: 80px auto 0;
-  max-width: 1200px;
-  padding: 40px 20px;
-  background-color: rgba(255,255,255,0.05);
-  border-radius: var(--radius);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-
-.future-cases h1 {
-  text-align: center;
-  font-size: 2.2rem;
-  margin: 0 0 50px;
-  color: var(--accent2);
-  letter-spacing: 0.05em;
-}
-
-.future-item {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  margin-bottom: 60px;
-}
-
-.future-item.reverse {
-  flex-direction: row-reverse;
-}
-
-.future-item img {
-  flex: 1;
-  width: 100%;
-  max-width: 450px;
-  border-radius: var(--radius-sm);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-}
-
-.future-item .text {
-  flex: 1;
-  color: var(--ink-light);
-}
-
-.future-item .text h2 {
-  font-size: 1.6rem;
-  color: var(--accent3);
-  margin: 0 0 10px;
-}
-
-footer {
-  background: var(--light-bg);
-  color: var(--ink-dark);
-  text-align: center;
-  padding: 15px;
-  margin-top: 60px;
-}
-
-footer nav a {
-  color: var(--ink-dark);
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-footer nav a:hover {
-  text-decoration: underline;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 900px) {
-  header{ font-size: 2.6rem; letter-spacing: 6px; }
-
-  .case-study{
-    grid-template-columns: 1fr;
-    padding: 24px;
-    gap: 22px;
-  }
-
-  /* Stop staggering on mobile; stack naturally */
-  .case-studies .case-study:nth-child(even) iframe,
-  .case-studies .case-study:nth-child(even) aside{
-    order: initial;
-  }
-
-  .case-study aside{
-    align-items: center;
-    text-align: center;
-  }
-
-  .case-study aside img{
-    max-width: 220px;
-  }
-
-  .future-item,
-  .future-item.reverse{
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .future-item img{
-    max-width: 520px;
-  }
-}
+    footer nav a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
-
 <body>
-  <header>kOaLa Spies Sydney</header>
+  <header>
+    Koala Spies Sydney
+  </header>
 
   <main>
-    <section class="tile-header">
-      <h2>DIGITAL EPs</h2>
-      <h3>DIRECT from ARTIST to AUDIENCE</h3>
-      <p>Accessible through QR codes at gigs or shared directly by artists.</p>
+    <section class="intro">
+      <h2>Who? What? Where?</h2>
+      <p>
+        The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. 
+        The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. 
+        The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. 
+        The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+      </p>
     </section>
 
-    <!-- =========================
-         CASE STUDIES (staggered)
-         ========================= -->
-    <div class="case-studies">
-
-      <!-- CASE STUDY 1 -->
-      <section class="case-study">
-        <iframe src="https://koalaspiessydney.github.io/Aye-eyA/" title="Aye eyA"></iframe>
-        <aside>
-          <h1>Problem</h1>
-          <ul class="aligned">
-            <li><strong>AI Theft:</strong> Music is stolen and reproduced without compensating creators.</li>
-            <li><strong>Broken Streaming Model:</strong> Streams earn only cents; musicians must rely on live performance to survive.</li>
-            <li><strong>Gatekeepers:</strong> Spotify, YouTube Music, and similar platforms control access, rarely surfacing local or indie acts.</li>
-            <li><strong>Cultural Loss:</strong> Algorithms promote overseas artists, leaving Australia’s music scene underexposed to new listeners.</li>
-          </ul>
-
-          <img src="ayeeyaposter.png" alt="AyeeyA Poster">
-          <h2>AyeeyA</h2>
-          <p>
-            <q>“We created our own audience on the streets of Sydney... not to be used by streaming services.”</q>
-            <cite>— Wonbull, AyeeyA</cite>
-          </p>
-          <p>Despite—or because of—their fugitive status, Aye eyA has cultivated a loyal following across Western Sydney’s youth, who see in them not just defiance, but reflection.</p>
-        </aside>
-      </section>
-
-      <!-- CASE STUDY 2 -->
-      <section class="case-study">
-        <iframe src="https://koalaspiessydney.github.io/umdot/" title="Clovelly Kirtan"></iframe>
-        <aside>
-          <h1>Solution</h1>
-          <ul class="aligned">
-            <li><strong>Digital EPs via QR Codes:</strong> Artists hand their music directly to fans at gigs or wherever they choose.</li>
-            <li><strong>No Gatekeepers:</strong> Listeners access the music instantly—no algorithm or platform interference.</li>
-            <li><strong>Support Local:</strong> Fans connect directly with emerging and independent Australian talent.</li>
-          </ul>
-
-          <img src="Essentialmed.png" alt="Clovelly Kirtan">
-          <h2>Clovelly Kirtan Breese</h2>
-          <p>
-            <q>“This app can be enjoyed offline — download updates weekly and listen during your social media detox.”</q>
-            <cite>— Summer Breaze Zarkasky</cite>
-          </p>
-          <p>Born in Canada and trained in India, Summer now lives in Clovelly, sharing her music and yoga wisdom.</p>
-        </aside>
-      </section>
-
-      <!-- CASE STUDY 3 -->
-      <section class="case-study">
-        <iframe src="https://koalaspiessydney.github.io/Nineteento90s/" title="Nineteen to 90s"></iframe>
-        <aside>
-          <h1>Benefits</h1>
-          <ul class="aligned">
-            <li><strong>Artists keep creative and financial control.</strong></li>
-            <li>Fans discover authentic, local music easily.</li>
-            <li>Communities strengthen cultural identity through direct artist–audience connection.</li>
-            <li>Australia preserves its music industry against algorithmic gatekeeping.</li>
-          </ul>
-
-          <img src="19290sEPCover.png" alt="19290s EP Cover">
-          <h2>Nineteen to 90s</h2>
-          <p>
-            <q>“We love the 90s ‘coz back then musicians made music for creativity — not for algorithms.”</q>
-            <cite>— Koala Spies Sydney</cite>
-          </p>
-          <p>Three teens from Western Sydney blending grunge distortion with Gen Z edge — where retro rebellion meets modern youth culture.</p>
-        </aside>
-      </section>
-
-    </div>
-
-    <!-- =========================
-         FUTURE CASES
-         ========================= -->
-    <section class="future-cases">
-      <h1>Future Case Studies & Possibilities</h1>
-
-      <div class="future-item reverse">
-        <img src="Jazzuninterrupted.png" alt="Community Vinyl Revival">
-        <div class="text">
-          <h2>Community Vinyl Revival</h2>
-          <p>If you love an artist, an era or a theme or purpose, upload their songs and create an environment. The possibilities are endless.</p>
+    <section class="tiles">
+      <a href="tile1.index.html" class="tile-link">
+        <div class="tile">
+          <div class="tile-content">
+            <img src="ModernEnglish.png" alt="Tile 1 image">
+            <h3>UX Design for Language Learning, ELICOS & Online Tests</h3>
+          </div>
         </div>
-      </div>
+      </a>
+      <a href="tile2.index.html" class="tile-link">
+        <div class="tile">
+          <div class="tile-content">
+         <img src="Ayeeyaposter.png" alt="Tile 5 image">
 
-      <div class="future-item">
-        <img src="FestivalPreView.png" alt="Teasers and Takeaways">
-        <div class="text">
-          <h2>Teasers and Takeways</h2>
-          <p>Give away teasers to entice people to come to your music festival or create a takeaway with the songs (perhaps live) from the event to keep fans engaged.</p>
+            <h3>Digital Ep for Underground Drill Outfit</h3>
+          </div>
         </div>
-      </div>
-
-      <div class="future-item reverse">
-        <img src="playlistforMum.png" alt="A Gift of Song">
-        <div class="text">
-          <h2>A gift of Song</h2>
-          <p>In the 70s we stood by the radio with a cassette player waiting for that favourite song; in the 90s people bought mp3s and made playlists for loved ones. Now you can buy songs from artists online, upload them to the app, choose your pictures, fonts and colours, and give a unique gift of music.</p>
+      </a>
+      <a href="tile3.index.html" class="tile-link">
+        <div class="tile">
+          <div class="tile-content">
+              <img src="balladposter.png" alt="Tile 4 image">
+            <h3> Experimental Audio Musical Fantasy Book</h3>
+          </div>
         </div>
-      </div>
+      </a>
+      <a href="tile4.index.html" class="tile-link">
+        <div class="tile">
+          <div class="tile-content">
+            <img src="Urapp.png" alt="Tile 4 image">
+            <h3>UX design for an offline/ online community App</h3>
+          </div>
+        </div>
+      </a>
+      <a href="tile5.index.html" class="tile-link">
+        <div class="tile">
+          <div class="tile-content">
+            <img src="Writings.png" alt="Tile 5 image">
+            <h3>Freelance Writing and Photography Portfolio</h3>
+          </div>
+        </div>
+      </a>
+      <a href="tile6.index.html" class="tile-link">
+        <div class="tile">
+          <div class="tile-content">
+            <img src="https://via.placeholder.com/300" alt="Tile 6 image">
+            <h3>Digital Art and Merch design</h3>
+          </div>
+        </div>
+      </a>
     </section>
-
   </main>
 
   <footer>
     <nav>
-      <a href="KSSindex.html">Home</a>
+      <a href="#">Home</a>
       <a href="Kssabout.index.html">About</a>
       <a href="KSScontact.index.html">Contact</a>
-      <a href="Quotes">Quotes</a>
     </nav>
   </footer>
 </body>
