@@ -86,14 +86,14 @@ main {
 }
 .case-study{
   grid-template-columns: 0.9fr 1.1fr;
+
 }
-.case-study iframe {
+.media iframe {
   width: 100%;
-  aspect-ratio: 9/16;
-  border: 3px solid var(--light-bg);
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border: none;
   border-radius: 12px;
-  background: #000;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
 /* ===== ASIDE COLUMN ===== */
@@ -128,9 +128,20 @@ aside cite {
   margin-top: 5px;
 }
 /* ===== Responsive ===== */
-@media (max-width: 900px) {
-  .case-study, .case-study {
-    grid-template-columns: 1fr;
+    .media iframe {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border: none;
+  border-radius: 12px;
+}
+
+
+    @media (max-width: 768px) {
+  .media iframe,
+  .case-study iframe {
+    width: 100%;
+  
   }
   aside {
     align-items: center;
@@ -139,6 +150,12 @@ aside cite {
   aside img {
     max-width: 200px;
   }
+      .case-study iframe,
+.media iframe {
+  object-fit: cover;
+  background: #000;
+}
+
 }
 future-cases {
   margin: 80px auto;
@@ -307,5 +324,6 @@ footer nav a:hover {
   </footer>
 </body>
 </html>
+
 
 
