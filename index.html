@@ -1,333 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Koala Spies Sydney</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
-  <style>
-:root {
-  --bg-dark: #1e1e1e;     /* charcoal */
-  --ink-light: #f5f5f5;   /* main text */
-  --ink-muted: #bbbbbb;   /* secondary text */
-  --light-bg: #f4f4f4;    /* header/footer */
-  --ink-dark: #222;       /* for light areas */
+<meta charset="UTF-8">
+<title>Koala Spies Sydney – Case Studies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  /* accent palette */
-  --accent1: #009688;   /* teal */
-  --accent2: #d35400;   /* rust orange */
-  --accent3: #f1c40f;   /* gold */
-  --accent4: #8e44ad;   /* indigo purple */
-  --accent5: #3498db;   /* sky blue */
-  --accent6: #e67e22;   /* amber */
-}
+<style>
+/* =============================
+   Base
+   ============================= */
+*{ box-sizing:border-box; }
 
-body {
-  margin: 0;
+body{
+  margin:0;
   font-family: Arial, sans-serif;
-  background: var(--ink-light);
-  color:var(--bg-dark);
+  background:#f5f5f5;
+  color:#222;
 }
 
-header {
-  background: var(--light-bg);
-  color: var(--ink-dark);
-  text-align: center;
-  padding: 10px;
-font-family: "tt-modernoir", sans-serif;
-font-weight: 700;
-font-style: normal;
-  font-size: 5.2rem;
-  letter-spacing: 10px;
+header{
+  background:#f4f4f4;
+  text-align:center;
+  padding:24px;
+  font-size:3rem;
+  letter-spacing:8px;
 }
 
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 10px;
+main{
+  max-width:1200px;
+  margin:0 auto;
+  padding:40px 20px;
 }
 
-.intro {
-  padding-top: 10px;
-  text-align: center;
+/* =============================
+   Case Study Layout
+   ============================= */
+.case-study{
+  display:grid;
+  grid-template-columns: 1fr 1.1fr; /* iframe | aside */
+  gap:40px;
+  align-items:start;
+  margin-bottom:80px;
 }
 
-.intro h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: var(--ink-light);
+/* Square iframe */
+.case-study iframe{
+  width:100%;
+  aspect-ratio:1 / 1;
+  border:3px solid #ddd;
+  border-radius:14px;
+  background:#000;
 }
 
-.intro p {
-  max-width: 1200px;
-  margin: 0 auto;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--ink-muted);
+/* Aside */
+.case-study aside{
+  background:#fff;
+  padding:28px;
+  border-radius:14px;
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
 }
 
-.tiles {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  margin-top: 40px;
-
-
+.case-study aside h2{
+  margin-top:0;
 }
 
-.tile-link {
-  text-decoration: none;
-  color: inherit;
+.case-study aside p{
+  line-height:1.6;
 }
 
-.tile {
-  position: relative;
-  padding-top: 100%; /* square shape */
-  border-radius: 12px;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-  overflow: hidden;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
+/* =============================
+   AUTO STAGGER (THIS IS THE KEY)
+   ============================= */
+
+/* Every EVEN case-study flips sides */
+.case-study:nth-of-type(even){
+  grid-template-columns: 1.1fr 1fr; /* aside | iframe */
 }
 
-.tile:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+.case-study:nth-of-type(even) iframe{
+  order:2;
 }
 
-.tile-content {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  color: inherit;
+.case-study:nth-of-type(even) aside{
+  order:1;
 }
 
-.tile img {
-  width: 60%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 48px;
-  background: rgba(255,255,255,0.3);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-
-.tile h3 {
-  margin: 0;
-  font-size: 1.1rem;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-}
-
-/* individual tile colors with gradient overlay */
-.tiles a:nth-child(1) .tile {
-  background:
-    radial-gradient(circle at center, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.1)),
-    var(--accent1);
-}
-/* individual tile colors with stronger gradient overlay */
-.tiles a:nth-child(1) .tile {
-  background:
-    radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.2) 0%,
-      rgba(0, 0, 0, 0.15) 70%,
-      rgba(0, 0, 0, 0.3) 100%
-    ),
-    var(--accent2);
-}
-.tiles a:nth-child(2) .tile {
-  background:
-    radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.2) 0%,
-      rgba(0, 0, 0, 0.15) 70%,
-      rgba(0, 0, 0, 0.3) 100%
-    ),
-    var(--accent1);
-}
-.tiles a:nth-child(3) .tile {
-  background:
-    radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.2) 0%,
-      rgba(0, 0, 0, 0.15) 70%,
-      rgba(0, 0, 0, 0.3) 100%
-    ),
-    var(--accent3);
-  color: var(--ink-dark);
-}
-.tiles a:nth-child(4) .tile {
-  background:
-    radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.2) 0%,
-      rgba(0, 0, 0, 0.15) 70%,
-      rgba(0, 0, 0, 0.3) 100%
-    ),
-    var(--accent4);
-}
-.tiles a:nth-child(5) .tile {
-  background:
-    radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.2) 0%,
-      rgba(0, 0, 0, 0.15) 70%,
-      rgba(0, 0, 0, 0.3) 100%
-    ),
-    var(--accent5);
-}
-.tiles a:nth-child(6) .tile {
-  background:
-    radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.2) 0%,
-      rgba(0, 0, 0, 0.15) 70%,
-      rgba(0, 0, 0, 0.3) 100%
-    ),
-    var(--accent6);
-}
-
-/* ===== Tile layout and title sizing ===== */
-.tile h3 {
-  margin: 0;
-  font-size: 1rem;              /* smaller title */
-  line-height: 1.4;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-}
-
-/* Default (large screens): 3 columns */
-.tiles {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 40px;
-}
-
-/* Medium screens (tablets: 768–1199px) */
-@media (max-width: 1199px) and (min-width: 768px) {
-  .tiles {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+/* =============================
+   Mobile
+   ============================= */
+@media (max-width: 900px){
+  .case-study{
+    grid-template-columns:1fr;
+    gap:24px;
   }
 
-  .tile h3 {
-    font-size: 0.95rem;
+  .case-study iframe,
+  .case-study aside{
+    order:initial;
   }
 }
-
-/* Small screens (phones: <768px) */
-@media (max-width: 767px) {
-  .tiles {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .tile h3 {
-    font-size: 0.9rem;
-  }
-}
-
-footer {
-  margin-top: 60px;
-  background: var(--light-bg);
-  color: var(--ink-dark);
-  text-align: center;
-  padding: 15px;
-}
-
-footer nav a {
-  color: var(--ink-dark);
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: bold;
-  letter-spacing: 5px;
-}
-
-footer nav a:hover {
-  text-decoration: underline;
-}
-
-  </style>
+</style>
 </head>
+
 <body>
-  <header>
-    Koala Spies Sydney
-  </header>
 
-  <main>
-    <section class="intro">
+<header>Koala Spies Sydney</header>
+
+<main>
+
+  <!-- CASE 1 -->
+  <section class="case-study">
+    <iframe src="https://koalaspiessydney.github.io/Aye-eyA/"></iframe>
+    <aside>
+      <h2>Aye eyA</h2>
       <p>
-        The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. 
-        The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. 
-        The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. 
-        The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-     
-   
+        Underground drill project distributed as a digital EP.  
+        Designed to work offline and bypass algorithmic platforms.
       </p>
-    </section>
+    </aside>
+  </section>
 
-    <section class="tiles">
-      <a href="DIGItests.html" class="tile-link">
-        <div class="tile">
-          <div class="tile-content">
-            <img src="ModernEnglish.png" alt="Tile 1 image">
-            <h3>UX Design Language Learning, ELICOS & Tests</h3>
-          </div>
-        </div>
-      </a>
-      <a href="new5.html" class="tile-link">
-        <div class="tile">
-          <div class="tile-content">
-         <img src="Ayeeyaposter.png" alt="Tile 5 image">
+  <!-- CASE 2 -->
+  <section class="case-study">
+    <iframe src="https://koalaspiessydney.github.io/Nineteento90s/"></iframe>
+    <aside>
+      <h2>Nineteen to 90s</h2>
+      <p>
+        Experimental audio interface blending generative visuals
+        with sequential playback.
+      </p>
+    </aside>
+  </section>
 
-            <h3>Digital Ep for Underground Drill Outfit</h3>
-          </div>
-        </div>
-      </a>
-      <a href="tile3.index.html" class="tile-link">
-        <div class="tile">
-          <div class="tile-content">
-              <img src="balladposter.png" alt="Tile 4 image">
-            <h3> Experimental Audio Musical Fantasy Book</h3>
-          </div>
-        </div>
-      </a>
-      <a href="tile4.index.html" class="tile-link">
-        <div class="tile">
-          <div class="tile-content">
-            <img src="Urapp2.png" alt="Tile 4 image">
-            <h3>UX design for an offline/ online community App</h3>
-          </div>
-        </div>
-      </a>
-      <a href="tile5.index.html" class="tile-link">
-        <div class="tile">
-          <div class="tile-content">
-            <img src="Writings.png" alt="Tile 5 image">
-            <h3>Freelance Writing and Photography Portfolio</h3>
-          </div>
-        </div>
-      </a>
-      <a href="tile6.index.html" class="tile-link">
-        <div class="tile">
-          <div class="tile-content">
-            <img src="Koalaspiesquared.png" alt="Tile 6 image">
-            <h3>Digital Art and Merch design</h3>
-          </div>
-        </div>
-      </a>
-    </section>
-  </main>
+  <!-- CASE 3 -->
+  <section class="case-study">
+    <iframe src="https://koalaspiessydney.github.io/umdot/"></iframe>
+    <aside>
+      <h2>Clovelly Kirtan</h2>
+      <p>
+        Meditative sound app using subtle motion,
+        designed to fit perfectly inside square previews.
+      </p>
+    </aside>
+  </section>
 
-  <footer>
-    <nav>
-      <a href="#">Home</a>
-      <a href="Kssabout.index.html">About</a>
-      <a href="KSScontact.index.html">Contact</a>
-      <a href="Quotes">Quotes</a>
-    </nav>
-  </footer>
+</main>
+
 </body>
 </html>
+
 
