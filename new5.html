@@ -5,8 +5,9 @@
   <title>Koala Spies Sydney – Case Studies</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
+
   <style>
-    :root {
+:root {
   --bg-dark: #1e1e1e;
   --ink-light: #f5f5f5;
   --ink-muted: #bbbbbb;
@@ -21,34 +22,70 @@
   --shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
 
-/* ===== Base ===== */
 *{ box-sizing:border-box; }
 
-body{
-  margin:0;
+body {
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: var(--bg-dark);
   color: var(--ink-light);
 }
 
-header{
+header {
   background: var(--light-bg);
   color: var(--ink-dark);
-  text-align:center;
-  padding:20px;
-  font-family:"tt-modernoir", sans-serif;
-  font-weight:700;
-  font-size:4rem;
-  letter-spacing:10px;
+  text-align: center;
+  padding: 20px;
+  font-family: "tt-modernoir", sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+  letter-spacing: 10px;
 }
 
-main{
-  max-width:1200px;
-  margin:0 auto;
-  padding:40px 20px;
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-/* ===== Lists (you use .aligned in HTML) ===== */
+/* ===== Section Head ===== */
+.tile-header {
+  padding: 20px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  margin-bottom: 60px;
+  opacity: 0.92;
+  background:
+    radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.2) 10%,
+      rgba(0, 0, 0, 0.15) 40%,
+      rgba(0, 0, 0, 0.3) 60%
+    ),
+    var(--accent1);
+}
+
+.tile-header h2 {
+  margin: 0;
+  font-family: "mazurquica-vf", sans-serif;
+  font-size: 3rem;
+  letter-spacing: 8px;
+  color: var(--accent3);
+  opacity: 0.95;
+}
+
+.tile-header h3 {
+  font-family: "tt-modernoir", sans-serif;
+  font-size: 1.5rem;
+  color: var(--ink-dark);
+  margin: 6px 0 0;
+}
+
+.tile-header p{
+  margin: 12px 0 0;
+  color: rgba(255,255,255,0.9);
+}
+
+/* ===== List formatting (you used .aligned) ===== */
 ul.aligned{
   list-style: disc;
   padding-left: 28px;
@@ -59,181 +96,164 @@ ul.aligned li{
   line-height: 1.55;
 }
 
-/* ===== Section Head ===== */
-.tile-header{
-  padding:20px;
-  border-radius: var(--radius-sm);
-  text-align:center;
-  margin-bottom:60px;
-  opacity:0.92;
-  background:
-    radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.2) 10%,
-      rgba(0, 0, 0, 0.15) 40%,
-      rgba(0, 0, 0, 0.3) 60%
-    ),
-    var(--accent1);
+/* =========================================
+   CASE STUDY LAYOUT
+   - Default: iframe left, aside right
+   - Auto-stagger: every even flips
+   ========================================= */
+
+/* Wrap ONLY the case studies so nth-child counts correctly */
+.case-studies{
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
 
-.tile-header h2{
-  margin:0;
-  font-family:"mazurquica-vf", sans-serif;
-  font-size:3rem;
-  letter-spacing:8px;
-  color: var(--accent3);
-}
-
-.tile-header h3{
-  margin: 6px 0 0;
-  font-family:"tt-modernoir", sans-serif;
-  font-size:1.5rem;
-  color: var(--ink-dark);
-}
-
-.tile-header p{
-  margin: 12px 0 0;
-  color: rgba(255,255,255,0.9);
-}
-
-/* ===== CASE STUDY LAYOUT ===== */
 .case-study{
-  display:grid;
-  grid-template-columns: 1fr 1.15fr;  /* iframe | text */
-  gap:40px;
-  align-items:start;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr; /* iframe | aside */
+  gap: 40px;
+  align-items: start;
 
   background: rgba(255,255,255,0.05);
-  padding:40px;
+  padding: 40px;
   border-radius: var(--radius);
-  margin-bottom:80px;
   box-shadow: var(--shadow);
 }
 
-/* Reverse layout: text left, iframe right */
-.case-study.reverse{
-  grid-template-columns: 1.15fr 1fr; /* text | iframe */
-}
-.case-study.reverse iframe{ order: 2; }
-.case-study.reverse aside{ order: 1; }
-
-/* ===== Square iframe (THIS is the important fix) ===== */
+/* Square iframe (this is the real fix) */
 .case-study iframe{
-  width:100%;
-  aspect-ratio: 1 / 1;     /* perfect square */
-  height:auto;             /* don’t fight aspect-ratio */
-  display:block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  display: block;
 
-  border:3px solid var(--light-bg);
+  border: 3px solid var(--light-bg);
   border-radius: var(--radius-sm);
-  background:#000;
+  background: #000;
   box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
-/* ===== ASIDE COLUMN ===== */
-aside{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:14px;
+/* Aside styling */
+.case-study aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
 }
 
-aside h1{
-  margin:0;
-  font-size:2rem;
+.case-study aside h1{
+  margin: 0;
+  font-size: 2rem;
   color: var(--accent3);
 }
 
-aside h2{
+.case-study aside h2 {
   margin: 6px 0 0;
   color: var(--accent3);
   font-size: 1.6rem;
 }
 
-aside p{
-  margin:0;
-  line-height:1.6;
+.case-study aside p {
+  margin: 0;
+  line-height: 1.6;
   color: var(--ink-muted);
 }
 
-aside q{
+.case-study aside q {
   font-style: italic;
   color: var(--ink-light);
 }
 
-aside cite{
-  display:block;
+.case-study aside cite {
+  display: block;
   color: var(--accent2);
-  margin-top:6px;
+  margin-top: 6px;
 }
 
-aside img{
-  width:100%;
-  max-width:240px;
+.case-study aside img {
+  width: 100%;
+  max-width: 240px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+/* Auto-stagger: flip every even case-study */
+.case-studies .case-study:nth-child(even){
+  grid-template-columns: 1.15fr 1fr; /* aside | iframe */
+}
+.case-studies .case-study:nth-child(even) iframe{ order: 2; }
+.case-studies .case-study:nth-child(even) aside{ order: 1; }
+
 /* ===== Future Cases ===== */
-.future-cases{
-  margin:80px auto;
-  max-width:1100px;
-  padding:40px 20px;
+.future-cases {
+  margin: 80px auto 0;
+  max-width: 1200px;
+  padding: 40px 20px;
   background-color: rgba(255,255,255,0.05);
   border-radius: var(--radius);
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
-.future-cases h1{
-  text-align:center;
-  font-size:2.2rem;
-  margin:0 0 50px;
+.future-cases h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 0 0 50px;
   color: var(--accent2);
-  letter-spacing:0.05em;
+  letter-spacing: 0.05em;
 }
 
-.future-item{
-  display:flex;
-  align-items:center;
-  gap:30px;
-  margin-bottom:60px;
+.future-item {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 60px;
 }
-.future-item.reverse{
+
+.future-item.reverse {
   flex-direction: row-reverse;
 }
 
-.future-item img{
-  flex:1;
-  width:100%;
-  max-width:450px;
+.future-item img {
+  flex: 1;
+  width: 100%;
+  max-width: 450px;
   border-radius: var(--radius-sm);
   box-shadow: 0 4px 16px rgba(0,0,0,0.25);
 }
 
-.future-item .text{
-  flex:1;
+.future-item .text {
+  flex: 1;
+  color: var(--ink-light);
 }
 
-/* ===== Footer ===== */
-footer{
+.future-item .text h2 {
+  font-size: 1.6rem;
+  color: var(--accent3);
+  margin: 0 0 10px;
+}
+
+footer {
   background: var(--light-bg);
   color: var(--ink-dark);
-  text-align:center;
-  padding:15px;
+  text-align: center;
+  padding: 15px;
+  margin-top: 60px;
 }
 
-footer nav a{
+footer nav a {
   color: var(--ink-dark);
-  margin:0 10px;
-  text-decoration:none;
-  font-weight:bold;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-footer nav a:hover{
+footer nav a:hover {
   text-decoration: underline;
 }
 
 /* ===== Responsive ===== */
-@media (max-width: 900px){
+@media (max-width: 900px) {
   header{ font-size: 2.6rem; letter-spacing: 6px; }
 
   .case-study{
@@ -242,33 +262,31 @@ footer nav a:hover{
     gap: 22px;
   }
 
-  /* On mobile, don’t bother “reversing” — stack neatly */
-  .case-study.reverse iframe,
-  .case-study.reverse aside{
+  /* Stop staggering on mobile; stack naturally */
+  .case-studies .case-study:nth-child(even) iframe,
+  .case-studies .case-study:nth-child(even) aside{
     order: initial;
   }
 
-  aside{
-    align-items:center;
-    text-align:center;
+  .case-study aside{
+    align-items: center;
+    text-align: center;
   }
 
-  aside img{
+  .case-study aside img{
     max-width: 220px;
   }
 
   .future-item,
   .future-item.reverse{
     flex-direction: column;
-    text-align:center;
+    text-align: center;
   }
 
   .future-item img{
     max-width: 520px;
   }
 }
-
-
   </style>
 </head>
 
@@ -281,102 +299,110 @@ footer nav a:hover{
       <h3>DIRECT from ARTIST to AUDIENCE</h3>
       <p>Accessible through QR codes at gigs or shared directly by artists.</p>
     </section>
-   
 
-    
-    <!-- ===== CASE STUDY 1 ===== -->
-    <section class="case-study">
-      <iframe src="https://koalaspiessydney.github.io/Aye-eyA/"></iframe>
-      <aside>
-         <h1>Problem</h1>
-    <ul class="aligned">
-      <li><strong>AI Theft:</strong> Music is stolen and reproduced without compensating creators.</li>
-      <li><strong>Broken Streaming Model:</strong> Streams earn only cents; musicians must rely on live performance to survive.</li>
-      <li><strong>Gatekeepers:</strong> Spotify, YouTube Music, and similar platforms control access, rarely surfacing local or indie acts.</li>
-      <li><strong>Cultural Loss:</strong> Algorithms promote overseas artists, leaving Australia’s music scene underexposed to new listeners.</li>
-    </ul>
+    <!-- =========================
+         CASE STUDIES (staggered)
+         ========================= -->
+    <div class="case-studies">
 
-        <img src="ayeeyaposter.png" alt="AyeeyA Poster">
-        <h2>AyeeyA</h2>
-        <p>
-          <q>“We created our own audience on the streets of Sydney... not to be used by streaming services.”</q>
-          <cite>— Wonbull, AyeeyA</cite>
-        </p>
-        <p>Despite—or because of—their fugitive status, Aye eyA has cultivated a loyal following across Western Sydney’s youth, who see in them not just defiance, but reflection.</p>
-      </aside>
-    </section>
+      <!-- CASE STUDY 1 -->
+      <section class="case-study">
+        <iframe src="https://koalaspiessydney.github.io/Aye-eyA/" title="Aye eyA"></iframe>
+        <aside>
+          <h1>Problem</h1>
+          <ul class="aligned">
+            <li><strong>AI Theft:</strong> Music is stolen and reproduced without compensating creators.</li>
+            <li><strong>Broken Streaming Model:</strong> Streams earn only cents; musicians must rely on live performance to survive.</li>
+            <li><strong>Gatekeepers:</strong> Spotify, YouTube Music, and similar platforms control access, rarely surfacing local or indie acts.</li>
+            <li><strong>Cultural Loss:</strong> Algorithms promote overseas artists, leaving Australia’s music scene underexposed to new listeners.</li>
+          </ul>
 
-    <!-- ===== CASE STUDY 2 ===== -->
-    <section class="case-study reverse">
-      <iframe src="https://koalaspiessydney.github.io/umdot/"></iframe>
-      <aside>
+          <img src="ayeeyaposter.png" alt="AyeeyA Poster">
+          <h2>AyeeyA</h2>
+          <p>
+            <q>“We created our own audience on the streets of Sydney... not to be used by streaming services.”</q>
+            <cite>— Wonbull, AyeeyA</cite>
+          </p>
+          <p>Despite—or because of—their fugitive status, Aye eyA has cultivated a loyal following across Western Sydney’s youth, who see in them not just defiance, but reflection.</p>
+        </aside>
+      </section>
+
+      <!-- CASE STUDY 2 -->
+      <section class="case-study">
+        <iframe src="https://koalaspiessydney.github.io/umdot/" title="Clovelly Kirtan"></iframe>
+        <aside>
           <h1>Solution</h1>
-    <ul class="aligned">
-      <li><strong>Digital EPs via QR Codes:</strong> Artists hand their music directly to fans at gigs or wherever they choose.</li>
-      <li><strong>No Gatekeepers:</strong> Listeners access the music instantly—no algorithm or platform interference.</li>
-      <li><strong>Support Local:</strong> Fans connect directly with emerging and independent Australian talent.</li>
-    </ul>
+          <ul class="aligned">
+            <li><strong>Digital EPs via QR Codes:</strong> Artists hand their music directly to fans at gigs or wherever they choose.</li>
+            <li><strong>No Gatekeepers:</strong> Listeners access the music instantly—no algorithm or platform interference.</li>
+            <li><strong>Support Local:</strong> Fans connect directly with emerging and independent Australian talent.</li>
+          </ul>
 
-        <img src="Essentialmed.png" alt="Clovelly Kirtan">
-        <h2>Clovelly Kirtan Breese</h2>
-        <p>
-          <q>“This app can be enjoyed offline — download updates weekly and listen during your social media detox.”</q>
-          <cite>— Summer Breaze Zarkasky</cite>
-        </p>
-        <p>Born in Canada and trained in India, Summer now lives in Clovelly, sharing her music and yoga wisdom.</p>
-      </aside>
+          <img src="Essentialmed.png" alt="Clovelly Kirtan">
+          <h2>Clovelly Kirtan Breese</h2>
+          <p>
+            <q>“This app can be enjoyed offline — download updates weekly and listen during your social media detox.”</q>
+            <cite>— Summer Breaze Zarkasky</cite>
+          </p>
+          <p>Born in Canada and trained in India, Summer now lives in Clovelly, sharing her music and yoga wisdom.</p>
+        </aside>
+      </section>
+
+      <!-- CASE STUDY 3 -->
+      <section class="case-study">
+        <iframe src="https://koalaspiessydney.github.io/Nineteento90s/" title="Nineteen to 90s"></iframe>
+        <aside>
+          <h1>Benefits</h1>
+          <ul class="aligned">
+            <li><strong>Artists keep creative and financial control.</strong></li>
+            <li>Fans discover authentic, local music easily.</li>
+            <li>Communities strengthen cultural identity through direct artist–audience connection.</li>
+            <li>Australia preserves its music industry against algorithmic gatekeeping.</li>
+          </ul>
+
+          <img src="19290sEPCover.png" alt="19290s EP Cover">
+          <h2>Nineteen to 90s</h2>
+          <p>
+            <q>“We love the 90s ‘coz back then musicians made music for creativity — not for algorithms.”</q>
+            <cite>— Koala Spies Sydney</cite>
+          </p>
+          <p>Three teens from Western Sydney blending grunge distortion with Gen Z edge — where retro rebellion meets modern youth culture.</p>
+        </aside>
+      </section>
+
+    </div>
+
+    <!-- =========================
+         FUTURE CASES
+         ========================= -->
+    <section class="future-cases">
+      <h1>Future Case Studies & Possibilities</h1>
+
+      <div class="future-item reverse">
+        <img src="Jazzuninterrupted.png" alt="Community Vinyl Revival">
+        <div class="text">
+          <h2>Community Vinyl Revival</h2>
+          <p>If you love an artist, an era or a theme or purpose, upload their songs and create an environment. The possibilities are endless.</p>
+        </div>
+      </div>
+
+      <div class="future-item">
+        <img src="FestivalPreView.png" alt="Teasers and Takeaways">
+        <div class="text">
+          <h2>Teasers and Takeways</h2>
+          <p>Give away teasers to entice people to come to your music festival or create a takeaway with the songs (perhaps live) from the event to keep fans engaged.</p>
+        </div>
+      </div>
+
+      <div class="future-item reverse">
+        <img src="playlistforMum.png" alt="A Gift of Song">
+        <div class="text">
+          <h2>A gift of Song</h2>
+          <p>In the 70s we stood by the radio with a cassette player waiting for that favourite song; in the 90s people bought mp3s and made playlists for loved ones. Now you can buy songs from artists online, upload them to the app, choose your pictures, fonts and colours, and give a unique gift of music.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- ===== CASE STUDY 3 ===== -->
-    <section class="case-study reverse">
-      <iframe src="https://koalaspiessydney.github.io/Nineteento90s/"></iframe>
-      <aside>
-            <h1>Benefits</h1>
-    <ul class="aligned">
-      <li><strong>Artists keep creative and financial control.</strong></li>
-      <li>Fans discover authentic, local music easily.</li>
-      <li>Communities strengthen cultural identity through direct artist–audience connection.</li>
-      <li>Australia preserves its music industry against algorithmic gatekeeping.</li>
-    </ul>
-        <img src="19290sEPCover.png" alt="19290s EP Cover">
-        <h2>Nineteen to 90s</h2>
-        <p>
-          <q>“We love the 90s ‘coz back then musicians made music for creativity — not for algorithms.”</q>
-          <cite>— Koala Spies Sydney</cite>
-        </p>
-        <p>Three teens from Western Sydney blending grunge distortion with Gen Z edge — where retro rebellion meets modern youth culture.</p>
-      </aside>
-    </section>
-    section class="future-cases">
-  <h1>Future Case Studies & Possibilities</h1>
-
-
-
-  <!-- Item 2 -->
-  <div class="future-item reverse">
-    <img src="Jazzuninterrupted.png" alt="Future project concept 2">
-    <div class="text">
-      <h2>Community Vinyl Revival</h2>
-      <p>If you love an artist, an era or a theme or purpose, upload their songs and create an environment. The possibilities are endless</p>
-    </div>
-  </div>
-
-  <!-- Item 3 -->
-  <div class="future-item">
-    <img src="FestivalPreView.png" alt="Future project concept 3">
-    <div class="text">
-      <h2>Teasers and Takeways</h2>
-      <p>Give away teasers to entice people to come to your music festival or create a takeaway with the songs (perhaps live) from the event to keep fans engaged..</p>
-    </div>
-  </div>
-
-  <!-- Item 4 -->
-  <div class="future-item reverse">
-    <img src="playlistforMum.png" alt="A Gift of Song">
-    <div class="text">
-      <h2>A gift of Song</h2>
-       <p>In the 70s we stood by the radio with a cassette player waiting for that favourite song, in the 90s people widely bought mp3s and made playing lists for love ones. Well, CDs and cassettes are gone but you can buy songs from artists online and upload them to the app, choose your pictures, fonts and colours, and give a unique gift of music that makes you think of your loved one. </p>
-  </div>
   </main>
 
   <footer>
@@ -389,6 +415,8 @@ footer nav a:hover{
   </footer>
 </body>
 </html>
+
+
 
 
 
