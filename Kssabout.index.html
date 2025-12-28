@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About – Koala Spies Sydney</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg-dark: #1e1e1e;
+      --ink-light: #f5f5f5;
+      --ink-muted: #bbbbbb;
+      --light-bg: #f4f4f4;
+      --ink-dark: #222;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg-dark);
+      color: var(--ink-light);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--light-bg);
+      color: var(--ink-dark);
+      text-align: center;
+      padding: 20px;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 10px;
+      background: #333;
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: var(--ink-muted);
+    }
+
+    footer {
+      background: var(--light-bg);
+      color: var(--ink-dark);
+      text-align: center;
+      padding: 15px;
+    }
+
+    footer nav a {
+      color: var(--ink-dark);
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Koala Spies Sydney
+  </header>
+
+  <main>
+    <h2>About Us</h2>
+
+    <section class="gallery">
+      <img src="https://via.placeholder.com/400" alt="Placeholder photo 1">
+      <img src="https://via.placeholder.com/400" alt="Placeholder photo 2">
+      <img src="https://via.placeholder.com/400" alt="Placeholder photo 3">
+    </section>
+
+    <section class="about-text">
+      <p>
+      Learning Design & EdTech in Language Teaching
+
+My work in learning design and educational technology is grounded in extensive experience as a qualified language teacher and teacher trainer, combined with a strong focus on UX-informed digital learning design. Having worked directly in language classrooms, I design flexible, teacher-centred systems that reflect real teaching conditions rather than idealised workflows. I create assessment and learning solutions that adapt to what is actually taught, supporting delivery across online, mobile, print, and classroom-projected contexts. By integrating sound pedagogy with thoughtful digital design, my work streamlines marking, reporting, and administration, reduces teacher workload, and delivers practical, scalable solutions for learners, teachers, and institutions.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet ex sit amet 
+        magna vehicula congue. Donec in felis eros. Nulla facilisi. Pellentesque ac leo at nunc 
+        congue interdum.
+      </p>
+      <p>
+        Fusce convallis felis at neque euismod, vitae dictum ligula facilisis. Suspendisse potenti. 
+        Mauris sed semper elit, vitae convallis mauris. Integer vitae lacus ac sapien vehicula 
+        pretium.
+      </p>
+      <p>
+        This is a placeholder about page for Koala Spies Sydney. Replace this text with your own 
+        story, mission, and the details you want your visitors to know.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="KSSindex.html">Home</a>
+      <a href="Kssabout.index.html">About</a>
+      <a href="KSScontact.index.html">Contact</a>
+    </nav>
+  </footer>
+</body>
+</html>
