@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Koala Spies Sydney – Project Tile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
+
+  <style>
+/* ===== BRAND VARIABLES ===== */
+:root {
+  --bg-dark: #1e1e1e;
+  --ink-light: #f5f5f5;
+  --ink-muted: #bbbbbb;
+  --light-bg: #f4f4f4;
+  --ink-dark: #222;
+
+  --accent3: #009688;
+  --accent2: #d35400;
+  --accent1: #f1c40f;
+
+  /* NEW PURPLE HERO */
+  --hero-purple: #6a1b9a;
+}
+
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-dark);
+  color: var(--ink-light);
+}
+
+header {
+  background: var(--light-bg);
+  color: var(--ink-dark);
+  text-align: center;
+  padding: 20px;
+  font-family: "tt-modernoir", sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+  letter-spacing: 10px;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ===== HERO / TILE HEADER ===== */
+.tile-header {
+  background:
+    radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.2) 10%,
+      rgba(0, 0, 0, 0.15) 40%,
+      rgba(0, 0, 0, 0.3) 60%
+    ),
+    var(--hero-purple);
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 60px;
+  opacity: 90%;
+}
+
+.tile-header h2 {
+  margin: 0;
+  font-family: "mazurquica-vf", sans-serif;
+  font-size: 3rem;
+  letter-spacing: 8px;
+  color: var(--accent1);
+  opacity: 90%;
+}
+
+/* ===== IFRAME STYLES ===== */
+.cinema-frame {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  border: 3px solid var(--light-bg);
+  border-radius: 12px;
+  background: #000;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  margin-bottom: 40px;
+}
+
+.audiobook-frame {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border: 3px solid var(--light-bg);
+  border-radius: 12px;
+  background: #000;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  margin-bottom: 40px;
+}
+
+/* ===== TEXT BLOCK ===== */
+.tile-content {
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.tile-content p {
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--accent3);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== FOOTER NAV ===== */
+footer {
+  background: var(--light-bg);
+  color: var(--ink-dark);
+  text-align: center;
+  padding: 15px;
+  margin-top: 60px;
+}
+
+footer nav a {
+  color: var(--ink-dark);
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer nav a:hover {
+  text-decoration: underline;
+}
+  </style>
+</head>
+
+<body>
+
+<header>kOaLa Spies Sydney</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="tile-header">
+    <h2>PROJECT TITLE</h2>
+  </section>
+
+  <!-- IFRAME 1 -->
+  <section class="media-block">
+    <h2 class="media-heading">SECTION ONE</h2>
+    <iframe 
+      class="cinema-frame"
+      src="https://youtu.be/XlI5KrhzIUk?si=GkCOKXmEUfwMcpSk"
+      allowfullscreen>
+    </iframe>
+    <p class="media-description">
+      Description text for section one.
+    </p>
+  </section>
+
+  <!-- IFRAME 2 -->
+  <section class="media-block">
+    <h2 class="media-heading">SECTION TWO</h2>
+    <iframe 
+      class="cinema-frame"
+      src="https://example.com"
+      allowfullscreen>
+    </iframe>
+    <p class="media-description">
+      Description text for section two.
+    </p>
+  </section>
+
+  <!-- IFRAME 3 -->
+  <section class="media-block">
+    <h2 class="media-heading">SECTION THREE</h2>
+    <iframe 
+      class="audiobook-frame"
+      src="https://example.com"
+      allowfullscreen>
+    </iframe>
+    <p class="media-description">
+      Description text for section three.
+    </p>
+  </section>
+
+  <!-- CONTENT BLOCK -->
+  <section class="tile-content">
+    <p>
+      This is a detailed description of the project. You can write about the concept,
+      the process, and what makes this work stand out.
+    </p>
+
+    <a href="KSSindex.html" class="back-link">← Back to Portfolio</a>
+  </section>
+
+</main>
+
+<footer>
+  <nav>
+    <a href="KSSindex.html">Home</a>
+    <a href="Kssabout.index.html">About</a>
+    <a href="KSScontact.index.html">Contact</a>
+  </nav>
+</footer>
+
+</body>
+</html>
+
+
