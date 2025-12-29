@@ -260,7 +260,12 @@ footer nav a:hover {
     grid-template-columns: 1fr;
     padding: 24px;
     gap: 22px;
+    display: flex; 
+    gap: 2rem; 
+    align-items: flex-start; }
   }
+    .left-column { flex: 1; 
+                 } .right-column { flex: 1; }
 
   /* Stop staggering on mobile; stack naturally */
   .case-studies .case-study:nth-child(even) iframe,
@@ -303,25 +308,35 @@ footer nav a:hover {
     <!-- =========================
          CASE STUDIES (staggered)
          ========================= -->
-    <div class="case-studies">
+   <section class="case-study">
 
-      <!-- CASE STUDY 1 -->
-      <section class="case-study">
-        <iframe src="https://koalaspiessydney.github.io/Aye-eyA/" title="Aye eyA"></iframe>
+  <div class="left-column">
+    <iframe src="https://koalaspiessydney.github.io/Aye-eyA/" title="Aye eyA"></iframe>
 
-          <h2>AyeeyA</h2>
-          <p>Despite—or because of—their fugitive status, Aye eyA has cultivated a loyal following across Western Sydney’s youth, who see in them not just defiance, but reflection.</p>
+    <h2>AyeeyA</h2>
+    <p>Despite—or because of—their fugitive status, Aye eyA has cultivated a loyal following across Western Sydney’s youth, who see in them not just defiance, but reflection.</p>
+  </div>
+
+  <aside class="right-column">
+    <h1>Problem</h1>
+    <ul class="aligned">
+      <li><strong>AI Theft:</strong> Music is stolen and reproduced without compensating creators.</li>
+      <li><strong>Broken Streaming Model:</strong> Streams earn only cents; musicians must rely on live performance to survive.</li>
+      <li><strong>Gatekeepers:</strong> Spotify, YouTube Music, and similar platforms control access, rarely surfacing local or indie acts.</li>
+      <li><strong>Cultural Loss:</strong> Algorithms promote overseas artists, leaving Australia’s music scene underexposed to new listeners.</li>
+      <li><strong style="color: #800080;">Click on a song to listen.</strong></li>
+    </ul>
+  </aside>
+
+</section>
+
+     
+  </section>
+
+</div>
 
 
-      <aside>
-          <h1>Problem</h1>
-          <ul class="aligned">
-            <li><strong>AI Theft:</strong> Music is stolen and reproduced without compensating creators.</li>
-            <li><strong>Broken Streaming Model:</strong> Streams earn only cents; musicians must rely on live performance to survive.</li>
-            <li><strong>Gatekeepers:</strong> Spotify, YouTube Music, and similar platforms control access, rarely surfacing local or indie acts.</li>
-            <li><strong>Cultural Loss:</strong> Algorithms promote overseas artists, leaving Australia’s music scene underexposed to new listeners.</li>
-                <li><strong><p style="color: #800080;">Click on a song to listen.</p><li><strong>
-            
+          
   
       </section>
 
@@ -413,6 +428,7 @@ footer nav a:hover {
   </footer>
 </body>
 </html>
+
 
 
 
