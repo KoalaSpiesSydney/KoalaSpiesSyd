@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>(Project Title Here)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
+<meta charset="UTF-8">
+<title>(Project Title Here)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
 
-  <style>
+<style>
+
+/* ---------------- ROOT + BASE ---------------- */
+
 :root {
   --bg-dark: #1e1e1e;
   --ink-light: #f5f5f5;
   --ink-muted: #bbbbbb;
-  --light-bg: #f4f4f4;
   --ink-dark: #222;
+  --light-bg: #f4f4f4;
+
   --accent1: #009688;
   --accent2: #d35400;
   --accent3: #f1c40f;
   --accent4: #8e44ad;
   --accent5: #3498db;
   --accent6: #e67e22;
+
+  --radius: 14px;
+  --space: 24px;
 }
 
 body {
@@ -31,244 +38,179 @@ body {
   min-height: 100vh;
 }
 
+/* ---------------- HEADER ---------------- */
+
 header {
   background: var(--light-bg);
   color: var(--ink-dark);
   text-align: center;
-  padding: 20px;
-font-family: "tt-modernoir", sans-serif;
-font-weight: 700;
-font-style: normal;
-  font-size: 5.2rem;
+  padding: 28px 16px;
+  font-family: "tt-modernoir", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 5rem);
   letter-spacing: 10px;
 }
 
+/* ---------------- MAIN WRAPPER ---------------- */
+
 main {
   flex: 1;
+  width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: var(--space);
 }
 
+/* ---------------- TILE HEADER ---------------- */
+
 .tile-header {
-  background: var(--bg-light);
-  padding: 20px;
-  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  padding: 32px 20px;
+  border-radius: var(--radius);
   text-align: center;
-  margin-bottom: 30px;
-  opacity: 100%;
-    background:
-    radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.2) 10%,
-      rgba(0, 0, 0, 0.15) 40%,
-      rgba(0, 0, 0, 0.3) 60%
-    ),
-   
+  margin-bottom: 40px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.15);
+}
+
+.tile-header h2 {
+  margin: 0 0 10px;
+  font-family: "mazurquica-vf", sans-serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  letter-spacing: 14px;
+  color: var(--accent6);
 }
 
 .tile-header p {
-  color: var(--bg-light);
+  margin: 0;
   font-size: 1.1rem;
   font-style: italic;
-
+  color: var(--ink-light);
 }
+
+/* ---------------- LISTS ---------------- */
 
 ul.aligned {
   list-style-type: disc;
-  padding-left: 40px;
+  padding-left: 24px;
+  margin-bottom: 40px;
 }
 
 ul.aligned li {
-  margin-bottom: 12px;
-  line-height: 1.5;
-  text-align: left;
+  margin-bottom: 14px;
+  line-height: 1.6;
 }
+
+/* ---------------- CASE STUDY ---------------- */
 
 .case-study {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: start;
-  gap: 40px;
+  grid-template-columns: 1fr;
+  gap: 28px;
   background: rgba(255,255,255,0.05);
-  padding: 40px;
-  border-radius: 16px;
-  margin-bottom: 30px;
+  padding: 32px;
+  border-radius: var(--radius);
+  margin-bottom: 40px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
 
 .case-study iframe {
-  width: 90%;
+  width: 100%;
   aspect-ratio: 12/16;
   border: 3px solid var(--light-bg);
-  border-radius: 12px;
+  border-radius: var(--radius);
   background: #000;
   box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
-aside {
+
+.case-study aside {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 15px;
+  gap: 16px;
 }
-aside img {
-  width: 100%;
-  max-width: 440px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-aside h2 {
-  color: var(--accent3);
-  font-size: 1.6rem;
+
+.case-study aside h1 {
   margin: 0;
+  font-size: 1.8rem;
+  color: var(--accent3);
 }
-aside p {
-  line-height: 1.6;
+
+.case-study aside p,
+.case-study aside li {
   color: var(--ink-muted);
 }
-aside q {
-  font-style: italic;
-  color: var(--ink-light);
-}
-aside cite {
-  display: block;
-  color: var(--accent2);
-  margin-top: 5px;
 
-}
-/* ===== Responsive ===== */
-@media (max-width: 900px) {
-  .case-study, .case-study {
-    grid-template-columns: 1fr;
-  }
-  aside {
-    align-items: center;
-    text-align: center;
-  }
-  aside img {
-    max-width: 200px;
-  }
-}
-.tile-header h1 {
-  font-size: 7rem;
-  margin-bottom: 0.5rem;
-}
-
-.tile-header h2 {
-   margin: 0;
-  font-family: "mazurquica-vf", sans-serif;
-  font-size: 3rem;
-  letter-spacing: 24px;
-  color: var(--accent6);
-  opacity: 90%;
-}
-
-.tile-body {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: flex-start;
-}
-
-.text {
-  flex: 1 1 50%;
-}
-
-.text p {
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.media {
-  flex: 1 1 45%;
-}
-
-.media iframe {
+.case-study aside img {
   width: 100%;
-  height: 300px;
-  border: none;
-  border-radius: 12px;
+  max-width: 420px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.tile-footer {
-  margin-top: 2rem;
-  border-top: 1px solid #333;
-  padding-top: 1rem;
-}
-
-blockquote {
-  font-style: italic;
-  color: #ccc;
-  margin: 0;
-}
-
-blockquote cite {
-  display: block;
-  margin-top: 0.5rem;
-  color: #888;
-  font-size: 0.9rem;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .tile-body {
-    flex-direction: column;
+/* Reverse layout on desktop only */
+@media (min-width: 900px) {
+  .case-study {
+    grid-template-columns: 1.1fr 0.9fr;
   }
-  .media iframe {
-    height: 220px;
+  .case-study.reverse {
+    grid-template-columns: 0.9fr 1.1fr;
   }
 }
 
+/* ---------------- FUTURE CASES ---------------- */
 
 .future-cases {
-  margin: 80px auto;
-  max-width: 1100px;
-  padding: 40px 20px;
-  background-color: rgba(255,255,255,0.05);
-  border-radius: 16px;
+  margin: 60px auto;
+  padding: 32px;
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius);
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
 .future-item {
-  display: flex;
-  align-items: center;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
   margin-bottom: 60px;
 }
 
-.future-item.reverse {
-  flex-direction: row-reverse;
-}
-
 .future-item img {
-  flex: 1;
   width: 100%;
   max-width: 450px;
-  border-radius: 12px;
+  border-radius: var(--radius);
   box-shadow: 0 4px 16px rgba(0,0,0,0.25);
 }
-
-.future-item .text {
-  flex: 1;
-  color: var(--ink-light);
-}
-
 
 .future-item .text h2 {
   font-size: 1.6rem;
   color: var(--accent3);
 }
 
+@media (min-width: 900px) {
+  .future-item {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .future-item.reverse {
+    direction: rtl;
+  }
+  .future-item.reverse > * {
+    direction: ltr;
+  }
+}
+
+/* ---------------- FOOTER ---------------- */
+
 footer {
   background: var(--light-bg);
   color: var(--ink-dark);
   text-align: center;
-  padding: 15px;
+  padding: 20px;
   margin-top: 60px;
 }
 
 footer nav a {
   color: var(--ink-dark);
-  margin: 0 10px;
+  margin: 0 12px;
   text-decoration: none;
   font-weight: bold;
 }
@@ -277,142 +219,103 @@ footer nav a:hover {
   text-decoration: underline;
 }
 
-@media (max-width: 900px) {
-  .tile-content, .future-item, .future-item.reverse {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-  </style>
+</style>
 </head>
 
 <body>
-  <header>KOALA SPIES SYDNEY</header>
 
-  <main>
-    <section class="tile-header">
-      <h2>Digital Updatable Tests</h2>
+<header>KOALA SPIES SYDNEY</header>
 
-        <p><q>Standardized tests are useful for ranking, but not for learning.</q><br><cite>— Sir Ken Robinson: </cite></p>
-    
-    </section>
+<main>
 
-    <section>
-      <h1>Problems</h1>
+  <!-- SECTION 1 -->
+  <section class="tile-header">
+    <h2>Digital Updatable Tests</h2>
+    <p><q>Standardized tests are useful for ranking, but not for learning.</q><br><cite>— Sir Ken Robinson</cite></p>
+  </section>
+
+  <h1>Problems</h1>
+  <ul class="aligned">
+    <li><strong>Administration Costs & Waste:</strong> Schools rely on photocopied tests...</li>
+    <li><strong>Classroom Disconnect:</strong> Teachers frequently adapt...</li>
+    <li><strong>Students:</strong> They perceive paper-based tests as tedious...</li>
+    <li><strong>Compliance:</strong> The tests seem like a task to tick off...</li>
+  </ul>
+
+  <section class="case-study reverse">
+    <iframe src="https://koalaspiessydney.github.io/CAEuseofeng13/"></iframe>
+    <aside>
+      <h1>Solution</h1>
       <ul class="aligned">
-    
-    <li><strong> Adminstration Costs & Wastes:</strong> Schools rely on photocopied tests from textbooks or files, creating a printing cost and paper waste.
-    <li><strong> Classroom Disconnect:</strong> Teachers frequently adapt and personalise textbook content to better engage students, but assessments remain static and disconnected from classroom learning.</li>
-    <li><strong> Students: </strong> They perceive paper-based tests as tedious and irrelevant, with little resemblence to the future  high stake tests they will need to take to renew their visa.
-    <li><strong> Compliance: </strong> The tests seem like a task to tick off, rather than a tool for revision and independent learning.
-    </ul>        
-    <!-- ===== CASE STUDY 2 ===== -->
-    <section class="case-study reverse">
-      <iframe src="https://koalaspiessydney.github.io/CAEuseofeng13/"></iframe>
-      <aside>
-          <h1>Solution</h1>
-    <ul class="aligned">
-      
-        <li><strong>I used AI to rapidly code and develop tests</strong> covering PTE, IELTS, and Cambridge, continually updating content and personalising it to the grammar and vocabulary most relevant to the students.</li>
+        <li><strong>I used AI to rapidly code and develop tests...</strong></li>
+        <li><strong>Student feedback:</strong> Students liked...</li>
+        <li><strong>More tests:</strong> <a href="contact.html">Contact me</a></li>
+        <li><strong>Contact me for a quote:</strong> <a href="contact.html">Contact me</a></li>
+      </ul>
+      <img src="studentanswer1.png" alt="Student Answer Sheet">
+      <a href="assets/TestPaper.docx" download style="color: var(--accent3); font-weight: bold;">Download as Word Document</a>
+    </aside>
+  </section>
 
-        <li><strong>Student feedback:</strong> Students liked the combination of phone delivery and paper answer sheets. Many said the tests helped them recall information more easily and built confidence.</li>
+  <!-- SECTION 2 -->
+  <section class="tile-header">
+    <h2>Adaptive Lessons</h2>
+    <p><q>Technology will never replace great teachers...</q><br><cite>— George Couros</cite></p>
+  </section>
 
-        <li><strong>More tests :</strong> <a href="contact.html">Contact me</a></li>
-          <li><strong>Contact me for a quote:</strong> <a href="contact.html">Contact me</a></li>
-      
-</strong></li>
-    </ul>
-        <img src="studentanswer1.png" alt="Clovelly Kirtan">
-        <a href="assets/TestPaper.docx" download style="color: var(--accent3); font-weight: bold;">
-          Download as Word Document
-        </a>
-      </p>
-    </div>
-      </aside>
-</section>
+  <h1>Problems</h1>
+  <ul class="aligned">
+    <li><strong>ESL textbooks have long been irrelevant...</strong></li>
+    <li><strong>Most ESL publishers haven’t updated...</strong></li>
+    <li><strong>Textbooks are largely the same...</strong></li>
+  </ul>
 
-      
-  <main>
-    <section class="tile-header">
-      <h2>Adaptive Lessons</h2>
-
-        <p><q>“Technology will never replace great teachers, but in the hands of great teachers, it’s transformational.” </q><br><cite>— George Couros</cite></p>
-    
-    </section>
-
-    <section>
-      <h1>Problems</h1>
+  <section class="case-study reverse">
+    <iframe src="https://koalaspiessydney.github.io/ModernEnglishAU/"></iframe>
+    <aside>
+      <h1>Solution</h1>
       <ul class="aligned">
-    
-    <li><strong> ESL textbooks have long been somewhat irrelevant in Australia—students learning about “the Tube” and “the pound” often end up confused.</strong></li>
-    <li><strong> Most ESL publishers haven’t updated their textbooks in over twelve years, and the accompanying software is slow and outdated. (Do you still have a Myspace account? Have you ever pirated music online?)</strong> </li>
-    <li><strong> Textbooks are largely the same across publishers—and they’re expensive.</strong> </li>
-    
-   
-  <!-- ===== CASE STUDY 2 ===== -->
-    <section class="case-study reverse">
-      <iframe src="https://koalaspiessydney.github.io/ModernEnglishAU/"></iframe>
-      <aside>
-          <h1>Solution</h1>
-    <ul class="aligned">
-       <li><strong>On this website I share and explain tests, language points, and activities that I’ve coded and personalised. Please use them, share them, and send me your feedback.</strong></li>
-        <li><strong>I can create bespoke activities for your school, institute, or website, and I can even design an app for you.</strong></li>
-        <li><strong>I also offer lessons on coding for teaching. Contact me for a quote.</strong></li>
-        <li><strong>Say goodbye to clunky apps and outdated Kahoots. I can build an online game, lesson, or test—and train your teachers to adapt and update it themselves.</strong></li>
-        <li><strong>(Coding with AI is not that hard, but you do need to know the basics.) Contact me for a quote <a href="contact.html">Contact me</a></strong></li>
-     
- </strong></li>
-    </ul>
-        
-      </aside>
-</section>
+        <li><strong>On this website I share and explain tests...</strong></li>
+        <li><strong>I can create bespoke activities...</strong></li>
+        <li><strong>I also offer lessons on coding...</strong></li>
+        <li><strong>Say goodbye to clunky apps...</strong></li>
+        <li><strong>Contact me for a quote:</strong> <a href="contact.html">Contact me</a></li>
+      </ul>
+    </aside>
+  </section>
 
-          <main>
-    <section class="tile-header">
-              <h2>Class Soundtrack </h2>
+  <!-- SECTION 3 -->
+  <section class="tile-header">
+    <h2>Class Soundtrack</h2>
+    <p><q>Tell me and I forget...</q><br><cite>— Benjamin Franklin</cite></p>
+  </section>
 
-        <p><q>“Tell me and I forget. Teach me and I remember. Involve me and I learn.” </q><br><cite>—  Benjamin Franklin</cite></p>
-    
-    </section>
+  <h1>Class Soundtrack</h1>
+  <p>This is a template I developed for ESL classes...</p>
 
+  <section class="case-study reverse">
+    <iframe src="https://koalaspiessydney.github.io/Int4/"></iframe>
+    <aside>
+      <h1>An Adaptive & Easy to Use Template</h1>
+      <ul class="aligned">
+        <li><strong>This is a template I developed...</strong></li>
+        <li><strong>Students wrote their own sentences...</strong></li>
+        <li><strong>I uploaded grammar and pronunciation points...</strong></li>
+        <li><strong style="color:#800080;">Click on a song to listen.</strong></li>
+      </ul>
+    </aside>
+  </section>
 
-            <h1>Class Soundtrack</h1>
-<p> This is template I developed for ESL classes that personalises both the language taught in class and the students experience in the class.
+</main>
 
-Music is one of the best ways not only to memorise phrases but to hear grammar in context. Music is memorable.
+<footer>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact & Quotes</a>
+    <a href="tile2.html">Offline Music Players</a>
+  </nav>
+</footer>
 
-In this class, I got students to write sentences during active practice exercises and put them to music in the genres of their choice.
-
-I also uploaded grammar and pronunciation points, and personalised the themes to them.
-
-You can Suno or another music generator- or if you have talented classes record them live! Upload music and personalise the background picture, and give you students a different revision tool and memories.</p>
- <!-- ===== CASE STUDY 3 ===== -->
-
-    <section class="case-study reverse">
-      <iframe src="https://koalaspiessydney.github.io/Int4/"></iframe>
-      <aside>
-          <h1>An Adaptive & Easy to Use Template</h1>
-    <ul class="aligned">
-       <li><strong>This is a template I developed for ESL classes that personalises both the language taught and the students’ experience in the classroom.</strong></li>
-        <li><strong>In this class, students wrote their own sentences during active practice exercises and set them to music in the genres of their choice.</strong></li>
-        <li><strong>I also uploaded grammar and pronunciation points and personalised the themes to suit each group.</strong></li>
-        <li><strong style="color: #800080;">Click on a song to listen.</strong></li>
-    </ul>
-      </aside>
-</section>
-  </main>
-
-
-  <footer>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href= "about.html">About</a>
-      <a href="contact.html">Contact & Quotes</a>
-        <a href="tile2.html">Check out the offline music players
-  
-    </nav>
-  </footer>
 </body>
 </html>
-
-
