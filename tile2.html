@@ -251,8 +251,12 @@ footer nav a {
 footer nav a:hover {
   text-decoration: underline;
 }
-
 @media (max-width: 900px) {
+
+  header {
+    font-size: 2.6rem;
+    letter-spacing: 6px;
+  }
 
   .case-study {
     display: flex;
@@ -267,8 +271,14 @@ footer nav a:hover {
   }
 
   .case-study aside {
+    width: 100%;
+    max-width: 100%;
     text-align: center;
     align-items: center;
+  }
+
+  .case-study aside img {
+    max-width: 260px;
   }
 
   /* stop staggering */
@@ -277,25 +287,17 @@ footer nav a:hover {
     order: initial;
   }
 
-
-  .case-study aside{
-    align-items: center;
-    text-align: center;
-  }
-
-  .case-study aside img{
-    max-width: 220px;
-  }
-
   .future-item,
-  .future-item.reverse{
+  .future-item.reverse {
     flex-direction: column;
     text-align: center;
   }
 
-  .future-item img{
+  .future-item img {
     max-width: 520px;
   }
+}
+
 }
   </style>
 </head>
@@ -473,6 +475,7 @@ footer nav a:hover {
   </footer>
 </body>
 </html>
+
 
 
 
