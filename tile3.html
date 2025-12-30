@@ -8,6 +8,8 @@
 
   <style>
 /* ===== BRAND VARIABLES ===== */
+/* ===== BRAND VARIABLES ===== */
+/* ===== BRAND VARIABLES ===== */
 :root {
   --bg-dark: #1e1e1e;
   --ink-light: #f5f5f5;
@@ -18,6 +20,9 @@
   --accent3: #009688;
   --accent2: #d35400;
   --accent1: #f1c40f;
+
+  --radius: 12px;
+  --shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
 /* ===== BASE ===== */
@@ -55,7 +60,7 @@ main {
     ),
     var(--accent1);
   padding: 40px;
-  border-radius: 12px;
+  border-radius: var(--radius);
   text-align: center;
   margin-bottom: 60px;
   opacity: 90%;
@@ -70,34 +75,46 @@ main {
   opacity: 90%;
 }
 
-/* ===== CINEMA SCREEN IFRAME ===== */
-.cinema-frame {
-  align; centre;
-  width: 60%;
-  aspect-ratio: 3/4; /* TRUE CINEMA SCREEN */
-  border: 3px solid var(--light-bg);
-  border-radius: 12px;
-  background: #000;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-  margin-bottom: 40px;
-}
-.audiobook-frame {
-  width: 80%;
-  aspect-ratio: 3 / 4; /* BOOK / AUDIOBOOK SHAPE */
-  border: 3px solid var(--light-bg);
-  border-radius: 12px;
-  background: #000;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-  margin-bottom: 40px;
+/* ===== MEDIA BLOCK ===== */
+.media-block {
+  text-align: center;
+  margin-bottom: 60px;
 }
 
+.media-heading {
+  font-family: "tt-modernoir", sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* ===== IFRAME STYLES ===== */
+.cinema-frame,
+.audiobook-frame {
+  display: block;
+  margin: 0 auto 40px auto;
+  border: 3px solid var(--light-bg);
+  border-radius: var(--radius);
+  background: #000;
+  box-shadow: var(--shadow);
+}
+
+/* Desktop/tablet sizes */
+.cinema-frame {
+  width: 60%;
+  aspect-ratio: 3 / 4;
+}
+
+.audiobook-frame {
+  width: 80%;
+  aspect-ratio: 3 / 4;
+}
 
 /* ===== TEXT BLOCK ===== */
 .tile-content {
   background: rgba(255,255,255,0.05);
   padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .tile-content p {
@@ -136,7 +153,32 @@ footer nav a {
 footer nav a:hover {
   text-decoration: underline;
 }
+
+/* ===== MOBILE FIRST ===== */
+@media (max-width: 900px) {
+
+  header {
+    font-size: 2.4rem;
+    letter-spacing: 6px;
+  }
+
+  .cinema-frame,
+  .audiobook-frame {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 3 / 4;
+  }
+
+  .media-heading {
+    font-size: 1.4rem;
+  }
+
+  .tile-content {
+    padding: 20px;
+  }
+
   </style>
+
 </head>
 
 <body>
@@ -149,38 +191,36 @@ footer nav a:hover {
   <section class="tile-header">
     <h2>COMING SOON</h2>
   </section>
-<section class="media-block">
 
-  <h2 class="media-heading">COMING SOON- watch this space</h2>
+  <!-- MEDIA BLOCK 1 -->
+  <section class="media-block">
+    <h2 class="media-heading">COMING SOON — watch this space</h2>
 
-  <iframe 
-    class="cinema-frame"
-    src="https://koalaspiessydney.github.io/AidensBallad/index.html"
-    allowfullscreen>
-  </iframe>
+    <iframe 
+      class="cinema-frame"
+      src="https://koalaspiessydney.github.io/AidensBallad/index.html"
+      allowfullscreen>
+    </iframe>
 
-  <p class="media-description">
-    Your description text goes here. Keep it one or two sentences for clarity.
-  </p>
+    <p class="media-description">
+      Your description text goes here. Keep it one or two sentences for clarity.
+    </p>
+  </section>
 
-</section>
+  <!-- MEDIA BLOCK 2 -->
+  <section class="media-block">
+    <h2 class="media-heading">YOUR HEADING HERE</h2>
 
+    <iframe 
+      class="audiobook-frame"
+      src="https://koalaspiessydney.github.io/AidensBallad/Soundtrack.html"
+      allowfullscreen>
+    </iframe>
 
-  <!-- CINEMA IFRAME -->
-
-  <h2 class="media-heading">YOUR HEADING HERE</h2>
-<iframe 
-  class="audiobook-frame"
-  src="https://koalaspiessydney.github.io/AidensBallad/Soundtrack.html"
-  allowfullscreen>
-</iframe>
-
-<p class="media-description">
-    Your description text goes here. Keep it one or two sentences for clarity.
-  </p>
-
-
-
+    <p class="media-description">
+      Your description text goes here. Keep it one or two sentences for clarity.
+    </p>
+  </section>
 
   <!-- CONTENT BLOCK -->
   <section class="tile-content">
@@ -204,7 +244,6 @@ footer nav a:hover {
 
 </body>
 </html>
-
 
 
 
