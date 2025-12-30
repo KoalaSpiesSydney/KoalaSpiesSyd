@@ -252,26 +252,31 @@ footer nav a:hover {
   text-decoration: underline;
 }
 
-/* ===== Responsive ===== */
 @media (max-width: 900px) {
-  header{ font-size: 2.6rem; letter-spacing: 6px; }
 
-  .case-study{
-    grid-template-columns: 1fr;
+  .case-study {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     padding: 24px;
-    gap: 22px;
-    display: flex; 
-    gap: 2rem; 
-    align-items: flex-start; }
   }
-    .left-column { flex: 1; 
-                 } .right-column { flex: 1; }
 
-  /* Stop staggering on mobile; stack naturally */
+  .case-study iframe {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+
+  .case-study aside {
+    text-align: center;
+    align-items: center;
+  }
+
+  /* stop staggering */
   .case-studies .case-study:nth-child(even) iframe,
-  .case-studies .case-study:nth-child(even) aside{
+  .case-studies .case-study:nth-child(even) aside {
     order: initial;
   }
+
 
   .case-study aside{
     align-items: center;
@@ -468,6 +473,7 @@ footer nav a:hover {
   </footer>
 </body>
 </html>
+
 
 
 
