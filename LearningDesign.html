@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
 
 <style>
-
 /* ---------------- ROOT + BASE ---------------- */
 
 :root {
@@ -28,6 +27,8 @@
   --space: 24px;
 }
 
+*{ box-sizing:border-box; }
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -47,8 +48,9 @@ header {
   padding: 28px 16px;
   font-family: "tt-modernoir", sans-serif;
   font-weight: 700;
-  font-size: clamp(2.4rem, 6vw, 5rem);
-  letter-spacing: 10px;
+  font-size: clamp(2rem, 7vw, 5rem);
+  letter-spacing: clamp(4px, 2vw, 10px);
+  line-height: 1.05;
 }
 
 /* ---------------- MAIN WRAPPER ---------------- */
@@ -65,39 +67,53 @@ main {
 
 .tile-header {
   background: rgba(255,255,255,0.06);
-  padding: 32px 20px;
+  padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 20px);
   border-radius: var(--radius);
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: clamp(22px, 5vw, 40px);
   box-shadow: 0 0 0 1px rgba(255,255,255,0.15);
 }
 
 .tile-header h2 {
   margin: 0 0 10px;
   font-family: "mazurquica-vf", sans-serif;
-  font-size: clamp(2rem, 6vw, 3rem);
-  letter-spacing: 14px;
+  font-size: clamp(1.4rem, 6vw, 3rem);
+  letter-spacing: clamp(4px, 3vw, 14px);
   color: var(--accent6);
 }
 
 .tile-header p {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: clamp(0.98rem, 2.8vw, 1.1rem);
   font-style: italic;
   color: var(--ink-light);
 }
 
-/* ---------------- LISTS ---------------- */
+/* ---------------- HEADINGS + LISTS ---------------- */
+
+h1{
+  margin: 0 0 14px;
+  font-size: clamp(1.35rem, 4vw, 2rem);
+}
 
 ul.aligned {
   list-style-type: disc;
   padding-left: 24px;
-  margin-bottom: 40px;
+  margin: 0 0 40px;
 }
 
 ul.aligned li {
   margin-bottom: 14px;
   line-height: 1.6;
+}
+
+ul.aligned li a{
+  color: var(--accent3);
+  font-weight: 700;
+  text-decoration: none;
+}
+ul.aligned li a:hover{
+  text-decoration: underline;
 }
 
 /* ---------------- CASE STUDY ---------------- */
@@ -107,7 +123,7 @@ ul.aligned li {
   grid-template-columns: 1fr;
   gap: 28px;
   background: rgba(255,255,255,0.05);
-  padding: 32px;
+  padding: clamp(16px, 4vw, 32px);
   border-radius: var(--radius);
   margin-bottom: 40px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.3);
@@ -130,7 +146,7 @@ ul.aligned li {
 
 .case-study aside h1 {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: clamp(1.25rem, 3.6vw, 1.8rem);
   color: var(--accent3);
 }
 
@@ -146,10 +162,18 @@ ul.aligned li {
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+.download-link{
+  color: var(--accent3);
+  font-weight: bold;
+  text-decoration: none;
+}
+.download-link:hover{ text-decoration: underline; }
+
 /* Reverse layout on desktop only */
 @media (min-width: 900px) {
   .case-study {
     grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
   }
   .case-study.reverse {
     grid-template-columns: 0.9fr 1.1fr;
@@ -160,7 +184,7 @@ ul.aligned li {
 
 .future-cases {
   margin: 60px auto;
-  padding: 32px;
+  padding: clamp(16px, 4vw, 32px);
   background: rgba(255,255,255,0.05);
   border-radius: var(--radius);
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
@@ -198,27 +222,95 @@ ul.aligned li {
   }
 }
 
+/* ---------------- PRE-FOOTER LINKS (BLACK AREA) ---------------- */
+
+.pre-footer{
+  background: var(--bg-dark);
+  padding: 32px 16px 40px;
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pre-footer h3{
+  margin: 0 0 18px;
+  font-family: "tt-modernoir", sans-serif;
+  letter-spacing: 0.18em;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.pre-footer .footer-stack{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+}
+
+.pre-footer .footer-stack a{
+  width:min(92%, 520px);
+  display:block;
+  text-align:center;
+  color: var(--ink-light);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  padding: 12px 14px;
+  border-radius: 14px;
+  text-decoration:none;
+  font-weight:800;
+  letter-spacing:0.04em;
+}
+
+.pre-footer .footer-stack a small{
+  display:block;
+  margin-top:4px;
+  font-weight:600;
+  opacity:0.8;
+  letter-spacing:0.02em;
+}
+
+.pre-footer .footer-stack a:hover{
+  background: rgba(255,255,255,0.1);
+  text-decoration: underline;
+}
+
 /* ---------------- FOOTER ---------------- */
 
 footer {
   background: var(--light-bg);
   color: var(--ink-dark);
   text-align: center;
-  padding: 20px;
-  margin-top: 60px;
+  padding: 20px 14px;
+}
+
+footer nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px 14px;
 }
 
 footer nav a {
   color: var(--ink-dark);
-  margin: 0 12px;
   text-decoration: none;
   font-weight: bold;
+  padding: 8px 10px;
+  border-radius: 10px;
 }
 
 footer nav a:hover {
   text-decoration: underline;
 }
 
+/* ---------------- MOBILE TWEAKS ---------------- */
+
+@media (max-width: 600px){
+  main{ padding: 16px; }
+  .case-study{ gap: 18px; }
+  .case-study iframe{ aspect-ratio: 10/14; }
+  ul.aligned{ padding-left: 20px; }
+}
 </style>
 </head>
 
@@ -243,7 +335,7 @@ footer nav a:hover {
   </ul>
 
   <section class="case-study reverse">
-    <iframe src="https://koalaspiessydney.github.io/CAEuseofeng13/"></iframe>
+    <iframe src="https://koalaspiessydney.github.io/CAEuseofeng13/" title="CAE Use of English Demo"></iframe>
     <aside>
       <h1>Solution</h1>
       <ul class="aligned">
@@ -252,8 +344,10 @@ footer nav a:hover {
         <li><strong>More tests:</strong> <a href="contact.html">Contact me</a></li>
         <li><strong>Contact me for a quote:</strong> <a href="contact.html">Contact me</a></li>
       </ul>
+
       <img src="studentanswer1.png" alt="Student Answer Sheet">
-      <a href="assets/TestPaper.docx" download style="color: var(--accent3); font-weight: bold;">Download as Word Document</a>
+
+      <a class="download-link" href="assets/TestPaper.docx" download>Download as Word Document</a>
     </aside>
   </section>
 
@@ -271,7 +365,7 @@ footer nav a:hover {
   </ul>
 
   <section class="case-study reverse">
-    <iframe src="https://koalaspiessydney.github.io/ModernEnglishAU/"></iframe>
+    <iframe src="https://koalaspiessydney.github.io/ModernEnglishAU/" title="Modern English AU Demo"></iframe>
     <aside>
       <h1>Solution</h1>
       <ul class="aligned">
@@ -294,7 +388,7 @@ footer nav a:hover {
   <p>This is a template I developed for ESL classes...</p>
 
   <section class="case-study reverse">
-    <iframe src="https://koalaspiessydney.github.io/Int4/"></iframe>
+    <iframe src="https://koalaspiessydney.github.io/Int4/" title="Class Soundtrack Demo"></iframe>
     <aside>
       <h1>An Adaptive & Easy to Use Template</h1>
       <ul class="aligned">
@@ -305,17 +399,36 @@ footer nav a:hover {
       </ul>
     </aside>
   </section>
-<li><a href="<li><a href="https://koalaspiessydney.github.io/CAE-Use-of-English-test-1/">Mini Reading & Use of Language Test</a></li>">MODERN ENGLISH AUSTRALIA</a></li>
-<li><a href="<li><a href="https://koalaspiessydney.github.io/ModernEnglishAU/microlesson.html">Games and Lessons</a></li>">MODERN ENGLISH AUSTRALIA</a></li>
-<li><a href="<li><a href="https://koalaspiessydney.github.io/CAE-Use-of-English-test-1/">Mini PTE, IELTS & Exams </a></li>">MODERN ENGLISH AUSTRALIA</a></li>
+
+</main>
+
+<!-- NEW LINKS: ABOVE FOOTER, IN BLACK AREA -->
+<section class="pre-footer" aria-label="Modern English Australia links">
+  <h3>Modern English Australia</h3>
+
+  <div class="footer-stack">
+    <a href="https://koalaspiessydney.github.io/ModernEnglishAU/index.html">
+      MODERN ENGLISH AUSTRALIA
+      <small>More on my Learning Design  & Free trial tests</small>
+    </a>
+
+    <a href="https://koalaspiessydney.github.io/ModernEnglishAU/microlesson.html">
+      MODERN ENGLISH AUSTRALIA
+      <small>Free Games and Lessons</small>
+    </a>
+
+    <a href="https://koalaspiessydney.github.io/ModernEnglishAU/MEAtests.html">
+      MODERN ENGLISH AUSTRALIA
+      <small>Free Mini PTE, IELTS &amp; Exams</small>
+    </a>
+  </div>
 </section>
-</main></main></main>
 
 <footer>
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="contact.html">Contact & Quotes</a>
+    <a href="contact.html">Contact &amp; Quotes</a>
     <a href="tile2.html">Offline Music Players</a>
   </nav>
 </footer>
