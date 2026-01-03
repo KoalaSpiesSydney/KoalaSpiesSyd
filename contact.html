@@ -265,10 +265,9 @@
     </div>
 
     <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="index.html#micro">Micro Lessons</a>
-      <a class="active cta" href="wpcontact.html">Contact</a>
+      <a href="index.html">HOME</a>
+      <a href="MEAtests">IELTS/PTE+</a>
+      <a href="microlesson.html">Lessons & Games</a>
     </nav>
   </div>
 </header>
@@ -290,20 +289,24 @@
 
         <div class="contact-grid">
 
-          <!-- EMAIL -->
+          <!-- EMAIL OPTIONS -->
           <div class="row">
             <p class="label">Email</p>
             <p class="value">
-              <span id="emailText">koalaspies [at] duck [dot] com</span>
+              <span id="emailText">Choose an option below</span>
             </p>
 
+            <!-- Honeypot -->
+            <input type="text" id="hp" style="display:none;">
+
             <div class="actions">
-              <button class="btn" type="button" id="revealEmailBtn">Reveal email</button>
-              <a class="btn primary" id="emailLink" href="#" rel="nofollow noopener">Email me</a>
+              <button class="btn" type="button" onclick="sendFeedback()">Feedback</button>
+              <button class="btn" type="button" onclick="sendQuote()">Request a Quote</button>
+              <button class="btn" type="button" onclick="sendQuestion()">Ask a Question</button>
             </div>
 
             <p class="hint">
-              Tip: using a Duck.com alias is great for privacy and cuts down on spam.
+              Your email address is only generated when you click a button — this prevents spam bots.
             </p>
           </div>
 
@@ -354,31 +357,47 @@
 
 </body>
 </html>
-<script>
-// -----------------------------
-// EMAIL REVEAL (spam-protected)
-// -----------------------------
-document.getElementById("revealEmailBtn").addEventListener("click", function () {
-  // Build email in JS so bots can't scrape it from HTML
-  const user = "koalaspies";
-  const domain = "duck.com";
-  const email = user + "@" + domain;
 
-  // Update visible text
+<script>
+// Build email only in JS — never in HTML
+function buildEmail() {
+  const user = "ModernEnglishAU";
+  const domain = "outlook.com";
+  return user + "@" + domain;
+}
+
+// Honeypot check + email reveal + mailto
+function revealAndSend(subject) {
+  const honeypot = document.getElementById("hp").value;
+
+  // If honeypot filled → bot → block silently
+  if (honeypot.trim() !== "") return;
+
+  const email = buildEmail();
   document.getElementById("emailText").textContent = email;
 
-  // Update the "Email me" button
-  const emailLink = document.getElementById("emailLink");
-  emailLink.href = "mailto:" + email;
+  const link = document.createElement("a");
+  link.href = "mailto:" + email + "?subject=" + encodeURIComponent(subject);
+  link.style.display = "none";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+}
 
-  // Optional: visual feedback
-  this.textContent = "Email revealed";
-  this.disabled = true;
-});
+// Three separate functions (harder for bots)
+function sendFeedback() {
+  revealAndSend("Feedback for Modern English Australia");
+}
 
-// -----------------------------
-// PHONE REVEAL
-// -----------------------------
+function sendQuote() {
+  revealAndSend("Request for Quote");
+}
+
+function sendQuestion() {
+  revealAndSend("General Question");
+}
+
+// Phone reveal
 document.getElementById("revealPhoneBtn").addEventListener("click", function () {
   const phoneText = document.getElementById("phoneText");
   phoneText.style.display = "block";
@@ -386,27 +405,6 @@ document.getElementById("revealPhoneBtn").addEventListener("click", function () 
   this.textContent = "Number shown";
   this.disabled = true;
 });
-
-// -----------------------------
-// SUCCESS MESSAGE (after clicking Email Me)
-// -----------------------------
-document.getElementById("emailLink").addEventListener("click", function () {
-  // Create success message
-  const msg = document.createElement("p");
-  msg.textContent = "Message window opened — you can send your email now.";
-  msg.style.color = "var(--accent)";
-  msg.style.fontWeight = "600";
-  msg.style.marginTop = "10px";
-
-  // Insert after the button group
-  this.parentElement.appendChild(msg);
-
-  // Fade out after 4 seconds
-  setTimeout(() => {
-    msg.style.transition = "opacity 0.6s ease";
-    msg.style.opacity = "0";
-    setTimeout(() => msg.remove(), 600);
-  }, 4000);
-});
 </script>
+
 
