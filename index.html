@@ -248,11 +248,55 @@
     footer nav a:hover {
       text-decoration: underline;
     }
+
+
+    /* ===== Inline link buttons (row) ===== */
+.link-buttons{
+  max-width: 900px;
+  margin: 26px auto 6px;
+  display: flex;
+  justify-content: space-between;   /* even spacing across row */
+  gap: 18px;
+}
+
+.link-buttons a{
+  flex: 1;                           /* equal width buttons */
+  text-align: center;
+  padding: 14px 16px;
+  background: #ffffff;
+  color: #1e1e1e;                    /* charcoal */
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.10);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.link-buttons a:hover{
+  transform: translateY(-2px);
+  background: #f7f7f7;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.14);
+}
+
+/* Mobile: stack neatly */
+@media (max-width: 700px){
+  .link-buttons{
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+    /* ===== Stacked buttons under copyright ===== */
+
+
   </style>
 </head>
 
 <body>
   <header>Koala Spies Sydney</header>
+
 
   <main>
     <section class="intro">
@@ -262,6 +306,7 @@
         UX and LX design.
       </p>
     </section>
+
 <section class="tiles">
   <a href="LearningDesign.html" class="tile-link">
     <div class="tile">
@@ -298,31 +343,36 @@
       </div>
     </div>
   </a>
+</section>
 
+<section class="copyright">
+  <p>copyright Koala Spies Sydney</p>
+</section>
 
+<section class="link-buttons">
+  <a href="https://koalaspiessydney.github.io/ModernEnglishAU/" target="_blank" rel="noopener noreferrer">
+    Modern English AU
+  </a>
+  <a href="https://justinerkelly64d9.myportfolio.com/work" target="_blank" rel="noopener noreferrer">
+    Justine’s Writing Portfolio
+  </a>
+  <a href="https://justine.deco-apparel.com/" target="_blank" rel="noopener noreferrer">
+    Art & Merch
+  </a>
+</section>
 
-    </section>
-
-    <section class="copyright">
-      <p>copyright Koala Spies Sydney</p>
-    </section>
   </main>
-
-       <a href="https://koalaspiessydney.github.io/ModernEnglishAU/">Modern English AU</a>
-     <a href="https://justinerkelly64d9.myportfolio.com/work">Justine's Writing Portfolio</a>
-
   <footer>
     <nav>
- 
+
       <a href="index.html">About Justine</a>
-      <a href="contact.html">Contact & QUotes</a>
-      <a href="https://justine.deco-apparel.com/">Art & Merch</a>
-   
+      <a href="contact.html">Contact & Quotes</a>
+      
+     
     </nav>
   </footer>
 </body>
 </html>
-
 
 
 
