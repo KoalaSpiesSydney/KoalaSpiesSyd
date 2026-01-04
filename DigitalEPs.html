@@ -85,6 +85,37 @@ main {
   color: rgba(255,255,255,0.9);
 }
 
+/* Match PROBLEM section typography to Solution + Benefits */
+/* Make Problems, Solution, Benefits headings yellow */
+h1 {
+  color: var(--accent3); /* yellow */
+  letter-spacing: 0.05em;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+/* Keep the text under those headings white */
+h1 + p,
+h1 + ul {
+  color: var(--ink-light);
+}
+
+/* --- Problem section spacing + letter‑spacing adjustments --- */
+
+.problem-block h1 {
+  letter-spacing: 0.06em;   /* more space between letters */
+  margin-bottom: 20px;      /* slightly more breathing room */
+}
+
+.problem-block p {
+  letter-spacing: 0.02em;   /* subtle spacing between words/letters */
+  line-height: 1.7;         /* slightly more vertical breathing room */
+}
+
+/* Add more space below the entire problem section */
+.problem-block {
+  margin-bottom: 30px;      /* increased gap before next section */
+}
 
 
 /* ===== List formatting (you used .aligned) ===== */
@@ -312,9 +343,14 @@ footer nav a:hover {
       <h3>DIRECT from ARTIST to AUDIENCE</h3>
       <p>Accessible through QR codes at gigs or shared directly by artists.</p>
     </section>
-      <h1>Problems</h1>
+
+    <section class="problem-block">
+  <h1>Problems</h1>
+  <p>
     New Australian musicans are doing it hard. AI systems are increasingly scraping and reproducing music without compensating the creators; the streaming economy is broken, with artists earning only cents per play and forced to rely on live performance to survive; major platforms like Spotify and YouTube Music act as gatekeepers, rarely surfacing local or emerging acts; and algorithm‑driven recommendations overwhelmingly favour overseas artists, leaving Australia’s music scene underexposed and culturally diminished.
-    
+  </p>
+</section>
+
 <section class="case-study">
 
   <!-- LEFT SIDE: DESCRIPTION -->
@@ -498,12 +534,14 @@ footer nav a:hover {
       <a href="index.html">Home</a>
       <a href= "about.html">About</a>
       <a href="contact.html">Contact</a>
-       <a href="tile2.html">Contact</a>
+       <a href="tile3.html">More</a>
+  
   
     </nav>
   </footer>
 </body>
 </html>
+
 
 
 
