@@ -102,6 +102,19 @@ video{
   background: #000;
 }
 
+/* ---------------- PROBLEM BLOCK (NEW) ---------------- */
+
+.problem-block {
+  margin: 40px 0;
+  background: rgba(255,255,255,0.05);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.12);
+}
+
+.problem-block p {
+  line-height: 1.6;
+  color: var(--ink-muted);
 }
 
 /* ---------------- HEADINGS + LISTS ---------------- */
@@ -141,6 +154,7 @@ ul.aligned li a:hover{
   padding: clamp(16px, 4vw, 32px);
   border-radius: var(--radius);
   margin-bottom: 40px;
+  margin-top: 30px; /* FIXED SPACING */
   box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
 
@@ -237,14 +251,14 @@ ul.aligned li a:hover{
   }
 }
 
-/* ---------------- PRE-FOOTER LINKS (BLACK AREA) ---------------- */
+/* ---------------- PRE-FOOTER LINKS ---------------- */
 
 .pre-footer{
   background: var(--bg-dark);
   padding: 32px 16px 40px;
   text-align: center;
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 10px auto 0; /* FIXED SPACING ABOVE */
 }
 
 .pre-footer h3{
@@ -346,30 +360,31 @@ footer nav a:hover {
     Your browser does not support the video tag.
   </video>
 
-  <h1>Problems</h1>
-  <ul class="aligned">
-    <li><strong>Administration Costs & Waste:</strong> Schools rely on costly photocopied tests</li>
-    <li><strong>Classroom Disconnect:</strong> Textbooks are out-of-date and irrevalnt to life in Australia</li>
-    <li><strong>Students:</strong> In the digital age students perceive paper-based tests as tedious.</li>
-    <li><strong>Compliance:</strong> The tests seem like a task to tick off rather than prompt progress. </li>
-  </ul>
+  <!-- UPDATED PROBLEM BLOCK -->
+  <section class="problem-block">
+    <h1>Problems</h1>
+    <p>
+      <strong>This is a problem I noticed while working in English Colleges in Australia:</strong>
+      schools rely heavily on photocopied tests, creating unnecessary administration costs and waste; 
+      classrooms are tied to outdated textbooks that feel disconnected from real life in Australia; 
+      students, used to digital environments, find paper‑based tests tedious and demotivating; 
+      and compliance‑driven assessment practices often reduce testing to a box‑ticking exercise rather than a meaningful measure of progress.
+    </p>
+  </section>
 
   <section class="case-study reverse">
     <iframe src="https://koalaspiessydney.github.io/CAEuseofeng13/" title="CAE Use of English Demo"></iframe>
     <aside>
- <section>
-<section class="centered">
-  <h1>Problems</h1>
-  <p>
-    <strong>This is a problem I noticed while working in English Colleges in Australia:</strong>
-    schools rely heavily on photocopied tests, creating unnecessary administration costs and waste; 
-    classrooms are tied to outdated textbooks that feel disconnected from real life in Australia; 
-    students, used to digital environments, find paper‑based tests tedious and demotivating; 
-    and compliance‑driven assessment practices often reduce testing to a box‑ticking exercise rather than a meaningful measure of progress.
-  </p>
-</section>
-
-
+      <section class="centered">
+        <aside>
+          <h1>Solution</h1>
+          <ul class="aligned">
+            <li>Rapid AI-assisted test development</li>
+            <li>Phone + paper hybrid delivery</li>
+            <li><a href="contact.html">Contact me for a quote</a></li>
+          </ul>
+        </aside>
+      </section>
 
       <img src="studentanswer1.png" alt="Student Answer Sheet">
 
@@ -379,54 +394,27 @@ footer nav a:hover {
 
   <!-- SECTION 2 -->
   <section class="tile-header">
-    <h2>Adaptive Lessons</h2>
-    <p><q>Technology will never replace great teachers...</q><br><cite>— George Couros</cite></p>
-  </section>
-
-  <h1>Problems</h1>
-  <ul class="aligned">
-    <li><strong>ESL textbooks have long been irrelevant...</strong></li>
-    <li><strong>Most ESL publishers haven’t updated...</strong></li>
-    <li><strong>Textbooks are largely the same...</strong></li>
-  </ul>
-
-  <section class="case-study reverse">
-    <iframe src="https://koalaspiessydney.github.io/ModernEnglishAU/" title="Modern English AU Demo"></iframe>
-    <aside>
-      <h1>Solution</h1>
-      <ul class="aligned">
-        <li><strong>On this website I share and explain tests...</strong></li>
-        <li><strong>I can create bespoke activities...</strong></li>
-        <li><strong>I also offer lessons on coding...</strong></li>
-        <li><strong>Say goodbye to clunky apps...</strong></li>
-        <li><strong>Contact me for a quote:</strong> <a href="contact.html">Contact me</a></li>
-      </ul>
-    </aside>
-  </section>
-
-  <!-- SECTION 3 -->
-  <section class="tile-header">
     <h2>Class Soundtrack</h2>
     <p><q>Tell me and I forget...</q><br><cite>— Benjamin Franklin</cite></p>
   </section>
-
-  <h1>Class Soundtrack</h1>
-  <p>This is a template I developed for ESL classes...</p>
 
   <section class="case-study reverse">
     <iframe src="https://koalaspiessydney.github.io/Int4/" title="Class Soundtrack Demo"></iframe>
     <aside>
       <h1>An Adaptive & Easy to Use Template</h1>
       <ul class="aligned">
-        <li><strong>This is a template I developed...</strong></li>
-        <li><strong>Students wrote their own sentences...</strong></li>
-        <li><strong>I uploaded grammar and pronunciation points...</strong></li>
+        <li><strong>This is a template I developed for active practice.</strong></li>
+        <li><strong>Students wrote their own sentences, chose genres and we wrote songs on SUno</strong></li>
+        <li><strong>I also uploaded grammar and pronunciation points whcih they amusing but surprisingly effective</strong></li>
         <li><strong style="color:#800080;">Click on a song to listen.</strong></li>
       </ul>
     </aside>
   </section>
 
-</main>
+  <section class="tile-header">
+    <h2>Adaptive Lessons</h2>
+    <p><q>Technology will never replace great teachers...</q><br><cite>— George Couros</cite></p>
+  </section>
 
 <!-- NEW LINKS: ABOVE FOOTER, IN BLACK AREA -->
 <section class="pre-footer" aria-label="Modern English Australia links">
@@ -443,6 +431,8 @@ footer nav a:hover {
 
     <a href="https://koalaspiessydney.github.io/ModernEnglishAU/MEAtests.html">
       <small>Free Mini PTE, IELTS &amp; Exams</small>
+
+      </main>
     </a>
   </div>
 </section>
@@ -458,3 +448,4 @@ footer nav a:hover {
 
 </body>
 </html>
+
