@@ -289,6 +289,24 @@
 }
 
     /* ===== Stacked buttons under copyright ===== */
+/* Coming soon tile (optional) */
+.tile-link.coming-soon { cursor: not-allowed; }
+.tile-link.coming-soon .tile { position: relative; }
+
+.tile-link.coming-soon .tile::after{
+  content:"COMING SOON";
+  position:absolute;
+  top: 14px;
+  right: 14px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+}
 
 
   </style>
@@ -332,8 +350,7 @@
       </div>
     </div>
   </a>
-
-  <a href="tile4.html" class="tile-link">
+<a href="tile4.html" class="tile-link coming-soon" aria-label="Apps without Algorithms (Coming soon)">
     <div class="tile">
       <div class="tile-content">
         <img src="Urapp2.png" alt="Apps with Algorithms">
@@ -371,6 +388,15 @@
   </footer>
 </body>
 </html>
+
+<script>
+  document.querySelectorAll('a.coming-soon').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('Coming soon — this tile is still being built.');
+    });
+  });
+</script>
 
 
 
