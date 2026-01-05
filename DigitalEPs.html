@@ -16,6 +16,7 @@
   --accent1: #009688;
   --accent2: #d35400;
   --accent3: #f1c40f;
+  --purple: #800080;
 
   --radius: 16px;
   --radius-sm: 12px;
@@ -85,40 +86,29 @@ main {
   color: rgba(255,255,255,0.9);
 }
 
-/* Match PROBLEM section typography to Solution + Benefits */
-/* Make Problems, Solution, Benefits headings yellow */
+/* ===== Problems / Solutions / Benefits ===== */
 h1 {
-  color: var(--accent3); /* yellow */
+  color: var(--accent3);
   letter-spacing: 0.05em;
   margin-top: 60px;
   margin-bottom: 20px;
 }
 
-/* Keep the text under those headings white */
 h1 + p,
 h1 + ul {
   color: var(--ink-light);
 }
 
-/* --- Problem section spacing + letter‑spacing adjustments --- */
-
-.problem-block h1 {
-  letter-spacing: 0.06em;   /* more space between letters */
-  margin-bottom: 20px;      /* slightly more breathing room */
-}
-
 .problem-block p {
-  letter-spacing: 0.02em;   /* subtle spacing between words/letters */
-  line-height: 1.7;         /* slightly more vertical breathing room */
+  letter-spacing: 0.02em;
+  line-height: 1.7;
 }
 
-/* Add more space below the entire problem section */
 .problem-block {
-  margin-bottom: 30px;      /* increased gap before next section */
+  margin-bottom: 30px;
 }
 
-
-/* ===== List formatting (you used .aligned) ===== */
+/* ===== List formatting ===== */
 ul.aligned{
   list-style: disc;
   padding-left: 28px;
@@ -131,92 +121,83 @@ ul.aligned li{
 
 /* =========================================
    CASE STUDY LAYOUT
-   - Default: iframe left, aside right
-   - Auto-stagger: every even flips
    ========================================= */
-
-/* Wrap ONLY the case studies so nth-child counts correctly */
-.case-studies{
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
-}
-
 .case-study{
   display: grid;
-  grid-template-columns: 1fr 1.15fr; /* iframe | aside */
+  grid-template-columns: 1fr 1.15fr;
   gap: 40px;
   align-items: start;
-
-  background: rgba(255,255,255,0.05);
+  background: #eee6e6;
+  color: #222;
   padding: 40px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 
-/* Square iframe (this is the real fix) */
 .case-study iframe{
   width: 100%;
   aspect-ratio: 1 / 1;
-  height: auto;
-  display: block;
-
   border: 3px solid var(--light-bg);
   border-radius: var(--radius-sm);
   background: #000;
   box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
-/* Aside styling */
-.case-study aside {
+/* ===== Improved Aside Styling (applies to ALL case studies) ===== */
+.case-aside {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 14px;
-}
-
-.case-study aside h1{
-  margin: 0;
-  font-size: 2rem;
-  color: var(--accent3);
-}
-
-.case-study aside h2 {
-  margin: 6px 0 0;
-  color: var(--accent3);
-  font-size: 1.6rem;
-}
-
-.case-study aside p {
-  margin: 0;
   line-height: 1.6;
-  color: var(--ink-muted);
+  font-size: 1rem;
 }
 
-.case-study aside q {
+.case-aside h2 {
+  font-size: 2rem;
+  margin-bottom: 4px;
+  color: var(--purple);
+  font-family: "tt-modernoir", sans-serif;
+  letter-spacing: 1px;
+}
+
+.case-aside .listen-note {
+  color: var(--purple);
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.case-aside .case-link a {
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+}
+
+.case-aside .case-link a:hover {
+  text-decoration: underline;
+}
+
+.case-aside .case-description {
+  color: #444;
   font-style: italic;
-  color: var(--ink-light);
-}
-
-.case-study aside cite {
+  margin-top: 10px;
   display: block;
-  color: var(--accent2);
-  margin-top: 6px;
 }
 
-.case-study aside img {
-  width: 100%;
-  max-width: 240px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+/* Auto-stagger */
+.case-study:nth-child(even){
+  grid-template-columns: 1.15fr 1fr;
 }
+.case-study:nth-child(even) iframe{ order: 2; }
+.case-study:nth-child(even) .case-aside{ order: 1; }
 
-/* Auto-stagger: flip every even case-study */
-.case-studies .case-study:nth-child(even){
-  grid-template-columns: 1.15fr 1fr; /* aside | iframe */
+/* ===== Make Your Own App ===== */
+.make-your-own-app {
+  margin-top: 80px;
+  padding: 40px;
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
-.case-studies .case-study:nth-child(even) iframe{ order: 2; }
-.case-studies .case-study:nth-child(even) aside{ order: 1; }
 
 /* ===== Future Cases ===== */
 .future-cases {
@@ -247,12 +228,14 @@ ul.aligned li{
   flex-direction: row-reverse;
 }
 
+/* SMALL PNGs */
 .future-item img {
   flex: 1;
   width: 100%;
-  max-width: 450px;
+  max-width: 260px;
   border-radius: var(--radius-sm);
   box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  opacity: 0.85;
 }
 
 .future-item .text {
@@ -266,6 +249,7 @@ ul.aligned li{
   margin: 0 0 10px;
 }
 
+/* ===== Footer ===== */
 footer {
   background: var(--light-bg);
   color: var(--ink-dark);
@@ -284,6 +268,8 @@ footer nav a {
 footer nav a:hover {
   text-decoration: underline;
 }
+
+/* ===== Mobile ===== */
 @media (max-width: 900px) {
 
   header {
@@ -298,26 +284,9 @@ footer nav a:hover {
     padding: 24px;
   }
 
-  .case-study iframe {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-  }
-
-  .case-study aside {
-    width: 100%;
-    max-width: 100%;
+  .case-aside {
     text-align: center;
     align-items: center;
-  }
-
-  .case-study aside img {
-    max-width: 260px;
-  }
-
-  /* stop staggering */
-  .case-studies .case-study:nth-child(even) iframe,
-  .case-studies .case-study:nth-child(even) aside {
-    order: initial;
   }
 
   .future-item,
@@ -327,10 +296,9 @@ footer nav a:hover {
   }
 
   .future-item img {
-    max-width: 520px;
+    max-width: 220px;
   }
 }
-
   </style>
 </head>
 
@@ -338,6 +306,7 @@ footer nav a:hover {
   <header>kOaLa Spies Sydney</header>
 
   <main>
+
     <section class="tile-header">
       <h2>DIGITAL EPs</h2>
       <h3>DIRECT from ARTIST to AUDIENCE</h3>
@@ -345,104 +314,81 @@ footer nav a:hover {
     </section>
 
     <section class="problem-block">
-  <h1>Problems</h1>
-  <p>
-    New Australian musicans are doing it hard. AI systems are increasingly scraping and reproducing music without compensating the creators; the streaming economy is broken, with artists earning only cents per play and forced to rely on live performance to survive; major platforms like Spotify and YouTube Music act as gatekeepers, rarely surfacing local or emerging acts; and algorithm‑driven recommendations overwhelmingly favour overseas artists, leaving Australia’s music scene underexposed and culturally diminished.
-  </p>
-</section>
+      <h1>Problems</h1>
+      <p>
+        New Australian musicans are doing it hard. AI systems are increasingly scraping and reproducing music without compensating the creators; the streaming economy is broken, with artists earning only cents per play and forced to rely on live performance to survive; major platforms like Spotify and YouTube Music act as gatekeepers, rarely surfacing local or emerging acts; and algorithm‑driven recommendations overwhelmingly favour overseas artists, leaving Australia’s music scene underexposed and culturally diminished.
+      </p>
+    </section>
 
-<section class="case-study">
+    <!-- =========================
+         CASE STUDY 1
+         ========================= -->
+    <section class="case-study">
 
-  <!-- LEFT SIDE: DESCRIPTION -->
-  <aside>
-    <h2>AyeeyA</h2>
+      <aside class="case-aside">
+        <h2>AyeeyA</h2>
 
-    <p style="color: #800080; font-weight: bold;">
-      Click on a song in the frame to listen.
-    </p>
+        <p class="listen-note">Click on a song in the frame to listen.</p>
 
-    <img src="YOUR-QRCODE.png" 
-         alt="QR code for music access" 
-         style="width: 160px; margin-top: 10px; border-radius: 8px;">
+        <p class="case-link">
+          <a href="https://koalaspiessydney.github.io/Aye-eyA/" target="_blank">Visit Aye-eyA</a>
+        </p>
 
-    <p style="margin-top: 6px; color: var(--ink-muted);">
-      or access this music via QR code
-    </p>
+        <p class="case-link">
+          <a href="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fkoalaspiessydney.github.io%2FAye-eyA%2F" target="_blank">Generate QR code</a>
+        </p>
 
-    <p>
-      Despite—or because of—their fugitive status, Aye eyA has cultivated a loyal following 
-      across Western Sydney’s youth, who see in them not just defiance, but reflection.
-    </p>
-  </aside>
+        <i class="case-description">
+          Aye eyA has cultivated a loyal following across Western Sydney’s youth, who see in them not just defiance, but reflection. Being on Spotify or other music platforms will be a bit of a sell out and also ruin the rep for being anti‑establishment, hard to find and living on the edge.
+        </i>
+      </aside>
 
-  <!-- RIGHT SIDE: IFRAME -->
-  <iframe 
-    src="https://koalaspiessydney.github.io/Aye-eyA/" 
-    title="Aye eyA">
-  </iframe>
+      <iframe src="https://koalaspiessydney.github.io/Aye-eyA/" title="Aye eyA"></iframe>
 
-</section>
+    </section>
 
-  <h1>Solution</h1>
+    <h1>Solution</h1>
     <ul class="aligned">
       <li><strong>Digital EPs via QR Codes:</strong> Artists hand their music directly to fans at gigs or wherever they choose.</li>
       <li><strong>No Gatekeepers:</strong> Listeners access the music instantly—no algorithm or platform interference.</li>
       <li><strong>Support Local:</strong> Fans connect directly with emerging and independent Australian talent.</li>
     </ul>
 
-     
-  </section>
+    <!-- =========================
+         CASE STUDY 2
+         ========================= -->
+    <section class="case-study">
 
-</div>
+      <iframe src="https://koalaspiessydney.github.io/umdot/" title="Clovelly Kirtan"></iframe>
 
+      <aside class="case-aside">
 
-          
-  
-      </section>
+        <h2>Meditations with Brea</h2>
 
-<section class="case-study">
+        <p>
+          <q>This app can be enjoyed offline — connect to the internet to download the new weekly meditation as we create them. Then disconnet and listen to them during your social media detox.</q><br>
+          <cite>— Brea Zarkasky</cite>
+        </p>
 
-  <!-- LEFT SIDE: IFRAME -->
-  <iframe 
-    src="https://koalaspiessydney.github.io/umdot/" 
-    title="Clovelly Kirtan">
-  </iframe>
+        <p>
+          Many sleep apps and meditation apps may seem to relax the user but they are actually making them even more reliant on being on line. Save this app on a computer, USB or your phone and turn off, use it with or without internet.
+        </p>
 
-  <!-- RIGHT SIDE: INFORMATION -->
-  <aside>
+        <p class="listen-note">Click on a song to listen.</p>
 
-    <h2>Clovelly Kirtan Breese</h2>
+        <p class="case-link">
+          <a href="https://koalaspiessydney.github.io/umdot/" target="_blank">Visit umdot</a>
+        </p>
 
-    <p>
-      <q>“This app can be enjoyed offline — download updates weekly and listen during your social media detox.”</q><br>
-      <cite>— Summer Breaze Zarkasky</cite>
-    </p>
+        <p class="case-link">
+          <a href="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fkoalaspiessydney.github.io%2Fumdot%2F" target="_blank">Generate QR code</a>
+        </p>
 
-    <p>
-      Born in Canada and trained in India, Summer now lives in Clovelly, 
-      sharing her music and yoga wisdom.
-    </p>
+      </aside>
 
-    <p style="color: #800080; font-weight: bold; margin-top: 16px;">
-      Click on a song to listen.
-    </p>
+    </section>
 
-    <img src="YOUR-QRCODE.png" 
-         alt="QR code for music access" 
-         style="width: 160px; margin-top: 10px; border-radius: 8px;">
-
-    <p style="margin-top: 6px; color: var(--ink-muted);">
-      or access this music via QR code
-    </p>
-
-  </aside>
-
-</section>
-
-
-</section>
-
-         <h1>Benefits</h1>
+    <h1>Benefits</h1>
     <ul class="aligned">
       <li><strong>Artists keep creative and financial control.</strong></li>
       <li>Fans discover authentic, local music easily.</li>
@@ -450,51 +396,51 @@ footer nav a:hover {
       <li>Australia preserves its music industry against algorithmic gatekeeping.</li>
     </ul>
 
-    section
+    <!-- =========================
+         CASE STUDY 3
+         ========================= -->
+    <section class="case-study">
 
-<section class="case-study">
+      <aside class="case-aside">
 
-  <!-- LEFT SIDE: INFORMATION -->
-  <aside>
+        <h2>Nineteen to 90s</h2>
 
-    <h2>Nineteen to 90s</h2>
+        <p>
+          Forming in high school in their early teens, these three teens from Sydney blend grunge distortion with Gen Z pop. They created this app to share their creativity with younger fans under the social media ban for teens in Australia. Not only can they by-pass the social media ban, but they have more creativity and control.
+        </p>
 
-    <p>
-      <q>“We love the 90s ‘coz back then musicians made music for creativity — not for algorithms.”</q><br>
-      <cite>— Koala Spies Sydney</cite>
-    </p>
+        <p class="case-link">
+          <a href="https://koalaspiessydney.github.io/Nineteento90s/" target="_blank">Visit Nineteen to 90s</a>
+        </p>
 
-    <p>
-      Three teens from Western Sydney blending grunge distortion with Gen Z edge — 
-      where retro rebellion meets modern youth culture.
-    </p>
+        <p class="case-link">
+          <a href="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fkoalaspiessydney.github.io%2FNineteento90s%2F" target="_blank">Generate QR code</a>
+        </p>
 
-    <p style="color: #800080; font-weight: bold; margin-top: 16px;">
-      Click on a song to listen.
-    </p>
+        <p style="margin-top: 6px; color: var(--ink-muted);">
+          or access this music via QR code
+        </p>
 
-    <img src="YOUR-QRCODE.png" 
-         alt="QR code for music access" 
-         style="width: 160px; margin-top: 10px; border-radius: 8px;">
+      </aside>
 
-    <p style="margin-top: 6px; color: var(--ink-muted);">
-      or access this music via QR code
-    </p>
+      <iframe src="https://koalaspiessydney.github.io/Nineteento90s/" title="Nineteen to 90s"></iframe>
 
-  </aside>
+    </section>
 
-  <!-- RIGHT SIDE: IFRAME -->
-  <iframe 
-    src="https://koalaspiessydney.github.io/Nineteento90s/" 
-    title="Nineteen to 90s">
-  </iframe>
+    <!-- =========================
+         MAKE YOUR OWN APP
+         ========================= -->
+    <section class="make-your-own-app">
+      <p>
+        Make your own app, personalise it, and control where it is seen, and when it is online or offline.
+        The basic idea is that we create the code and a template — you provide the images, music, and style.
+        We sit alongside you and teach you how to manage it, with cheat-sheets and AI assistants. You then own the code.
+      </p>
 
-</section>
-
-
-     
-
-    </div>
+      <p>
+        For more, <a href="contact.html">contact</a>.
+      </p>
+    </section>
 
     <!-- =========================
          FUTURE CASES
@@ -526,7 +472,7 @@ footer nav a:hover {
         </div>
       </div>
     </section>
-    <a href="KSSindex.html" class="back-link">← Back to Portfolio</a>
+    <a href= "index.html" class="back-link">← Back to Portfolio</a>
   </section>
 
   </main>
@@ -534,17 +480,14 @@ footer nav a:hover {
   <footer>
     <nav>
       <a href="index.html">Home</a>
-      <a href= "about.html">About</a>
+      <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-       <a href="cassettes.html">More</a>
-  
-  
+      <a href="tile3.html">More</a>
     </nav>
   </footer>
+
 </body>
 </html>
-
-
 
 
 
