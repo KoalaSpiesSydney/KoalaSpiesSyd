@@ -5,6 +5,9 @@
   <title>Koala Spies Sydney – Case Studies</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
+<link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
   <style>
 :root {
@@ -23,15 +26,19 @@
   --shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
 
-*{ box-sizing:border-box; }
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: var(--bg-dark);
   color: var(--ink-light);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+/* ===== Header ===== */
 header {
   background: var(--light-bg);
   color: var(--ink-dark);
@@ -43,6 +50,7 @@ header {
   letter-spacing: 10px;
 }
 
+/* ===== Main Layout ===== */
 main {
   max-width: 1200px;
   margin: 0 auto;
@@ -73,15 +81,28 @@ main {
   color: var(--accent3);
   opacity: 0.95;
 }
+.case-aside .ninety-title {
+  font-family: "Special Elite", serif;
+  font-size: 2.6rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
 
-.tile-header h3 {
-  font-family: "tt-modernoir", sans-serif;
-  font-size: 1.5rem;
-  color: var(--ink-dark);
-  margin: 6px 0 0;
+  background: linear-gradient(
+    90deg,
+    #ff004c,
+    #ff8a00,
+    #ffee00,
+    #32ff00,
+    #00c8ff,
+    #7a00ff
+  );
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
-.tile-header p{
+
+
+.tile-header p {
   margin: 12px 0 0;
   color: rgba(255,255,255,0.9);
 }
@@ -94,27 +115,19 @@ h1 {
   margin-bottom: 20px;
 }
 
-h1 + p,
-h1 + ul {
-  color: var(--ink-light);
-}
-
 .problem-block p {
   letter-spacing: 0.02em;
   line-height: 1.7;
 }
 
-.problem-block {
-  margin-bottom: 30px;
-}
-
-/* ===== List formatting ===== */
-ul.aligned{
+/* ===== Lists ===== */
+ul.aligned {
   list-style: disc;
   padding-left: 28px;
   margin: 0 0 16px;
 }
-ul.aligned li{
+
+ul.aligned li {
   margin: 0 0 10px;
   line-height: 1.55;
 }
@@ -122,7 +135,7 @@ ul.aligned li{
 /* =========================================
    CASE STUDY LAYOUT
    ========================================= */
-.case-study{
+.case-study {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
   gap: 40px;
@@ -134,7 +147,7 @@ ul.aligned li{
   box-shadow: var(--shadow);
 }
 
-.case-study iframe{
+.case-study iframe {
   width: 100%;
   aspect-ratio: 1 / 1;
   border: 3px solid var(--light-bg);
@@ -143,7 +156,7 @@ ul.aligned li{
   box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
-/* ===== Improved Aside Styling (applies to ALL case studies) ===== */
+/* ===== Aside (shared) ===== */
 .case-aside {
   display: flex;
   flex-direction: column;
@@ -152,14 +165,58 @@ ul.aligned li{
   font-size: 1rem;
 }
 
+/* Default case-study titles (Arial) */
 .case-aside h2 {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 2rem;
   margin-bottom: 4px;
   color: var(--purple);
-  font-family: "tt-modernoir", sans-serif;
   letter-spacing: 1px;
 }
 
+/* ===== Aye eyA graffiti title ===== */
+.case-aside .ayeeya-title {
+  font-family: "Sedgwick Ave", system-ui, sans-serif;
+  font-size: 3rem;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #ff0000;
+  margin: 0 0 10px;
+  position: relative;
+  display: inline-block;
+}
+
+/* two short black lines */
+.case-aside .ayeeya-title::before,
+.case-aside .ayeeya-title::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background: #000;      /* black lines */
+  width: 50%;            /* shorten line length */
+}
+
+/* adjust vertical placement */
+.case-aside .ayeeya-title::before {
+  top: 40%;
+}
+
+.case-aside .ayeeya-title::before {
+  bottom: 40%;
+}
+
+
+/* ===== Meditation title (Josefin Sans, lowercase) ===== */
+.case-aside .brea-title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--purple);
+}
+
+/* ===== Aside extras ===== */
 .case-aside .listen-note {
   color: var(--purple);
   font-weight: bold;
@@ -176,19 +233,13 @@ ul.aligned li{
   text-decoration: underline;
 }
 
-.case-aside .case-description {
-  color: #444;
-  font-style: italic;
-  margin-top: 10px;
-  display: block;
-}
-
 /* Auto-stagger */
-.case-study:nth-child(even){
+.case-study:nth-child(even) {
   grid-template-columns: 1.15fr 1fr;
 }
-.case-study:nth-child(even) iframe{ order: 2; }
-.case-study:nth-child(even) .case-aside{ order: 1; }
+
+.case-study:nth-child(even) iframe { order: 2; }
+.case-study:nth-child(even) .case-aside { order: 1; }
 
 /* ===== Make Your Own App ===== */
 .make-your-own-app {
@@ -228,7 +279,6 @@ ul.aligned li{
   flex-direction: row-reverse;
 }
 
-/* SMALL PNGs */
 .future-item img {
   flex: 1;
   width: 100%;
@@ -271,7 +321,6 @@ footer nav a:hover {
 
 /* ===== Mobile ===== */
 @media (max-width: 900px) {
-
   header {
     font-size: 2.6rem;
     letter-spacing: 6px;
@@ -298,12 +347,14 @@ footer nav a:hover {
   .future-item img {
     max-width: 220px;
   }
-}
+
+
   </style>
 </head>
 
+
 <body>
-  <header>kOaLa Spies Sydney</header>
+  <header>Koala Spies Sydney</header>
 
   <main>
 
@@ -326,21 +377,11 @@ footer nav a:hover {
     <section class="case-study">
 
       <aside class="case-aside">
-        <h2>AyeeyA</h2>
+      <h2 class="ayeeya-title">Aye eyA</h2>
 
-        <p class="listen-note">Click on a song in the frame to listen.</p>
-
-        <p class="case-link">
-          <a href="https://koalaspiessydney.github.io/Aye-eyA/" target="_blank">Visit Aye-eyA</a>
-        </p>
-
-        <p class="case-link">
-          <a href="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fkoalaspiessydney.github.io%2FAye-eyA%2F" target="_blank">Generate QR code</a>
-        </p>
-
-        <i class="case-description">
-          Aye eyA has cultivated a loyal following across Western Sydney’s youth, who see in them not just defiance, but reflection. Being on Spotify or other music platforms will be a bit of a sell out and also ruin the rep for being anti‑establishment, hard to find and living on the edge.
-        </i>
+       <p>Aye eyA has carved out a cult‑level following across Western Sydney’s youth — the ones who live outside the lines and don’t apologise for it. Dropping onto Spotify or the big platforms would kill the whole mythos. Their power comes from being underground, hard to track down, and proudly untamed — the kind of act you hear about in alleyways, not algorithms.</p>
+             <p>Click on a song in the frame to listen. or
+<a href="file:///C:/Users/justi/Desktop/Ayeeya/AyeeyA3.html"> Aye eyA</a></p>
       </aside>
 
       <iframe src="https://koalaspiessydney.github.io/Aye-eyA/" title="Aye eyA"></iframe>
@@ -363,7 +404,8 @@ footer nav a:hover {
 
       <aside class="case-aside">
 
-        <h2>Meditations with Brea</h2>
+        <h2 class="brea-title"><strong>Meditations</strong> with Brea</h2>
+
 
         <p>
           <q>This app can be enjoyed offline — connect to the internet to download the new weekly meditation as we create them. Then disconnet and listen to them during your social media detox.</q><br>
@@ -374,14 +416,8 @@ footer nav a:hover {
           Many sleep apps and meditation apps may seem to relax the user but they are actually making them even more reliant on being on line. Save this app on a computer, USB or your phone and turn off, use it with or without internet.
         </p>
 
-        <p class="listen-note">Click on a song to listen.</p>
-
-        <p class="case-link">
+        <p class="listen-note">Click on a song to listen or go to
           <a href="https://koalaspiessydney.github.io/umdot/" target="_blank">Visit umdot</a>
-        </p>
-
-        <p class="case-link">
-          <a href="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fkoalaspiessydney.github.io%2Fumdot%2F" target="_blank">Generate QR code</a>
         </p>
 
       </aside>
@@ -403,23 +439,17 @@ footer nav a:hover {
 
       <aside class="case-aside">
 
-        <h2>Nineteen to 90s</h2>
+      <h2 class="ninety-title">Nineteen to 90s</h2>
+
+
 
         <p>
           Forming in high school in their early teens, these three teens from Sydney blend grunge distortion with Gen Z pop. They created this app to share their creativity with younger fans under the social media ban for teens in Australia. Not only can they by-pass the social media ban, but they have more creativity and control.
         </p>
-
-        <p class="case-link">
-          <a href="https://koalaspiessydney.github.io/Nineteento90s/" target="_blank">Visit Nineteen to 90s</a>
-        </p>
-
-        <p class="case-link">
-          <a href="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fkoalaspiessydney.github.io%2FNineteento90s%2F" target="_blank">Generate QR code</a>
-        </p>
-
-        <p style="margin-top: 6px; color: var(--ink-muted);">
-          or access this music via QR code
-        </p>
+    
+        
+             <p>Click on a song in the frame to listen or click
+<a href="https://koalaspiessydney.github.io/Nineteento90s/"> Nineteen to 90z</a></p>
 
       </aside>
 
@@ -433,7 +463,6 @@ footer nav a:hover {
     <section class="make-your-own-app">
       <p>
         Make your own app, personalise it, and control where it is seen, and when it is online or offline.
-        NO MORE SUBSCRIPTIONS, NO MORE PAID ADVERTISING, NO MORE FEES & NO MORE ALGORITHM EXPLOITATION
         The basic idea is that we create the code and a template — you provide the images, music, and style.
         We sit alongside you and teach you how to manage it, with cheat-sheets and AI assistants. You then own the code.
       </p>
@@ -483,7 +512,7 @@ footer nav a:hover {
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="audiobooks.html">More</a>
+      <a href="tile3.html">More</a>
     </nav>
   </footer>
 
