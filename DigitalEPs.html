@@ -58,29 +58,57 @@ main {
 }
 
 /* ===== Section Head ===== */
-.tile-header {
-  padding: 20px;
-  border-radius: var(--radius-sm);
-  text-align: center;
-  margin-bottom: 60px;
-  opacity: 0.92;
-  background:
-    radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.2) 10%,
-      rgba(0, 0, 0, 0.15) 40%,
-      rgba(0, 0, 0, 0.3) 60%
-    ),
-    var(--accent1);
+
+    .tile-header {
+      background: rgba(255,255,255,0.06);
+      padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 20px);
+      border-radius: var(--radius);
+      text-align: center;
+      margin-bottom: clamp(22px, 5vw, 40px);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.15);
+    }
+
+    .tile-header h2 {
+      margin: 0 0 10px;
+      font-family: "Libre Baskerville", serif;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      color: var(--accent1);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .tile-header p {
+      margin: 0;
+      font-size: clamp(0.98rem, 2.8vw, 1.1rem);
+      font-style: italic;
+      color: var(--ink-light);
+
+    }
+    
+    .problem-block {
+      margin: 40px 0;
+      background: rgba(255,255,255,0.05);
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.12);
+    }
+
+    .problem-block p {
+      line-height: 1.6;
+      color: var(--ink-muted);
+      margin: 0;
+    }
+    
+/* Match Solution & Benefits typography to Problems */
+ul.aligned li {
+  font-family: Arial, Helvetica, sans-serif; /* same as body */
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+  line-height: 1.7;
 }
 
-.tile-header h2 {
-  margin: 0;
-  font-family: "mazurquica-vf", sans-serif;
-  font-size: 3rem;
-  letter-spacing: 8px;
-  color: var(--accent3);
-  opacity: 0.95;
-}
 .case-aside .ninety-title {
   font-family: "Special Elite", serif;
   font-size: 2.6rem;
@@ -100,24 +128,26 @@ main {
   color: transparent;
 }
 
-
-
 .tile-header p {
   margin: 12px 0 0;
   color: rgba(255,255,255,0.9);
 }
 
 /* ===== Problems / Solutions / Benefits ===== */
+
 h1 {
   color: var(--accent3);
   letter-spacing: 0.05em;
-  margin-top: 60px;
-  margin-bottom: 20px;
+  margin: 20px 0 20px;   /* reduced + consistent */
+  
+
 }
+
 
 .problem-block p {
   letter-spacing: 0.02em;
   line-height: 1.7;
+  margin-top: 0px;
 }
 
 /* ===== Lists ===== */
@@ -188,7 +218,7 @@ ul.aligned li {
 
 /* two short black lines */
 .case-aside .ayeeya-title::before,
-.case-aside .ayeeya-title::before {
+.case-aside .ayeeya-title::after {
   content: "";
   position: absolute;
   height: 2px;
@@ -198,7 +228,7 @@ ul.aligned li {
 
 /* adjust vertical placement */
 .case-aside .ayeeya-title::before {
-  top: 40%;
+  top: 60%;
 }
 
 .case-aside .ayeeya-title::before {
@@ -243,11 +273,14 @@ ul.aligned li {
 
 /* ===== Make Your Own App ===== */
 .make-your-own-app {
-  margin-top: 80px;
+  margin-top: 40px;
   padding: 40px;
   background: rgba(255,255,255,0.05);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  letter-spacing: 0.02em;
+  line-height: 1.7;
+  margin-top: 0px;
 }
 
 /* ===== Future Cases ===== */
@@ -318,7 +351,6 @@ footer nav a {
 footer nav a:hover {
   text-decoration: underline;
 }
-
 /* ===== Mobile ===== */
 @media (max-width: 900px) {
   header {
@@ -347,6 +379,18 @@ footer nav a:hover {
   .future-item img {
     max-width: 220px;
   }
+} /* ✅ IMPORTANT: this closes the media query */
+
+.case-aside .ayeeya-title::before,
+.case-aside .ayeeya-title::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background: #000;
+  width: 50%;
+  left: 25%;
+}
+
 
 
   </style>
@@ -359,7 +403,7 @@ footer nav a:hover {
   <main>
 
     <section class="tile-header">
-      <h2>DIGITAL EPs</h2>
+      <h2>Digital EPs</h2>
       <h3>DIRECT from ARTIST to AUDIENCE</h3>
       <p>Accessible through QR codes at gigs or shared directly by artists.</p>
     </section>
@@ -380,8 +424,13 @@ footer nav a:hover {
       <h2 class="ayeeya-title">Aye eyA</h2>
 
        <p>Aye eyA has carved out a cult‑level following across Western Sydney’s youth — the ones who live outside the lines and don’t apologise for it. Dropping onto Spotify or the big platforms would kill the whole mythos. Their power comes from being underground, hard to track down, and proudly untamed — the kind of act you hear about in alleyways, not algorithms.</p>
-             <p>Click on a song in the frame to listen. or
-<a href="file:///C:/Users/justi/Desktop/Ayeeya/AyeeyA3.html"> Aye eyA</a></p>
+     
+ <p>
+  Click on a song in the frame to listen, or click
+  <a href="https://koalaspiessydney.github.io/Aye-eyA/">Aye eyA</a>.
+</p>
+
+
       </aside>
 
       <iframe src="https://koalaspiessydney.github.io/Aye-eyA/" title="Aye eyA"></iframe>
@@ -404,7 +453,7 @@ footer nav a:hover {
 
       <aside class="case-aside">
 
-        <h2 class="brea-title"><strong>Meditations</strong> with Brea</h2>
+        <h2 class="brea-title"><strong>Meditations</strong> with <strong>Brea</strong> & friends</h2>
 
 
         <p>
@@ -415,10 +464,13 @@ footer nav a:hover {
         <p>
           Many sleep apps and meditation apps may seem to relax the user but they are actually making them even more reliant on being on line. Save this app on a computer, USB or your phone and turn off, use it with or without internet.
         </p>
+<p class="listen-note">
+  Click on a song to listen or go to
+  <a href="https://koalaspiessydney.github.io/umdot/" target="_blank">umdot</a>.
+</p>
 
-        <p class="listen-note">Click on a song to listen or go to
-          <a href="https://koalaspiessydney.github.io/umdot/" target="_blank">Visit umdot</a>
-        </p>
+
+
 
       </aside>
 
@@ -448,8 +500,11 @@ footer nav a:hover {
         </p>
     
         
-             <p>Click on a song in the frame to listen or click
-<a href="https://koalaspiessydney.github.io/Nineteento90s/"> Nineteen to 90z</a></p>
+<p>
+  Click on a song in the frame to listen, or click
+  <a href="https://koalaspiessydney.github.io/Nineteento90s/">Nineteen to 90s</a>.
+</p>
+
 
       </aside>
 
@@ -461,15 +516,16 @@ footer nav a:hover {
          MAKE YOUR OWN APP
          ========================= -->
     <section class="make-your-own-app">
-      <p>
-        Make your own app, personalise it, and control where it is seen, and when it is online or offline.
+
+      </p>
+  <section class="tile-header">
+    <h2>Make Your Own App</h2>
+    <p>Make your own app, personalise it, and control where it is seen, and when it is online or offline.
         The basic idea is that we create the code and a template — you provide the images, music, and style.
         We sit alongside you and teach you how to manage it, with cheat-sheets and AI assistants. You then own the code.
-      </p>
+      For more, <a href="contact.html">contact</p>
+  </section>
 
-      <p>
-        For more, <a href="contact.html">contact</a>.
-      </p>
     </section>
 
     <!-- =========================
