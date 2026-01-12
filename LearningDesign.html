@@ -1,547 +1,658 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>(Project Title Here)</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
+  <meta charset="UTF-8" />
+  <title>(Project Title Here)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-/* ---------------- ROOT + BASE ---------------- */
+  <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
 
-:root {
-  --bg-dark: #1e1e1e;
-  --ink-light: #f5f5f5;
-  --ink-muted: #bbbbbb;
-  --ink-dark: #222;
-  --light-bg: #f4f4f4;
+  <style>
+    /* ---------------- ROOT + BASE ---------------- */
 
-  --accent1: #009688;
-  --accent2: #d35400;
-  --accent3: #f1c40f;
-  --accent4: #8e44ad;
-  --accent5: #3498db;
-  --accent6: #e67e22;
+    :root {
+      --bg-dark: #1e1e1e;
+      --ink-light: #f5f5f5;
+      --ink-muted: #bbbbbb;
+      --ink-dark: #222;
+      --light-bg: #f4f4f4;
 
-  --radius: 14px;
-  --space: 24px;
-}
+      --accent1: #009688;
+      --accent2: #d35400;
+      --accent3: #f1c40f;
+      --accent4: #8e44ad;
+      --accent5: #020f17;
+      --accent6: #e67e22;
 
-*{ box-sizing:border-box; }
+      --radius: 14px;
+      --space: 24px;
+    }
 
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg-dark);
-  color: var(--ink-light);
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+    * { box-sizing: border-box; }
 
-/* ---------------- HEADER ---------------- */
+    html, body { margin: 0; padding: 0; }
 
-header {
-  background: var(--light-bg);
-  color: var(--ink-dark);
-  text-align: center;
-  padding: 28px 16px;
-  font-family: "tt-modernoir", sans-serif;
-  font-weight: 700;
-  font-size: clamp(2rem, 7vw, 5rem);
-  letter-spacing: clamp(4px, 2vw, 10px);
-  line-height: 1.05;
-}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg-dark);
+      color: var(--ink-light);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-/* ---------------- MAIN WRAPPER ---------------- */
+    img { max-width: 100%; height: auto; display: block; }
 
-main {
-  flex: 1;
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: var(--space);
-}
+    /* ---------------- HEADER ---------------- */
 
-/* ---------------- TILE HEADER ---------------- */
+    header {
+      background: var(--light-bg);
+      color: var(--ink-dark);
+      text-align: center;
+      padding: 28px 16px;
+      font-family: "tt-modernoir", sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 7vw, 5rem);
+      letter-spacing: clamp(4px, 2vw, 10px);
+      line-height: 1.05;
+    }
 
-.tile-header {
-  background: rgba(255,255,255,0.06);
-  padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 20px);
-  border-radius: var(--radius);
-  text-align: center;
-  margin-bottom: clamp(22px, 5vw, 40px);
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.15);
-}
+    /* ---------------- MAIN WRAPPER ---------------- */
 
-.tile-header h2 {
-  margin: 0 0 10px;
-  font-family: "mazurquica-vf", sans-serif;
-  font-size: clamp(1.4rem, 6vw, 3rem);
-  letter-spacing: clamp(4px, 3vw, 14px);
-  color: var(--accent6);
-}
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: var(--space);
+    }
 
-.tile-header p {
-  margin: 0;
-  font-size: clamp(0.98rem, 2.8vw, 1.1rem);
-  font-style: italic;
-  color: var(--ink-light);
-}
+    /* ---------------- TILE HEADER ---------------- */
 
-/* ---------------- VIDEO ---------------- */
-/* ---------------- PROBLEM BLOCK (NEW) ---------------- */
+    .tile-header {
+      background: rgba(255,255,255,0.06);
+      padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 20px);
+      border-radius: var(--radius);
+      text-align: center;
+      margin-bottom: clamp(22px, 5vw, 40px);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.15);
+    }
 
-.problem-block {
-  margin: 40px 0;
-  background: rgba(255,255,255,0.05);
-  padding: 24px;
-  border-radius: var(--radius);
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.12);
-}
+    .tile-header h2 {
+      margin: 0 0 10px;
+      font-family: "Libre Baskerville", serif;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      color: var(--accent3);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
 
-.problem-block p {
-  line-height: 1.6;
-  color: var(--ink-muted);
-}
+    .tile-header p {
+      margin: 0;
+      font-size: clamp(0.98rem, 2.8vw, 1.1rem);
+      font-style: italic;
+      color: var(--ink-light);
+    }
 
-/* ---------------- HEADINGS + LISTS ---------------- */
+    /* ---------------- PROBLEM BLOCK ---------------- */
 
-h1{
-  margin: 0 0 14px;
-  font-size: clamp(1.35rem, 4vw, 2rem);
-}
+    .problem-block {
+      margin: 40px 0;
+      background: rgba(255,255,255,0.05);
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.12);
+    }
 
-ul.aligned {
-  list-style-type: disc;
-  padding-left: 24px;
-  margin: 0 0 40px;
-}
+    .problem-block p {
+      line-height: 1.6;
+      color: var(--ink-muted);
+      margin: 0;
+    }
 
-ul.aligned li {
-  margin-bottom: 14px;
-  line-height: 1.6;
-}
+    /* ---------------- HEADINGS + LISTS ---------------- */
 
-ul.aligned li a{
-  color: var(--accent3);
-  font-weight: 700;
-  text-decoration: none;
-}
-ul.aligned li a:hover{
-  text-decoration: underline;
-}
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(1.35rem, 4vw, 2rem);
+      color: var(--ink-light);
+    }
 
-/* ---------------- CASE STUDY ---------------- */
+    ul.aligned {
+      list-style-type: none;
+      padding-left: 24px;
+      margin: 0 0 40px;
+    }
 
-.case-study {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
-  background: rgba(255,255,255,0.05);
-  padding: clamp(16px, 4vw, 32px);
-  border-radius: var(--radius);
-  margin-bottom: 40px;
-  margin-top: 30px; /* FIXED SPACING */
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-}
+    ul.aligned li {
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
 
-.case-study iframe {
-  width: 100%;
-  aspect-ratio: 12/16;
-  border: 3px solid var(--light-bg);
-  border-radius: var(--radius);
-  background: #000;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-}
+    ul.aligned li a {
+      color: var(--accent3);
+      font-weight: 700;
+      text-decoration: none;
+    }
 
-.case-study aside {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+    ul.aligned li a:hover {
+      text-decoration: underline;
+    }
 
-.case-study aside h1 {
-  margin: 0;
-  font-size: clamp(1.25rem, 3.6vw, 1.8rem);
-  color: var(--accent3);
-}
+    /* ---------------- CASE STUDY ---------------- */
 
-.case-study aside p,
-.case-study aside li {
-  color: var(--ink-muted);
-}
+    .case-study {
+      background: #ffffff;
+      color: var(--ink-dark);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding: clamp(16px, 4vw, 32px);
+      border-radius: var(--radius);
+      margin: 30px 0 40px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      overflow: hidden;
+    }
 
-.case-study aside img {
-  width: 100%;
-  max-width: 420px;
-  border-radius: var(--radius);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
+    .case-study iframe {
+      width: 100%;
+      aspect-ratio: 12/16;
+      border: 3px solid var(--light-bg);
+      border-radius: var(--radius);
+      background: #000;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      display: block;
+    }
 
-.download-link{
-  color: var(--accent3);
-  font-weight: bold;
-  text-decoration: none;
-}
-.download-link:hover{ text-decoration: underline; }
+    .case-study aside {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
 
-/* Reverse layout on desktop only */
-@media (min-width: 900px) {
-  .case-study {
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: start;
-  }
-  .case-study.reverse {
-    grid-template-columns: 0.9fr 1.1fr;
-  }
-}
+    .case-study aside h1 {
+      margin: 0;
+      font-size: clamp(1.25rem, 3.6vw, 1.8rem);
+      color: var(--accent3);
+    }
 
-/* ---------------- FUTURE CASES ---------------- */
+    .case-study aside p,
+    .case-study aside li {
+      color: var(--ink-muted);
+    }
 
-.future-cases {
-  margin: 60px auto;
-  padding: clamp(16px, 4vw, 32px);
-  background: rgba(255,255,255,0.05);
-  border-radius: var(--radius);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
+    .case-study .right-column p,
+    .case-study .right-column li {
+      color: var(--ink-dark);
+    }
 
-.future-item {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  margin-bottom: 60px;
-}
+    .download-link {
+      color: var(--accent3);
+      font-weight: bold;
+      text-decoration: none;
+    }
 
-.future-item img {
-  width: 100%;
-  max-width: 450px;
-  border-radius: var(--radius);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-}
+    .download-link:hover { text-decoration: underline; }
 
-.future-item .text h2 {
-  font-size: 1.6rem;
-  color: var(--accent3);
-}
+    /* ---------------- BUTTONS ---------------- */
 
-@media (min-width: 900px) {
-  .future-item {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-  }
-  .future-item.reverse {
-    direction: rtl;
-  }
-  .future-item.reverse > * {
-    direction: ltr;
-  }
-}
+    .iframe-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 10px;
+    }
 
-/* ---------------- PRE-FOOTER LINKS ---------------- */
+    .pill-toggle {
+      background: var(--accent3);
+      color: var(--ink-dark);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.2s ease;
+    }
 
-.pre-footer{
-  background: var(--bg-dark);
-  padding: 32px 16px 40px;
-  text-align: center;
-  max-width: 1100px;
-  margin: 10px auto 0; /* FIXED SPACING ABOVE */
-}
+    .pill-toggle:hover {
+      background: var(--accent2);
+      color: #fff;
+    }
 
-.pre-footer h3{
-  margin: 0 0 18px;
-  font-family: "tt-modernoir", sans-serif;
-  letter-spacing: 0.18em;
-  font-size: 0.9rem;
-  color: var(--ink-muted);
-  text-transform: uppercase;
-}
+    .contact-link {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 40px;
+      background: var(--accent5);
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      transition: 0.2s ease;
+    }
 
-.pre-footer .footer-stack{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:14px;
-}
+    .contact-link:hover { background: var(--accent2); }
 
-.pre-footer .footer-stack a{
-  width:min(92%, 520px);
-  display:block;
-  text-align:center;
-  color: var(--ink-light);
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.14);
-  padding: 12px 14px;
-  border-radius: 14px;
-  text-decoration:none;
-  font-weight:800;
-  letter-spacing:0.04em;
-}
+    .pill-content {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: rgba(0,0,0,0.05);
+      border-radius: var(--radius);
+    }
 
-.pre-footer .footer-stack a small{
-  display:block;
-  margin-top:4px;
-  font-weight:600;
-  opacity:0.8;
-  letter-spacing:0.02em;
-}
+    /* ---------------- FUTURE CASES ---------------- */
 
-.pre-footer .footer-stack a:hover{
-  background: rgba(255,255,255,0.1);
-  text-decoration: underline;
-}
+    .future-cases {
+      margin: 60px auto;
+      padding: clamp(16px, 4vw, 32px);
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
 
-/* ---------------- FOOTER ---------------- */
+    .future-item {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 60px;
+    }
 
-footer {
-  background: var(--light-bg);
-  color: var(--ink-dark);
-  text-align: center;
-  padding: 20px 14px;
-}
+    .future-item img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
 
-footer nav{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px 14px;
-}
+    .future-item .text h2 {
+      font-size: 1.6rem;
+      color: var(--accent3);
+      margin: 0 0 10px;
+    }
 
-footer nav a {
-  color: var(--ink-dark);
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 10px;
-  border-radius: 10px;
-}
+    /* ---------------- PRE-FOOTER LINKS ---------------- */
 
-footer nav a:hover {
-  text-decoration: underline;
-}
+    .pre-footer {
+      background: var(--bg-dark);
+      padding: 32px 16px 40px;
+      text-align: center;
+      max-width: 1100px;
+      margin: 10px auto 0;
+    }
 
-/* ---------------- MOBILE TWEAKS ---------------- */
+    .pre-footer h3 {
+      margin: 0 0 18px;
+      font-family: "Libre Baskerville", serif;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 1.2rem;
+      color: var(--ink-muted);
+      text-transform: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
 
-@media (max-width: 600px){
-  main{ padding: 16px; }
-  .case-study{ gap: 18px; }
-  .case-study iframe{ aspect-ratio: 10/14; }
-  ul.aligned{ padding-left: 20px; }
-}
-</style>
+    .pre-footer-description {
+      max-width: 600px;
+      margin: 0 auto 24px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .pre-footer .footer-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-link {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--ink-light);
+      text-decoration: none;
+      display: block;
+      width: min(92%, 520px);
+      margin: 0 auto;
+      transition: 0.2s ease;
+      word-break: break-word;
+    }
+
+    .footer-link:hover {
+      background: rgba(255,255,255,0.12);
+      text-decoration: underline;
+    }
+
+    .back-link { margin-top: 10px; font-weight: bold; }
+
+    /* ---------------- FOOTER ---------------- */
+
+    footer {
+      background: var(--light-bg);
+      color: var(--ink-dark);
+      text-align: center;
+      padding: 20px 14px;
+    }
+
+    footer nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 14px;
+    }
+
+    footer nav a {
+      color: var(--ink-dark);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+
+    footer nav a:hover { text-decoration: underline; }
+
+    /* ---------------- RESPONSIVE ---------------- */
+
+    @media (min-width: 900px) {
+      .case-study {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: start;
+      }
+      .case-study.reverse {
+        grid-template-columns: 0.9fr 1.1fr;
+      }
+
+      .right-column p,
+      .right-column li {
+        color: var(--ink-dark);
+        line-height: 1.7;
+      }
+
+      .right-column strong {
+        color: var(--accent6);
+        font-weight: 700;
+      }
+
+      .right-column ul.aligned > li {
+        margin-bottom: 26px;
+      }
+
+      .right-column ul ul {
+        margin-top: 8px;
+        padding-left: 20px;
+        opacity: 0.9;
+      }
+
+      .future-item {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+      }
+      .future-item.reverse { direction: rtl; }
+      .future-item.reverse > * { direction: ltr; }
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 16px; }
+      .case-study { gap: 18px; }
+      .case-study iframe { aspect-ratio: 10/14; }
+      ul.aligned { padding-left: 20px; }
+      .problem-block { padding: 18px; }
+    }
+  </style>
 </head>
 
 <body>
+  <header>KOALA SPIES SYDNEY</header>
 
-<header>KOALA SPIES SYDNEY</header>
+  <main>
+    <!-- SECTION 1 -->
+    <section class="tile-header">
+      <h2>Digital Updatable Tests</h2>
+      <p><q>Standardized tests are useful for ranking, but not for learning.</q><br><cite>— Sir Ken Robinson</cite></p>
+    </section>
 
-<main>
+    <section class="problem-block">
+      <h1>Problems</h1>
+      <p>
+        <strong>This is a problem I noticed while working in English Colleges in Australia:</strong>
+        schools rely heavily on photocopied tests, creating unnecessary administration costs and waste;
+        classrooms are tied to outdated textbooks that feel disconnected from real life in Australia;
+        students, used to digital environments, find paper-based tests tedious and demotivating;
+        and compliance-driven assessment practices often reduce testing to a box-ticking exercise rather than a meaningful measure of progress.
+      </p>
+    </section>
 
-  <!-- SECTION 1 -->
-  <section class="tile-header">
-    <h2>Digital Updatable Tests</h2>
-    <p><q>Standardized tests are useful for ranking, but not for learning.</q><br><cite>— Sir Ken Robinson</cite></p>
-  </section>
+    <section class="case-study reverse" aria-label="Digital updatable tests case study">
+      <!-- LEFT COLUMN -->
+      <div class="left-column">
+        <iframe
+          src="https://koalaspiessydney.github.io/CAEuseofeng13/"
+          title="CAE Use of English Demo"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-  <!-- UPDATED PROBLEM BLOCK -->
-  <section class="problem-block">
-    <h1>Problems</h1>
-    <p>
-      <strong>This is a problem I noticed while working in English Colleges in Australia:</strong>
-      schools rely heavily on photocopied tests, creating unnecessary administration costs and waste; 
-      classrooms are tied to outdated textbooks that feel disconnected from real life in Australia; 
-      students, used to digital environments, find paper‑based tests tedious and demotivating; 
-      and compliance‑driven assessment practices often reduce testing to a box‑ticking exercise rather than a meaningful measure of progress.
-    </p>
-  </section>
-<section class="case-study reverse">
-  <iframe src="https://koalaspiessydney.github.io/CAEuseofeng13/" title="CAE Use of English Demo"></iframe>
+        <div class="iframe-buttons">
+          <button class="pill-toggle" type="button" onclick="toggleResearch()">Research</button>
+          <a class="contact-link" href="contact.html">Contact me for a quote</a>
+        </div>
 
-  <aside>
-    <section class="centered">
-      <aside>
+        <div id="research-content" class="pill-content" aria-label="Research content">
+          <h1>Research</h1>
+          <p>
+            Over the course of a year, this assessment format was tested across multiple ESL classes
+            in several Sydney language schools. Student feedback was consistent and highlighted
+            several clear advantages.
+          </p>
+
+          <ul class="aligned">
+            <li><strong>Higher engagement on phones</strong><br />Students overwhelmingly preferred the mobile version over paper.</li>
+            <li><strong>Preferred hybrid mode</strong><br />Most liked questions on phones but answers on paper.</li>
+            <li><strong>Low levels of cheating</strong><br />Cheating was rare; timers prevent AI-lookup.</li>
+            <li><strong>Improved memory and recall</strong><br />Students said the format helped prompt their memory.</li>
+            <li><strong>Voluntary revision outside class</strong><br />Many reviewed their feedback on public transport.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <aside class="right-column">
         <h1>Solution</h1>
 
         <p>
-          Design the assessment system around 
-          <strong>simple, modular templates</strong> 
-          that teachers can adapt instantly, without technical friction or platform lock‑in. 
-          The goal is to give teachers full control over delivery, content, and alignment 
-          with pedagogy and future exam pathways.
+          Design the assessment system around
+          <strong>simple, modular templates</strong>
+          that teachers can adapt instantly, without technical friction or platform lock-in.
         </p>
 
         <ul class="aligned">
-
           <li>
-            <strong>1. Flexible Delivery Modes</strong><br>
-            Build each test so it can be deployed in multiple formats with no extra setup:
+            <strong>1. Flexible Delivery Modes</strong>
             <ul>
-              <li>Mobile Q&A with automatic scoring for quick checks or homework.</li>
-              <li>Phone‑based questions + printable answer sheet for peer‑marking, revision sessions, or low‑tech classrooms.</li>
-              <li>Projected test + student phone responses for whole‑class engagement.</li>
+              <li>Mobile Q&A with automatic scoring</li>
+              <li>Phone questions + paper answer sheet</li>
+              <li>Projected test + phone responses</li>
             </ul>
           </li>
 
           <li>
-            <strong>2. Easy Teacher Editing and Localisation</strong><br>
-            Ensure every test is editable through <strong>plain, simple templates</strong>:
+            <strong>2. Easy Teacher Editing and Localisation</strong>
             <ul>
-              <li>Teachers can update questions to match what they actually taught.</li>
-              <li>Content can be personalised to their city, students, or current events.</li>
-              <li>Editing should be as easy as typing into a Word document and pasting into the template—no navigating complex paid platforms or restrictive interfaces.</li>
+              <li>Update questions to match what was taught</li>
+              <li>Personalise to city, students, or current events</li>
+              <li>Edit via Word → paste into template</li>
             </ul>
-            This keeps assessments relevant, authentic, and responsive to real classroom learning.
           </li>
 
           <li>
-            <strong>3. Consistency With Textbook Pedagogy</strong><br>
-            Structure the templates so they naturally follow the sequence, skills focus, and scaffolding of the textbook. This ensures:
+            <strong>3. Consistency With Textbook Pedagogy</strong>
             <ul>
-              <li>Smooth integration with lesson flow</li>
-              <li>Reinforcement of target language and skills</li>
-              <li>Predictability for students and teachers</li>
+              <li>It is the same test but with updates</li>
             </ul>
-            The tests become an extension of the textbook rather than a separate system.
           </li>
 
           <li>
-            <strong>4. Alignment With High‑Stakes Exam Formats</strong><br>
-            Incorporate question types that mirror the tasks students will face in exams like PTE and IELTS:
+            <strong>4. High-Stakes Exam Alignment</strong>
             <ul>
-              <li>Convert listening passages into Write From Dictation‑style items</li>
-              <li>Include summarising, reordering, gap‑fills, and integrated skills tasks</li>
-              <li>Use distractor patterns and difficulty levels that reflect real exam logic</li>
+              <li>Write-from-dictation style tasks</li>
+              <li>Summaries, reorderings, gap-fills</li>
             </ul>
-            This builds familiarity and confidence long before students reach those high‑stakes moments.
           </li>
 
           <li>
-            <strong>5. Significant Time and Cost Savings</strong><br>
-            Provide ready‑to‑use test templates that require only quick weekly personalisation.  
-            This removes the need for teachers to build assessments from scratch, eliminates constant photocopying,  
-            and reduces reliance on expensive subscription platforms.  
-            Schools save on paper and printing costs, while teachers reclaim valuable preparation time.
+            <strong>5. Time + Cost Savings</strong>
+            <ul>
+              <li>Templates ready to go each week</li>
+              <li>No photocopying or subscription frees</li>
+            </ul>
           </li>
-
-          <li>
-            <a href="contact.html">Contact me for a quote</a>
-          </li>
-
         </ul>
       </aside>
     </section>
-  </aside>
-</section>
-<section class="case-study">
-  <aside>
-    <section class="centered">
+
+    <!-- SECTION 2 -->
+    <section class="tile-header">
+      <h2>Class Soundtrack</h2>
+      <p><q>Tell me and I forget, teach me and I may remember, involve me and I learn.</q><br><cite>— Benjamin Franklin</cite></p>
+    </section>
+
+    <section class="case-study reverse" aria-label="Class soundtrack case study">
+      <iframe
+        src="https://koalaspiessydney.github.io/Int4/"
+        title="Class Soundtrack Demo"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
       <aside>
-        <h1>Research</h1>
-
+        <h1>Creative Classroom</h1>
         <p>
-          Over the course of a year, this assessment format was tested across multiple ESL classes 
-          in several Sydney language schools. Student feedback was consistent and highlighted 
-          several clear advantages.
+          A Class Soundtrack, a soundtrack to learning - This is an adaptive, easy-to-use template designed
+          for active language production rather than passive practice.
         </p>
 
+        <h1>A Case Study</h1>
+        <p>This is an activity I did in an intermediate class last year.</p>
+
         <ul class="aligned">
-
           <li>
-            <strong>Higher engagement on phones</strong><br>
-            When the same test was delivered on both paper and mobile, students overwhelmingly 
-            reported that the mobile version felt more engaging and motivating.
+            Students wrote their own sentences and selected genres, then their ideas were transformed into full songs using Suno,
+            another audio creating platform or if they have talent, play and record.
           </li>
-
           <li>
-            <strong>Preferred hybrid mode</strong><br>
-            Most students liked receiving the questions on their phones but writing their answers 
-            on paper. This gave them the ease of digital delivery with the cognitive benefits of 
-            handwriting.
+            Grammar and pronunciation targets were uploaded into the system, which students found amusing but surprisingly effective for reinforcing accuracy.
           </li>
-
           <li>
-            <strong>Low levels of cheating</strong><br>
-            Cheating was rare. In the few cases where students checked answers, it functioned more 
-            like self‑study—they ended up learning content they had missed in class. A simple 
-            per‑question timer prevents students from typing prompts into AI tools.
+            The process encouraged collaboration — students compared lyrics, shared ideas, and refined each other’s language.
           </li>
-
           <li>
-            <strong>Improved memory and recall</strong><br>
-            Students consistently described the format as memory‑prompting and helpful for recall. 
-            The interactive delivery kept them focused and reduced test anxiety.
+            The students leave your class with a memory and an achievement, which can only be good for the teachers and schools word-of-moth.
           </li>
-
-          <li>
-            <strong>Voluntary revision outside class</strong><br>
-            When feedback was returned, many students reviewed their incorrect answers on public 
-            transport or at home. The mobile format made it easy to revisit results without needing 
-            classroom materials.
-          </li>
-
         </ul>
+
+        <section class="music-pill" aria-label="Learning through music">
+          <button class="pill-toggle" type="button" onclick="toggleMusic()">Learning Through Music</button>
+
+          <div id="music-content" class="pill-content">
+            <h1>Learning Through Music</h1>
+
+            <p>
+              For most of human history, music functioned as a memory technology. Long before writing existed,
+              ancient civilisations used rhythm, melody, and repetition to preserve knowledge across generations.
+              In Ancient Greece, epic poems such as <em>The Iliad</em> and <em>The Odyssey</em> were sung rather than read,
+              because melody made thousands of lines easier to recall. In West Africa, griots carried genealogies,
+              laws, and histories through musical storytelling. And in Australia, Indigenous cultures maintained
+              vast networks of knowledge through <strong>songlines</strong>—musical maps encoding geography, law,
+              spirituality, and survival skills. A songline wasn’t just a song; it was a living archive.
+            </p>
+
+            <p>
+              Even classical philosophers recognised the cognitive power of music. In Plato’s dialogue
+              <em>Phaedrus</em>, Socrates warns that the new technology of writing would weaken human memory.
+              He believed that once people relied on written text, they would stop exercising the mental discipline
+              supported by rhythm, recitation, and song. Whether or not he was right, the anxiety reveals how
+              deeply music was tied to memory and learning.
+            </p>
+
+            <p>
+              Modern research continues to show why music is so effective for learning. Writing lyrics, shaping
+              rhythm, and choosing melody require deeper processing of vocabulary, structure, stress, and
+              pronunciation. When students turn language into a song, they encode it across multiple neural
+              pathways. The result is stronger recall, clearer pronunciation, and higher engagement than
+              traditional drills.
+            </p>
+          </div>
+        </section>
       </aside>
     </section>
-  </aside>
-</section>
 
+    <!-- SECTION 3 -->
+    <section class="tile-header">
+      <h2>Adaptive Lessons</h2>
+      <p><q>Technology will never replace great teachers but technology in the hands of great teachers can be transformationa.</q><br><cite>— George Couros</cite></p>
+    </section>
 
-  <!-- SECTION 2 -->
-  <section class="tile-header">
-    <h2>Class Soundtrack</h2>
-    <p><q>Tell me and I forget...</q><br><cite>— Benjamin Franklin</cite></p>
-  </section>
+    <!-- PRE-FOOTER -->
+    <section class="pre-footer" aria-label="Modern English Australia links">
+      <h3>Modern English Australia</h3>
 
-  <section class="case-study reverse">
-    <iframe src="https://koalaspiessydney.github.io/Int4/" title="Class Soundtrack Demo"></iframe>
-    <aside>
-      <h1>An Adaptive & Easy to Use Template</h1>
-      <ul class="aligned">
-        <li><strong>This is a template I developed for active practice.</strong></li>
-        <li><strong>Students wrote their own sentences, chose genres and we wrote songs on SUno</strong></li>
-        <li><strong>I also uploaded grammar and pronunciation points whcih they amusing but surprisingly effective</strong></li>
-        <li><strong style="color:#800080;">Click on a song to listen.</strong></li>
-      </ul>
-    </aside>
-  </section>
+      <p class="pre-footer-description">
+        Please also take a look at my dedicated Learning Design & EdTech site.
+        It includes free micro-lessons, games, assessments, and examples of how
+        I integrate technology into practical classroom workflows.
+      </p>
 
-  <section class="tile-header">
-    <h2>Adaptive Lessons</h2>
-    <p><q>Technology will never replace great teachers...</q><br><cite>— George Couros</cite></p>
-  </section>
+      <div class="footer-stack">
+        <a href="https://koalaspiessydney.github.io/ModernEnglishAU/index.html" class="footer-link">
+          Modern English Australia — EdTech Site
+        </a>
 
-<!-- NEW LINKS: ABOVE FOOTER, IN BLACK AREA -->
-<section class="pre-footer" aria-label="Modern English Australia links">
-  <h3>Modern English Australia</h3>
+        <a href="https://koalaspiessydney.github.io/ModernEnglishAU/microlesson.html" class="footer-link">
+          Free Games and Lessons
+        </a>
 
-  <div class="footer-stack">
-    <a href="https://koalaspiessydney.github.io/ModernEnglishAU/index.html">
-      <small>Modern English Australia - my ed tech site</small>
-    </a>
+        <a href="https://koalaspiessydney.github.io/ModernEnglishAU/MEAtests.html" class="footer-link">
+          Free Mini PTE, IELTS & Exams
+        </a>
 
-    <a href="https://koalaspiessydney.github.io/ModernEnglishAU/microlesson.html">
-      <small>Free Games and Lessons</small>
-    </a>
+        <a href="index.html" class="footer-link back-link">
+          ← Back to Portfolio
+        </a>
+      </div>
+    </section>
+  </main>
 
-    <a href="https://koalaspiessydney.github.io/ModernEnglishAU/MEAtests.html">
-      <small>Free Mini PTE, IELTS &amp; Exams</small>
-      
-    <a href="index.html" class="back-link">← Back to Portfolio</a>
-  </section>
+  <footer>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="DigitalEPs.html">More</a>
+    </nav>
+  </footer>
 
-      </main>
-    </a>
-  </div>
-</section>
+  <script>
+    function toggleResearch() {
+      const box = document.getElementById("research-content");
+      box.style.display = (box.style.display === "block") ? "none" : "block";
+    }
 
-<footer>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="DigitalEPs.html">More</a>
-  </nav>
-</footer>
-
+    function toggleMusic() {
+      const box = document.getElementById("music-content");
+      box.style.display = (box.style.display === "block") ? "none" : "block";
+    }
+  </script>
 </body>
 </html>
+
