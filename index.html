@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Koala Spies Sydney</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
+
   <style>
     :root {
       --bg-dark: #1e1e1e;     /* charcoal */
@@ -22,24 +23,35 @@
     }
 
     *{ box-sizing: border-box; }
+    html, body { height: 100%; }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: var(--ink-light);
       color: var(--bg-dark);
+      overflow-x: hidden; /* prevents iOS “tiny overflow” misalignment */
+      -webkit-text-size-adjust: 100%;
     }
 
     header {
       background: var(--light-bg);
       color: var(--ink-dark);
       text-align: center;
-      padding: 10px;
+      padding: clamp(10px, 2vw, 18px) 12px;
+
       font-family: "tt-modernoir", sans-serif;
       font-weight: 700;
       font-style: normal;
-      font-size: 5.2rem;
-      letter-spacing: 10px;
+
+      /* iPhone-safe: clamps prevent overflow */
+      font-size: clamp(2.2rem, 6vw, 5.2rem);
+      letter-spacing: clamp(2px, 1.4vw, 10px);
+      line-height: 1.05;
+
+      /* keep it from forcing horizontal scroll */
+      white-space: normal;
+      word-break: break-word;
     }
 
     main {
@@ -60,7 +72,10 @@
       line-height: 1.6;
       letter-spacing: 1.2px;
       color: var(--ink-muted);
-      position: relative; /* required for your shimmer ::after */
+      position: relative;
+
+      /* IMPORTANT: prevents shimmer overlay from creating horizontal overflow on iOS */
+      overflow: hidden;
     }
 
     .intro p::after {
@@ -88,136 +103,121 @@
     }
 
     /* ===================== TILES (4 tiles fill screen) ===================== */
-    /* ===== Tile colours (4 tiles) ===== */
-.tiles a:nth-child(1) .tile {
-  background:
-    radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.18) 0%,
-      rgba(0, 0, 0, 0.10) 70%,
-      rgba(0, 0, 0, 0.25) 100%
-    ),
-    var(--accent2);
-}
-
-.tiles a:nth-child(2) .tile {
-  background:
-    radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.18) 0%,
-      rgba(0, 0, 0, 0.10) 70%,
-      rgba(0, 0, 0, 0.25) 100%
-    ),
-    var(--accent1);
-}
-
-.tiles a:nth-child(3) .tile {
-  background:
-    radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.18) 0%,
-      rgba(0, 0, 0, 0.10) 70%,
-      rgba(0, 0, 0, 0.25) 100%
-    ),
-    var(--accent3);
-  color: var(--ink-dark); /* because gold is light */
-}
-
-.tiles a:nth-child(4) .tile {
-  background:
-    radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.18) 0%,
-      rgba(0, 0, 0, 0.10) 70%,
-      rgba(0, 0, 0, 0.25) 100%
-    ),
-    var(--accent4);
-}
-
-
-    /* ===== TILES: 4 squares fill the width in 2x2 on desktop ===== */
-
-.tiles{
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(18px, 3vw, 60px);
-  margin-top: 40px;
-}
-
-/* keep link block-level */
-.tile-link{
-  display:block;
-  text-decoration:none;
-  color:inherit;
-}
-
-/* true square tile */
-.tile{
-  position:relative;
-  aspect-ratio: 1 / 1;     /* modern + clean */
-  border-radius: 12px;
-  overflow:hidden;
-  text-align:center;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.tile:hover{
-  transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-}
-
-.tile-content{
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding: clamp(16px, 3vw, 40px);
-}
-
-/* image stays square inside */
-.tile img{
-  width: min(62%, 260px);
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: clamp(16px, 3vw, 48px);
-  background: rgba(255,255,255,0.3);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-
-.tile h3{
-  margin:0;
-  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
-  line-height: 1.35;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-}
-
-/* Mobile: keep your current layout */
-@media (max-width: 767px){
-  .tiles{
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-}
-
-
-    /* Tablets: keep 2 columns but slightly tighter */
-    @media (max-width: 1199px) and (min-width: 768px) {
-      .tiles {
-        gap: 28px;
-        min-height: calc(100vh - 240px);
-      }
-      header { font-size: 4.2rem; letter-spacing: 8px; }
+    .tiles a:nth-child(1) .tile {
+      background:
+        radial-gradient(circle at center,
+          rgba(255, 255, 255, 0.18) 0%,
+          rgba(0, 0, 0, 0.10) 70%,
+          rgba(0, 0, 0, 0.25) 100%
+        ),
+        var(--accent2);
     }
 
-    /* Phones: keep your current single-column layout */
+    .tiles a:nth-child(2) .tile {
+      background:
+        radial-gradient(circle at center,
+          rgba(255, 255, 255, 0.18) 0%,
+          rgba(0, 0, 0, 0.10) 70%,
+          rgba(0, 0, 0, 0.25) 100%
+        ),
+        var(--accent1);
+    }
+
+    .tiles a:nth-child(3) .tile {
+      background:
+        radial-gradient(circle at center,
+          rgba(255, 255, 255, 0.18) 0%,
+          rgba(0, 0, 0, 0.10) 70%,
+          rgba(0, 0, 0, 0.25) 100%
+        ),
+        var(--accent3);
+      color: var(--ink-dark);
+    }
+
+    .tiles a:nth-child(4) .tile {
+      background:
+        radial-gradient(circle at center,
+          rgba(255, 255, 255, 0.18) 0%,
+          rgba(0, 0, 0, 0.10) 70%,
+          rgba(0, 0, 0, 0.25) 100%
+        ),
+        var(--accent4);
+    }
+
+    .tiles{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(18px, 3vw, 60px);
+      margin-top: 40px;
+    }
+
+    .tile-link{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      min-width: 0;
+    }
+
+    .tile{
+      position:relative;
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      overflow:hidden;
+      text-align:center;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Fallback for older browsers */
+    @supports not (aspect-ratio: 1 / 1){
+      .tile{ height: 0; padding-top: 100%; }
+      .tile-content{ position:absolute; inset:0; }
+    }
+
+    .tile:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+
+    .tile-content{
+      position:absolute;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding: clamp(16px, 3vw, 40px);
+    }
+
+    .tile img{
+      width: min(62%, 260px);
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: clamp(16px, 3vw, 48px);
+      background: rgba(255,255,255,0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      display:block;
+    }
+
+    .tile h3{
+      margin:0;
+      font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+      line-height: 1.35;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    }
+
+    /* Tablets */
+    @media (max-width: 1199px) and (min-width: 768px) {
+      .tiles { gap: 28px; }
+    }
+
+    /* Phones */
     @media (max-width: 767px) {
-      header { font-size: 2.6rem; letter-spacing: 6px; }
       .tiles {
         grid-template-columns: 1fr;
         gap: 24px;
-        min-height: unset;
       }
-      .tile { min-height: 320px; }
       .tile h3 { font-size: 0.95rem; }
     }
 
@@ -229,92 +229,105 @@
       text-align: center;
     }
 
+    /* ===== Inline link buttons (row) ===== */
+    .link-buttons{
+      max-width: 900px;
+      margin: 26px auto 6px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap; /* prevents overflow on narrow widths */
+    }
+
+    .link-buttons a{
+      flex: 1 1 220px;         /* wrap nicely */
+      min-width: 0;            /* important for iOS flex overflow */
+      text-align: center;
+      padding: 14px 16px;
+      background: #ffffff;
+      color: #1e1e1e;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,0.10);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .link-buttons a:hover{
+      transform: translateY(-2px);
+      background: #f7f7f7;
+      box-shadow: 0 12px 26px rgba(0,0,0,0.14);
+    }
+
+    /* Mobile: stack neatly */
+    @media (max-width: 700px){
+      .link-buttons{
+        flex-direction: column;
+        gap: 14px;
+      }
+      .link-buttons a{
+        flex: 1 1 auto;
+      }
+    }
+
     footer {
       margin-top: 20px;
       background: var(--light-bg);
       color: var(--ink-dark);
       text-align: center;
-      padding: 10px;
+      padding: 12px 10px;
+    }
+
+    footer nav{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap; /* prevents overflow */
+      gap: 10px 18px;
     }
 
     footer nav a {
       color: var(--ink-dark);
-      margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
       letter-spacing: 5px;
+    }
+
+    /* iPhone-safe footer spacing */
+    @media (max-width: 480px){
+      footer nav a{
+        letter-spacing: 2px;
+      }
     }
 
     footer nav a:hover {
       text-decoration: underline;
     }
 
+    /* Coming soon tile */
+    .tile-link.coming-soon { cursor: not-allowed; }
+    .tile-link.coming-soon .tile { position: relative; }
 
-    /* ===== Inline link buttons (row) ===== */
-.link-buttons{
-  max-width: 900px;
-  margin: 26px auto 6px;
-  display: flex;
-  justify-content: space-between;   /* even spacing across row */
-  gap: 18px;
-}
-
-.link-buttons a{
-  flex: 1;                           /* equal width buttons */
-  text-align: center;
-  padding: 14px 16px;
-  background: #ffffff;
-  color: #1e1e1e;                    /* charcoal */
-  text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 1.1px;
-  border-radius: 14px;
-  border: 1px solid rgba(0,0,0,0.10);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.10);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-
-.link-buttons a:hover{
-  transform: translateY(-2px);
-  background: #f7f7f7;
-  box-shadow: 0 12px 26px rgba(0,0,0,0.14);
-}
-
-/* Mobile: stack neatly */
-@media (max-width: 700px){
-  .link-buttons{
-    flex-direction: column;
-    gap: 14px;
-  }
-}
-
-    /* ===== Stacked buttons under copyright ===== */
-/* Coming soon tile (optional) */
-.tile-link.coming-soon { cursor: not-allowed; }
-.tile-link.coming-soon .tile { position: relative; }
-
-.tile-link.coming-soon .tile::after{
-  content:"COMING SOON";
-  position:absolute;
-  top: 14px;
-  right: 14px;
-  padding: 8px 10px;
-  border-radius: 999px;
-  background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: #fff;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  font-size: 0.75rem;
-}
-
-
+    .tile-link.coming-soon .tile::after{
+      content:"COMING SOON";
+      position:absolute;
+      top: 14px;
+      right: 14px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+    }
   </style>
 </head>
 
 <body>
   <header>Koala Spies Sydney</header>
-
 
   <main>
     <section class="intro">
@@ -323,83 +336,80 @@
       </p>
     </section>
 
-<section class="tiles">
-  <a href="LearningDesign.html" class="tile-link">
-    <div class="tile">
-      <div class="tile-content">
-        <img src="ModernEnglish.png" alt="Learning Design">
-        <h3>Learning Design</h3>
-      </div>
-    </div>
-  </a>
+    <section class="tiles">
+      <a href="LearningDesign.html" class="tile-link">
+        <div class="tile">
+          <div class="tile-content">
+            <img src="ModernEnglish.png" alt="Learning Design">
+            <h3>Learning Design</h3>
+          </div>
+        </div>
+      </a>
 
-  <a href="DigitalEPs.html" class="tile-link">
-    <div class="tile">
-      <div class="tile-content">
-        <img src="Ayeeyaposter.png" alt="Offline Music EPs">
-        <h3> Alternative Music App</h3>
-      </div>
-    </div>
-  </a>
+      <a href="DigitalEPs.html" class="tile-link">
+        <div class="tile">
+          <div class="tile-content">
+            <img src="Ayeeyaposter.png" alt="Offline Music EPs">
+            <h3>Alternative Music App</h3>
+          </div>
+        </div>
+      </a>
 
-  <a href="https://koalaspiessydney.github.io/Greekwords/index.html" class="tile-link">
-    <div class="tile">
-      <div class="tile-content">
-        <img src="balladposter.png" alt="Cassettes">
-        <h3>Writing Portfolio</h3>
-      </div>
-    </div>
-  </a>
-<a href="https://koalaspies.myportfolio.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnbQYZoEK7jqDiZuyeKUGXDouMdSAr5qLnXv-N3jox_WbwWvBDjx-UUKOwPjw_aem_yHYrwc5jC2ftvPzjkb4Row" class="tile-link coming-soon" aria-label="Apps without Algorithms (Coming soon)">
-    <div class="tile">
-      <div class="tile-content">
-        <img src="Urapp2.png" alt="Apps with Algorithms">
-        <h3>illustration Portfolio</h3>
-      </div>
-    </div>
-  </a>
-</section>
+      <a href="https://koalaspiessydney.github.io/Greekwords/index.html" class="tile-link">
+        <div class="tile">
+          <div class="tile-content">
+            <img src="balladposter.png" alt="Cassettes">
+            <h3>Writing Portfolio</h3>
+          </div>
+        </div>
+      </a>
 
-<section class="copyright">
-  <p>copyright Koala Spies Sydney</p>
-</section>
+      <a href="https://koalaspies.myportfolio.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnbQYZoEK7jqDiZuyeKUGXDouMdSAr5qLnXv-N3jox_WbwWvBDjx-UUKOwPjw_aem_yHYrwc5jC2ftvPzjkb4Row"
+         class="tile-link coming-soon"
+         aria-label="Apps without Algorithms (Coming soon)">
+        <div class="tile">
+          <div class="tile-content">
+            <img src="Urapp2.png" alt="Apps with Algorithms">
+            <h3>Illustration Portfolio</h3>
+          </div>
+        </div>
+      </a>
+    </section>
 
-<section class="link-buttons">
-  <a href="https://koalaspiessydney.github.io/ModernEnglishAU/" target="_blank" rel="noopener noreferrer">
-    Modern English AU
-  </a>
-  <a href="https://justinerkelly64d9.myportfolio.com/work" target="_blank" rel="noopener noreferrer">
-     Writing Portfolio
-  </a>
-  <a href="https://koalaspies.myportfolio.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnbQYZoEK7jqDiZuyeKUGXDouMdSAr5qLnXv-N3jox_WbwWvBDjx-UUKOwPjw_aem_yHYrwc5jC2ftvPzjkb4Row">
-    Artwork & Illustration
-  </a>
-</section>
+    <section class="copyright">
+      <p>copyright Koala Spies Sydney</p>
+    </section>
 
+    <section class="link-buttons">
+      <a href="https://koalaspiessydney.github.io/ModernEnglishAU/" target="_blank" rel="noopener noreferrer">
+        Modern English AU
+      </a>
+      <a href="https://justinerkelly64d9.myportfolio.com/work" target="_blank" rel="noopener noreferrer">
+        Writing Portfolio
+      </a>
+      <a href="https://koalaspies.myportfolio.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnbQYZoEK7jqDiZuyeKUGXDouMdSAr5qLnXv-N3jox_WbwWvBDjx-UUKOwPjw_aem_yHYrwc5jC2ftvPzjkb4Row">
+        Artwork &amp; Illustration
+      </a>
+    </section>
   </main>
+
   <footer>
     <nav>
-
       <a href="about.html">About Justine</a>
-      <a href="contact.html">Contact & Quotes</a>
-      
-     
+      <a href="contact.html">Contact &amp; Quotes</a>
     </nav>
   </footer>
+
+  <script>
+    document.querySelectorAll('a.coming-soon').forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('Coming soon — this tile is still being built.');
+      });
+    });
+  </script>
 </body>
 </html>
-
-<script>
-  document.querySelectorAll('a.coming-soon').forEach(a => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      alert('Coming soon — this tile is still being built.');
-    });
-  });
-</script>
-
-
-
 
 
 
