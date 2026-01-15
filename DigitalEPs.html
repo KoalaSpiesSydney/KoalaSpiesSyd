@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Koala Spies Sydney – Case Studies</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
-<link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
   <style>
 :root {
@@ -28,6 +28,8 @@
 
 * { box-sizing: border-box; }
 
+html, body { height: 100%; }
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -36,77 +38,104 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
+  /* iOS/Android alignment helpers */
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
 }
+
+img { max-width: 100%; height: auto; display: block; }
 
 /* ===== Header ===== */
 header {
   background: var(--light-bg);
   color: var(--ink-dark);
   text-align: center;
-  padding: 20px;
+
+  /* prevent iPhone overflow from huge letter-spacing */
+  padding: clamp(14px, 3vw, 20px) 16px;
   font-family: "tt-modernoir", sans-serif;
   font-weight: 700;
-  font-size: 4rem;
-  letter-spacing: 10px;
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  letter-spacing: clamp(2px, 1.8vw, 10px);
+  line-height: 1.05;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 /* ===== Main Layout ===== */
 main {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+
+  padding: clamp(18px, 4vw, 40px) clamp(14px, 3vw, 20px);
+
+  /* safe area on iPhone (notches) */
+  padding-left: max(clamp(14px, 3vw, 20px), env(safe-area-inset-left));
+  padding-right: max(clamp(14px, 3vw, 20px), env(safe-area-inset-right));
 }
 
 /* ===== Section Head ===== */
+.tile-header {
+  background: rgba(255,255,255,0.06);
+  padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 20px);
+  border-radius: var(--radius);
+  text-align: center;
+  margin-bottom: clamp(22px, 5vw, 40px);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.15);
 
-    .tile-header {
-      background: rgba(255,255,255,0.06);
-      padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 20px);
-      border-radius: var(--radius);
-      text-align: center;
-      margin-bottom: clamp(22px, 5vw, 40px);
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.15);
-    }
+  /* avoid subtle overflow drift */
+  overflow: hidden;
+}
 
-    .tile-header h2 {
-      margin: 0 0 10px;
-      font-family: "Libre Baskerville", serif;
-      font-weight: 900;
-      letter-spacing: 0.2em;
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      color: var(--accent1);
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-    }
+.tile-header h2 {
+  margin: 0 0 10px;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  color: var(--accent1);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 
-    .tile-header p {
-      margin: 0;
-      font-size: clamp(0.98rem, 2.8vw, 1.1rem);
-      font-style: italic;
-      color: var(--ink-light);
+  overflow-wrap: anywhere;
+}
 
-    }
-    
-    .problem-block {
-      margin: 40px 0;
-      background: rgba(255,255,255,0.05);
-      padding: 24px;
-      border-radius: var(--radius);
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.12);
-    }
+.tile-header p {
+  margin: 12px 0 0;
+  font-size: clamp(0.98rem, 2.8vw, 1.1rem);
+  font-style: italic;
+  color: rgba(255,255,255,0.9);
+  overflow-wrap: anywhere;
+}
 
-    .problem-block p {
-      line-height: 1.6;
-      color: var(--ink-muted);
-      margin: 0;
-    }
-    
+.problem-block {
+  margin: 40px 0;
+  background: rgba(255,255,255,0.05);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.12);
+  overflow: hidden;
+}
+
+.problem-block p {
+  line-height: 1.7;
+  color: var(--ink-muted);
+  margin: 0;
+  letter-spacing: 0.02em;
+  overflow-wrap: anywhere;
+}
+
 /* Match Solution & Benefits typography to Problems */
 ul.aligned li {
-  font-family: Arial, Helvetica, sans-serif; /* same as body */
+  font-family: Arial, Helvetica, sans-serif;
   color: var(--ink-muted);
   letter-spacing: 0.02em;
   line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
 .case-aside .ninety-title {
@@ -128,26 +157,12 @@ ul.aligned li {
   color: transparent;
 }
 
-.tile-header p {
-  margin: 12px 0 0;
-  color: rgba(255,255,255,0.9);
-}
-
 /* ===== Problems / Solutions / Benefits ===== */
-
 h1 {
   color: var(--accent3);
   letter-spacing: 0.05em;
-  margin: 20px 0 20px;   /* reduced + consistent */
-  
-
-}
-
-
-.problem-block p {
-  letter-spacing: 0.02em;
-  line-height: 1.7;
-  margin-top: 0px;
+  margin: 20px 0 20px;
+  overflow-wrap: anywhere;
 }
 
 /* ===== Lists ===== */
@@ -157,25 +172,31 @@ ul.aligned {
   margin: 0 0 16px;
 }
 
-ul.aligned li {
-  margin: 0 0 10px;
-  line-height: 1.55;
-}
-
 /* =========================================
    CASE STUDY LAYOUT
    ========================================= */
 .case-study {
   display: grid;
+
+  /* desktop default */
   grid-template-columns: 1fr 1.15fr;
-  gap: 40px;
+  gap: clamp(18px, 4vw, 40px);
   align-items: start;
+
   background: #eee6e6;
   color: #222;
-  padding: 40px;
+
+  padding: clamp(18px, 4vw, 40px);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+
+  /* KEY for iPhone: prevent grid children forcing overflow */
+  overflow: hidden;
+  min-width: 0;
 }
+
+/* stop iframe/asides from forcing width on iOS */
+.case-study > * { min-width: 0; }
 
 .case-study iframe {
   width: 100%;
@@ -184,6 +205,9 @@ ul.aligned li {
   border-radius: var(--radius-sm);
   background: #000;
   box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  display: block;
+
+  overflow: hidden;
 }
 
 /* ===== Aside (shared) ===== */
@@ -193,6 +217,7 @@ ul.aligned li {
   gap: 14px;
   line-height: 1.6;
   font-size: 1rem;
+  overflow-wrap: anywhere;
 }
 
 /* Default case-study titles (Arial) */
@@ -216,25 +241,18 @@ ul.aligned li {
   display: inline-block;
 }
 
-/* two short black lines */
+/* two short black lines (fix: before/after were duplicated + misplaced) */
 .case-aside .ayeeya-title::before,
 .case-aside .ayeeya-title::after {
   content: "";
   position: absolute;
   height: 2px;
-  background: #000;      /* black lines */
-  width: 50%;            /* shorten line length */
+  background: #000;
+  width: 50%;
+  left: 25%;
 }
-
-/* adjust vertical placement */
-.case-aside .ayeeya-title::before {
-  top: 60%;
-}
-
-.case-aside .ayeeya-title::before {
-  bottom: 40%;
-}
-
+.case-aside .ayeeya-title::before { top: 58%; }
+.case-aside .ayeeya-title::after  { top: 74%; }
 
 /* ===== Meditation title (Josefin Sans, lowercase) ===== */
 .case-aside .brea-title {
@@ -253,23 +271,19 @@ ul.aligned li {
   margin-top: 4px;
 }
 
-.case-aside .case-link a {
+.case-aside a {
   font-weight: 600;
   color: #333;
   text-decoration: none;
 }
+.case-aside a:hover { text-decoration: underline; }
 
-.case-aside .case-link a:hover {
-  text-decoration: underline;
-}
-
-/* Auto-stagger */
-.case-study:nth-child(even) {
+/* Auto-stagger (leave as-is, but keep it safe) */
+.case-study:nth-of-type(even) {
   grid-template-columns: 1.15fr 1fr;
 }
-
-.case-study:nth-child(even) iframe { order: 2; }
-.case-study:nth-child(even) .case-aside { order: 1; }
+.case-study:nth-of-type(even) iframe { order: 2; }
+.case-study:nth-of-type(even) .case-aside { order: 1; }
 
 /* ===== Make Your Own App ===== */
 .make-your-own-app {
@@ -280,7 +294,7 @@ ul.aligned li {
   box-shadow: var(--shadow);
   letter-spacing: 0.02em;
   line-height: 1.7;
-  margin-top: 0px;
+  overflow: hidden;
 }
 
 /* ===== Future Cases ===== */
@@ -291,6 +305,7 @@ ul.aligned li {
   background-color: rgba(255,255,255,0.05);
   border-radius: var(--radius);
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  overflow: hidden;
 }
 
 .future-cases h1 {
@@ -306,11 +321,10 @@ ul.aligned li {
   align-items: center;
   gap: 30px;
   margin-bottom: 60px;
+  min-width: 0;
 }
 
-.future-item.reverse {
-  flex-direction: row-reverse;
-}
+.future-item.reverse { flex-direction: row-reverse; }
 
 .future-item img {
   flex: 1;
@@ -324,6 +338,7 @@ ul.aligned li {
 .future-item .text {
   flex: 1;
   color: var(--ink-light);
+  overflow-wrap: anywhere;
 }
 
 .future-item .text h2 {
@@ -338,7 +353,17 @@ footer {
   color: var(--ink-dark);
   text-align: center;
   padding: 15px;
+
+  /* safe area bottom */
+  padding-bottom: max(15px, env(safe-area-inset-bottom));
   margin-top: 60px;
+}
+
+footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 14px;
 }
 
 footer nav a {
@@ -346,12 +371,13 @@ footer nav a {
   margin: 0 10px;
   text-decoration: none;
   font-weight: bold;
+  padding: 8px 10px;
+  border-radius: 10px;
 }
 
-footer nav a:hover {
-  text-decoration: underline;
-}
-/* ===== Mobile ===== */
+footer nav a:hover { text-decoration: underline; }
+
+/* ===== Responsive ===== */
 @media (max-width: 900px) {
   header {
     font-size: 2.6rem;
@@ -359,10 +385,18 @@ footer nav a:hover {
   }
 
   .case-study {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 2rem;
     padding: 24px;
+  }
+
+  /* remove even/odd swapping on mobile so it’s consistent */
+  .case-study:nth-of-type(even) {
+    grid-template-columns: 1fr;
+  }
+  .case-study:nth-of-type(even) iframe,
+  .case-study:nth-of-type(even) .case-aside {
+    order: initial;
   }
 
   .case-aside {
@@ -379,23 +413,16 @@ footer nav a:hover {
   .future-item img {
     max-width: 220px;
   }
-} /* ✅ IMPORTANT: this closes the media query */
-
-.case-aside .ayeeya-title::before,
-.case-aside .ayeeya-title::after {
-  content: "";
-  position: absolute;
-  height: 2px;
-  background: #000;
-  width: 50%;
-  left: 25%;
 }
 
-
-
+@media (max-width: 520px) {
+  /* tighten padding so nothing feels “off-center” on iPhones */
+  main { padding: 22px 14px; }
+  .problem-block { padding: 18px; }
+  ul.aligned { padding-left: 22px; }
+}
   </style>
 </head>
-
 
 <body>
   <header>Koala Spies Sydney</header>
@@ -411,7 +438,7 @@ footer nav a:hover {
     <section class="problem-block">
       <h1>Problems</h1>
       <p>
-        New Australian musicans are doing it hard. AI systems are increasingly scraping and reproducing music without compensating the creators; the streaming economy is broken, with artists earning only cents per play and forced to rely on live performance to survive; major platforms like Spotify and YouTube Music act as gatekeepers, rarely surfacing local or emerging acts; and algorithm‑driven recommendations overwhelmingly favour overseas artists, leaving Australia’s music scene underexposed and culturally diminished.
+        New Australian musicans are doing it hard. AI systems are increasingly scraping and reproducing music without compensating the creators; the streaming economy is broken, with artists earning only cents per play and forced to rely on live performance to survive; major platforms like Spotify and YouTube Music act as gatekeepers, rarely surfacing local or emerging acts; and algorithm-driven recommendations overwhelmingly favour overseas artists, leaving Australia’s music scene underexposed and culturally diminished.
       </p>
     </section>
 
@@ -421,16 +448,14 @@ footer nav a:hover {
     <section class="case-study">
 
       <aside class="case-aside">
-      <h2 class="ayeeya-title">Aye eyA</h2>
+        <h2 class="ayeeya-title">Aye eyA</h2>
 
-       <p>Aye eyA has carved out a cult‑level following across Western Sydney’s youth — the ones who live outside the lines and don’t apologise for it. Dropping onto Spotify or the big platforms would kill the whole mythos. Their power comes from being underground, hard to track down, and proudly untamed — the kind of act you hear about in alleyways, not algorithms.</p>
-     
- <p>
-  Click on a song in the frame to listen, or click
-  <a href="https://koalaspiessydney.github.io/Aye-eyA/">Aye eyA</a>.
-</p>
+        <p>Aye eyA has carved out a cult-level following across Western Sydney’s youth — the ones who live outside the lines and don’t apologise for it. Dropping onto Spotify or the big platforms would kill the whole mythos. Their power comes from being underground, hard to track down, and proudly untamed — the kind of act you hear about in alleyways, not algorithms.</p>
 
-
+        <p>
+          Click on a song in the frame to listen, or click
+          <a href="https://koalaspiessydney.github.io/Aye-eyA/">Aye eyA</a>.
+        </p>
       </aside>
 
       <iframe src="https://koalaspiessydney.github.io/Aye-eyA/" title="Aye eyA"></iframe>
@@ -452,9 +477,7 @@ footer nav a:hover {
       <iframe src="https://koalaspiessydney.github.io/umdot/" title="Clovelly Kirtan"></iframe>
 
       <aside class="case-aside">
-
         <h2 class="brea-title"><strong>Meditations</strong> with <strong>Brea</strong> & friends</h2>
-
 
         <p>
           <q>This app can be enjoyed offline — connect to the internet to download the new weekly meditation as we create them. Then disconnet and listen to them during your social media detox.</q><br>
@@ -464,14 +487,11 @@ footer nav a:hover {
         <p>
           Many sleep apps and meditation apps may seem to relax the user but they are actually making them even more reliant on being on line. Save this app on a computer, USB or your phone and turn off, use it with or without internet.
         </p>
-<p class="listen-note">
-  Click on a song to listen or go to
-  <a href="https://koalaspiessydney.github.io/umdot/" target="_blank">umdot</a>.
-</p>
 
-
-
-
+        <p class="listen-note">
+          Click on a song to listen or go to
+          <a href="https://koalaspiessydney.github.io/umdot/" target="_blank" rel="noopener noreferrer">umdot</a>.
+        </p>
       </aside>
 
     </section>
@@ -490,22 +510,16 @@ footer nav a:hover {
     <section class="case-study">
 
       <aside class="case-aside">
-
-      <h2 class="ninety-title">Nineteen to 90s</h2>
-
-
+        <h2 class="ninety-title">Nineteen to 90s</h2>
 
         <p>
           Forming in high school in their early teens, these three teens from Sydney blend grunge distortion with Gen Z pop. They created this app to share their creativity with younger fans under the social media ban for teens in Australia. Not only can they by-pass the social media ban, but they have more creativity and control.
         </p>
-    
-        
-<p>
-  Click on a song in the frame to listen, or click
-  <a href="https://koalaspiessydney.github.io/Nineteento90s/">Nineteen to 90s</a>.
-</p>
 
-
+        <p>
+          Click on a song in the frame to listen, or click
+          <a href="https://koalaspiessydney.github.io/Nineteento90s/">Nineteen to 90s</a>.
+        </p>
       </aside>
 
       <iframe src="https://koalaspiessydney.github.io/Nineteento90s/" title="Nineteen to 90s"></iframe>
@@ -516,16 +530,15 @@ footer nav a:hover {
          MAKE YOUR OWN APP
          ========================= -->
     <section class="make-your-own-app">
-
-      </p>
-  <section class="tile-header">
-    <h2>Make Your Own App</h2>
-    <p>Make your own app, personalise it, and control where it is seen, and when it is online or offline.
-        The basic idea is that we create the code and a template — you provide the images, music, and style.
-        We sit alongside you and teach you how to manage it, with cheat-sheets and AI assistants. You then own the code.
-      For more, <a href="contact.html">contact</p>
-  </section>
-
+      <section class="tile-header">
+        <h2>Make Your Own App</h2>
+        <p>
+          Make your own app, personalise it, and control where it is seen, and when it is online or offline.
+          The basic idea is that we create the code and a template — you provide the images, music, and style.
+          We sit alongside you and teach you how to manage it, with cheat-sheets and AI assistants. You then own the code.
+          For more, <a href="contact.html">contact</a>
+        </p>
+      </section>
     </section>
 
     <!-- =========================
@@ -557,7 +570,7 @@ footer nav a:hover {
           <p>In the 70s we stood by the radio with a cassette player waiting for that favourite song; in the 90s people bought mp3s and made playlists for loved ones. Now you can buy songs from artists online, upload them to the app, choose your pictures, fonts and colours, and give a unique gift of music.</p>
         </div>
       </div>
-  </section>
+    </section>
 
   </main>
 
@@ -572,6 +585,7 @@ footer nav a:hover {
 
 </body>
 </html>
+
 
 
 
