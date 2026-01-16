@@ -7,6 +7,7 @@
 
   <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css" />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     /* ---------------- ROOT + BASE ---------------- */
@@ -34,14 +35,13 @@
     html, body { margin: 0; padding: 0; height: 100%; }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Verdana, Helvetica, Arial, sans-serif;
+       line-height: 1.75;
       background: var(--bg-dark);
       color: var(--ink-light);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-
-      /* iOS/Android alignment + prevent tiny overflow drift */
       overflow-x: hidden;
       -webkit-text-size-adjust: 100%;
       text-rendering: optimizeLegibility;
@@ -55,18 +55,12 @@
       background: var(--light-bg);
       color: var(--ink-dark);
       text-align: center;
-
       padding: clamp(16px, 3vw, 28px) 16px;
-
       font-family: "tt-modernoir", sans-serif;
       font-weight: 700;
-
-      /* keep big type but stop overflow on iPhone */
       font-size: clamp(2rem, 7vw, 5rem);
       letter-spacing: clamp(2px, 1.8vw, 10px);
       line-height: 1.05;
-
-      /* avoid forcing horizontal scroll on narrow screens */
       white-space: normal;
       word-break: break-word;
     }
@@ -78,8 +72,6 @@
       width: 100%;
       max-width: 1100px;
       margin: 0 auto;
-
-      /* iOS safe-area + consistent side padding */
       padding: clamp(16px, 3vw, var(--space));
       padding-left: max(clamp(16px, 3vw, var(--space)), env(safe-area-inset-left));
       padding-right: max(clamp(16px, 3vw, var(--space)), env(safe-area-inset-right));
@@ -94,8 +86,6 @@
       text-align: center;
       margin-bottom: clamp(22px, 5vw, 40px);
       box-shadow: 0 0 0 1px rgba(255,255,255,0.15);
-
-      /* prevents any child overflow causing page drift */
       overflow: hidden;
     }
 
@@ -115,9 +105,8 @@
       font-size: clamp(0.98rem, 2.8vw, 1.1rem);
       font-style: italic;
       color: var(--ink-light);
-
-      /* long quote/cite won’t overflow on phones */
       overflow-wrap: anywhere;
+      line-height: 1.75;
     }
 
     /* ---------------- PROBLEM BLOCK ---------------- */
@@ -150,8 +139,6 @@
       list-style-type: none;
       padding-left: 24px;
       margin: 0 0 40px;
-
-      /* keep lists from “pushing” width due to long words */
       overflow-wrap: anywhere;
     }
 
@@ -166,46 +153,34 @@
       text-decoration: none;
     }
 
-    ul.aligned li a:hover {
-      text-decoration: underline;
-    }
+    ul.aligned li a:hover { text-decoration: underline; }
 
     /* ---------------- CASE STUDY ---------------- */
 
     .case-study {
       background: #ffffff;
       color: var(--ink-dark);
-
       display: grid;
       grid-template-columns: 1fr;
       gap: 28px;
-
       padding: clamp(16px, 4vw, 32px);
       border-radius: var(--radius);
       margin: 30px 0 40px;
-
       box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-
-      /* important for iPhone: contain grid overflow */
       overflow: hidden;
       min-width: 0;
     }
 
-    /* stop iframe from overflowing grid column on iOS */
     .case-study > * { min-width: 0; }
 
     .case-study iframe {
       width: 100%;
       aspect-ratio: 12/16;
-
       border: 3px solid var(--light-bg);
       border-radius: var(--radius);
       background: #000;
       box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-
       display: block;
-
-      /* prevent iOS subpixel overflow */
       overflow: hidden;
     }
 
@@ -293,38 +268,6 @@
       overflow-wrap: anywhere;
     }
 
-    /* ---------------- FUTURE CASES ---------------- */
-
-    .future-cases {
-      margin: 60px auto;
-      padding: clamp(16px, 4vw, 32px);
-      background: rgba(255,255,255,0.05);
-      border-radius: var(--radius);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      overflow: hidden;
-    }
-
-    .future-item {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      margin-bottom: 60px;
-      min-width: 0;
-    }
-
-    .future-item img {
-      width: 100%;
-      max-width: 450px;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-    }
-
-    .future-item .text h2 {
-      font-size: 1.6rem;
-      color: var(--accent3);
-      margin: 0 0 10px;
-    }
-
     /* ---------------- PRE-FOOTER LINKS ---------------- */
 
     .pre-footer {
@@ -385,7 +328,16 @@
       text-decoration: underline;
     }
 
-    .back-link { margin-top: 10px; font-weight: bold; }
+    /* Optional: you were using this class but hadn’t defined it */
+    .link-centered{
+      display:block;
+      text-align:center;
+      margin: 6px auto 0;
+      color: var(--accent3);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .link-centered:hover{ text-decoration: underline; }
 
     /* ---------------- FOOTER ---------------- */
 
@@ -394,8 +346,6 @@
       color: var(--ink-dark);
       text-align: center;
       padding: 20px 14px;
-
-      /* safe area padding for iPhones with home indicator */
       padding-bottom: max(20px, env(safe-area-inset-bottom));
       padding-left: max(14px, env(safe-area-inset-left));
       padding-right: max(14px, env(safe-area-inset-right));
@@ -422,41 +372,13 @@
     /* ---------------- RESPONSIVE ---------------- */
 
     @media (min-width: 900px) {
-      .case-study {
-        grid-template-columns: 1.1fr 0.9fr;
-        align-items: start;
-      }
-      .case-study.reverse {
-        grid-template-columns: 0.9fr 1.1fr;
-      }
+      .case-study { grid-template-columns: 1.1fr 0.9fr; align-items: start; }
+      .case-study.reverse { grid-template-columns: 0.9fr 1.1fr; }
 
-      .right-column p,
-      .right-column li {
-        color: var(--ink-dark);
-        line-height: 1.7;
-      }
-
-      .right-column strong {
-        color: var(--accent6);
-        font-weight: 700;
-      }
-
-      .right-column ul.aligned > li {
-        margin-bottom: 26px;
-      }
-
-      .right-column ul ul {
-        margin-top: 8px;
-        padding-left: 20px;
-        opacity: 0.9;
-      }
-
-      .future-item {
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-      }
-      .future-item.reverse { direction: rtl; }
-      .future-item.reverse > * { direction: ltr; }
+      .right-column p, .right-column li { color: var(--ink-dark); line-height: 1.7; }
+      .right-column strong { color: var(--accent6); font-weight: 700; }
+      .right-column ul.aligned > li { margin-bottom: 26px; }
+      .right-column ul ul { margin-top: 8px; padding-left: 20px; opacity: 0.9; }
     }
 
     @media (max-width: 600px) {
@@ -500,7 +422,7 @@
           referrerpolicy="no-referrer-when-downgrade"></iframe>
 
         <div class="iframe-buttons">
-          <button class="pill-toggle" type="button" onclick="toggleResearch()">Research</button>
+          <button class="pill-toggle" type="button" onclick="toggleById('research-content')">Research</button>
           <a class="contact-link" href="contact.html">Contact me for a quote</a>
         </div>
 
@@ -577,6 +499,62 @@
       </aside>
     </section>
 
+    <!-- ADAPTIVE LESSONS -->
+    <section class="tile-header">
+      <h2>Adaptive Lessons</h2>
+      <p>
+        <q>Technology will never replace great teachers, but technology in the hands of great teachers can be transformational.</q>
+        <br><cite>— George Couros</cite>
+      </p>
+    </section>
+
+    <section class="case-study reverse" aria-label="Adaptive lessons case study">
+      <!-- LEFT COLUMN (TEXT) -->
+      <aside class="left-column">
+        <h1>Pedagogy</h1>
+
+        <p>This is a set of tasks, or a mini‑lesson, that can be used when a teacher notices students struggling to pronounce the “u” sound in different words, or when preparing for PTE speaking. </p>
+
+<p>The lesson is designed for teachers to project on the board, or for students to use independently on their phones for self‑practice.
+</p>
+
+<p>After the game, there are challenge tasks inspired by the PTE that students can use to test themselves. These can be completed in class or assigned as homework.
+</p>
+
+<p>The lesson can also be projected on the board for whole‑class play, with students competing in teams.</p>
+        
+
+        <!-- PILL (unique ID; no collisions) -->
+        <div class="iframe-buttons" style="margin-top: 12px;">
+          <button class="pill-toggle" type="button" onclick="toggleById('adaptive-research')">Observation</button>
+        </div>
+
+
+ <div id="adaptive-research" class="pill-content" aria-label="Adaptive lessons research content">
+  <h1>Observations in the Classroom</h1>
+  <ul>
+    <li>Short, integrated tasks allowed students to work at their own pace, with faster students completing extension challenges that supported mixed‑level classes.</li>
+    <li>These shorter tasks encouraged self‑reflection and helped students take ownership of their learning rather than moving passively through activities.</li>
+    <li>Students maintained strong focus for approximately 15 minutes; early finishers discussed their learning individually before transitioning into group work once all students completed the task.</li>
+    <li>Clear, specific activities prompted genuine curiosity among students.</li>
+    <li>Students often forget concepts from one day to the next; keeping a record on their phones provided a reliable reference for later review.</li>
+ <li>Videos and PowerPoints without teacher interaction or embedded tasks have limited value. Like social media, students tend to watch passively and retain very little. For media to be effective, it must require active engagement.</li>
+</ul>
+</div>
+
+      </aside>
+
+      <!-- RIGHT COLUMN (IFRAME) -->
+      <div class="right-column">
+        <iframe
+          src="https://koalaspiessydney.github.io/Vowelsoundgame/u3.html"
+          title="Adaptive lesson demo"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+
     <!-- SECTION 2 -->
     <section class="tile-header">
       <h2>Class Soundtrack</h2>
@@ -617,7 +595,7 @@
         </ul>
 
         <section class="music-pill" aria-label="Learning through music">
-          <button class="pill-toggle" type="button" onclick="toggleMusic()">Learning Through Music</button>
+          <button class="pill-toggle" type="button" onclick="toggleById('music-content')">Learning Through Music</button>
 
           <div id="music-content" class="pill-content">
             <h1>Learning Through Music</h1>
@@ -651,36 +629,89 @@
         </section>
       </aside>
     </section>
-
-    <!-- SECTION 3 -->
+ <!-- ADAPTIVE LESSONS -->
     <section class="tile-header">
-      <h2>Adaptive Lessons</h2>
-      <p><q>Technology will never replace great teachers but technology in the hands of great teachers can be transformational.</q><br><cite>— George Couros</cite></p>
+      <h2>Challenge Students</h2>
+      <p>
+        <q>What we learn to do, we learn by doing .</q>
+        <br><cite>— Aristotle</cite>
+      </p>
     </section>
+
+    <section class="case-study reverse" aria-label="Adaptive lessons case study">
+      <!-- LEFT COLUMN (TEXT) -->
+      <aside class="left-column">
+
+ <h1>Problem</h1>
+<p>Many students plateau because they rely only on materials made for language learners, not authentic content.</p>
+
+<h1>Pedagogy</h1>
+<p>This lesson targets intermediate learners who need to understand interviews, podcasts, and lectures made by native speakers. It exposes students to natural speed, rhythm, and pronunciation that simplified materials cannot provide.</p>
+
+<p>Key vocabulary is pre‑taught so students can focus on meaning during the main task rather than decoding unfamiliar words.</p>
+
+<p>The lesson also draws attention to how native speakers use past‑tense verbs in real speech, helping learners recognise and interpret these forms more accurately.</p>
+
+<p>The topic aligns with common IELTS and PTE themes, building both listening skills and relevant language for test preparation.</p>
+
+
+        <!-- PILL (unique ID; no collisions) -->
+        <div class="iframe-buttons" style="margin-top: 12px;">
+        
+
+        <button class="pill-toggle" type="button" onclick="toggleById('challenge-theory')">Krashen's Input Hypothesis</button>
+
+<div id="challenge-theory" class="pill-content" aria-label="Challenge students theory content">
+
+  <p>
+    Krashen’s Input Hypothesis is a key theory in second language acquisition. It proposes that learners
+    make the most progress when they are exposed to language that is understandable but slightly beyond
+    their current level. This balance between familiarity and challenge creates ideal conditions for
+    natural language growth and has strongly influenced modern approaches to reading, listening, and
+    curriculum design.
+
+  </p>
+  <ul>
+    <li>It emphasises that learners acquire language through <strong>comprehensible input</strong>, not by memorising grammar rules in isolation.</li>
+    <li>It states that progress occurs when input is <strong>just above the learner’s current level</strong> (i+1), creating productive challenge.</li>
+    <li>It focuses on <strong>meaningful communication</strong>, where learners understand the message even if some language is new.</li>
+    <li>It supports using <strong>authentic materials</strong>, as long as they are scaffolded enough to remain understandable.</li>
+    <li>It highlights the power of <strong>extensive reading and listening</strong> for long‑term language development.</li>
+    <li>It underlines that <strong>low anxiety and high motivation</strong> help learners engage with slightly challenging input more effectively.</li>
+  </ul>
+</div>
+
+      </aside>
+
+      <!-- RIGHT COLUMN (IFRAME) -->
+      <div class="right-column">
+        <iframe
+          src="https://koalaspiessydney.github.io/BiographyCanvapastverbs/"
+          title="Adaptive lesson demo"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+  </section>
 
     <!-- PRE-FOOTER -->
     <section class="pre-footer" aria-label="Modern English Australia links">
       <h3>Modern English Australia</h3>
 
       <p class="pre-footer-description">
-        Please also take a look at my dedicated Learning Design & EdTech site.
+        Please feel free to take a look at my dedicated Learning Design & EdTech site.
         It includes free micro-lessons, games, assessments, and examples of how
         I integrate technology into practical classroom workflows.
       </p>
+      <p>***** This sites is very much a work in progress. I am still building the site and updated the lessons******</p>
 
-      <div class="footer-stack">
-        <a href="https://koalaspiessydney.github.io/ModernEnglishAU/index.html" class="footer-link">
-          Modern English Australia — EdTech Site
-        </a>
+    <a href="https://koalaspiessydney.github.io/ModernEnglishAU/index.html" class="link-centered">More Lessons</a>
 
-        <a href="https://koalaspiessydney.github.io/ModernEnglishAU/microlesson.html" class="footer-link">
-          Free Games and Lessons
-        </a>
+        <a href="microlesson.html" class="link-centered">Micro Lessons & Games</a>
+        
+        <a href="https://koalaspiessydney.github.io/ModernEnglishAU/MEAtests.html" class="link-centered">IELTS PTE +</a>
 
-        <a href="https://koalaspiessydney.github.io/ModernEnglishAU/MEAtests.html" class="footer-link">
-          Free Mini PTE, IELTS & Exams
-        </a>
-      </div>
+   
     </section>
   </main>
 
@@ -694,13 +725,9 @@
   </footer>
 
   <script>
-    function toggleResearch() {
-      const box = document.getElementById("research-content");
-      box.style.display = (box.style.display === "block") ? "none" : "block";
-    }
-
-    function toggleMusic() {
-      const box = document.getElementById("music-content");
+    function toggleById(id) {
+      const box = document.getElementById(id);
+      if (!box) return;
       box.style.display = (box.style.display === "block") ? "none" : "block";
     }
   </script>
