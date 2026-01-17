@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css" />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     /* ---------------- ROOT + BASE ---------------- */
@@ -31,12 +31,11 @@
     }
 
     * { box-sizing: border-box; }
-
     html, body { margin: 0; padding: 0; height: 100%; }
 
     body {
-  font-family: "Segoe UI", Verdana, Helvetica, Arial, sans-serif;
-       line-height: 1.75;
+      font-family: "Segoe UI", Verdana, Helvetica, Arial, sans-serif;
+      line-height: 1.75;
       background: var(--bg-dark);
       color: var(--ink-light);
       display: flex;
@@ -100,8 +99,6 @@
       text-wrap: balance;
     }
 
-
-
     .tile-header p {
       margin: 0;
       font-size: clamp(0.98rem, 2.8vw, 1.1rem);
@@ -135,14 +132,12 @@
       margin: 0 0 14px;
       font-size: clamp(1.35rem, 4vw, 2rem);
       color: var(--accent3);
+    }
 
-
-}ul.aligned > li > strong {
-  color: var(--accent6);
-  font-weight: 700;
-}
-
-
+    ul.aligned > li > strong {
+      color: var(--accent6);
+      font-weight: 700;
+    }
 
     ul.aligned {
       list-style-type: none;
@@ -206,22 +201,12 @@
       color: var(--accent3);
     }
 
-
-.case-study aside p,
-.case-study aside li,
-.case-study .left-column p,
-.case-study .left-column li {
-  color: var(--ink-dark);
-}
-
-
-    .download-link {
-      color: var(--accent3);
-      font-weight: bold;
-      text-decoration: none;
+    .case-study aside p,
+    .case-study aside li,
+    .case-study .left-column p,
+    .case-study .left-column li {
+      color: var(--ink-dark);
     }
-
-    .download-link:hover { text-decoration: underline; }
 
     /* ---------------- BUTTONS ---------------- */
 
@@ -275,6 +260,9 @@
       overflow-wrap: anywhere;
     }
 
+    /* Optional: pill wrapper used in your reading section */
+    .pill { margin: 0 0 30px; }
+
     /* ---------------- PRE-FOOTER LINKS ---------------- */
 
     .pre-footer {
@@ -306,36 +294,6 @@
       overflow-wrap: anywhere;
     }
 
-    .pre-footer .footer-stack {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .footer-link {
-      font-family: "Georgia", "Times New Roman", serif;
-      font-size: 1rem;
-      letter-spacing: 0.02em;
-      padding: 12px 16px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.14);
-      color: var(--ink-light);
-      text-decoration: none;
-      display: block;
-      width: min(92%, 520px);
-      margin: 0 auto;
-      transition: 0.2s ease;
-      overflow-wrap: anywhere;
-    }
-
-    .footer-link:hover {
-      background: rgba(255,255,255,0.12);
-      text-decoration: underline;
-    }
-
-    /* Optional: you were using this class but hadn’t defined it */
     .link-centered{
       display:block;
       text-align:center;
@@ -395,6 +353,54 @@
       ul.aligned { padding-left: 20px; }
       .problem-block { padding: 18px; }
     }
+
+    /* ============================================================
+       FINAL SECTION (ONLY): 4:3 iframe + text underneath + STRUCTURED 2 columns
+       - iframe stays full width (4:3)
+       - text underneath becomes two structured columns on desktop:
+         left = Solution + Method, right = Feedback
+       ============================================================ */
+
+    .case-study.final-iframe {
+      grid-template-columns: 1fr;
+    }
+
+    .case-study.final-iframe iframe {
+      aspect-ratio: 4 / 3;
+    }
+
+    /* Override your 2-column case-study layout on desktop for this one only */
+    @media (min-width: 900px) {
+      .case-study.final-iframe {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    /* Override your mobile iframe ratio for this one only */
+    @media (max-width: 600px) {
+      .case-study.final-iframe iframe {
+        aspect-ratio: 4 / 3;
+      }
+    }
+
+    /* Structured two-column text grid under the final iframe */
+    .final-text-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    @media (min-width: 900px) {
+      .final-text-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+    }
+
+    /* Keep headings and blocks tidy */
+    .final-text-grid h1 { margin-top: 0; }
+    .final-text-grid p { margin: 0 0 12px; }
+    .final-text-grid ul { margin: 0; padding-left: 24px; }
   </style>
 </head>
 
@@ -502,7 +508,7 @@
               <li>No photocopying or subscription frees</li>
             </ul>
           </li>
-        </u>
+        </ul>
       </aside>
     </section>
 
@@ -514,7 +520,7 @@
         <br><cite>— George Couros</cite>
       </p>
     </section>
-    
+
     <section class="problem-block">
       <h1>Problems</h1>
       <p>
@@ -526,73 +532,61 @@
     <section class="case-study reverse" aria-label="Adaptive lessons case study">
       <!-- LEFT COLUMN (TEXT) -->
       <aside class="left-column">
+        <h1>Pedagogy</h1>
 
- <aside class="left-column">
+        <p>
+          Here is a sample of how this could be done at an intermediate level, but it could be graded down with the last activities dropped, or graded up with the first activity dropped.
+        </p>
 
-  <h1>Pedagogy</h1>
+        <ul class="aligned">
+          <li>
+            <strong>1. Listen and Watch</strong>
+            <ul>
+              <li>Listen and watch the sounds being made with examples</li>
+              <li>Can be done as a class or individually on students’ phones</li>
+            </ul>
+          </li>
 
-  <p>
-    Here is a sample of how this could be done at an intermediate level, but it could be graded down with the last activities dropped, or graded up with the first activity dropped.
-  </p>
+          <li>
+            <strong>2. Play the Game</strong>
+            <ul>
+              <li>Listen to the words and sort them into four sounds on individual phones</li>
+              <li>Teacher may check in with students individually or drill the words as a class at any point</li>
+            </ul>
+          </li>
 
-  <ul class="aligned">
+          <li>
+            <strong>3. Extension Activities</strong>
+            <ul>
+              <li>Write-from-dictation tasks</li>
+              <li>Gap-fill activities</li>
+            </ul>
+          </li>
 
-    <li>
-      <strong>1. Listen and Watch</strong>
-      <ul>
-        <li>Listen and watch the sounds being made with examples</li>
-        <li>Can be done as a class or individually on students’ phones</li>
-      </ul>
-    </li>
+          <li>
+            <strong>4. Group Competition</strong>
+            <ul>
+              <li>Divide the class into groups and project the game on the board</li>
+              <li>Teams score points and lose points for correct and incorrect answers</li>
+            </ul>
+          </li>
+        </ul>
 
-    <li>
-      <strong>2. Play the Game</strong>
-      <ul>
-        <li>Listen to the words and sort them into four sounds on individual phones</li>
-        <li>Teacher may check in with students individually or drill the words as a class at any point</li>
-      </ul>
-    </li>
-
-    <li>
-      <strong>3. Extension Activities</strong>
-      <ul>
-        <li>Write‑from‑dictation tasks</li>
-        <li>Gap‑fill activities</li>
-      </ul>
-    </li>
-
-    <li>
-      <strong>4. Group Competition</strong>
-      <ul>
-        <li>Divide the class into groups and project the game on the board</li>
-        <li>Teams score points and lose points for correct and incorrect answers</li>
-      </ul>
-    </li>
-
-  </ul>
-
-</aside>
-
-
-        <!-- PILL (unique ID; no collisions) -->
         <div class="iframe-buttons" style="margin-top: 12px;">
           <button class="pill-toggle" type="button" onclick="toggleById('adaptive-research')">Observation</button>
         </div>
 
-
- <div id="adaptive-research" class="pill-content" aria-label="Adaptive lessons research content">
-  <h1>Observations in the Classroom</h1>
-  <ul>
-    
-    <li>Short, integrated tasks allowed students to work at their own pace, with faster students completing extension challenges that supported mixed‑level classes.</li>
-    <li>These shorter tasks encouraged self‑reflection and helped students take ownership of their learning rather than moving passively through activities.</li>
-    <li>Students maintained strong focus for approximately 15 minutes; early finishers discussed their learning individually before transitioning into group work once all students completed the task.</li>
-    <li>Clear, specific activities prompted genuine curiosity among students.</li>
-    <li>Students often forget concepts from one day to the next; keeping a record on their phones provided a reliable reference for later review.</li>
- <li>Videos and PowerPoints without teacher interaction or embedded tasks have limited value. Like social media, students tend to watch passively and retain very little. For media to be effective, it must require active engagement.</li>
-</ul>
-</div>
-
+        <div id="adaptive-research" class="pill-content" aria-label="Adaptive lessons research content">
+          <h1>Observations in the Classroom</h1>
+          <ul>
+            <li>Short, integrated tasks allowed students to work at their own pace, with faster students completing extension challenges that supported mixed-level classes.</li>
+            <li>These shorter tasks encouraged self-reflection and helped students take ownership of their learning rather than moving passively through activities.</li>
+            <li>Students maintained strong focus for approximately 15 minutes; early finishers discussed their learning individually before transitioning into group work once all students completed the task.</li>
+            <li>Clear, specific activities prompted genuine curiosity among students.</li>
+            <li>Students often forget concepts from one day to the next; keeping a record on their phones provided a reliable reference for later review.</li>
+            <li>Videos and PowerPoints without teacher interaction or embedded tasks have limited value. Like social media, students tend to watch passively and retain very little. For media to be effective, it must require active engagement.</li>
+          </ul>
+        </div>
       </aside>
 
       <!-- RIGHT COLUMN (IFRAME) -->
@@ -601,8 +595,7 @@
           src="https://koalaspiessydney.github.io/Vowelsoundgame/u3.html"
           title="Adaptive lesson demo"
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
 
@@ -645,10 +638,8 @@
           </li>
         </ul>
 
-                <p>Teachers! Let me teach you how to build this app. and begin to build other lessons. </p>
- <a class="contact-link" href="contact.html">Contact me for a quote</a>
- 
-
+        <p>Teachers! Let me teach you how to build this app. and begin to build other lessons. </p>
+        <a class="contact-link" href="contact.html">Contact me for a quote</a>
 
         <section class="music-pill" aria-label="Learning through music">
           <button class="pill-toggle" type="button" onclick="toggleById('music-content')">Learning Through Music</button>
@@ -685,7 +676,8 @@
         </section>
       </aside>
     </section>
- <!-- ADAPTIVE LESSONS -->
+
+    <!-- CHALLENGE STUDENTS -->
     <section class="tile-header">
       <h2>Challenge Students</h2>
       <p>
@@ -693,73 +685,190 @@
         <br><cite>— Aristotle</cite>
       </p>
     </section>
-        <section class="problem-block">
+
+    <section class="problem-block">
       <h1>Problems</h1>
       <p>
         <strong>Many students plateau at around intermediate level of their language acquisition:</strong>
-         held back by small grammar errors (often partly caused by boredom and a lack of attention), low confidence, and a cycle of repetition without retention. Teachers sometimes keep them on material that is unchallenging and uninteresting, I've seen teachers use materials made for native children on international adults. All this only reinforces the plateau, the feeling that they will never be fluent,  instead of helping them move forward.
+        held back by small grammar errors (often partly caused by boredom and a lack of attention), low confidence, and a cycle of repetition without retention. Teachers sometimes keep them on material that is unchallenging and uninteresting, I've seen teachers use materials made for native children on international adults. All this only reinforces the plateau, the feeling that they will never be fluent, instead of helping them move forward.
       </p>
     </section>
 
-
-    <section class="case-study reverse" aria-label="Adaptive lessons case study">
+    <section class="case-study reverse" aria-label="Challenge students case study">
       <!-- LEFT COLUMN (TEXT) -->
       <aside class="left-column">
+        <h1>Assumed Knowledge</h1>
+        <p>The students have seen all the past and present verb tenses but have not yet mastered them.</p>
 
- <h1>Assumed Knowledge </h1>
-<p>The students have seen all the past and present verb tenses but have not yet mastered them.</p>
+        <h1>Mixed Language Points</h1>
+        <ul>
+          <li>Listening, Writing annd Speaking</li>
+          <li>Grammar: revision of all past and present verb forms</li>
+          <li>Guidance on how and when to use these verbs in biography writing</li>
+          <li>Optional extension activity to review verb structure if needed</li>
+          <li>Listening task based on an interview</li>
+          <li>Writing a biography or speaking about a well-known person</li>
+          <li>Technology and business vocabulary</li>
+        </ul>
 
-<h1>Mixed Language Points</h1>
-<ul>
- <li>Listening, Writing annd Speaking</li>
-  <li>Grammar: revision of all past and present verb forms</li>
-  <li>Guidance on how and when to use these verbs in biography writing</li>
-  <li>Optional extension activity to review verb structure if needed</li>
-  <li>Listening task based on an interview</li>
-  <li>Writing a biography or speaking about a well‑known person</li>
-  <li>Technology and business vocabulary</li>
-</ul>
-
-
-
-        <!-- PILL (unique ID; no collisions) -->
         <div class="iframe-buttons" style="margin-top: 12px;">
-        
+          <button class="pill-toggle" type="button" onclick="toggleById('challenge-theory')">Krashen's Input Hypothesis</button>
+        </div>
 
-        <button class="pill-toggle" type="button" onclick="toggleById('challenge-theory')">Krashen's Input Hypothesis</button>
-
-<div id="challenge-theory" class="pill-content" aria-label="Challenge students theory content">
-
-  <p>
-    Krashen’s Input Hypothesis is a key theory in second language acquisition. It proposes that learners
-    make the most progress when they are exposed to language that is understandable but slightly beyond
-    their current level. This balance between familiarity and challenge creates ideal conditions for
-    natural language growth and has strongly influenced modern approaches to reading, listening, and
-    curriculum design.
-
-  </p>
-  <ul>
-    <li>It emphasises that learners acquire language through <strong>comprehensible input</strong>, not by memorising grammar rules in isolation.</li>
-    <li>It states that progress occurs when input is <strong>just above the learner’s current level</strong> (i+1), creating productive challenge.</li>
-    <li>It focuses on <strong>meaningful communication</strong>, where learners understand the message even if some language is new.</li>
-    <li>It supports using <strong>authentic materials</strong>, as long as they are scaffolded enough to remain understandable.</li>
-    <li>It highlights the power of <strong>extensive reading and listening</strong> for long‑term language development.</li>
-    <li>It underlines that <strong>low anxiety and high motivation</strong> help learners engage with slightly challenging input more effectively.</li>
-  </ul>
-</div>
-
+        <div id="challenge-theory" class="pill-content" aria-label="Challenge students theory content">
+          <p>
+            Krashen’s Input Hypothesis is a key theory in second language acquisition. It proposes that learners
+            make the most progress when they are exposed to language that is understandable but slightly beyond
+            their current level. This balance between familiarity and challenge creates ideal conditions for
+            natural language growth and has strongly influenced modern approaches to reading, listening, and
+            curriculum design.
+          </p>
+          <ul>
+            <li>It emphasises that learners acquire language through <strong>comprehensible input</strong>, not by memorising grammar rules in isolation.</li>
+            <li>It states that progress occurs when input is <strong>just above the learner’s current level</strong> (i+1), creating productive challenge.</li>
+            <li>It focuses on <strong>meaningful communication</strong>, where learners understand the message even if some language is new.</li>
+            <li>It supports using <strong>authentic materials</strong>, as long as they are scaffolded enough to remain understandable.</li>
+            <li>It highlights the power of <strong>extensive reading and listening</strong> for long-term language development.</li>
+            <li>It underlines that <strong>low anxiety and high motivation</strong> help learners engage with slightly challenging input more effectively.</li>
+          </ul>
+        </div>
       </aside>
 
       <!-- RIGHT COLUMN (IFRAME) -->
       <div class="right-column">
         <iframe
           src="https://koalaspiessydney.github.io/BiographyCanvapastverbs/"
-          title="Adaptive lesson demo"
+          title="Challenge lesson demo"
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-  </section>
+    </section>
+
+    <!-- READING IN THE AGE OF TIKTOK BRAIN -->
+    <section class="tile-header">
+      <h2>Reading in the Age of TikTok brain</h2>
+      <p>
+        <q>None of us are as smart as all of us.</q>
+        <br><cite>— Japanese Proverb</cite>
+      </p>
+    </section>
+
+    <section class="problem-block">
+      <h1>Problems</h1>
+      <p>
+        <strong>TikTok brain, social media fatigue, and shrinking attention spans mean many people no longer read more than a few lines at a time. I’ve noticed this especially with students taking long reading tests like IELTS. Younger generations’ brains have been wired differently, and many struggle to sit and read a single article for even five minutes — yet the IELTS requires thirty minutes of sustained focus.</strong>
+      </p>
+    </section>
+
+    <div class="pill">
+      <button class="pill-toggle" type="button"
+        onclick="this.nextElementSibling.style.display = (this.nextElementSibling.style.display === 'block' ? 'none' : 'block')">
+        Short-Form Media & Reading Focus
+      </button>
+      <div class="pill-content">
+        <p><strong>Intro:</strong> Short-form platforms like TikTok, X, Instagram Reels, and YouTube Shorts deliver rapid, high-stimulation content. Research shows that heavy use of these apps reduces sustained attention and makes long-form reading significantly harder.</p>
+
+        <ul>
+          <li><strong>Short-form platforms train the brain to expect constant stimulation</strong><br>
+            Fast, high-novelty videos condition users to seek instant reward rather than slow, effortful processing.
+          </li>
+
+          <li><strong>Continuous micro-distractions weaken focus</strong><br>
+            Rapid switching between short clips reduces the ability to stay on a single task.
+          </li>
+
+          <li><strong>Reading stamina declines with heavy short-form video use</strong><br>
+            Long texts feel mentally “heavy” compared to rapid-fire content, making tasks like IELTS reading more challenging.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FINAL SECTION: 4:3 iframe + structured columns underneath -->
+    <section class="case-study reverse final-iframe" aria-label="Reading whiteboard case study">
+      <iframe
+        src="https://koalaspiessydney.github.io/Readingwhiteboard.html/"
+        title="Reading whiteboard demo"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+      <!-- Structured two-column layout under iframe -->
+      <div class="final-text-grid" aria-label="Solution method feedback">
+        <!-- LEFT: Solution + Method -->
+        <div>
+          <h1>Solution</h1>
+
+       <p>
+<p>
+  Whether tutoring one-on-one or working with a whole class, I’ve found that reading aloud keeps students focused. In one-on-one sessions, I read one paragraph and the student reads the next, pausing after each section to review and discuss it. In class, we read around the room so everyone stays engaged.
+</p>
+
+<ul class="aligned">
+  <li>
+    <strong>Shared digital palette</strong><br>
+    Teachers can upload the reading lesson and project it on the whiteboard or share it with a QR code.
+  </li>
+
+  <li>
+    <strong>Paper-like interaction</strong><br>
+    The palette behaves like real paper and pen, allowing free-hand drawing and annotation.
+  </li>
+
+  <li>
+    <strong>Flexible text control</strong><br>
+    Teachers can pinch and pull the text to focus attention on specific paragraphs.
+  </li>
+
+  <li>
+    <strong>Multi-format support</strong><br>
+    PDFs, Word documents, and images can be uploaded, manipulated in real time, and annotated.
+  </li>
+
+  <li>
+    <strong>Embedded questioning</strong><br>
+    In this example, comprehension questions are placed directly below the board, but the structure supports many other task types.
+  </li>
+</ul>
+
+
+        </div>
+
+        <!-- RIGHT: Feedback -->
+        <div>
+          <h1>Feedback</h1>
+    <p>
+  Overall student response was extremely positive, with high levels of participation and sustained focus throughout the lesson.
+</p>
+
+<ul class="aligned">
+  <li>
+    <strong>High engagement</strong><br>
+    Students enjoyed reading aloud and receiving immediate feedback and correction from a native-speaking teacher. Participation was enthusiastic across the whole class.
+  </li>
+
+  <li>
+    <strong>Stronger vocabulary retention</strong><br>
+    Vocabulary was remembered more effectively because new words were discussed at the moment they appeared in the text.
+  </li>
+
+  <li>
+    <strong>Contextual grammar reinforcement</strong><br>
+    Grammar points previously studied were naturally highlighted and reinforced within a meaningful reading context.
+  </li>
+
+  <li>
+    <strong>Reduced reliance on translation</strong><br>
+    Pausing after each paragraph encouraged students to ask questions directly rather than turning to their phones for translations.
+  </li>
+
+  <li>
+    <strong>Communicative classroom dynamic</strong><br>
+    Group reading transformed what could have been a solitary task into a collaborative activity that naturally led to discussion.
+  </li>
+</ul>
+
+      </div>
+    </section>
 
     <!-- PRE-FOOTER -->
     <section class="pre-footer" aria-label="Modern English Australia links">
@@ -770,15 +879,12 @@
         It includes free micro-lessons, games, assessments, and examples of how
         I integrate technology into practical classroom workflows.
       </p>
+
       <p>***** This sites is very much a work in progress. I am still building the site and updated the lessons******</p>
 
-    <a href="https://koalaspiessydney.github.io/ModernEnglishAU/index.html" class="link-centered">More Lessons</a>
-
-        <a href="https://koalaspiessydney.github.io/ModernEnglishAU/microlesson.html" class="link-centered">Micro Lessons & Games</a>
-        
-        <a href="https://koalaspiessydney.github.io/ModernEnglishAU/MEAtests.html" class="link-centered">IELTS PTE +</a>
-
-   
+      <a href="https://koalaspiessydney.github.io/ModernEnglishAU/index.html" class="link-centered">More Lessons</a>
+      <a href="https://koalaspiessydney.github.io/ModernEnglishAU/microlesson.html" class="link-centered">Micro Lessons & Games</a>
+      <a href="https://koalaspiessydney.github.io/ModernEnglishAU/MEAtests.html" class="link-centered">IELTS PTE +</a>
     </section>
   </main>
 
@@ -799,3 +905,5 @@
   </script>
 </body>
 </html>
+```
+
