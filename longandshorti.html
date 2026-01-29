@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Minimal Pair Checker – /iː/ vs /ɪ/ | Modern English Australia</title>
+
+<style>
+  :root{
+    --bg:#f2f5f6;
+    --card:#1e1f21;
+    --accent:#009688;
+    --accent-light:#33bba6;
+    --ink:#1c1e20;
+    --ink-light:#f5f5f5;
+    --shadow:0 6px 24px rgba(0,0,0,.25);
+    --radius:14px;
+    --line:rgba(0,0,0,.12);
+    --muted:#6b737a;
+    --max:980px;
+    --pad:16px;
+    --gap:12px;
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; }
+
+  body{
+    margin:0;
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    -webkit-text-size-adjust:100%;
+    text-rendering:optimizeLegibility;
+  }
+
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--card);
+    color:var(--accent);
+    text-align:center;
+    padding:1.05rem 1rem;
+    font-size:1.35rem;
+    font-weight:800;
+    letter-spacing:2px;
+    border-bottom:1px solid var(--line);
+    position:relative; /* anchors QR + Home */
+  }
+
+  header span{
+    color:var(--ink-light);
+    font-weight:300;
+    display:block;
+    font-size:0.95rem;
+    letter-spacing:3px;
+    margin-top:0.35rem;
+  }
+
+  .home-btn{
+    position:absolute;
+    right:12px;
+    top:12px;
+    padding:.45rem .8rem;
+    border-radius:10px;
+    background:rgba(255,255,255,.08);
+    color:var(--ink-light);
+    font-weight:800;
+    font-size:.85rem;
+    text-decoration:none;
+    border:1px solid rgba(255,255,255,.18);
+    z-index:65;
+  }
+  @media (hover:hover){
+    .home-btn:hover{ background:var(--accent); border-color:transparent; color:#fff; }
+  }
+
+  @media (min-width:768px){
+    header{ font-size:1.5rem; padding:1.2rem 1rem; }
+    header span{ font-size:1rem; }
+  }
+
+  main{
+    width:100%;
+    max-width:var(--max);
+    margin:0 auto;
+    padding:18px var(--pad) 24px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+  }
+
+  .page-title{
+    margin:0 0 10px;
+    font-size:18px;
+    font-weight:900;
+    line-height:1.25;
+  }
+  .page-sub{
+    margin:0 0 14px;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.45;
+  }
+  @media (min-width:768px){
+    .page-title{ font-size:20px; }
+    .page-sub{ font-size:14px; }
+  }
+
+  /* ===== QR ===== */
+  .qr-wrap{
+    position:absolute;
+    left:12px;
+    top:12px;
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    z-index:65;
+  }
+  .qr-btn{
+    background:rgba(255,255,255,.08);
+    color:var(--ink-light);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:10px;
+    padding:.5rem .8rem;
+    font-weight:800;
+    font-size:.9rem;
+    cursor:pointer;
+    line-height:1;
+    -webkit-tap-highlight-color: transparent;
+  }
+  @media (hover:hover){
+    .qr-btn:hover{ background:var(--accent); border-color:transparent; color:#fff; }
+  }
+  .qr-panel{
+    display:none;
+    background:var(--card);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:14px;
+    padding:10px;
+    width:180px;
+    box-shadow:0 10px 28px rgba(0,0,0,.22);
+  }
+  .qr-panel.open{ display:block; }
+  .qr-title{
+    margin:0 0 8px;
+    color:var(--ink-light);
+    font-weight:800;
+    font-size:12px;
+    letter-spacing:.2px;
+  }
+  .qr-url{
+    margin:8px 0 0;
+    color:rgba(255,255,255,.75);
+    font-size:11px;
+    word-break:break-all;
+    line-height:1.25;
+  }
+  #qrcode{
+    width:160px;
+    height:160px;
+    background:#fff;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+
+  .card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:16px;
+    margin-bottom:14px;
+  }
+
+  .row{
+    display:flex;
+    gap:var(--gap);
+    flex-wrap:wrap;
+    align-items:center;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:var(--gap);
+    margin-top:12px;
+  }
+  @media (max-width:420px){
+    .grid{ grid-template-columns:1fr; }
+  }
+
+  .btn{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:.8rem 1.2rem;
+    border-radius:10px;
+    font-weight:800;
+    cursor:pointer;
+    user-select:none;
+    text-decoration:none;
+    color:inherit;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:44px;
+    white-space:nowrap;
+  }
+  .btn.primary{ background:var(--accent); border-color:transparent; color:#fff; }
+  .btn:disabled{ opacity:.5; cursor:not-allowed; }
+  @media (hover:hover){
+    .btn:hover{ background:var(--accent-light); color:#fff; border-color:transparent; }
+    .btn.primary:hover{ background:var(--accent-light); }
+  }
+  @media (max-width:420px){
+    .btn{ width:100%; }
+  }
+
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    color:var(--muted);
+    font-size:13px;
+    background:#fff;
+  }
+
+  .meter{
+    height:10px;
+    border-radius:999px;
+    background:rgba(0,0,0,.08);
+    overflow:hidden;
+    flex:1;
+    min-width:220px;
+    border:1px solid var(--line);
+  }
+  @media (max-width:420px){
+    .meter{ min-width:140px; }
+  }
+  .meter > div{ height:100%; width:0%; background:var(--accent); }
+
+  label{
+    display:block;
+    font-weight:800;
+    font-size:13px;
+    margin:10px 0 6px;
+    color:var(--muted);
+  }
+
+  select{
+    width:100%;
+    padding:10px 12px;
+    border-radius:12px;
+    border:1px solid var(--line);
+    background:#fff;
+    font-weight:800;
+    min-height:44px;
+  }
+
+  .big{ font-size:18px; font-weight:900; margin:0 0 6px; }
+  .small{ margin:0; color:var(--muted); font-size:13px; line-height:1.4; }
+
+  .result{
+    margin-top:14px;
+    padding:14px;
+    border-radius:12px;
+    border:1px solid var(--line);
+    background:rgba(0,0,0,.02);
+  }
+  .result.correct{ border-color:#1db954; background:#e9f8ef; }
+  .result.shortok{ border-color:#3498db; background:#eaf3fb; }
+  .result.wrong{ border-color:#e74c3c; background:#fdecea; }
+  .result.unclear{ border-color:#b9bcc1; background:#f3f4f6; }
+
+  .result-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .mastery{
+    display:inline-flex;
+    align-items:center;
+    padding:6px 10px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--muted);
+    font-weight:900;
+    font-size:12px;
+    letter-spacing:.2px;
+  }
+
+  .length-wrap{ margin-top:10px; }
+  .length-label{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    color:var(--muted);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:.2px;
+    margin-bottom:6px;
+  }
+  .length-bar{
+    height:10px;
+    border-radius:999px;
+    background:#ddd;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .length-fill{
+    height:100%;
+    width:0%;
+    background:var(--accent);
+  }
+  .length-hint{
+    margin-top:8px;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.35;
+  }
+
+  .section-title{
+    margin:0 0 10px;
+    font-size:15px;
+    font-weight:900;
+    letter-spacing:.2px;
+  }
+  .section-sub{
+    margin:0;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.45;
+  }
+
+  .back-wrap{
+    display:flex;
+    justify-content:flex-start;
+    margin-top:12px;
+  }
+  @media (max-width:420px){
+    .back-wrap{ justify-content:center; }
+  }
+
+  .links{
+    margin-top:auto;
+    padding-top:14px;
+    display:flex;
+    justify-content:center;
+    gap:.9rem;
+    flex-wrap:wrap;
+    border-top:1px solid var(--line);
+  }
+
+  footer{
+    text-align:center;
+    background:var(--card);
+    color:var(--ink-light);
+    padding:1.1rem 1rem;
+    font-size:.9rem;
+    border-top:1px solid var(--line);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; }
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="qr-wrap">
+    <button type="button" class="qr-btn" id="qrToggle" aria-expanded="false" aria-controls="qrPanel">QR</button>
+    <div class="qr-panel" id="qrPanel" role="dialog" aria-label="QR code" aria-hidden="true">
+      <p class="qr-title">Scan to open this page</p>
+      <div id="qrcode"></div>
+      <p class="qr-url" id="qrUrl"></p>
+    </div>
+  </div>
+
+  <a href="index.html" class="home-btn" aria-label="Home">Home</a>
+  MODERN ENGLISH AUSTRALIA
+  <span>Koala Spies Sydney · Minimal Pair Checker</span>
+</header>
+
+<main>
+  <h1 class="page-title">Minimal Pair Checker (Microphone) — Vowel Length</h1>
+  <p class="page-sub">Choose a word. Tap to Speak (tap again to stop). Try to get the correct sound twice in a row.</p>
+
+  <div class="card">
+    <div class="row">
+      <button id="startBtn" class="btn primary">Enable Microphone</button>
+      <button id="recBtn" class="btn" disabled>Tap to Speak</button>
+      <button id="resetBtn" class="btn" disabled>Try Again</button>
+      <span class="pill" id="status">Status: not started</span>
+      <span class="pill" id="streakPill" aria-live="polite">Streak: 0</span>
+    </div>
+
+    <div class="grid">
+      <div>
+        <label for="target">Target word (student says this)</label>
+        <select id="target"></select>
+      </div>
+
+      <div>
+        <label>Input level</label>
+        <div class="row">
+          <div class="meter" aria-label="input meter"><div id="levelFill"></div></div>
+          <span class="pill" id="levelTxt">0.000</span>
+        </div>
+        <p class="small" style="margin-top:8px">Aim for a steady voice (not whispering).</p>
+      </div>
+    </div>
+
+    <div class="result unclear" id="resultBox" style="display:none" aria-live="polite">
+      <div class="result-top">
+        <p class="big" id="verdict">—</p>
+        <span class="mastery" id="masteryTag" style="display:none">CLEAR</span>
+      </div>
+      <p class="small" id="detail">—</p>
+
+      <div class="length-wrap">
+        <div class="length-label">
+          <span>Length</span>
+          <span id="lengthTag">—</span>
+        </div>
+        <div class="length-bar" aria-label="vowel length bar">
+          <div class="length-fill" id="lengthFill"></div>
+        </div>
+        <div class="length-hint" id="lengthHint">—</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="set1Info">
+    <p class="section-title">/ɪ/ vs /iː/ (short vs long)</p>
+    <p class="section-sub">Short /ɪ/ is quick. Long /iː/ is held longer (smile and show teeth).</p>
+  </div>
+
+  <div class="back-wrap">
+    <button class="btn" type="button" onclick="history.back()">← Back</button>
+  </div>
+
+  <div class="links">
+    <a href="iminimalpairs.html" class="btn">Practice</a>
+    <a href="eandigapfill.html" class="btn">Listening Gapfill</a>
+  </div>
+</main>
+
+<footer>
+  © Koala Spies Sydney · Modern English Australia · All Rights Reserved
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const $ = (id) => document.getElementById(id);
+
+  // ===== QR (safe even if QRCode.js is missing) =====
+  (function initQR(){
+    const toggle = $("qrToggle");
+    const panel  = $("qrPanel");
+    const box    = $("qrcode");
+    const urlEl  = $("qrUrl");
+    if (!toggle || !panel || !box || !urlEl) return;
+
+    let made = false;
+
+    function make(){
+      const url = window.location.href;
+      urlEl.textContent = url;
+
+      box.innerHTML = "";
+
+      // If QRCode.js is loaded, use it. Otherwise show a simple fallback.
+      if (typeof window.QRCode === "function") {
+        new window.QRCode(box, { text: url, width: 160, height: 160 });
+      } else {
+        const msg = document.createElement("div");
+        msg.style.padding = "10px";
+        msg.style.fontSize = "12px";
+        msg.style.lineHeight = "1.3";
+        msg.style.textAlign = "center";
+        msg.textContent = "QRCode.js not loaded. Add the QRCode.js script to generate the QR.";
+        box.appendChild(msg);
+      }
+
+      made = true;
+    }
+
+    function open(){
+      panel.classList.add("open");
+      panel.setAttribute("aria-hidden","false");
+      toggle.setAttribute("aria-expanded","true");
+      if (!made) make();
+    }
+
+    function close(){
+      panel.classList.remove("open");
+      panel.setAttribute("aria-hidden","true");
+      toggle.setAttribute("aria-expanded","false");
+    }
+
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (panel.classList.contains("open")) close();
+      else open();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!panel.classList.contains("open")) return;
+      if (panel.contains(e.target) || toggle.contains(e.target)) return;
+      close();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
+    });
+  })();
+
+  // ===== Main app =====
+  const startBtn   = $("startBtn");
+  const recBtn     = $("recBtn");
+  const resetBtn   = $("resetBtn");
+  const statusEl   = $("status");
+  const streakPill = $("streakPill");
+
+  const levelFill  = $("levelFill");
+  const levelTxt   = $("levelTxt");
+
+  const targetSel  = $("target");
+
+  const resultBox  = $("resultBox");
+  const verdictEl  = $("verdict");
+  const detailEl   = $("detail");
+
+  const lengthFill = $("lengthFill");
+  const lengthTag  = $("lengthTag");
+  const lengthHint = $("lengthHint");
+
+  const masteryTag = $("masteryTag");
+
+  // ---- Hard fail message if IDs don't match your HTML ----
+  const required = {
+    startBtn, recBtn, resetBtn, statusEl, streakPill,
+    levelFill, levelTxt, targetSel,
+    resultBox, verdictEl, detailEl, lengthFill, lengthTag, lengthHint, masteryTag
+  };
+
+  const missing = Object.entries(required).filter(([k,v]) => !v).map(([k]) => k);
+  if (missing.length) {
+    alert(
+      "Script can't find these IDs in your HTML:\n\n" +
+      missing.join(", ") +
+      "\n\nFix the IDs or paste the matching HTML."
+    );
+    return;
+  }
+
+  // =========================
+  // ONE SET ONLY
+  // =========================
+  const OPTIONS = [
+    { label:"ship (/ɪ/)",          expect:"short" },
+    { label:"sheep (/iː/)",        expect:"long"  },
+    { label:"bit (/ɪ/)",           expect:"short" },
+    { label:"beat (/iː/)",         expect:"long"  },
+    { label:"hit (/ɪ/)",           expect:"short" },
+    { label:"heat (/iː/)",         expect:"long"  },
+    { label:"slip (/ɪ/)",          expect:"short" },
+    { label:"sleep (/iː/)",        expect:"long"  },
+    { label:"bin (/ɪ/)",           expect:"short" },
+    { label:"bean (/iː/)",         expect:"long"  },
+    { label:"been (/iː/)",         expect:"long"  },
+    { label:"sin (/ɪ/)",           expect:"short" },
+    { label:"scene (/iː/)",        expect:"long"  },
+    { label:"seen (/iː/)",         expect:"long"  },
+    { label:"need (/iː/)",         expect:"long"  },
+    { label:"please (/iː/)",       expect:"long"  },
+    { label:"beach (/iː/)",        expect:"long"  },
+    { label:"bitch (/ɪ/)",         expect:"short" },
+    { label:"seep (/iː/)",         expect:"long"  },
+    { label:"leap (/iː/)",         expect:"long"  },
+    { label:"lip (/ɪ/)",           expect:"short" },
+    { label:"complete (/iː/)",     expect:"long"  },
+    { label:"athlete (/iː/)",      expect:"long"  },
+    { label:"kin (/ɪ/)",           expect:"short" },
+    { label:"delete (/iː/)",       expect:"long"  },
+    { label:"keen (/iː/)",         expect:"long"  }
+  ];
+
+  function populateTargets(){
+    targetSel.innerHTML = "";
+    OPTIONS.forEach((o) => {
+      const opt = document.createElement("option");
+      opt.value = o.expect;
+      opt.textContent = o.label;
+      targetSel.appendChild(opt);
+    });
+  }
+
+  // ---- Audio ----
+  let ctx, mic, analyser, data;
+  let rafId = null;
+
+  let listening = false;
+  let samples = [];
+  let t0 = 0;
+
+  let streak = 0;
+
+  const VAD_ON = 0.03;
+  const VAD_OFF = 0.02;
+  const MIN_SEG_MS = 60;
+  const MAX_LISTEN_MS = 1400;
+
+  // Thresholds for /ɪ/ vs /iː/
+  const THRESH = { shortMax: 180, longMin: 220 };
+  const BAR_MAX = 360;
+
+  // ---- UI helpers ----
+  function setStatus(t){ statusEl.textContent = "Status: " + t; }
+  function setRecLabel(){ recBtn.textContent = listening ? "Stop" : "Tap to Speak"; }
+  function setStreak(n){ streak = n; streakPill.textContent = "Streak: " + streak; }
+
+  function setResultClass(kind){
+    resultBox.className = "result " + kind;
+  }
+
+  function clearResult(){
+    resultBox.style.display = "none";
+    verdictEl.textContent = "—";
+    detailEl.textContent = "—";
+    masteryTag.style.display = "none";
+    lengthFill.style.width = "0%";
+    lengthTag.textContent = "—";
+    lengthHint.textContent = "—";
+    setResultClass("unclear");
+  }
+
+  function rmsFromTimeDomain(arr){
+    let sum = 0;
+    for (let i=0;i<arr.length;i++){
+      const v = (arr[i]-128)/128;
+      sum += v*v;
+    }
+    return Math.sqrt(sum/arr.length);
+  }
+
+  function tick(){
+    if (analyser){
+      analyser.getByteTimeDomainData(data);
+      const rms = rmsFromTimeDomain(data);
+
+      const pct = Math.max(0, Math.min(1, rms * 6));
+      levelFill.style.width = (pct * 100).toFixed(1) + "%";
+      levelTxt.textContent = rms.toFixed(3);
+
+      if (listening){
+        const t = performance.now() - t0;
+        samples.push({ t, rms });
+
+        if (t > MAX_LISTEN_MS){
+          stopListening();
+          analyseAndReport();
+          setRecLabel();
+        }
+      }
+    }
+    rafId = requestAnimationFrame(tick);
+  }
+
+  async function ensureAudioRunning(){
+    if (ctx && ctx.state !== "running") {
+      try { await ctx.resume(); } catch(e) {}
+    }
+  }
+
+  async function initMic(){
+    const stream = await navigator.mediaDevices.getUserMedia({ audio:true });
+
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    mic = ctx.createMediaStreamSource(stream);
+
+    analyser = ctx.createAnalyser();
+    analyser.fftSize = 2048;
+    data = new Uint8Array(analyser.fftSize);
+
+    mic.connect(analyser);
+
+    if (!rafId) tick();
+
+    setStatus("microphone enabled");
+    startBtn.disabled = true;
+    recBtn.disabled = false;
+    resetBtn.disabled = false;
+    listening = false;
+    setRecLabel();
+  }
+
+  function reset(){
+    listening = false;
+    samples = [];
+    clearResult();
+    setStatus(startBtn.disabled ? "ready" : "not started");
+    setRecLabel();
+    setStreak(0);
+  }
+
+  async function startListening(){
+    if (!ctx) return;
+    await ensureAudioRunning();
+    samples = [];
+    clearResult();
+    listening = true;
+    t0 = performance.now();
+    setStatus("listening… speak now");
+  }
+
+  function stopListening(){
+    listening = false;
+    setStatus("checking…");
+  }
+
+  function findVoicedSegments(){
+    const segs = [];
+    let inSeg = false;
+    let segStart = 0;
+
+    for (let i=0;i<samples.length;i++){
+      const {t, rms} = samples[i];
+      if (!inSeg && rms >= VAD_ON){
+        inSeg = true;
+        segStart = t;
+      } else if (inSeg && rms <= VAD_OFF){
+        const segEnd = t;
+        if (segEnd - segStart >= MIN_SEG_MS) segs.push([segStart, segEnd]);
+        inSeg = false;
+      }
+    }
+
+    if (inSeg){
+      const lastT = samples.length ? samples[samples.length-1].t : 0;
+      if (lastT - segStart >= MIN_SEG_MS) segs.push([segStart, lastT]);
+    }
+    return segs;
+  }
+
+  function classifyDuration(dur){
+    const { shortMax, longMin } = THRESH;
+    if (dur <= shortMax) return "short";
+    if (dur >= longMin) return "long";
+    return "unclear";
+  }
+
+  function applyLengthBar(dur){
+    const pct = Math.max(0, Math.min(100, (dur / BAR_MAX) * 100));
+    lengthFill.style.width = pct.toFixed(1) + "%";
+    lengthTag.textContent = Math.round(dur) + " ms";
+  }
+
+  function tip(expected, heard){
+    if (heard === "unclear") return "Try again. Use a steady voice and normal volume.";
+
+    if (expected === heard){
+      if (expected === "short") return "Good. Keep it quick and light.";
+      return "Good. Smile and hold it longer and steady.";
+    }
+
+    if (expected === "long") return "Too short. Smile and hold the vowel longer.";
+    return "Too long. Say it quickly without holding it.";
+  }
+
+  function analyseAndReport(){
+    const expected = targetSel.value;
+
+    const segs = findVoicedSegments();
+    resultBox.style.display = "block";
+    masteryTag.style.display = "none";
+
+    if (!segs.length){
+      setResultClass("unclear");
+      verdictEl.textContent = "No clear sound";
+      detailEl.textContent = "Speak a little louder and hold one vowel steady.";
+      lengthFill.style.width = "0%";
+      lengthTag.textContent = "—";
+      lengthHint.textContent = "Try again (don’t whisper).";
+      setStreak(0);
+      setStatus("ready");
+      return;
+    }
+
+    let longest = segs[0];
+    for (const s of segs){
+      if ((s[1]-s[0]) > (longest[1]-longest[0])) longest = s;
+    }
+
+    const dur = longest[1] - longest[0];
+    const heard = classifyDuration(dur);
+
+    applyLengthBar(dur);
+
+    if (heard === "unclear"){
+      setResultClass("unclear");
+      verdictEl.textContent = "Unclear length";
+      detailEl.textContent = tip(expected, heard);
+      lengthHint.textContent = "Try one clean vowel sound.";
+      setStreak(0);
+      setStatus("ready");
+      return;
+    }
+
+    const ok = (heard === expected);
+
+    if (ok){
+      setResultClass(heard === "short" ? "shortok" : "correct");
+      verdictEl.textContent = "Correct";
+      detailEl.textContent = tip(expected, heard);
+      setStreak(streak + 1);
+
+      if (streak >= 2){
+        masteryTag.style.display = "";
+        masteryTag.textContent = "CLEAR";
+      }
+
+      lengthHint.textContent = "Good length. Try another word or keep practising.";
+    } else {
+      setResultClass("wrong");
+      verdictEl.textContent = "Not quite";
+      detailEl.textContent = tip(expected, heard);
+      lengthHint.textContent = "Use the tip, then Try Again.";
+      setStreak(0);
+    }
+
+    setStatus("ready");
+  }
+
+  // ---- Wiring ----
+  targetSel.addEventListener("change", () => { clearResult(); setStreak(0); });
+
+  startBtn.addEventListener("click", async () => {
+    try { await initMic(); }
+    catch(e){
+      setStatus("microphone blocked");
+      alert("Microphone access was blocked. Allow mic permission and reload.");
+    }
+  });
+
+  recBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    if (!ctx) return;
+
+    if (!listening){
+      await startListening();
+      setRecLabel();
+    } else {
+      stopListening();
+      analyseAndReport();
+      setRecLabel();
+    }
+  });
+
+  resetBtn.addEventListener("click", reset);
+
+  // ---- Init ----
+  populateTargets();
+  clearResult();
+  setStatus("not started");
+  setStreak(0);
+  setRecLabel();
+});
+</script>
+
+</body>
+</html>

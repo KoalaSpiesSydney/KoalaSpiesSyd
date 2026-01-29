@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title> short and long ee and i sounds Bingo – Modern English Australia</title>
+
+<style>
+:root{
+  --bg:#f2f5f6;
+  --card:#1e1f21;
+  --accent:#009688;
+  --accent-light:#33bba6;
+  --ink:#1c1e20;
+  --ink-light:#f5f5f5;
+  --success:#20c997;
+  --error:#e74c3c;
+  --line:rgba(0,0,0,.12);
+  --radius:14px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* ===== Header ===== */
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:var(--card);
+  color:var(--accent);
+  text-align:center;
+  padding:1rem;
+  font-weight:800;
+  letter-spacing:2px;
+}
+header span{
+  display:block;
+  color:var(--ink-light);
+  font-size:.95rem;
+  font-weight:300;
+  margin-top:.3rem;
+}
+
+.home-btn{
+  position:absolute;
+  right:12px;
+  top:12px;
+  padding:.45rem .8rem;
+  border-radius:10px;
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  border:1px solid rgba(255,255,255,.18);
+  line-height:1;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+@media (hover:hover){
+  .home-btn:hover{ background:var(--accent); border-color:transparent; }
+}
+
+/* ===== Main ===== */
+main{
+  flex:1;
+  max-width:1000px;
+  margin:0 auto;
+  padding:1rem;
+}
+
+.review-top{margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--line)}
+.sound-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+.sound-card{background:#f9fbfb;border:1px solid var(--line);border-radius:16px;padding:1rem;text-align:center}
+.sound-card h3{margin:0 0 .6rem;color:var(--accent);font-size:1.05rem}
+.sound-video{width:100%;max-width:420px;border-radius:12px;background:#000;margin:0 auto .75rem;display:block}
+.sound-card ul{list-style:none;padding:0;margin:.5rem 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem .75rem;font-weight:700}
+.sound-card li{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:.25rem .7rem;font-size:.9rem}
+.more-info{margin-top:1rem;font-size:.95rem}
+.more-info a{color:var(--accent);font-weight:800;text-decoration:none}
+.more-info a:hover{text-decoration:underline}
+@media (min-width:700px){.sound-grid{grid-template-columns:1fr 1fr}}
+
+.panel{
+  background:#fff;
+  border-radius:18px;
+  padding:1.25rem;
+  border:1px solid var(--line);
+}
+
+.controls{
+  display:flex;
+  gap:.75rem;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:1rem 0;
+}
+
+.btn{
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  padding:.7rem 1.1rem;
+  font-weight:800;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+.btn.secondary{
+  background:#e9eff0;
+  color:#000;
+  border:1px solid rgba(0,0,0,.08);
+}
+.btn:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+}
+
+/* ===== Board ===== */
+.board{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  max-width:820px;
+  margin:1rem auto;
+}
+
+.tile{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px;
+  min-height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  font-weight:800;
+  cursor:pointer;
+  user-select:none;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+
+.tile.marked{
+  background:rgba(0,150,136,.08);
+  border-color:var(--accent);
+}
+.tile.marked::after{
+  position:absolute;
+  top:8px;
+  right:10px;
+  font-weight:900;
+  color:var(--accent);
+}
+
+/* =========================
+   SHAKE HINT (WRONG MARK)
+   ========================= */
+@keyframes shake{
+  0%,100%{ transform:translateX(0); }
+  20%{ transform:translateX(-6px); }
+  40%{ transform:translateX(6px); }
+  60%{ transform:translateX(-4px); }
+  80%{ transform:translateX(4px); }
+}
+.tile.shake{
+  animation:shake .35s ease;
+}
+
+/* ===== Review ===== */
+.review{
+  border-top:1px solid var(--line);
+  margin-top:1.25rem;
+  padding-top:1rem;
+  text-align:center;
+  display:none;
+}
+.score{
+  font-size:1.2rem;
+  font-weight:900;
+  margin-bottom:.35rem;
+}
+.subscore{
+  color:rgba(0,0,0,.65);
+  font-weight:700;
+  margin-bottom:.75rem;
+  line-height:1.4;
+}
+.review-actions{
+  display:flex;
+  gap:.6rem;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:.75rem 0 1rem;
+}
+
+.list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
+  margin-bottom:.5rem;
+}
+
+.chip{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:.35rem .65rem;
+  border-radius:999px;
+  font-weight:800;
+  font-size:.9rem;
+  border:1px solid rgba(0,0,0,.10);
+  background:rgba(0,0,0,.03);
+}
+.chip.ok{ background:rgba(0,150,136,.12); border-color:rgba(0,150,136,.25); }
+.chip.miss{ background:rgba(231,76,60,.12); border-color:rgba(231,76,60,.25); }
+
+.play-mini{
+  width:28px;
+  height:28px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,.12);
+  background:rgba(255,255,255,.9);
+  cursor:pointer;
+  font-weight:900;
+  line-height:1;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+@media (hover:hover){
+  .play-mini:hover{ background:#fff; }
+}
+.links{
+  display:flex;
+  justify-content:center;
+  gap:.9rem;
+  margin:2rem 0 .75rem;
+  flex-wrap:wrap;
+  text-decoration: none;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  text-decoration: none;
+}
+
+
+footer{
+  background:var(--card);
+  color:#fff;
+  text-align:center;
+  padding:1rem;
+  font-size:.9rem;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+.links a.btn{
+  text-decoration: none !important;
+  font-family: "Trebuchet MS", Arial, sans-serif !important;
+  font-weight: 500 !important;
+}
+
+.links a.btn:hover,
+.links a.btn:focus,
+.links a.btn:visited,
+.links a.btn:active{
+  text-decoration: none !important;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="home-btn">Home</a>
+  MODERN ENGLISH AUSTRALIA
+  <span> Long ee & short i Bingo</span>
+</header>
+
+<main>
+<section class="panel">
+<!-- ===== Review Section ===== -->
+<div class="review-top">
+
+  <p>
+    <strong>Review</strong><br>
+    Listen to the <strong>short i</strong> and <strong>long ee</strong> videos below, then play
+    <strong>Check Bingo</strong>.
+  </p>
+
+  <div class="sound-grid">
+
+    <!-- Short i -->
+    <div class="sound-card">
+      <h3>Short i /ɪ/</h3>
+
+      <video class="sound-video" controls playsinline preload="metadata">
+        <source src="Ship- it.mov" type="video/mp4">
+      </video>
+
+      <ul>
+        <li>ship</li><li>bin</li><li>sit</li><li>hit</li><li>pick</li>
+      </ul>
+    </div>
+
+    <!-- Long ee -->
+    <div class="sound-card">
+      <h3>Long ee /iː/</h3>
+
+      <video class="sound-video" controls playsinline preload="metadata">
+        <source src="please-ee.mov" type="video/mp4">
+      </video>
+
+      <ul>
+        <li>sheep</li><li>bean</li><li>seat</li><li>heat</li><li>peak</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <p class="more-info">
+    <strong>More information:</strong>
+    <a href="sounds-i-e-y.html">Sounds of i, e and y</a>
+  </p>
+
+</div>
+<!-- ===== End Review Section ===== -->
+
+
+
+<p><strong>Instructions</strong></p>
+<p><strong>Classroom:</strong> Project onto the whiteboard- play audio Students play on their phones. After a few rounds you can write down the words, put them in a hat and have the teacher or student read them out.</p>
+<p><strong>Self-study:</strong> listen, mark your board, then press <strong>Check Bingo</strong>.</p>
+<p>There is a <strong>Repeat button</strong> to lay again<strong> Check Bingo</strong> to review after the game.</p>
+<div class="controls">
+  <button class="btn" id="playBtn" type="button">Play</button>
+  <button class="btn secondary" id="repeatBtn" type="button">Repeat</button>
+  <button class="btn secondary" id="resetBtn" type="button">Reset</button>
+  <button class="btn secondary" id="checkBtn" type="button">Check Bingo</button>
+</div>
+
+<div class="board" id="board" aria-label="Bingo board"></div>
+
+<div class="review" id="review" aria-label="Review and score">
+  <div class="score" id="scoreText"></div>
+  <div class="subscore" id="scoreSub"></div>
+
+  <div class="review-actions">
+    <button class="btn secondary" id="playMissedBtn" type="button">Play missed</button>
+    <button class="btn secondary" id="playCalledNotOnBoardBtn" type="button">Play called not on board</button>
+  </div>
+
+  <div style="font-weight:900; margin:.35rem 0 .5rem;">Marked (on this board)</div>
+  <div class="list" id="markedList"></div>
+
+  <div style="font-weight:900; margin:1rem 0 .5rem;">Missed (on this board)</div>
+  <div class="list" id="missedList"></div>
+
+  <div style="font-weight:900; margin:1rem 0 .5rem;">Called but not on this board</div>
+  <div class="list" id="calledNotOnBoardList"></div>
+</div>
+
+</section>
+</main>
+<div class="back-wrap">
+  <button class="btn back-btn" onclick="history.back()">← Back</button>
+</div>
+
+    <div class="links">
+      <a href="iminimalpairs.html" class="btn"> Practice identifying sounds </a>
+      <a href="A3pract.html" class="btn">Practice Say long and short sounds/a>
+       <a href="A3pract.html" class="btn">Listening Gapfill </a>
+    </div>
+  </main>
+
+<footer>
+© Koala Spies Sydney · Modern English Australia · All Rights Reserved
+</footer>
+
+<script>
+/* ============================================================
+   WORD POOL
+   ============================================================ */
+
+   
+const ITEMS = [
+  "ship","sheep","bin","been","beach","sheet","sick","seek",
+  "pill","peel","six","sleep","Tim","team","dim","dime",
+  "bed","bead","fit","feet","hit","heat","sit","seat",
+  "bit","beat","lip","leap","fill","feel","pick","peak",
+  "tin","teen","lick","leak","still","steel","live","leave",
+  "this","these","rid","read","did","deed","chick","cheek",
+  "hit", "sin", "fifteen", "fifty", "sixty", "thirty", "fourteen",
+  "believe", "lift", "cream", "criminal", "scenery", "pin", "leave",
+];
+
+/* ============================================================
+   DOM
+   ============================================================ */
+const board = document.getElementById("board");
+
+const playBtn = document.getElementById("playBtn");
+const repeatBtn = document.getElementById("repeatBtn");
+const resetBtn = document.getElementById("resetBtn");
+const checkBtn = document.getElementById("checkBtn");
+
+const review = document.getElementById("review");
+const scoreText = document.getElementById("scoreText");
+const scoreSub = document.getElementById("scoreSub");
+
+const markedList = document.getElementById("markedList");
+const missedList = document.getElementById("missedList");
+const calledNotOnBoardList = document.getElementById("calledNotOnBoardList");
+
+const playMissedBtn = document.getElementById("playMissedBtn");
+const playCalledNotOnBoardBtn = document.getElementById("playCalledNotOnBoardBtn");
+
+/* ============================================================
+   STATE
+   - boardWords: 16 words on the tiles
+   - callDeck: words to be called (FULL pool, so many will NOT be on board)
+   - calledHistory: everything that has been called this round
+   ============================================================ */
+let boardWords = [];
+let callDeck = [];
+let calledHistory = [];
+let lastWord = null;
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function buildBoard(){
+  board.innerHTML = "";
+  boardWords = shuffle(ITEMS).slice(0, 16);
+
+  boardWords.forEach(word => {
+    const t = document.createElement("button");
+    t.type = "button";
+    t.className = "tile";
+    t.textContent = word;
+    t.setAttribute("aria-pressed", "false");
+
+    t.addEventListener("click", () => {
+      t.classList.toggle("marked");
+      t.setAttribute("aria-pressed", t.classList.contains("marked") ? "true" : "false");
+
+      /* =========================
+         SHAKE HINT WHEN WRONG
+         (marked but never called)
+         ========================= */
+      if(t.classList.contains("marked") && calledHistory.length){
+        const calledSet = new Set(calledHistory);
+        if(!calledSet.has(t.textContent)){
+          t.classList.remove("shake");   // restart animation
+          void t.offsetWidth;
+          t.classList.add("shake");
+          setTimeout(() => t.classList.remove("shake"), 400);
+        }
+      }
+    });
+
+    board.appendChild(t);
+  });
+}
+
+function resetGame(){
+  // new board + new calling deck from FULL pool
+  buildBoard();
+  callDeck = shuffle(ITEMS);
+  calledHistory = [];
+  lastWord = null;
+
+  review.style.display = "none";
+  clearLists();
+  playMissedBtn.disabled = true;
+  playCalledNotOnBoardBtn.disabled = true;
+}
+
+function speak(word){
+  if(!("speechSynthesis" in window)) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(word);
+  u.rate = 0.95;
+  u.pitch = 1;
+  u.volume = 1;
+  window.speechSynthesis.speak(u);
+}
+
+function drawNext(){
+  if(callDeck.length === 0){
+    callDeck = shuffle(ITEMS);
+  }
+  lastWord = callDeck.pop();
+  calledHistory.push(lastWord);
+  speak(lastWord);
+}
+
+/* ============================================================
+   REVIEW + SCORING
+   ============================================================ */
+function getTiles(){
+  return Array.from(board.querySelectorAll(".tile"));
+}
+
+function clearLists(){
+  markedList.innerHTML = "";
+  missedList.innerHTML = "";
+  calledNotOnBoardList.innerHTML = "";
+}
+
+function chip(word, cls){
+  const c = document.createElement("div");
+  c.className = "chip " + cls;
+  c.innerHTML = `
+    <span>${escapeHtml(word)}</span>
+    <button class="play-mini" type="button" aria-label="Play ${escapeAttr(word)}" data-word="${escapeAttr(word)}">▶</button>
+  `;
+  c.querySelector("button").addEventListener("click", () => speak(word));
+  return c;
+}
+
+function reviewGame(){
+  const calledSet = new Set(calledHistory);
+  const boardSet = new Set(boardWords);
+
+  const tiles = getTiles();
+  const markedWords = tiles.filter(t => t.classList.contains("marked")).map(t => t.textContent);
+
+  const correctMarked = markedWords.filter(w => calledSet.has(w));
+  const incorrectMarked = markedWords.filter(w => !calledSet.has(w));
+
+  const calledOnBoard = boardWords.filter(w => calledSet.has(w));
+  const missed = calledOnBoard.filter(w => !markedWords.includes(w));
+
+  const calledNotOnBoard = Array.from(calledSet).filter(w => !boardSet.has(w));
+
+  const totalPossible = calledOnBoard.length;
+  const score = correctMarked.length;
+  const percent = totalPossible === 0 ? 0 : Math.round((score / totalPossible) * 100);
+
+  review.style.display = "block";
+  clearLists();
+
+  scoreText.textContent = totalPossible === 0
+    ? "Score: 0 / 0 (0%)"
+    : `Score: ${score} / ${totalPossible} (${percent}%)`;
+
+  scoreSub.textContent =
+    `Correct marked: ${correctMarked.length} · Incorrect marked: ${incorrectMarked.length} · Missed: ${missed.length}`;
+
+  if(correctMarked.length === 0 && incorrectMarked.length === 0){
+    markedList.appendChild(chip("none", "ok"));
+  } else {
+    correctMarked.forEach(w => markedList.appendChild(chip(w, "ok")));
+    incorrectMarked.forEach(w => markedList.appendChild(chip(w, "miss")));
+  }
+
+  if(missed.length === 0){
+    missedList.appendChild(chip("none", "ok"));
+  } else {
+    missed.forEach(w => missedList.appendChild(chip(w, "miss")));
+  }
+
+  if(calledNotOnBoard.length === 0){
+    calledNotOnBoardList.appendChild(chip("none", "ok"));
+  } else {
+    calledNotOnBoard.forEach(w => calledNotOnBoardList.appendChild(chip(w, "miss")));
+  }
+
+  playMissedBtn.disabled = missed.length === 0;
+  playCalledNotOnBoardBtn.disabled = calledNotOnBoard.length === 0;
+
+  playMissedBtn._words = missed.slice();
+  playCalledNotOnBoardBtn._words = calledNotOnBoard.slice();
+}
+
+function playSequence(words){
+  if(!words || words.length === 0) return;
+  if(!("speechSynthesis" in window)) return;
+
+  window.speechSynthesis.cancel();
+  let i = 0;
+
+  const next = () => {
+    if(i >= words.length) return;
+    const u = new SpeechSynthesisUtterance(words[i]);
+    u.rate = 0.95;
+    u.pitch = 1;
+    u.volume = 1;
+    u.onend = () => {
+      i++;
+      setTimeout(next, 200);
+    };
+    window.speechSynthesis.speak(u);
+  };
+
+  next();
+}
+
+function escapeHtml(str){
+  return String(str)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+function escapeAttr(str){
+  return String(str)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+/* ============================================================
+   CONTROLS
+   ============================================================ */
+playBtn.addEventListener("click", drawNext);
+repeatBtn.addEventListener("click", () => { if(lastWord) speak(lastWord); });
+resetBtn.addEventListener("click", resetGame);
+checkBtn.addEventListener("click", reviewGame);
+
+playMissedBtn.addEventListener("click", () => playSequence(playMissedBtn._words || []));
+playCalledNotOnBoardBtn.addEventListener("click", () => playSequence(playCalledNotOnBoardBtn._words || []));
+
+/* ============================================================
+   START
+   ============================================================ */
+resetGame();
+</script>
+
+</body>
+</html>
