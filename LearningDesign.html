@@ -401,6 +401,35 @@
     .final-text-grid h1 { margin-top: 0; }
     .final-text-grid p { margin: 0 0 12px; }
     .final-text-grid ul { margin: 0; padding-left: 24px; }
+
+    .quick-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center; /* or flex-start */
+  margin:1rem 0;
+}
+
+.quick-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:.7rem 1.1rem;
+  border-radius:10px;
+  background:#ff7a1a;
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  line-height:1.2;
+  text-align:center;
+  border:1px solid #ff7a1a;
+  transition:opacity .2s ease, transform .2s ease;
+}
+
+.quick-link:hover{
+  opacity:.92;
+  transform:translateY(-1px);
+}
   </style>
 </head>
     <!-- Google tag (gtag.js) -->
@@ -889,9 +918,15 @@
         I integrate technology into practical classroom workflows.
       </p>
 
-      <p>***** This sites is very much a work in progress. I am still building the site and updated the lessons******</p>
-      <a href="http://modernenglish.au/Microlessons&Games.html">Micro Lessons, Pronunciation & Games</a>
-      <a href="http://modernenglish.au/IELTSPTEPLUS.html">IELTS PTE +</a>
+      <div class="quick-links">
+  <a class="quick-link" href="http://modernenglish.au/Microlessons%26Games.html">
+    Micro Lessons // Pronunciation // Games
+  </a>
+
+  <a class="quick-link" href="http://modernenglish.au/IELTSPTEPLUS.html">
+    IELTS // PTE +
+  </a>
+</div>
       
     </section>
   </main>
