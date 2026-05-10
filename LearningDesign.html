@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,35 +6,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
   <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
     /* ---------------- ROOT + BASE ---------------- */
 
     :root {
-      --bg-dark: #1e1e1e;
-      --ink-light: #f5f5f5;
-      --ink-muted: #bbbbbb;
-      --ink-dark: #222;
-      --light-bg: #f4f4f4;
+      --bg-dark: #0f1f35;
+      --bg-mid: #162840;
+      --bg-card: #1a3050;
+      --ink-light: #f0ede8;
+      --ink-muted: #c8c4bc;
+      --ink-dark: #0f1f35;
+      --light-bg: #f0ede8;
 
-      --accent1: #009688;
-      --accent2: #d35400;
-      --accent3: #f1c40f;
-      --accent4: #8e44ad;
-      --accent5: #020f17;
-      --accent6: #e67e22;
+      --accent1: #2a6496;
+      --accent2: #1a4a6e;
+      --accent3: #e8e0d4;
+      --accent4: #4a90b8;
+      --accent5: #0f1f35;
+      --accent6: #7ab3d0;
 
       --radius: 14px;
       --space: 24px;
+
+      --font-main: "Source Sans 3", "Source Sans Pro", "Open Sans", "Segoe UI", Verdana, Helvetica, Arial, sans-serif;
     }
 
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; height: 100%; }
 
     body {
-      font-family: "Segoe UI", Verdana, Helvetica, Arial, sans-serif;
+      font-family: var(--font-main);
       line-height: 1.75;
       background: var(--bg-dark);
       color: var(--ink-light);
@@ -51,17 +54,18 @@
     /* ---------------- HEADER ---------------- */
 
     header {
-      background: var(--light-bg);
-      color: var(--ink-dark);
+      background: #0f1f35;
+      color: var(--ink-light);
       text-align: center;
       padding: clamp(16px, 3vw, 28px) 16px;
-      font-family: "tt-modernoir", sans-serif;
+      font-family: "Source Sans 3", "Source Sans Pro", "Open Sans", sans-serif;
       font-weight: 700;
       font-size: clamp(2rem, 7vw, 5rem);
       letter-spacing: clamp(2px, 1.8vw, 10px);
       line-height: 1.05;
       white-space: normal;
       word-break: break-word;
+      border-bottom: 3px solid #4a90b8;
     }
 
     /* ---------------- MAIN WRAPPER ---------------- */
@@ -79,22 +83,22 @@
     /* ---------------- TILE HEADER ---------------- */
 
     .tile-header {
-      background: rgba(255,255,255,0.06);
+      background: var(--bg-card);
       padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 20px);
       border-radius: var(--radius);
       text-align: center;
       margin-bottom: clamp(22px, 5vw, 40px);
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.15);
+      box-shadow: 0 0 0 1px rgba(74,144,184,0.25);
       overflow: hidden;
     }
 
     .tile-header h2 {
       margin: 0 0 10px;
-      font-family: "Libre Baskerville", serif;
+      font-family: var(--font-main);
       font-weight: 700;
       letter-spacing: 0.04em;
       font-size: clamp(1.8rem, 5vw, 3rem);
-      color: var(--accent3);
+      color: var(--accent6);
       -webkit-font-smoothing: antialiased;
       text-wrap: balance;
     }
@@ -103,7 +107,7 @@
       margin: 0;
       font-size: clamp(0.98rem, 2.8vw, 1.1rem);
       font-style: italic;
-      color: var(--ink-light);
+      color: var(--ink-muted);
       overflow-wrap: anywhere;
       line-height: 1.75;
     }
@@ -112,11 +116,12 @@
 
     .problem-block {
       margin: 40px 0;
-      background: rgba(255,255,255,0.05);
+      background: var(--bg-mid);
       padding: 24px;
       border-radius: var(--radius);
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.12);
+      box-shadow: 0 0 0 1px rgba(74,144,184,0.2);
       overflow: hidden;
+      border-left: 4px solid #4a90b8;
     }
 
     .problem-block p {
@@ -131,11 +136,13 @@
     h1 {
       margin: 0 0 14px;
       font-size: clamp(1.35rem, 4vw, 2rem);
-      color: var(--accent3);
+      color: var(--accent6);
+      font-family: var(--font-main);
+      font-weight: 700;
     }
 
     ul.aligned > li > strong {
-      color: var(--accent6);
+      color: #a8d4e8;
       font-weight: 700;
     }
 
@@ -152,7 +159,7 @@
     }
 
     ul.aligned li a {
-      color: var(--accent3);
+      color: var(--accent6);
       font-weight: 700;
       text-decoration: none;
     }
@@ -162,7 +169,7 @@
     /* ---------------- CASE STUDY ---------------- */
 
     .case-study {
-      background: #ffffff;
+      background: var(--light-bg);
       color: var(--ink-dark);
       display: grid;
       grid-template-columns: 1fr;
@@ -170,7 +177,7 @@
       padding: clamp(16px, 4vw, 32px);
       border-radius: var(--radius);
       margin: 30px 0 40px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
       overflow: hidden;
       min-width: 0;
     }
@@ -180,7 +187,7 @@
     .case-study iframe {
       width: 100%;
       aspect-ratio: 12/16;
-      border: 3px solid var(--light-bg);
+      border: 3px solid #c8c4bc;
       border-radius: var(--radius);
       background: #000;
       box-shadow: 0 6px 20px rgba(0,0,0,0.25);
@@ -198,7 +205,7 @@
     .case-study aside h1 {
       margin: 0;
       font-size: clamp(1.25rem, 3.6vw, 1.8rem);
-      color: var(--accent3);
+      color: #1a4a6e;
     }
 
     .case-study aside p,
@@ -219,48 +226,50 @@
     }
 
     .pill-toggle {
-      background: var(--accent3);
-      color: var(--ink-dark);
+      background: #2a6496;
+      color: #f0ede8;
       border: none;
       padding: 10px 22px;
       border-radius: 40px;
-      font-weight: bold;
+      font-weight: 700;
       cursor: pointer;
       font-size: 1rem;
+      font-family: var(--font-main);
       transition: 0.2s ease;
       max-width: 100%;
     }
 
     .pill-toggle:hover {
-      background: var(--accent2);
-      color: #fff;
+      background: #1a4a6e;
+      color: #f0ede8;
     }
 
     .contact-link {
       display: inline-block;
       padding: 10px 22px;
       border-radius: 40px;
-      background: var(--accent5);
-      color: #fff;
+      background: #1a4a6e;
+      color: #f0ede8;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 700;
       text-align: center;
+      font-family: var(--font-main);
       transition: 0.2s ease;
       max-width: 100%;
     }
 
-    .contact-link:hover { background: var(--accent2); }
+    .contact-link:hover { background: #0f1f35; }
 
     .pill-content {
       display: none;
       margin-top: 20px;
       padding: 20px;
-      background: rgba(0,0,0,0.05);
+      background: rgba(15,31,53,0.07);
       border-radius: var(--radius);
       overflow-wrap: anywhere;
+      border-left: 3px solid #4a90b8;
     }
 
-    /* Optional: pill wrapper used in your reading section */
     .pill { margin: 0 0 30px; }
 
     /* ---------------- PRE-FOOTER LINKS ---------------- */
@@ -276,7 +285,7 @@
 
     .pre-footer h3 {
       margin: 0 0 18px;
-      font-family: "Libre Baskerville", serif;
+      font-family: var(--font-main);
       font-weight: 700;
       letter-spacing: 0.08em;
       font-size: 1.2rem;
@@ -294,26 +303,27 @@
       overflow-wrap: anywhere;
     }
 
-    .link-centered{
-      display:block;
-      text-align:center;
+    .link-centered {
+      display: block;
+      text-align: center;
       margin: 6px auto 0;
-      color: var(--accent3);
+      color: var(--accent6);
       font-weight: 700;
       text-decoration: none;
     }
-    .link-centered:hover{ text-decoration: underline; }
+    .link-centered:hover { text-decoration: underline; }
 
     /* ---------------- FOOTER ---------------- */
 
     footer {
-      background: var(--light-bg);
-      color: var(--ink-dark);
+      background: #0f1f35;
+      color: var(--ink-light);
       text-align: center;
       padding: 20px 14px;
       padding-bottom: max(20px, env(safe-area-inset-bottom));
       padding-left: max(14px, env(safe-area-inset-left));
       padding-right: max(14px, env(safe-area-inset-right));
+      border-top: 3px solid #4a90b8;
     }
 
     footer nav {
@@ -324,9 +334,9 @@
     }
 
     footer nav a {
-      color: var(--ink-dark);
+      color: var(--ink-light);
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 700;
       padding: 8px 10px;
       border-radius: 10px;
       overflow-wrap: anywhere;
@@ -341,7 +351,7 @@
       .case-study.reverse { grid-template-columns: 0.9fr 1.1fr; }
 
       .right-column p, .right-column li { color: var(--ink-dark); line-height: 1.7; }
-      .right-column strong { color: var(--accent6); font-weight: 700; }
+      .right-column strong { color: #1a4a6e; font-weight: 700; }
       .right-column ul.aligned > li { margin-bottom: 26px; }
       .right-column ul ul { margin-top: 8px; padding-left: 20px; opacity: 0.9; }
     }
@@ -355,11 +365,8 @@
     }
 
     /* ============================================================
-       FINAL SECTION (ONLY): 4:3 iframe + text underneath + STRUCTURED 2 columns
-       - iframe stays full width (4:3)
-       - text underneath becomes two structured columns on desktop:
-         left = Solution + Method, right = Feedback
-       ============================================================ */
+       FINAL SECTION
+    ============================================================ */
 
     .case-study.final-iframe {
       grid-template-columns: 1fr;
@@ -369,21 +376,18 @@
       aspect-ratio: 4 / 3;
     }
 
-    /* Override your 2-column case-study layout on desktop for this one only */
     @media (min-width: 900px) {
       .case-study.final-iframe {
         grid-template-columns: 1fr !important;
       }
     }
 
-    /* Override your mobile iframe ratio for this one only */
     @media (max-width: 600px) {
       .case-study.final-iframe iframe {
         aspect-ratio: 4 / 3;
       }
     }
 
-    /* Structured two-column text grid under the final iframe */
     .final-text-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -397,39 +401,40 @@
       }
     }
 
-    /* Keep headings and blocks tidy */
     .final-text-grid h1 { margin-top: 0; }
     .final-text-grid p { margin: 0 0 12px; }
     .final-text-grid ul { margin: 0; padding-left: 24px; }
 
-    .quick-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  justify-content:center; /* or flex-start */
-  margin:1rem 0;
-}
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin: 1rem 0;
+    }
 
-.quick-link{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:.7rem 1.1rem;
-  border-radius:10px;
-  background:#ff7a1a;
-  color:#fff;
-  text-decoration:none;
-  font-weight:700;
-  line-height:1.2;
-  text-align:center;
-  border:1px solid #ff7a1a;
-  transition:opacity .2s ease, transform .2s ease;
-}
+    .quick-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .7rem 1.1rem;
+      border-radius: 10px;
+      background: #2a6496;
+      color: #f0ede8;
+      text-decoration: none;
+      font-weight: 700;
+      font-family: var(--font-main);
+      line-height: 1.2;
+      text-align: center;
+      border: 1px solid #4a90b8;
+      transition: opacity .2s ease, transform .2s ease;
+    }
 
-.quick-link:hover{
-  opacity:.92;
-  transform:translateY(-1px);
-}
+    .quick-link:hover {
+      opacity: .92;
+      transform: translateY(-1px);
+      background: #1a4a6e;
+    }
   </style>
 </head>
     <!-- Google tag (gtag.js) -->
@@ -438,10 +443,8 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-G4RJ8H2H2V');
 </script>
-
 
 <body>
   <header>KOALA SPIES SYDNEY</header>
@@ -544,7 +547,7 @@
             <strong>5. Time + Cost Savings</strong>
             <ul>
               <li>Templates ready to go each week</li>
-              <li>No photocopying or subscription frees</li>
+              <li>No photocopying or subscription fees</li>
             </ul>
           </li>
         </ul>
@@ -582,7 +585,7 @@
             <strong>1. Listen and Watch</strong>
             <ul>
               <li>Listen and watch the sounds being made with examples</li>
-              <li>Can be done as a class or individually on students’ phones</li>
+              <li>Can be done as a class or individually on students' phones</li>
             </ul>
           </li>
 
@@ -670,10 +673,10 @@
             Grammar and pronunciation targets were uploaded into the system, which students found amusing but surprisingly effective for reinforcing accuracy.
           </li>
           <li>
-            The process encouraged collaboration — students compared lyrics, shared ideas, and refined each other’s language.
+            The process encouraged collaboration — students compared lyrics, shared ideas, and refined each other's language.
           </li>
           <li>
-            The students leave your class with a memory and an achievement, which can only be good for the teachers and schools word-of-moth.
+            The students leave your class with a memory and an achievement, which can only be good for the teachers and schools word-of-mouth.
           </li>
         </ul>
 
@@ -693,11 +696,11 @@
               because melody made thousands of lines easier to recall. In West Africa, griots carried genealogies,
               laws, and histories through musical storytelling. And in Australia, Indigenous cultures maintained
               vast networks of knowledge through <strong>songlines</strong>—musical maps encoding geography, law,
-              spirituality, and survival skills. A songline wasn’t just a song; it was a living archive.
+              spirituality, and survival skills. A songline wasn't just a song; it was a living archive.
             </p>
 
             <p>
-              Even classical philosophers recognised the cognitive power of music. In Plato’s dialogue
+              Even classical philosophers recognised the cognitive power of music. In Plato's dialogue
               <em>Phaedrus</em>, Socrates warns that the new technology of writing would weaken human memory.
               He believed that once people relied on written text, they would stop exercising the mental discipline
               supported by rhythm, recitation, and song. Whether or not he was right, the anxiety reveals how
@@ -720,7 +723,7 @@
     <section class="tile-header">
       <h2>Challenge Students</h2>
       <p>
-        <q>What we learn to do, we learn by doing .</q>
+        <q>What we learn to do, we learn by doing.</q>
         <br><cite>— Aristotle</cite>
       </p>
     </section>
@@ -741,7 +744,7 @@
 
         <h1>Mixed Language Points</h1>
         <ul>
-          <li>Listening, Writing annd Speaking</li>
+          <li>Listening, Writing and Speaking</li>
           <li>Grammar: revision of all past and present verb forms</li>
           <li>Guidance on how and when to use these verbs in biography writing</li>
           <li>Optional extension activity to review verb structure if needed</li>
@@ -756,7 +759,7 @@
 
         <div id="challenge-theory" class="pill-content" aria-label="Challenge students theory content">
           <p>
-            Krashen’s Input Hypothesis is a key theory in second language acquisition. It proposes that learners
+            Krashen's Input Hypothesis is a key theory in second language acquisition. It proposes that learners
             make the most progress when they are exposed to language that is understandable but slightly beyond
             their current level. This balance between familiarity and challenge creates ideal conditions for
             natural language growth and has strongly influenced modern approaches to reading, listening, and
@@ -764,7 +767,7 @@
           </p>
           <ul>
             <li>It emphasises that learners acquire language through <strong>comprehensible input</strong>, not by memorising grammar rules in isolation.</li>
-            <li>It states that progress occurs when input is <strong>just above the learner’s current level</strong> (i+1), creating productive challenge.</li>
+            <li>It states that progress occurs when input is <strong>just above the learner's current level</strong> (i+1), creating productive challenge.</li>
             <li>It focuses on <strong>meaningful communication</strong>, where learners understand the message even if some language is new.</li>
             <li>It supports using <strong>authentic materials</strong>, as long as they are scaffolded enough to remain understandable.</li>
             <li>It highlights the power of <strong>extensive reading and listening</strong> for long-term language development.</li>
@@ -795,14 +798,14 @@
     <section class="problem-block">
       <h1>Problems</h1>
       <p>
-        <strong>TikTok brain, social media fatigue, and shrinking attention spans mean many people no longer read more than a few lines at a time. I’ve noticed this especially with students taking long reading tests like IELTS. Younger generations’ brains have been wired differently, and many struggle to sit and read a single article for even five minutes — yet the IELTS requires thirty minutes of sustained focus.</strong>
+        <strong>TikTok brain, social media fatigue, and shrinking attention spans mean many people no longer read more than a few lines at a time. I've noticed this especially with students taking long reading tests like IELTS. Younger generations' brains have been wired differently, and many struggle to sit and read a single article for even five minutes — yet the IELTS requires thirty minutes of sustained focus.</strong>
       </p>
     </section>
 
     <div class="pill">
       <button class="pill-toggle" type="button"
         onclick="this.nextElementSibling.style.display = (this.nextElementSibling.style.display === 'block' ? 'none' : 'block')">
-        Short-Form Media & Reading Focus
+        Short-Form Media &amp; Reading Focus
       </button>
       <div class="pill-content">
         <p><strong>Intro:</strong> Short-form platforms like TikTok, X, Instagram Reels, and YouTube Shorts deliver rapid, high-stimulation content. Research shows that heavy use of these apps reduces sustained attention and makes long-form reading significantly harder.</p>
@@ -817,7 +820,7 @@
           </li>
 
           <li><strong>Reading stamina declines with heavy short-form video use</strong><br>
-            Long texts feel mentally “heavy” compared to rapid-fire content, making tasks like IELTS reading more challenging.
+            Long texts feel mentally "heavy" compared to rapid-fire content, making tasks like IELTS reading more challenging.
           </li>
         </ul>
       </div>
@@ -831,80 +834,74 @@
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-      <!-- Structured two-column layout under iframe -->
       <div class="final-text-grid" aria-label="Solution method feedback">
-        <!-- LEFT: Solution + Method -->
         <div>
           <h1>Solution</h1>
+          <p>
+            Guided reading: reading aloud keeps students focused. Read a paragraph aloud, pause and give them time to reread and discuss questions before you move on. Move around the class and the teacher can take a turn too.
+          </p>
 
-       <p>
-<p>
-  Guided reading:  reading aloud keeps students focused. Read a paragraph aloud, pause and give them time to reread and discuss questions before you move on.  Move around the class and the teacher can take a turn too. 
+          <ul class="aligned">
+            <li>
+              <strong>Shared digital palette</strong><br>
+              Teachers can upload the reading lesson and project it on the whiteboard or share it with a QR code. *** If you are viewing this on a computer you will see teacher access, the full palette of tools for marking and manipulating. If you are on a phone you will get the basic view and the PDF.
+            </li>
 
-<ul class="aligned">
-  <li>
-    <strong>Shared digital palette</strong><br>
-    Teachers can upload the reading lesson and project it on the whiteboard or share it with a QR code. *** If you are viewing this on a computer you will see teacher access, the full palette of tools for marking and manipulating. If you are on a phone you will get the basic view and the PDF.
-  </li>
+            <li>
+              <strong>Paper-like interaction</strong><br>
+              The palette behaves like real paper and pen, allowing free-hand drawing and annotation.
+            </li>
 
-  <li>
-    <strong>Paper-like interaction</strong><br>
-    The palette behaves like real paper and pen, allowing free-hand drawing and annotation.
-  </li>
+            <li>
+              <strong>Flexible text control</strong><br>
+              Teachers can pinch and pull the text to focus attention on specific paragraphs on the white board. Students can do the same on their phone.
+            </li>
 
-  <li>
-    <strong>Flexible text control</strong><br>
-    Teachers can pinch and pull the text to focus attention on specific paragraphs on the white board. Students can do the same on their phone.
-  </li>
+            <li>
+              <strong>Multi-format support</strong><br>
+              PDFs, Word documents, and images can be uploaded, manipulated in real time, and annotated.
+            </li>
 
-  <li>
-    <strong>Multi-format support</strong><br>
-    PDFs, Word documents, and images can be uploaded, manipulated in real time, and annotated.
-  </li>
-
-  <li>
-    <strong>Teacher Imput and Personalisation</strong><br>
-    The teacher writes the questions (before or during the class). The teacher can also you the tool bar to highlight, circle and draw on the text and images.
-  </li>
-</ul>
-
-
+            <li>
+              <strong>Teacher Input and Personalisation</strong><br>
+              The teacher writes the questions (before or during the class). The teacher can also use the tool bar to highlight, circle and draw on the text and images.
+            </li>
+          </ul>
         </div>
 
-        <!-- RIGHT: Feedback -->
         <div>
           <h1>Feedback</h1>
-    <p>
-  Overall student response was extremely positive, with high levels of participation and sustained focus throughout the lesson.
-</p>
+          <p>
+            Overall student response was extremely positive, with high levels of participation and sustained focus throughout the lesson.
+          </p>
 
-<ul class="aligned">
-  <li>
-    <strong>High engagement</strong><br>
-    Students enjoyed reading aloud and receiving immediate feedback and correction from a native-speaking teacher. Participation was enthusiastic across the whole class.
-  </li>
+          <ul class="aligned">
+            <li>
+              <strong>High engagement</strong><br>
+              Students enjoyed reading aloud and receiving immediate feedback and correction from a native-speaking teacher. Participation was enthusiastic across the whole class.
+            </li>
 
-  <li>
-    <strong>Stronger vocabulary retention</strong><br>
-    Vocabulary was remembered more effectively because new words were discussed at the moment they appeared in the text.
-  </li>
+            <li>
+              <strong>Stronger vocabulary retention</strong><br>
+              Vocabulary was remembered more effectively because new words were discussed at the moment they appeared in the text.
+            </li>
 
-  <li>
-    <strong>Contextual grammar reinforcement</strong><br>
-    Grammar points previously studied were naturally highlighted and reinforced within a meaningful reading context.
-  </li>
+            <li>
+              <strong>Contextual grammar reinforcement</strong><br>
+              Grammar points previously studied were naturally highlighted and reinforced within a meaningful reading context.
+            </li>
 
-  <li>
-    <strong>Reduced reliance on translation</strong><br>
-    Pausing after each paragraph encouraged students to ask questions directly rather than turning to their phones for translations.
-  </li>
+            <li>
+              <strong>Reduced reliance on translation</strong><br>
+              Pausing after each paragraph encouraged students to ask questions directly rather than turning to their phones for translations.
+            </li>
 
-  <li>
-    <strong>Communicative classroom dynamic</strong><br>
-    Group reading transformed what could have been a solitary task into a collaborative activity that naturally led to discussion.
-  </li>
-</ul>
-
+            <li>
+              <strong>Communicative classroom dynamic</strong><br>
+              Group reading transformed what could have been a solitary task into a collaborative activity that naturally led to discussion.
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -913,21 +910,20 @@
       <h3>Modern English Australia</h3>
 
       <p class="pre-footer-description">
-        Please feel free to take a look at my dedicated Learning Design & EdTech site.
+        Please feel free to take a look at my dedicated Learning Design &amp; EdTech site.
         It includes free micro-lessons, games, assessments, and examples of how
         I integrate technology into practical classroom workflows.
       </p>
 
       <div class="quick-links">
-  <a class="quick-link" href="http://modernenglish.au/Microlessons%26Games.html">
-    Micro Lessons // Pronunciation // Games
-  </a>
+        <a class="quick-link" href="http://modernenglish.au/Microlessons%26Games.html">
+          Micro Lessons // Pronunciation // Games
+        </a>
 
-  <a class="quick-link" href="http://modernenglish.au/IELTSPTEPLUS.html">
-    IELTS // PTE +
-  </a>
-</div>
-      
+        <a class="quick-link" href="http://modernenglish.au/IELTSPTEPLUS.html">
+          IELTS // PTE +
+        </a>
+      </div>
     </section>
   </main>
 
@@ -948,5 +944,3 @@
   </script>
 </body>
 </html>
-```
-
