@@ -1,383 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Koala Spies Sydney – Offbeat</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Sedgwick+Ave&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>(Project Title Here)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
-:root {
-  --bg-page: #f5f9fd;
-  --bg-card: #ffffff;
-  --bg-header: #0d4434;
-  --ink-dark: #0d2e44;
-  --ink-body: #1a3a52;
-  --ink-muted: #4a6e8a;
+    /* ---------------- ROOT + BASE ---------------- */
 
-  --cerulean: #2e8bc9;
-  --cerulean-dark: #1a5e8a;
-  --cerulean-light: #bdd9f5;
-  --cerulean-xlight: #f0f7ff;
+    :root {
+      --bg-dark: #0f1f35;
+      --bg-mid: #162840;
+      --bg-card: #1a3050;
+      --ink-light: #f0ede8;
+      --ink-muted: #c8c4bc;
+      --ink-dark: #0f1f35;
+      --light-bg: #f0ede8;
 
-  --font-main: "Source Sans 3", "Source Sans Pro", "Open Sans", "Segoe UI", Arial, sans-serif;
+      --accent1: #2a6496;
+      --accent2: #1a4a6e;
+      --accent3: #e8e0d4;
+      --accent4: #4a90b8;
+      --accent5: #0f1f35;
+      --accent6: #7ab3d0;
 
-  --radius: 16px;
-  --radius-sm: 12px;
-  --shadow: 0 4px 20px rgba(13,46,68,0.10);
-}
+      --radius: 14px;
+      --space: 24px;
 
-* { box-sizing: border-box; }
-html, body { height: 100%; }
+      --font-main: "Source Sans 3", "Source Sans Pro", "Open Sans", "Segoe UI", Verdana, Helvetica, Arial, sans-serif;
+    }
 
-body {
-  margin: 0;
-  font-family: var(--font-main);
-  background: var(--bg-page);
-  color: var(--ink-body);
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow-x: hidden;
-  -webkit-text-size-adjust: 100%;
-  text-rendering: optimizeLegibility;
-}
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; height: 100%; }
 
-img { max-width: 100%; height: auto; display: block; }
+    body {
+      font-family: var(--font-main);
+      line-height: 1.75;
+      background: var(--bg-dark);
+      color: var(--ink-light);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
 
-header {
-  background: var(--bg-header);
-  color: #f0f7ff;
-  text-align: center;
-  padding: clamp(14px, 3vw, 22px) 16px;
-  font-family: var(--font-main);
-  font-weight: 700;
-  font-size: clamp(2.2rem, 7vw, 4rem);
-  letter-spacing: clamp(2px, 1.8vw, 10px);
-  line-height: 1.05;
-  white-space: normal;
-  overflow-wrap: anywhere;
-  border-bottom: 4px solid var(--cerulean);
-}
+    img { max-width: 100%; height: auto; display: block; }
 
-main {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: clamp(18px, 4vw, 40px) clamp(14px, 3vw, 20px);
-  padding-left: max(clamp(14px, 3vw, 20px), env(safe-area-inset-left));
-  padding-right: max(clamp(14px, 3vw, 20px), env(safe-area-inset-right));
-}
+    /* ---------------- HEADER ---------------- */
 
-.tile-header {
-  background: var(--bg-card);
-  padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 20px);
-  border-radius: var(--radius);
-  text-align: center;
-  margin-bottom: clamp(22px, 5vw, 40px);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--cerulean-light);
-  overflow: hidden;
-}
+    header {
+      background: var(--accent6);
+      color: var(--ink-light);
+      text-align: center;
+      padding: clamp(16px, 3vw, 28px) 16px;
+      font-family: "Source Sans 3", "Source Sans Pro", "Open Sans", sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 7vw, 5rem);
+      letter-spacing: clamp(2px, 1.8vw, 10px);
+      line-height: 1.05;
+      white-space: normal;
+      word-break: break-word;
+      border-bottom: 3px solid #4a90b8;
+    }
 
-.tile-header h2 {
-  margin: 0 0 10px;
-  font-family: var(--font-main);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  color: var(--cerulean);
-  -webkit-font-smoothing: antialiased;
-  overflow-wrap: anywhere;
-}
+    /* ---------------- MAIN WRAPPER ---------------- */
 
-.tile-header h3 {
-  margin: 0 0 8px;
-  font-family: var(--font-main);
-  font-weight: 600;
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  color: var(--ink-muted);
-  letter-spacing: 0.1em;
-}
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: clamp(16px, 3vw, var(--space));
+      padding-left: max(clamp(16px, 3vw, var(--space)), env(safe-area-inset-left));
+      padding-right: max(clamp(16px, 3vw, var(--space)), env(safe-area-inset-right));
+    }
 
-.tile-header p {
-  margin: 12px 0 0;
-  font-size: clamp(0.98rem, 2.8vw, 1.1rem);
-  font-style: italic;
-  color: var(--ink-muted);
-  overflow-wrap: anywhere;
-}
+    /* ---------------- TILE HEADER ---------------- */
 
-.problem-block {
-  margin: 40px 0;
-  background: var(--bg-card);
-  padding: 24px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  border-left: 4px solid var(--cerulean);
-  overflow: hidden;
-}
+    .tile-header {
+      background: var(--bg-card);
+      padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 20px);
+      border-radius: var(--radius);
+      text-align: center;
+      margin-bottom: clamp(22px, 5vw, 40px);
+      box-shadow: 0 0 0 1px rgba(74,144,184,0.25);
+      overflow: hidden;
+    }
 
-.problem-block p {
-  line-height: 1.75;
-  color: var(--ink-body);
-  margin: 0;
-  letter-spacing: 0.02em;
-  overflow-wrap: anywhere;
-}
+    .tile-header h2 {
+      margin: 0 0 10px;
+      font-family: var(--font-main);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      color: var(--accent6);
+      -webkit-font-smoothing: antialiased;
+      text-wrap: balance;
+    }
 
-h1 {
-  color: var(--cerulean-dark);
-  font-family: var(--font-main);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  margin: 20px 0 20px;
-  overflow-wrap: anywhere;
-}
+    .tile-header p {
+      margin: 0;
+      font-size: clamp(0.98rem, 2.8vw, 1.1rem);
+      font-style: italic;
+      color: var(--ink-muted);
+      overflow-wrap: anywhere;
+      line-height: 1.75;
+    }
 
-ul.aligned {
-  list-style: disc;
-  padding-left: 28px;
-  margin: 0 0 16px;
-}
+    /* ---------------- PROBLEM BLOCK ---------------- */
 
-ul.aligned li {
-  font-family: var(--font-main);
-  color: var(--ink-body);
-  letter-spacing: 0.02em;
-  line-height: 1.75;
-  overflow-wrap: anywhere;
-}
+    .problem-block {
+      margin: 40px 0;
+      background: var(--bg-mid);
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 0 0 1px rgba(74,144,184,0.2);
+      overflow: hidden;
+      border-left: 4px solid #4a90b8;
+    }
 
-/* Aye eyA — red, preserved exactly */
-.case-aside .ayeeya-title {
-  font-family: "Sedgwick Ave", system-ui, sans-serif;
-  font-size: 3rem;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  color: #ff0000;
-  margin: 0 0 10px;
-  position: relative;
-  display: inline-block;
-}
+    .problem-block p {
+      line-height: 1.6;
+      color: var(--ink-muted);
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
 
-.case-aside .ayeeya-title::before,
-.case-aside .ayeeya-title::after {
-  content: "";
-  position: absolute;
-  height: 2px;
-  background: #000;
-  width: 50%;
-  left: 25%;
-}
-.case-aside .ayeeya-title::before { top: 58%; }
-.case-aside .ayeeya-title::after  { top: 74%; }
+    /* ---------------- HEADINGS + LISTS ---------------- */
 
-/* Brea — Josefin Sans */
-.case-aside .brea-title {
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 2.2rem;
-  font-weight: 300;
-  letter-spacing: 0.04em;
-  text-transform: none;
-  color: var(--cerulean-dark);
-}
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(1.35rem, 4vw, 2rem);
+      color: var(--accent6);
+      font-family: var(--font-main);
+      font-weight: 700;
+    }
 
-/* Nineteen to 90s — rainbow gradient preserved */
-.case-aside .ninety-title {
-  font-family: "Special Elite", serif;
-  font-size: 2.6rem;
-  letter-spacing: 0.02em;
-  background: linear-gradient(
-    90deg,
-    #ff004c,
-    #ff8a00,
-    #ffee00,
-    #32ff00,
-    #00c8ff,
-    #7a00ff
-  );
-  -webkit-background-clip: text;
-  color: transparent;
-}
+    ul.aligned > li > strong {
+      color: #a8d4e8;
+      font-weight: 700;
+    }
 
-.case-study {
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: clamp(18px, 4vw, 40px);
-  align-items: start;
-  background: var(--bg-card);
-  color: var(--ink-dark);
-  padding: clamp(18px, 4vw, 40px);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--cerulean-light);
-  overflow: hidden;
-  min-width: 0;
-  margin-bottom: 32px;
-}
+    ul.aligned {
+      list-style-type: none;
+      padding-left: 24px;
+      margin: 0 0 40px;
+      overflow-wrap: anywhere;
+    }
 
-.case-study > * { min-width: 0; }
+    ul.aligned li {
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
 
-.case-study iframe {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border: 2px solid var(--cerulean-light);
-  border-radius: var(--radius-sm);
-  background: #000;
-  box-shadow: 0 4px 14px rgba(13,46,68,0.12);
-  display: block;
-  overflow: hidden;
-}
+    ul.aligned li a {
+      color: var(--accent6);
+      font-weight: 700;
+      text-decoration: none;
+    }
 
-.case-aside {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  line-height: 1.65;
-  font-size: 1rem;
-  overflow-wrap: anywhere;
-  font-family: var(--font-main);
-}
+    ul.aligned li a:hover { text-decoration: underline; }
 
-.case-aside h2 {
-  font-family: var(--font-main);
-  font-size: 2rem;
-  margin-bottom: 4px;
-  color: var(--cerulean-dark);
-  letter-spacing: 1px;
-}
+    /* ---------------- CASE STUDY ---------------- */
 
-.case-aside p { color: var(--ink-body); }
+    .case-study {
+      background: var(--light-bg);
+      color: var(--ink-dark);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding: clamp(16px, 4vw, 32px);
+      border-radius: var(--radius);
+      margin: 30px 0 40px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+      overflow: hidden;
+      min-width: 0;
+    }
 
-.case-aside .listen-note {
-  color: var(--cerulean-dark);
-  font-weight: bold;
-  margin-top: 4px;
-}
+    .case-study > * { min-width: 0; }
 
-.case-aside a {
-  font-weight: 600;
-  color: var(--cerulean);
-  text-decoration: none;
-}
-.case-aside a:hover { text-decoration: underline; }
+    .case-study iframe {
+      width: 100%;
+      aspect-ratio: 12/16;
+      border: 3px solid #c8c4bc;
+      border-radius: var(--radius);
+      background: #000;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      display: block;
+      overflow: hidden;
+    }
 
-.case-study:nth-of-type(even) { grid-template-columns: 1.15fr 1fr; }
-.case-study:nth-of-type(even) iframe { order: 2; }
-.case-study:nth-of-type(even) .case-aside { order: 1; }
+    .case-study aside {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 0;
+    }
 
-.make-your-own-app {
-  margin-top: 40px;
-  padding: 8px;
-  border-radius: var(--radius);
-  overflow: hidden;
-}
+    .case-study aside h1 {
+      margin: 0;
+      font-size: clamp(1.25rem, 3.6vw, 1.8rem);
+      color: #1a4a6e;
+    }
 
-.make-your-own-app .tile-header { margin-bottom: 0; }
-.make-your-own-app .tile-header p a { color: var(--cerulean); font-weight: 700; }
+    .case-study aside p,
+    .case-study aside li,
+    .case-study .left-column p,
+    .case-study .left-column li {
+      color: var(--ink-dark);
+    }
 
-.future-cases {
-  margin: 60px auto 0;
-  max-width: 1200px;
-  padding: 40px 20px;
-  background: var(--bg-card);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--cerulean-light);
-  overflow: hidden;
-}
+    /* ---------------- BUTTONS ---------------- */
 
-.future-cases h1 {
-  text-align: center;
-  font-size: 2.2rem;
-  margin: 0 0 50px;
-  color: var(--cerulean-dark);
-  letter-spacing: 0.05em;
-}
+    .iframe-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 10px;
+      align-items: flex-start;
+    }
 
-.future-item {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  margin-bottom: 60px;
-  min-width: 0;
-}
+    .pill-toggle {
+      background: #2a6496;
+      color: #f0ede8;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 40px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1rem;
+      font-family: var(--font-main);
+      transition: 0.2s ease;
+      max-width: 100%;
+    }
 
-.future-item.reverse { flex-direction: row-reverse; }
+    .pill-toggle:hover {
+      background: #1a4a6e;
+      color: #f0ede8;
+    }
 
-.future-item img {
-  flex: 1;
-  width: 100%;
-  max-width: 260px;
-  border-radius: var(--radius-sm);
-  box-shadow: 0 4px 16px rgba(13,46,68,0.15);
-}
+    .contact-link {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 40px;
+      background: #1a4a6e;
+      color: #f0ede8;
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      font-family: var(--font-main);
+      transition: 0.2s ease;
+      max-width: 100%;
+    }
 
-.future-item .text {
-  flex: 1;
-  color: var(--ink-body);
-  overflow-wrap: anywhere;
-  font-family: var(--font-main);
-}
+    .contact-link:hover { background: #0f1f35; }
 
-.future-item .text h2 {
-  font-size: 1.6rem;
-  color: var(--cerulean-dark);
-  margin: 0 0 10px;
-}
+    .pill-content {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: rgba(15,31,53,0.07);
+      border-radius: var(--radius);
+      overflow-wrap: anywhere;
+      border-left: 3px solid #4a90b8;
+    }
 
-footer {
-  background: var(--bg-header);
-  color: #f0f7ff;
-  text-align: center;
-  padding: 18px 14px;
-  padding-bottom: max(18px, env(safe-area-inset-bottom));
-  margin-top: 60px;
-  border-top: 4px solid var(--cerulean);
-}
+    .pill { margin: 0 0 30px; }
 
-footer nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px 14px;
-}
+    /* ---------------- PRE-FOOTER LINKS ---------------- */
 
-footer nav a {
-  color: #f0f7ff;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 10px;
-  border-radius: 10px;
-  font-family: var(--font-main);
-}
+    .pre-footer {
+      background: var(--bg-dark);
+      padding: 32px 16px 40px;
+      text-align: center;
+      max-width: 1100px;
+      margin: 10px auto 0;
+      overflow: hidden;
+    }
 
-footer nav a:hover { text-decoration: underline; }
+    .pre-footer h3 {
+      margin: 0 0 18px;
+      font-family: var(--font-main);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 1.2rem;
+      color: var(--ink-muted);
+      -webkit-font-smoothing: antialiased;
+    }
 
-@media (max-width: 900px) {
-  header { font-size: 2.6rem; letter-spacing: 6px; }
-  .case-study { grid-template-columns: 1fr; gap: 2rem; padding: 24px; }
-  .case-study:nth-of-type(even) { grid-template-columns: 1fr; }
-  .case-study:nth-of-type(even) iframe,
-  .case-study:nth-of-type(even) .case-aside { order: initial; }
-  .case-aside { text-align: center; align-items: center; }
-  .future-item, .future-item.reverse { flex-direction: column; text-align: center; }
-  .future-item img { max-width: 220px; }
-}
+    .pre-footer-description {
+      max-width: 600px;
+      margin: 0 auto 24px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      font-size: 1rem;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
 
-@media (max-width: 520px) {
-  main { padding: 22px 14px; }
-  .problem-block { padding: 18px; }
-  ul.aligned { padding-left: 22px; }
-}
+    .link-centered {
+      display: block;
+      text-align: center;
+      margin: 6px auto 0;
+      color: var(--accent6);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .link-centered:hover { text-decoration: underline; }
+
+    /* ---------------- FOOTER ---------------- */
+
+    footer {
+      background: #0f1f35;
+      color: var(--ink-light);
+      text-align: center;
+      padding: 20px 14px;
+      padding-bottom: max(20px, env(safe-area-inset-bottom));
+      padding-left: max(14px, env(safe-area-inset-left));
+      padding-right: max(14px, env(safe-area-inset-right));
+      border-top: 3px solid #4a90b8;
+    }
+
+    footer nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 14px;
+    }
+
+    footer nav a {
+      color: var(--ink-light);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: 10px;
+      overflow-wrap: anywhere;
+    }
+
+    footer nav a:hover { text-decoration: underline; }
+
+    /* ---------------- RESPONSIVE ---------------- */
+
+    @media (min-width: 900px) {
+      .case-study { grid-template-columns: 1.1fr 0.9fr; align-items: start; }
+      .case-study.reverse { grid-template-columns: 0.9fr 1.1fr; }
+
+      .right-column p, .right-column li { color: var(--ink-dark); line-height: 1.7; }
+      .right-column strong { color: #1a4a6e; font-weight: 700; }
+      .right-column ul.aligned > li { margin-bottom: 26px; }
+      .right-column ul ul { margin-top: 8px; padding-left: 20px; opacity: 0.9; }
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 16px; }
+      .case-study { gap: 18px; }
+      .case-study iframe { aspect-ratio: 10/14; }
+      ul.aligned { padding-left: 20px; }
+      .problem-block { padding: 18px; }
+    }
+
+    /* ============================================================
+       FINAL SECTION
+    ============================================================ */
+
+    .case-study.final-iframe {
+      grid-template-columns: 1fr;
+    }
+
+    .case-study.final-iframe iframe {
+      aspect-ratio: 4 / 3;
+    }
+
+    @media (min-width: 900px) {
+      .case-study.final-iframe {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .case-study.final-iframe iframe {
+        aspect-ratio: 4 / 3;
+      }
+    }
+
+    .final-text-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    @media (min-width: 900px) {
+      .final-text-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+    }
+
+    .final-text-grid h1 { margin-top: 0; }
+    .final-text-grid p { margin: 0 0 12px; }
+    .final-text-grid ul { margin: 0; padding-left: 24px; }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin: 1rem 0;
+    }
+
+    .quick-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .7rem 1.1rem;
+      border-radius: 10px;
+      background: #2a6496;
+      color: #f0ede8;
+      text-decoration: none;
+      font-weight: 700;
+      font-family: var(--font-main);
+      line-height: 1.2;
+      text-align: center;
+      border: 1px solid #4a90b8;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .quick-link:hover {
+      opacity: .92;
+      transform: translateY(-1px);
+      background: #1a4a6e;
+    }
   </style>
 </head>
-<!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G4RJ8H2H2V"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -387,114 +447,484 @@ footer nav a:hover { text-decoration: underline; }
 </script>
 
 <body>
-  <header>Koala Spies Sydney</header>
+  <header>KOALA SPIES SYDNEY</header>
 
   <main>
-
+    <!-- SECTION 1 -->
     <section class="tile-header">
-      <h2>Offbeat</h2>
-      <h3>DIRECT from ARTIST to AUDIENCE</h3>
-      <p>Accessible through QR codes at gigs or shared directly by artists.</p>
+      <h2>Digital Updatable Tests</h2>
+      <p><q>Standardized tests are useful for ranking, but not for learning.</q><br><cite>— Sir Ken Robinson</cite></p>
     </section>
 
     <section class="problem-block">
       <h1>Problems</h1>
       <p>
-        New Australian musicians are doing it hard. AI systems are increasingly scraping and reproducing music without compensating the creators; the streaming economy is broken, with artists earning only cents per play and forced to rely on live performance to survive; major platforms like Spotify and YouTube Music act as gatekeepers, rarely surfacing local or emerging acts; and algorithm-driven recommendations overwhelmingly favour overseas artists, leaving Australia's music scene underexposed and culturally diminished.
+        <strong>This is a problem I noticed while working in English Colleges in Australia:</strong>
+        schools rely heavily on photocopied tests, creating unnecessary administration costs and waste;
+        classrooms are tied to outdated textbooks that feel disconnected from real life in Australia;
+        students, used to digital environments, find paper-based tests tedious and demotivating;
+        and compliance-driven assessment practices often reduce testing to a box-ticking exercise rather than a meaningful measure of progress.
       </p>
     </section>
 
-    <!-- CASE STUDY 1 -->
-    <section class="case-study">
-      <aside class="case-aside">
-        <h2 class="ayeeya-title">Aye eyA</h2>
-        <p>Aye eyA has carved out a cult-level following across Western Sydney's youth — the ones who live outside the lines and don't apologise for it. Dropping onto Spotify or the big platforms would kill the whole mythos. Their power comes from being underground, hard to track down, and proudly untamed — the kind of act you hear about in alleyways, not algorithms.</p>
-        <p>Click on a song in the frame to listen, or click <a href="https://koalaspiessydney.github.io/Aye-eyA/">Aye eyA</a>.</p>
-      </aside>
-      <iframe src="https://koalaspiessydney.github.io/Aye-eyA/" title="Aye eyA"></iframe>
-    </section>
+    <section class="case-study reverse" aria-label="Digital updatable tests case study">
+      <!-- LEFT COLUMN -->
+      <div class="left-column">
+        <iframe
+          src="https://koalaspiessydney.github.io/CAEuseofeng13/"
+          title="CAE Use of English Demo"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-    <h1>Solution</h1>
-    <ul class="aligned">
-      <li><strong>Digital EPs via QR Codes:</strong> Artists hand their music directly to fans at gigs or wherever they choose.</li>
-      <li><strong>No Gatekeepers:</strong> Listeners access the music instantly — no algorithm or platform interference.</li>
-      <li><strong>Support Local:</strong> Fans connect directly with emerging and independent Australian talent.</li>
-    </ul>
+        <div class="iframe-buttons">
+          <button class="pill-toggle" type="button" onclick="toggleById('research-content')">Research</button>
+          <a class="contact-link" href="contact.html">Contact me for a quote</a>
+        </div>
 
-    <!-- CASE STUDY 2 -->
-    <section class="case-study">
-      <iframe src="https://koalaspiessydney.github.io/umdot/" title="Clovelly Kirtan"></iframe>
-      <aside class="case-aside">
-        <h2 class="brea-title"><strong>Meditations</strong> with <strong>Brea</strong> &amp; friends</h2>
+        <div id="research-content" class="pill-content" aria-label="Research content">
+          <h1>Research</h1>
+          <p>
+            Over the course of a year, this assessment format was tested across multiple ESL classes
+            in several Sydney language schools. Student feedback was consistent and highlighted
+            several clear advantages.
+          </p>
+
+          <ul class="aligned">
+            <li><strong>Higher engagement on phones</strong><br />Students overwhelmingly preferred the mobile version over paper.</li>
+            <li><strong>Preferred hybrid mode</strong><br />Most liked questions on phones but answers on paper.</li>
+            <li><strong>Low levels of cheating</strong><br />Cheating was rare; timers prevent AI-lookup.</li>
+            <li><strong>Improved memory and recall</strong><br />Students said the format helped prompt their memory.</li>
+            <li><strong>Voluntary revision outside class</strong><br />Many reviewed their feedback on public transport.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <aside class="right-column">
+        <h1>Solution</h1>
+
         <p>
-          <q>This app can be enjoyed offline — connect to the internet to download the new weekly meditation as we create them. Then disconnect and listen to them during your social media detox.</q><br>
-          <cite>— Brea Zarkasky</cite>
+          Design the assessment system around
+          <strong>simple, modular templates</strong>
+          that teachers can adapt instantly, without technical friction or platform lock-in.
         </p>
-        <p>Many sleep apps and meditation apps may seem to relax the user but they are actually making them even more reliant on being online. Save this app on a computer, USB or your phone and turn off, use it with or without internet.</p>
-        <p class="listen-note">Click on a song to listen or go to <a href="https://koalaspiessydney.github.io/umdot/" target="_blank" rel="noopener noreferrer">umdot</a>.</p>
+
+        <ul class="aligned">
+          <li>
+            <strong>1. Flexible Delivery Modes</strong>
+            <ul>
+              <li>Mobile Q&A with automatic scoring</li>
+              <li>Phone questions + paper answer sheet</li>
+              <li>Projected test + phone responses</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>2. Easy Teacher Editing and Localisation</strong>
+            <ul>
+              <li>Update questions to match what was taught</li>
+              <li>Personalise to city, students, or current events</li>
+              <li>Edit via Word → paste into template</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>3. Consistency With Textbook Pedagogy</strong>
+            <ul>
+              <li>It is the same test but with updates</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>4. High-Stakes Exam Alignment</strong>
+            <ul>
+              <li>Write-from-dictation style tasks</li>
+              <li>Summaries, reorderings, gap-fills</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>5. Time + Cost Savings</strong>
+            <ul>
+              <li>Templates ready to go each week</li>
+              <li>No photocopying or subscription fees</li>
+            </ul>
+          </li>
+        </ul>
       </aside>
     </section>
 
-    <h1>Benefits</h1>
-    <ul class="aligned">
-      <li><strong>Artists keep creative and financial control.</strong></li>
-      <li>Fans discover authentic, local music easily.</li>
-      <li>Communities strengthen cultural identity through direct artist–audience connection.</li>
-      <li>Australia preserves its music industry against algorithmic gatekeeping.</li>
-    </ul>
-
-    <!-- CASE STUDY 3 -->
-    <section class="case-study">
-      <aside class="case-aside">
-        <h2 class="ninety-title">Nineteen to 90s</h2>
-        <p>Forming in high school in their early teens, these three teens from Sydney blend grunge distortion with Gen Z pop. They created this app to share their creativity with younger fans under the social media ban for teens in Australia. Not only can they bypass the social media ban, but they have more creativity and control.</p>
-        <p>Click on a song in the frame to listen, or click <a href="https://koalaspiessydney.github.io/Nineteento90s/">Nineteen to 90s</a>.</p>
-      </aside>
-      <iframe src="https://koalaspiessydney.github.io/Nineteento90s/" title="Nineteen to 90s"></iframe>
+    <!-- ADAPTIVE LESSONS -->
+    <section class="tile-header">
+      <h2>Adaptive Lessons</h2>
+      <p>
+        <q>Technology will never replace great teachers, but technology in the hands of great teachers can be transformational.</q>
+        <br><cite>— George Couros</cite>
+      </p>
     </section>
 
-    <!-- MAKE YOUR OWN APP -->
-    <section class="make-your-own-app">
-      <section class="tile-header">
-        <h2>Make Your Own App</h2>
+    <section class="problem-block">
+      <h1>Problems</h1>
+      <p>
+        <strong>Most languages have 5 vowel sounds written and spoken, English has 5 written and around 25 spoken:</strong>
+        as a result English as a second language students are confused about how to pronounce words and it will drag their score down in tests like Pearsons PTE
+      </p>
+    </section>
+
+    <section class="case-study reverse" aria-label="Adaptive lessons case study">
+      <!-- LEFT COLUMN (TEXT) -->
+      <aside class="left-column">
+        <h1>Pedagogy</h1>
+
         <p>
-          Make your own app, personalise it, and control where it is seen, and when it is online or offline.
-          The basic idea is that we create the code and a template — you provide the images, music, and style.
-          We sit alongside you and teach you how to manage it, with cheat-sheets and AI assistants. You then own the code.
-          For more, <a href="contact.html">contact</a>
+          Here is a sample of how this could be done at an intermediate level, but it could be graded down with the last activities dropped, or graded up with the first activity dropped.
         </p>
-      </section>
+
+        <ul class="aligned">
+          <li>
+            <strong>1. Listen and Watch</strong>
+            <ul>
+              <li>Listen and watch the sounds being made with examples</li>
+              <li>Can be done as a class or individually on students' phones</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>2. Play the Game</strong>
+            <ul>
+              <li>Listen to the words and sort them into four sounds on individual phones</li>
+              <li>Teacher may check in with students individually or drill the words as a class at any point</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>3. Extension Activities</strong>
+            <ul>
+              <li>Write-from-dictation tasks</li>
+              <li>Gap-fill activities</li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>4. Group Competition</strong>
+            <ul>
+              <li>Divide the class into groups and project the game on the board</li>
+              <li>Teams score points and lose points for correct and incorrect answers</li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="iframe-buttons" style="margin-top: 12px;">
+          <button class="pill-toggle" type="button" onclick="toggleById('adaptive-research')">Observation</button>
+        </div>
+
+        <div id="adaptive-research" class="pill-content" aria-label="Adaptive lessons research content">
+          <h1>Observations in the Classroom</h1>
+          <ul>
+            <li>Short, integrated tasks allowed students to work at their own pace, with faster students completing extension challenges that supported mixed-level classes.</li>
+            <li>These shorter tasks encouraged self-reflection and helped students take ownership of their learning rather than moving passively through activities.</li>
+            <li>Students maintained strong focus for approximately 15 minutes; early finishers discussed their learning individually before transitioning into group work once all students completed the task.</li>
+            <li>Clear, specific activities prompted genuine curiosity among students.</li>
+            <li>Students often forget concepts from one day to the next; keeping a record on their phones provided a reliable reference for later review.</li>
+            <li>Videos and PowerPoints without teacher interaction or embedded tasks have limited value. Like social media, students tend to watch passively and retain very little. For media to be effective, it must require active engagement.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN (IFRAME) -->
+      <div class="right-column">
+        <iframe
+          src="https://koalaspiessydney.github.io/Vowelsoundgame/"
+          title="Adaptive lesson demo"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </section>
 
-    <!-- FUTURE CASES -->
-    <section class="future-cases">
-      <h1>Future Case Studies &amp; Possibilities</h1>
+    <!-- SECTION 2 -->
+    <section class="tile-header">
+      <h2>Class Soundtrack</h2>
+      <p><q>Tell me and I forget, teach me and I may remember, involve me and I learn.</q><br><cite>— Benjamin Franklin</cite></p>
+    </section>
 
-      <div class="future-item reverse">
-        <img src="Jazzuninterrupted.png" alt="Community Vinyl Revival">
-        <div class="text">
-          <h2>Community Vinyl Revival</h2>
-          <p>If you love an artist, an era or a theme or purpose, upload their songs and create an environment. The possibilities are endless.</p>
+    <section class="case-study reverse" aria-label="Class soundtrack case study">
+      <iframe
+        src="https://koalaspiessydney.github.io/Int4/"
+        title="Class Soundtrack Demo"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+      <aside>
+        <h1>Creative Classroom</h1>
+        <p>
+          A Class Soundtrack, a soundtrack to learning - This is an adaptive, easy-to-use template designed
+          for active language production rather than passive practice.
+        </p>
+
+        <h1>A Case Study</h1>
+        <p>This is an activity I did in an intermediate class last year.</p>
+
+        <ul class="aligned">
+          <li>
+            Students wrote their own sentences and selected genres, then their ideas were transformed into full songs using Suno,
+            another audio creating platform or if they have talent, play and record.
+          </li>
+          <li>
+            Grammar and pronunciation targets were uploaded into the system, which students found amusing but surprisingly effective for reinforcing accuracy.
+          </li>
+          <li>
+            The process encouraged collaboration — students compared lyrics, shared ideas, and refined each other's language.
+          </li>
+          <li>
+            The students leave your class with a memory and an achievement, which can only be good for the teachers and schools word-of-mouth.
+          </li>
+        </ul>
+
+        <p>Teachers! Let me teach you how to build this app. and begin to build other lessons. </p>
+        <a class="contact-link" href="contact.html">Contact me for a quote</a>
+
+        <section class="music-pill" aria-label="Learning through music">
+          <button class="pill-toggle" type="button" onclick="toggleById('music-content')">Learning Through Music</button>
+
+          <div id="music-content" class="pill-content">
+            <h1>Learning Through Music</h1>
+
+            <p>
+              For most of human history, music functioned as a memory technology. Long before writing existed,
+              ancient civilisations used rhythm, melody, and repetition to preserve knowledge across generations.
+              In Ancient Greece, epic poems such as <em>The Iliad</em> and <em>The Odyssey</em> were sung rather than read,
+              because melody made thousands of lines easier to recall. In West Africa, griots carried genealogies,
+              laws, and histories through musical storytelling. And in Australia, Indigenous cultures maintained
+              vast networks of knowledge through <strong>songlines</strong>—musical maps encoding geography, law,
+              spirituality, and survival skills. A songline wasn't just a song; it was a living archive.
+            </p>
+
+            <p>
+              Even classical philosophers recognised the cognitive power of music. In Plato's dialogue
+              <em>Phaedrus</em>, Socrates warns that the new technology of writing would weaken human memory.
+              He believed that once people relied on written text, they would stop exercising the mental discipline
+              supported by rhythm, recitation, and song. Whether or not he was right, the anxiety reveals how
+              deeply music was tied to memory and learning.
+            </p>
+
+            <p>
+              Modern research continues to show why music is so effective for learning. Writing lyrics, shaping
+              rhythm, and choosing melody require deeper processing of vocabulary, structure, stress, and
+              pronunciation. When students turn language into a song, they encode it across multiple neural
+              pathways. The result is stronger recall, clearer pronunciation, and higher engagement than
+              traditional drills.
+            </p>
+          </div>
+        </section>
+      </aside>
+    </section>
+
+    <!-- CHALLENGE STUDENTS -->
+    <section class="tile-header">
+      <h2>Challenge Students</h2>
+      <p>
+        <q>What we learn to do, we learn by doing.</q>
+        <br><cite>— Aristotle</cite>
+      </p>
+    </section>
+
+    <section class="problem-block">
+      <h1>Problems</h1>
+      <p>
+        <strong>Many students plateau at around intermediate level of their language acquisition:</strong>
+        held back by small grammar errors (often partly caused by boredom and a lack of attention), low confidence, and a cycle of repetition without retention. Teachers sometimes keep them on material that is unchallenging and uninteresting, I've seen teachers use materials made for native children on international adults. All this only reinforces the plateau, the feeling that they will never be fluent, instead of helping them move forward.
+      </p>
+    </section>
+
+    <section class="case-study reverse" aria-label="Challenge students case study">
+      <!-- LEFT COLUMN (TEXT) -->
+      <aside class="left-column">
+        <h1>Assumed Knowledge</h1>
+        <p>The students have seen all the past and present verb tenses but have not yet mastered them.</p>
+
+        <h1>Mixed Language Points</h1>
+        <ul>
+          <li>Listening, Writing and Speaking</li>
+          <li>Grammar: revision of all past and present verb forms</li>
+          <li>Guidance on how and when to use these verbs in biography writing</li>
+          <li>Optional extension activity to review verb structure if needed</li>
+          <li>Listening task based on an interview</li>
+          <li>Writing a biography or speaking about a well-known person</li>
+          <li>Technology and business vocabulary</li>
+        </ul>
+
+        <div class="iframe-buttons" style="margin-top: 12px;">
+          <button class="pill-toggle" type="button" onclick="toggleById('challenge-theory')">Krashen's Input Hypothesis</button>
         </div>
-      </div>
 
-      <div class="future-item">
-        <img src="FestivalPreView.png" alt="Teasers and Takeaways">
-        <div class="text">
-          <h2>Teasers and Takeaways</h2>
-          <p>Give away teasers to entice people to come to your music festival or create a takeaway with the songs (perhaps live) from the event to keep fans engaged.</p>
+        <div id="challenge-theory" class="pill-content" aria-label="Challenge students theory content">
+          <p>
+            Krashen's Input Hypothesis is a key theory in second language acquisition. It proposes that learners
+            make the most progress when they are exposed to language that is understandable but slightly beyond
+            their current level. This balance between familiarity and challenge creates ideal conditions for
+            natural language growth and has strongly influenced modern approaches to reading, listening, and
+            curriculum design.
+          </p>
+          <ul>
+            <li>It emphasises that learners acquire language through <strong>comprehensible input</strong>, not by memorising grammar rules in isolation.</li>
+            <li>It states that progress occurs when input is <strong>just above the learner's current level</strong> (i+1), creating productive challenge.</li>
+            <li>It focuses on <strong>meaningful communication</strong>, where learners understand the message even if some language is new.</li>
+            <li>It supports using <strong>authentic materials</strong>, as long as they are scaffolded enough to remain understandable.</li>
+            <li>It highlights the power of <strong>extensive reading and listening</strong> for long-term language development.</li>
+            <li>It underlines that <strong>low anxiety and high motivation</strong> help learners engage with slightly challenging input more effectively.</li>
+          </ul>
         </div>
-      </div>
+      </aside>
 
-      <div class="future-item reverse">
-        <img src="playlistforMum.png" alt="A Gift of Song">
-        <div class="text">
-          <h2>A Gift of Song</h2>
-          <p>In the 70s we stood by the radio with a cassette player waiting for that favourite song; in the 90s people bought mp3s and made playlists for loved ones. Now you can buy songs from artists online, upload them to the app, choose your pictures, fonts and colours, and give a unique gift of music.</p>
+      <!-- RIGHT COLUMN (IFRAME) -->
+      <div class="right-column">
+        <iframe
+          src="https://koalaspiessydney.github.io/BiographyCanvapastverbs/"
+          title="Challenge lesson demo"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+
+    <!-- READING IN THE AGE OF TIKTOK BRAIN -->
+    <section class="tile-header">
+      <h2>Reading in the Age of TikTok brain</h2>
+      <p>
+        <q>None of us are as smart as all of us.</q>
+        <br><cite>— Japanese Proverb</cite>
+      </p>
+    </section>
+
+    <section class="problem-block">
+      <h1>Problems</h1>
+      <p>
+        <strong>TikTok brain, social media fatigue, and shrinking attention spans mean many people no longer read more than a few lines at a time. I've noticed this especially with students taking long reading tests like IELTS. Younger generations' brains have been wired differently, and many struggle to sit and read a single article for even five minutes — yet the IELTS requires thirty minutes of sustained focus.</strong>
+      </p>
+    </section>
+
+    <div class="pill">
+      <button class="pill-toggle" type="button"
+        onclick="this.nextElementSibling.style.display = (this.nextElementSibling.style.display === 'block' ? 'none' : 'block')">
+        Short-Form Media &amp; Reading Focus
+      </button>
+      <div class="pill-content">
+        <p><strong>Intro:</strong> Short-form platforms like TikTok, X, Instagram Reels, and YouTube Shorts deliver rapid, high-stimulation content. Research shows that heavy use of these apps reduces sustained attention and makes long-form reading significantly harder.</p>
+
+        <ul>
+          <li><strong>Short-form platforms train the brain to expect constant stimulation</strong><br>
+            Fast, high-novelty videos condition users to seek instant reward rather than slow, effortful processing.
+          </li>
+
+          <li><strong>Continuous micro-distractions weaken focus</strong><br>
+            Rapid switching between short clips reduces the ability to stay on a single task.
+          </li>
+
+          <li><strong>Reading stamina declines with heavy short-form video use</strong><br>
+            Long texts feel mentally "heavy" compared to rapid-fire content, making tasks like IELTS reading more challenging.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FINAL SECTION: 4:3 iframe + structured columns underneath -->
+    <section class="case-study reverse final-iframe" aria-label="Reading whiteboard case study">
+      <iframe
+        src="https://koalaspiessydney.github.io/readingpallete.html/"
+        title="Reading whiteboard demo"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+      <div class="final-text-grid" aria-label="Solution method feedback">
+        <div>
+          <h1>Solution</h1>
+          <p>
+            Guided reading: reading aloud keeps students focused. Read a paragraph aloud, pause and give them time to reread and discuss questions before you move on. Move around the class and the teacher can take a turn too.
+          </p>
+
+          <ul class="aligned">
+            <li>
+              <strong>Shared digital palette</strong><br>
+              Teachers can upload the reading lesson and project it on the whiteboard or share it with a QR code. *** If you are viewing this on a computer you will see teacher access, the full palette of tools for marking and manipulating. If you are on a phone you will get the basic view and the PDF.
+            </li>
+
+            <li>
+              <strong>Paper-like interaction</strong><br>
+              The palette behaves like real paper and pen, allowing free-hand drawing and annotation.
+            </li>
+
+            <li>
+              <strong>Flexible text control</strong><br>
+              Teachers can pinch and pull the text to focus attention on specific paragraphs on the white board. Students can do the same on their phone.
+            </li>
+
+            <li>
+              <strong>Multi-format support</strong><br>
+              PDFs, Word documents, and images can be uploaded, manipulated in real time, and annotated.
+            </li>
+
+            <li>
+              <strong>Teacher Input and Personalisation</strong><br>
+              The teacher writes the questions (before or during the class). The teacher can also use the tool bar to highlight, circle and draw on the text and images.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h1>Feedback</h1>
+          <p>
+            Overall student response was extremely positive, with high levels of participation and sustained focus throughout the lesson.
+          </p>
+
+          <ul class="aligned">
+            <li>
+              <strong>High engagement</strong><br>
+              Students enjoyed reading aloud and receiving immediate feedback and correction from a native-speaking teacher. Participation was enthusiastic across the whole class.
+            </li>
+
+            <li>
+              <strong>Stronger vocabulary retention</strong><br>
+              Vocabulary was remembered more effectively because new words were discussed at the moment they appeared in the text.
+            </li>
+
+            <li>
+              <strong>Contextual grammar reinforcement</strong><br>
+              Grammar points previously studied were naturally highlighted and reinforced within a meaningful reading context.
+            </li>
+
+            <li>
+              <strong>Reduced reliance on translation</strong><br>
+              Pausing after each paragraph encouraged students to ask questions directly rather than turning to their phones for translations.
+            </li>
+
+            <li>
+              <strong>Communicative classroom dynamic</strong><br>
+              Group reading transformed what could have been a solitary task into a collaborative activity that naturally led to discussion.
+            </li>
+          </ul>
         </div>
       </div>
     </section>
 
+    <!-- PRE-FOOTER -->
+    <section class="pre-footer" aria-label="Modern English Australia links">
+      <h3>Modern English Australia</h3>
+
+      <p class="pre-footer-description">
+        Please feel free to take a look at my dedicated Learning Design &amp; EdTech site.
+        It includes free micro-lessons, games, assessments, and examples of how
+        I integrate technology into practical classroom workflows.
+      </p>
+
+      <div class="quick-links">
+        <a class="quick-link" href="http://modernenglish.au/Microlessons%26Games.html">
+          Micro Lessons // Pronunciation // Games
+        </a>
+
+        <a class="quick-link" href="http://modernenglish.au/IELTSPTEPLUS.html">
+          IELTS // PTE +
+        </a>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -505,5 +935,12 @@ footer nav a:hover { text-decoration: underline; }
     </nav>
   </footer>
 
+  <script>
+    function toggleById(id) {
+      const box = document.getElementById(id);
+      if (!box) return;
+      box.style.display = (box.style.display === "block") ? "none" : "block";
+    }
+  </script>
 </body>
 </html>
