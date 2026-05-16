@@ -1,749 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>(Project Title Here)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-
-  <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <title>Koala Spies Sydney</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
 
   <style>
-    /* ---------------- ROOT + BASE ---------------- */
-
     :root {
-      --bg-dark: #2a0f0f;
-      --bg-mid: #3a1717;
-      --bg-card: #4a1f1f;
+      --bg-dark: #1e1e1e;     /* charcoal */
+      --ink-light: #f5f5f5;   /* main text */
+      --ink-muted: #bbbbbb;   /* secondary text */
+      --light-bg: #f4f4f4;    /* header/footer */
+      --ink-dark: #222;       /* for light areas */
 
-      --ink-light: #f7f2ee;
-      --ink-muted: #d2c4b8;
-      --ink-dark: #2a0f0f;
-
-      --light-bg: #f7f2ee;
-
-      --accent1: #8c3b2f;
-      --accent2: #6e2a23;
-      --accent3: #e8d8cf;
-      --accent4: #b45a4a;
-      --accent5: #d9c7c2;
-      --accent6: #a86a5c;
-
-      --radius: 14px;
-      --space: 24px;
-
-      --font-main: "Source Sans 3", "Source Sans Pro", "Open Sans", "Segoe UI", Verdana, Helvetica, Arial, sans-serif;
+      --accent1: #009688;   /* teal */
+      --accent2: #d35400;   /* rust orange */
+      --accent4: #f1c40f;   /* gold */
+      --accent3: #8e44ad;   /* indigo purple */
+      --accent5: #3498db;   /* sky blue */
+      --accent6: #e67e22;   /* amber */
     }
 
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; height: 100%; }
+    *{ box-sizing: border-box; }
+    html, body { height: 100%; }
 
     body {
-      font-family: var(--font-main);
-      line-height: 1.75;
-      background: var(--ink-muted);
-      color: var(--ink-light);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      overflow-x: hidden;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--ink-light);
+      color: var(--bg-dark);
+      overflow-x: hidden; /* prevents iOS “tiny overflow” misalignment */
       -webkit-text-size-adjust: 100%;
-      text-rendering: optimizeLegibility;
     }
-
-    img { max-width: 100%; height: auto; display: block; }
-
-    /* ---------------- HEADER ---------------- */
 
     header {
-      background: var(--accent6);
-      color: var(--ink-light);
-      text-align: center;
-      padding: clamp(16px, 3vw, 28px) 16px;
-      font-family: "Source Sans 3", "Source Sans Pro", "Open Sans", sans-serif;
-      font-weight: 700;
-      font-size: clamp(2rem, 7vw, 5rem);
-      letter-spacing: clamp(2px, 1.8vw, 10px);
-      line-height: 1.05;
-      white-space: normal;
-      word-break: break-word;
-      border-bottom: 3px solid #4a90b8;
-    }
-
-    /* ---------------- MAIN WRAPPER ---------------- */
-
-    main {
-      flex: 1;
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: clamp(16px, 3vw, var(--space));
-      padding-left: max(clamp(16px, 3vw, var(--space)), env(safe-area-inset-left));
-      padding-right: max(clamp(16px, 3vw, var(--space)), env(safe-area-inset-right));
-    }
-
-    /* ---------------- TILE HEADER ---------------- */
-
-    .tile-header {
-      background: var(--bg-card);
-      padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 20px);
-      border-radius: var(--radius);
-      text-align: center;
-      margin-bottom: clamp(22px, 5vw, 40px);
-      box-shadow: 0 0 0 1px rgba(74,144,184,0.25);
-      overflow: hidden;
-    }
-
-    .tile-header h2 {
-      margin: 0 0 10px;
-      font-family: var(--font-main);
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      color: var(--accent6);
-      -webkit-font-smoothing: antialiased;
-      text-wrap: balance;
-    }
-
-    .tile-header p {
-      margin: 0;
-      font-size: clamp(0.98rem, 2.8vw, 1.1rem);
-      font-style: italic;
-      color: var(--ink-muted);
-      overflow-wrap: anywhere;
-      line-height: 1.75;
-    }
-
-    /* ---------------- PROBLEM BLOCK ---------------- */
-
-    .problem-block {
-      margin: 40px 0;
-      background: var(--bg-mid);
-      padding: 24px;
-      border-radius: var(--radius);
-      box-shadow: 0 0 0 1px rgba(74,144,184,0.2);
-      overflow: hidden;
-      border-left: 4px solid #4a90b8;
-    }
-
-    .problem-block p {
-      line-height: 1.6;
-      color: var(--ink-muted);
-      margin: 0;
-      overflow-wrap: anywhere;
-    }
-
-    /* ---------------- HEADINGS + LISTS ---------------- */
-
-    h1 {
-      margin: 0 0 14px;
-      font-size: clamp(1.35rem, 4vw, 2rem);
-      color: var(--accent6);
-      font-family: var(--font-main);
-      font-weight: 700;
-    }
-
-    ul.aligned > li > strong {
-      color: #a8d4e8;
-      font-weight: 700;
-    }
-
-    ul.aligned {
-      list-style-type: none;
-      padding-left: 24px;
-      margin: 0 0 40px;
-      overflow-wrap: anywhere;
-    }
-
-    ul.aligned li {
-      margin-bottom: 14px;
-      line-height: 1.6;
-    }
-
-    ul.aligned li a {
-      color: var(--accent6);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    ul.aligned li a:hover { text-decoration: underline; }
-
-    /* ---------------- CASE STUDY ---------------- */
-
-    .case-study {
       background: var(--light-bg);
       color: var(--ink-dark);
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-      padding: clamp(16px, 4vw, 32px);
-      border-radius: var(--radius);
-      margin: 30px 0 40px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+      text-align: center;
+      padding: clamp(10px, 2vw, 18px) 12px;
+
+      font-family: "tt-modernoir", sans-serif;
+      font-weight: 700;
+      font-style: normal;
+
+      /* iPhone-safe clamps */
+      font-size: clamp(2.2rem, 6vw, 5.2rem);
+      letter-spacing: clamp(2px, 1.4vw, 10px);
+      line-height: 1.05;
+
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 14px 28px;
+    }
+
+    .intro {
+      padding-top: 10px;
+      text-align: center;
+    }
+
+    .intro p {
+      max-width: 1200px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      letter-spacing: 1.2px;
+      color: var(--ink-muted);
+      position: relative;
+
+      /* prevents shimmer overlay from creating horizontal overflow on iOS */
       overflow: hidden;
+    }
+
+    .intro p::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.18) 50%,
+        transparent 100%
+      );
+      transform: skewX(-20deg);
+      animation: text-shimmer 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes text-shimmer {
+      0% { left: -120%; }
+      60% { left: 120%; }
+      100% { left: 120%; }
+    }
+
+    /* ===================== TILES (robust colour system) ===================== */
+
+    .tiles{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(18px, 3vw, 60px);
+      margin-top: 40px;
+    }
+
+    .tile-link{
+      display:block;
+      text-decoration:none;
+      color:inherit;
       min-width: 0;
     }
 
-    .case-study > * { min-width: 0; }
-
-    .case-study iframe {
-      width: 100%;
-      aspect-ratio: 12/16;
-      border: 3px solid #c8c4bc;
-      border-radius: var(--radius);
-      background: #000;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-      display: block;
-      overflow: hidden;
+    .tile{
+      position:relative;
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      overflow:hidden;
+      text-align:center;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .case-study aside {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      min-width: 0;
+    /* Fallback for older browsers */
+    @supports not (aspect-ratio: 1 / 1){
+      .tile{ height: 0; padding-top: 100%; }
+      .tile-content{ position:absolute; inset:0; }
     }
 
-    .case-study aside h1 {
-      margin: 0;
-      font-size: clamp(1.25rem, 3.6vw, 1.8rem);
-      color: #1a4a6e;
+    .tile:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
     }
 
-    .case-study aside p,
-    .case-study aside li,
-    .case-study .left-column p,
-    .case-study .left-column li {
+    .tile-content{
+      position:absolute;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding: clamp(16px, 3vw, 40px);
+    }
+
+    .tile img{
+      width: min(62%, 260px);
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: clamp(16px, 3vw, 48px);
+      background: rgba(255,255,255,0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      display:block;
+    }
+
+    .tile h3{
+      margin:0;
+      font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+      line-height: 1.35;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    }
+
+    /* Robust per-tile colouring (no nth-child dependency) */
+    .tile-learning .tile{
+      background:
+        radial-gradient(circle at center,
+          rgba(255, 255, 255, 0.18) 0%,
+          rgba(0, 0, 0, 0.10) 70%,
+          rgba(0, 0, 0, 0.25) 100%
+        ),
+        var(--accent2);
+    }
+
+    .tile-music .tile{
+      background:
+        radial-gradient(circle at center,
+          rgba(255, 255, 255, 0.18) 0%,
+          rgba(0, 0, 0, 0.10) 70%,
+          rgba(0, 0, 0, 0.25) 100%
+        ),
+        var(--accent1);
+    }
+
+    .tile-writing .tile{
+      background:
+        radial-gradient(circle at center,
+          rgba(255, 255, 255, 0.18) 0%,
+          rgba(0, 0, 0, 0.10) 70%,
+          rgba(0, 0, 0, 0.25) 100%
+        ),
+        var(--accent3);
       color: var(--ink-dark);
     }
 
-    /* ---------------- BUTTONS ---------------- */
-
-    .iframe-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 10px;
-      align-items: flex-start;
+    .tile-illustration .tile{
+      background:
+        radial-gradient(circle at center,
+          rgba(255, 255, 255, 0.18) 0%,
+          rgba(0, 0, 0, 0.10) 70%,
+          rgba(0, 0, 0, 0.25) 100%
+        ),
+        var(--accent4);
     }
 
-    .pill-toggle {
-      background: #2a6496;
-      color: #f0ede8;
-      border: none;
-      padding: 10px 22px;
-      border-radius: 40px;
-      font-weight: 700;
-      cursor: pointer;
+    /* Tablets */
+    @media (max-width: 1199px) and (min-width: 768px) {
+      .tiles { gap: 28px; }
+    }
+
+    /* Phones */
+    @media (max-width: 767px) {
+      .tiles {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .tile h3 { font-size: 0.95rem; }
+    }
+
+    .copyright p {
+      margin: 18px 0 0;
       font-size: 1rem;
-      font-family: var(--font-main);
-      transition: 0.2s ease;
-      max-width: 100%;
-    }
-
-    .pill-toggle:hover {
-      background: #1a4a6e;
-      color: #f0ede8;
-    }
-
-    .contact-link {
-      display: inline-block;
-      padding: 10px 22px;
-      border-radius: 40px;
-      background: #1a4a6e;
-      color: #f0ede8;
-      text-decoration: none;
-      font-weight: 700;
-      text-align: center;
-      font-family: var(--font-main);
-      transition: 0.2s ease;
-      max-width: 100%;
-    }
-
-    .contact-link:hover { background: #0f1f35; }
-
-    .pill-content {
-      display: none;
-      margin-top: 20px;
-      padding: 20px;
-      background: rgba(15,31,53,0.07);
-      border-radius: var(--radius);
-      overflow-wrap: anywhere;
-      border-left: 3px solid #4a90b8;
-    }
-
-    .pill { margin: 0 0 30px; }
-
-    /* ---------------- PRE-FOOTER LINKS ---------------- */
-
-    .pre-footer {
-      background: var(--bg-dark);
-      padding: 32px 16px 40px;
-      text-align: center;
-      max-width: 1100px;
-      margin: 10px auto 0;
-      overflow: hidden;
-    }
-
-    .pre-footer h3 {
-      margin: 0 0 18px;
-      font-family: var(--font-main);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      font-size: 1.2rem;
-      color: var(--ink-muted);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .pre-footer-description {
-      max-width: 600px;
-      margin: 0 auto 24px;
-      color: var(--ink-muted);
       line-height: 1.6;
-      font-size: 1rem;
+      color: var(--ink-muted);
       text-align: center;
-      overflow-wrap: anywhere;
     }
 
-    .link-centered {
-      display: block;
+    /* ===== Inline link buttons (row) ===== */
+    .link-buttons{
+      max-width: 900px;
+      margin: 26px auto 6px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .link-buttons a{
+      flex: 1 1 220px;
+      min-width: 0;
       text-align: center;
-      margin: 6px auto 0;
-      color: var(--accent6);
-      font-weight: 700;
+      padding: 14px 16px;
+      background: #ffffff;
+      color: #1e1e1e;
       text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,0.10);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
-    .link-centered:hover { text-decoration: underline; }
 
-    /* ---------------- FOOTER ---------------- */
+    .link-buttons a:hover{
+      transform: translateY(-2px);
+      background: #f7f7f7;
+      box-shadow: 0 12px 26px rgba(0,0,0,0.14);
+    }
+
+    /* Mobile: stack neatly */
+    @media (max-width: 700px){
+      .link-buttons{
+        flex-direction: column;
+        gap: 14px;
+      }
+      .link-buttons a{
+        flex: 1 1 auto;
+      }
+    }
 
     footer {
-      background: #0f1f35;
-      color: var(--ink-light);
+      margin-top: 20px;
+      background: var(--light-bg);
+      color: var(--ink-dark);
       text-align: center;
-      padding: 20px 14px;
-      padding-bottom: max(20px, env(safe-area-inset-bottom));
-      padding-left: max(14px, env(safe-area-inset-left));
-      padding-right: max(14px, env(safe-area-inset-right));
-      border-top: 3px solid #4a90b8;
+      padding: 12px 10px;
     }
 
-    footer nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px 14px;
+    footer nav{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap: 10px 18px;
     }
 
     footer nav a {
-      color: var(--ink-light);
+      color: var(--ink-dark);
       text-decoration: none;
-      font-weight: 700;
-      padding: 8px 10px;
-      border-radius: 10px;
-      overflow-wrap: anywhere;
+      font-weight: bold;
+      letter-spacing: 5px;
+    }
+
+    @media (max-width: 480px){
+      footer nav a{ letter-spacing: 2px; }
     }
 
     footer nav a:hover { text-decoration: underline; }
-
-    /* ---------------- RESPONSIVE ---------------- */
-
-    @media (min-width: 900px) {
-      .case-study { grid-template-columns: 1.1fr 0.9fr; align-items: start; }
-      .case-study.reverse { grid-template-columns: 0.9fr 1.1fr; }
-
-      .right-column p, .right-column li { color: var(--ink-dark); line-height: 1.7; }
-      .right-column strong { color: #1a4a6e; font-weight: 700; }
-      .right-column ul.aligned > li { margin-bottom: 26px; }
-      .right-column ul ul { margin-top: 8px; padding-left: 20px; opacity: 0.9; }
-    }
-
-    @media (max-width: 600px) {
-      main { padding: 16px; }
-      .case-study { gap: 18px; }
-      .case-study iframe { aspect-ratio: 10/14; }
-      ul.aligned { padding-left: 20px; }
-      .problem-block { padding: 18px; }
-    }
-
-    /* ============================================================
-       FINAL SECTION
-    ============================================================ */
-
-    .case-study.final-iframe {
-      grid-template-columns: 1fr;
-    }
-
-    .case-study.final-iframe iframe {
-      aspect-ratio: 4 / 3;
-    }
-
-    @media (min-width: 900px) {
-      .case-study.final-iframe {
-        grid-template-columns: 1fr !important;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .case-study.final-iframe iframe {
-        aspect-ratio: 4 / 3;
-      }
-    }
-
-    .final-text-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 22px;
-    }
-
-    @media (min-width: 900px) {
-      .final-text-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 28px;
-      }
-    }
-
-    .final-text-grid h1 { margin-top: 0; }
-    .final-text-grid p { margin: 0 0 12px; }
-    .final-text-grid ul { margin: 0; padding-left: 24px; }
-
-    .quick-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin: 1rem 0;
-    }
-
-    .quick-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: .7rem 1.1rem;
-      border-radius: 10px;
-      background: #2a6496;
-      color: #f0ede8;
-      text-decoration: none;
-      font-weight: 700;
-      font-family: var(--font-main);
-      line-height: 1.2;
-      text-align: center;
-      border: 1px solid #4a90b8;
-      transition: opacity .2s ease, transform .2s ease;
-    }
-
-    .quick-link:hover {
-      opacity: .92;
-      transform: translateY(-1px);
-      background: #1a4a6e;
-    }
   </style>
 </head>
-    <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G4RJ8H2H2V"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+
   gtag('config', 'G-G4RJ8H2H2V');
 </script>
 
 <body>
-  <header>KOALA SPIES SYDNEY</header>
+  <header>Koala Spies Sydney</header>
 
   <main>
-    <!-- SECTION 1 -->
-    <section class="tile-header">
-      <h2>Curriculum Design & Software Samples</h2>
-      <p><q>Design creates culture. Culture shapes values. Values determine the future.</q><br><cite>- Robert L Peters</cite></p>
-    </section>
-
-    <section class="problem-block">
-      <h1>Articule 360 Presentation</h1>
+    <section class="intro">
       <p>
-        <strong>A Study Tour of Japan:</strong>
-        This curriculum presentation was developed for an Australian high school study tour to Japan. Designed as both an educational framework and a promotional resource for Australian schools, the presentation combines AI-generated imagery with hand-drawn animation elements — including flowing blue linework inspired by Japanese kanji — to create a distinctive visual atmosphere and memorable identity.
+        Welcome to my UX and Learning Design portfolio. I bring together experience in adult education, English examining, freelance writing, and media production. I teach, I code, I use AI ethically and I design.
       </p>
     </section>
 
-    <section class="case-study reverse" aria-label="Digital updatable tests case study">
-      <!-- LEFT COLUMN (iframe) -->
-      <div class="left-column">
-        <iframe
-          src="https://koalaspiessydney.github.io/BlueSkyStudyTour/#/"
-          title="A Study Tour of Japan"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <section class="tiles">
 
-        <div class="iframe-buttons">
-          <button class="pill-toggle" type="button" onclick="toggleById('research-content')">Research</button>
-          <a class="contact-link" href="contact.html">Contact me for a quote</a>
+           <a href="instructionaldesign.html"
+         class="tile-link tile-illustration"
+         target="_blank" rel="noopener noreferrer">
+        <div class="tile">
+          <div class="tile-content">
+            <img src="Koalaspiesquared.png" alt="Instructional design for curriculum & courses">
+            <h3>Instructional Design for curriculum & Cour</h3>
+          </div>
         </div>
+      </a>
 
-        <div id="research-content" class="pill-content" aria-label="Research content">
-          <h1>Research</h1>
-          <p>
-            Scholar D. T. Suzuki, a major interpreter of Zen for Western audiences, described Zen as
-            "looking into the nature of one's own being," highlighting its emphasis on direct awareness
-            and introspection. In the context of modern adolescent media environments — often described
-            as "TikTok brain" due to shortened attention spans, rapid content switching, and Fear of Missing Out (FOMO) —
-            Zen-informed approaches may offer a way to counter attention fragmentation and restore sustained focus.
-          </p>
 
-          <ul class="aligned">
-            <li>
-              <strong>Training sustained attention</strong><br />
-              Encouraging focus on a single object or task, reducing cognitive "switching cost" associated with rapid digital stimuli.
-            </li>
-            <li>
-              <strong>Interrupting automatic behaviour</strong><br />
-              Strengthening awareness of impulse before action, helping reduce habitual or unconscious scrolling patterns.
-            </li>
-            <li>
-              <strong>Improving tolerance of stillness</strong><br />
-              Building comfort with silence, slower pacing, and reduced stimulation in contrast to high-frequency digital feeds.
-            </li>
-            <li>
-              <strong>Supporting metacognition</strong><br />
-              Developing the ability to notice when attention has drifted and intentionally return focus to the task at hand.
-            </li>
-          </ul>
-
-          <p>
-            This kind of learning environment encourages students to think more deeply, not only about what they are learning,
-            but how they think — strengthening both wellbeing and intellectual independence.
-          </p>
+      <a href="offbeatplayer.html" class="tile-link tile-music">
+        <div class="tile">
+          <div class="tile-content">
+            <img src="Ayeeyaposter.png" alt="Offline Music EPs">
+            <h3>Offbeat -Offline Music & Video Player</h3>
+          </div>
         </div>
-      </div>
-
-      <!-- RIGHT COLUMN (text) -->
-      <aside class="right-column">
-        <h1>Curriculum Vision</h1>
-
-        <p>
-          Design the study tour around
-          <strong>cultural continuity, historical philosophy, and modern innovation</strong>
-          so students experience Japan as more than a tourism destination.
-        </p>
-
-        <ul class="aligned">
-          <li>
-            <strong>1. Beyond Standard Tourism</strong>
-            <ul>
-              <li>Move beyond sightseeing-focused itineraries</li>
-              <li>Present Japan as a living cultural system</li>
-              <li>Connect tradition to contemporary society</li>
-            </ul>
-          </li>
-          <li>
-            <strong>2. Historical Philosophy and Architecture</strong>
-            <ul>
-              <li>Explore Japanese philosophical traditions</li>
-              <li>Study architecture as cultural expression</li>
-              <li>Understand continuity between past and present</li>
-            </ul>
-          </li>
-          <li>
-            <strong>3. Technology and Contemporary Creativity</strong>
-            <ul>
-              <li>Link traditional thinking to modern innovation</li>
-              <li>Examine engineering, digital culture, and design</li>
-              <li>Connect anime and storytelling to cultural identity</li>
-            </ul>
-          </li>
-          <li>
-            <strong>4. Distinctive Presentation Style</strong>
-            <ul>
-              <li>AI-generated imagery for cinematic atmosphere</li>
-              <li>Hand-drawn animated blue kanji linework</li>
-              <li>Create an immersive and memorable visual identity</li>
-            </ul>
-          </li>
-          <li>
-            <strong>5. Educational Outcomes</strong>
-            <ul>
-              <li>Develop deeper cultural understanding</li>
-              <li>Recognise Japan's global creative influence</li>
-              <li>Encourage meaningful reflection and engagement</li>
-            </ul>
-          </li>
-        </ul>
-      </aside>
-    </section>
-
-    <!-- ADAPTIVE LESSONS -->
-    <section class="tile-header">
-      <h2>Discovery-based Learning</h2>
-      <p>
-        <q>The mind is not a vessel to be filled, but a fire to be kindled.</q>
-        <br><cite>— Plutarch</cite>
-      </p>
-    </section>
-
-    <section class="problem-block">
-      <h1>Problem</h1>
-      <p>
-        A major challenge in English language learning is the expectation that students must memorise thousands of individual words in order to achieve fluency or succeed in high-stakes testing. This approach often leads to heavy cognitive load, low retention, and inefficient use of study time, particularly for adolescent learners who are already managing multiple academic demands.
-      </p>
-    </section>
-
-    <section class="case-study reverse" aria-label="Adaptive lessons case study">
-      <!-- LEFT COLUMN (text) -->
-      <aside class="left-column">
-        <h1>Pedagogy</h1>
-
-        <p>
-          The pedagogical focus of this approach is to shift students away from memorising isolated vocabulary items and toward developing the ability to <strong>decode and construct meaning independently</strong>. Rather than treating English as a list of disconnected words, students are guided to understand how language is built through recurring Greek and Latin roots, prefixes, and suffixes. This enables learners to actively "work out" unfamiliar language for themselves, strengthening autonomy and long-term retention.
-        </p>
-
-        <ul class="aligned">
-          <li>
-            <strong>1. Identify the Root System</strong>
-            <ul>
-              <li>Introduce common Greek and Latin roots used in academic English</li>
-              <li>Show how these roots appear across multiple unrelated-looking words</li>
-              <li>Train students to recognise patterns rather than memorise lists</li>
-            </ul>
-          </li>
-          <li>
-            <strong>2. Decode New Vocabulary</strong>
-            <ul>
-              <li>Students break down unfamiliar words into root components</li>
-              <li>Infer meaning through structure rather than translation</li>
-              <li>Build confidence in working out meaning independently</li>
-            </ul>
-          </li>
-          <li>
-            <strong>3. Construct and Reconstruct Language</strong>
-            <ul>
-              <li>Rebuild complex academic words from known roots</li>
-              <li>Create word families from a single Greek or Latin base</li>
-              <li>Explore how meaning shifts through prefixes and suffixes</li>
-            </ul>
-          </li>
-          <li>
-            <strong>4. Applied Transfer and Critical Use</strong>
-            <ul>
-              <li>Apply root knowledge to reading unseen texts</li>
-              <li>Use linguistic reasoning to interpret new contexts</li>
-              <li>Develop independence from rote memorisation strategies</li>
-            </ul>
-          </li>
-        </ul>
-      </aside>
-
-      <!-- RIGHT COLUMN (iframe + Observation button below it) -->
-      <div class="right-column">
-        <iframe
-          src="http://modernenglish.au/greekandlatin/index.html"
-          title="Adaptive lesson demo"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-        <!-- ✅ FIX: Observation button now sits below the iframe -->
-        <div class="iframe-buttons" style="margin-top: 12px;">
-          <button class="pill-toggle" type="button" onclick="toggleById('adaptive-research')">Observation</button>
+      </a>
+      
+      <a href="LearningDesign.html" class="tile-link tile-learning">
+        <div class="tile">
+          <div class="tile-content">
+            <img src="ModernEnglish.png" alt="Learning Design">
+            <h3>Learning Design- for language acquisition</h3>
+          </div>
         </div>
+      </a>
 
-        <div id="adaptive-research" class="pill-content" aria-label="Adaptive lessons research content">
-          <h1>Observations in the Classroom</h1>
-          <ul>
-            <li>
-              <strong>Memorisation alone was not sufficient for durable learning</strong><br />
-              Students relying on word lists and repetition showed limited long-term retention compared to those engaging with language in context and through problem-solving.
-            </li>
-            <li>
-              <strong>Meaning-based and functional learning improved engagement</strong><br />
-              When students used language for communication, cultural interpretation, or task-based activities, they demonstrated higher motivation and stronger recall of vocabulary.
-            </li>
-            <li>
-              <strong>Multimodal input supported deeper learning</strong><br />
-              Combining music, visual content, games, and interactive tasks helped reinforce patterns and improved memory encoding compared to single-mode instruction.
-            </li>
-            <li>
-              <strong>Understanding word origins strengthened independent learning</strong><br />
-              Students who were introduced to Greek and Latin roots showed greater ability to infer the meaning of unfamiliar words, reducing reliance on memorisation.
-            </li>
-            <li>
-              <strong>Active engagement was essential for retention</strong><br />
-              Passive exposure to explanations or presentations produced limited recall, while tasks requiring decision-making, analysis, or interaction significantly improved understanding.
-            </li>
-            <li>
-              <strong>Contextual repetition outperformed rote review</strong><br />
-              Concepts revisited through varied contexts over time were retained more effectively than isolated revision of vocabulary lists.
-            </li>
-          </ul>
+
+      <a href="https://justinerkelly64d9.myportfolio.com/work" class="tile-link tile-writing">
+        <div class="tile">
+          <div class="tile-content">
+            <img src="Writings.png" alt="Writing Portfolio">
+            <h3>Writing Portfolio</h3>
+          </div>
         </div>
-      </div>
+      </a>
+
+      <!-- FIXED: missing ">" in your original <a ...> tag was breaking the tile order/colouring -->
+   
     </section>
 
-    <!-- PRE-FOOTER -->
-    <section class="pre-footer" aria-label="Modern English Australia links">
-      <h3>Modern English Australia</h3>
-
-      <p class="pre-footer-description">
-        Please feel free to take a look at my dedicated Learning Design &amp; EdTech site.
-        It includes free micro-lessons, games, assessments, and examples of how
-        I integrate technology into practical classroom workflows.
-      </p>
-
-      <div class="quick-links">
-        <a class="quick-link" href="http://modernenglish.au/Microlessons%26Games.html">
-          Micro Lessons // Pronunciation // Games
-        </a>
-        <a class="quick-link" href="http://modernenglish.au/IELTSPTEPLUS.html">
-          IELTS // PTE +
-        </a>
-      </div>
+    <section class="copyright">
+      <p>copyright Koala Spies Sydney</p>
     </section>
+
+    <!-- Keep your link-buttons/footer if you want; your snippet cut off mid-file earlier -->
   </main>
 
   <footer>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="https://koalaspies.myportfolio.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnbQYZoEK7jqDiZuyeKUGXDouMdSAr5qLnXv-N3jox_WbwWvBDjx-UUKOwPjw_aem_yHYrwc5jC2ftvPzjkb4Row">Koala Spy Art & Merch</a> // </a>
+      <a href="http://modernenglish.au/index.html">MODERN ENGLISH AU //</a>
+      <a href="about.html">About Justine//</a>
+      <a href="contact.html">Contact </a>
     </nav>
   </footer>
-
-  <script>
-    function toggleById(id) {
-      const box = document.getElementById(id);
-      if (!box) return;
-      box.style.display = (box.style.display === "block") ? "none" : "block";
-    }
-  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
