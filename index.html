@@ -1,393 +1,260 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Koala Spies Sydney</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Modern English Australia · Koala Spies Sydney</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,650;8..60,700;8..60,800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #1e1e1e;     /* charcoal */
-      --ink-light: #f5f5f5;   /* main text */
-      --ink-muted: #bbbbbb;   /* secondary text */
-      --light-bg: #f4f4f4;    /* header/footer */
-      --ink-dark: #222;       /* for light areas */
+  --bg: #fffce6; /* pale lemon base */
+  --surface: #ffffff;
+  --ink: #0f172a;
+  --muted: #475569;
+  --line: rgba(15,23,42,.10);
+  --accent: #0e2861;
+  --accent-2: hsl(226, 65%, 24%);
+  --link: #3968ea;
+  --header: #1c1c1c;
+  --header-ink: #f8fafc;
+  --max: 1160px;
+  --sans: "Source Sans 3", system-ui, sans-serif;
+  --serif: "Source Serif 4", Georgia, serif;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
 
-      --accent1: #009688;   /* teal */
-      --accent2: #d35400;   /* rust orange */
-      --accent4: #f1c40f;   /* gold */
-      --accent3: #8e44ad;   /* indigo purple */
-      --accent5: #3498db;   /* sky blue */
-      --accent6: #e67e22;   /* amber */
-    }
+/* SHIMMERING LEMON BACKGROUND */
+body {
+  font-size: 18px;
+  color: var(--ink);
+  line-height: 1.78;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 
-    *{ box-sizing: border-box; }
+  background:
+    radial-gradient(circle at top,
+      #fffce6 0%,
+      #f7f5ea 40%,
+      #f0f4fa 100%);
+  background-size: 140% 140%;
+  animation: bg-shimmer 12s ease-in-out infinite alternate;
+}
+
+@keyframes bg-shimmer {
+  0%   { background-position: 50% 0%; }
+  100% { background-position: 50% 100%; }
+}
+
+  
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; }
+    body { font-family: var(--sans); font-size: 18px; background: var(--bg); color: var(--ink); line-height: 1.78; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+    img, video { max-width: 100%; height: auto; display: block; }
+    a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; -webkit-tap-highlight-color: transparent; }
+    a:hover { color: var(--accent-2); }
+    .wrap { max-width: var(--max); margin: 0 auto; padding-inline: clamp(16px, 4vw, 36px); }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--ink-light);
-      color: var(--bg-dark);
-      overflow-x: hidden; /* prevents iOS “tiny overflow” misalignment */
-      -webkit-text-size-adjust: 100%;
+    /* HEADER */
+    header { position: relative; background: var(--header); color: var(--header-ink); overflow: hidden; padding-top: var(--safe-top); }
+    header::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 48px 48px; animation: grid-drift 24s linear infinite; pointer-events: none;
+    }
+    header::after {
+      content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent 0%, rgba(37,99,235,.55) 20%, #60a5fa 50%, rgba(37,99,235,.55) 80%, transparent 100%);
+      animation: bar-pulse 5s ease-in-out infinite alternate;
     }
 
-    header {
-      background: var(--light-bg);
-      color: var(--ink-dark);
-      text-align: center;
-      padding: clamp(10px, 2vw, 18px) 12px;
 
-      font-family: "tt-modernoir", sans-serif;
-      font-weight: 700;
-      font-style: normal;
-
-      /* iPhone-safe clamps */
-      font-size: clamp(2.2rem, 6vw, 5.2rem);
-      letter-spacing: clamp(2px, 1.4vw, 10px);
-      line-height: 1.05;
-
-      white-space: normal;
-      word-break: break-word;
+    @keyframes grid-drift { 0% { transform: translate(0,0); } 100% { transform: translate(48px,48px); } }
+    @keyframes bar-pulse  { 0% { opacity: .4; } 100% { opacity: .9; } }
+    .header-inner { position: relative; z-index: 1; display: flex; align-items: center; padding-block: 26px 30px; }
+    .brand { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+    .brand-top {
+      font-family: var(--serif); font-weight: 800; font-size: clamp(2rem, 1.2rem + 3.2vw, 3.6rem);
+      letter-spacing: 3px; text-transform: uppercase; line-height: 1.0; text-decoration: none; display: inline-block;
+      background: linear-gradient(100deg, #f8fafc 0%, #f8fafc 18%, #ffffff 30%, #a5c4fd 42%, #ffffff 52%, #f8fafc 68%, #f8fafc 100%);
+      background-size: 250% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      animation: shimmer 3.5s linear infinite;
     }
-
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 10px 14px 28px;
+    .brand-top:hover { animation-duration: 1.2s; }
+    @keyframes shimmer { 0% { background-position: 200% center; } 100% { background-position: -50% center; } }
+    .kss-label {
+      display: inline-block; font-family: var(--sans); font-weight: 700; font-size: clamp(0.68rem, 0.58rem + 0.4vw, 0.82rem);
+      letter-spacing: 5px; text-transform: uppercase; color: #fde047; text-decoration: none; transition: color .15s, letter-spacing .2s;
     }
+    .kss-label:hover { color: #fef08a; letter-spacing: 6px; }
 
-    .intro {
-      padding-top: 10px;
-      text-align: center;
+    /* MAIN */
+    .section { padding: 56px 0 64px; }
+    .two-col { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 60px; align-items: start; }
+    .two-col > * { min-width: 0; }
+
+    /* Headline animation */
+    .hero-headline { font-family: var(--serif); font-weight: 800; font-size: clamp(2.6rem, 1.3rem + 5.2vw, 5.4rem); line-height: 1.04; margin-bottom: 20px; overflow: hidden; }
+    .hero-word { display: inline-block; opacity: 0; transform: translateY(38px); animation: word-rise 0.65s cubic-bezier(.22,.68,0,1.2) forwards; }
+    .hero-word:nth-child(1) { animation-delay: 0.05s; color: var(--ink); }
+    .hero-word:nth-child(2) { animation-delay: 0.22s; color: var(--accent); position: relative; }
+    .hero-word:nth-child(2)::after {
+      content: ""; position: absolute; bottom: 5px; left: 0; right: 0; height: 4px; border-radius: 2px;
+      background: linear-gradient(90deg, #041e47, #93c5fd); transform: scaleX(0); transform-origin: left;
+      animation: line-expand 0.5s 0.72s ease-out forwards;
     }
+    @keyframes word-rise  { to { opacity: 1; transform: translateY(0); } }
+    @keyframes line-expand { to { transform: scaleX(1); } }
 
-    .intro p {
-      max-width: 1200px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      line-height: 1.6;
-      letter-spacing: 1.2px;
-      color: var(--ink-muted);
-      position: relative;
+    /* Typography */
+    h2 { font-family: var(--serif); font-size: clamp(1.35rem, 1.05rem + 1.1vw, 2rem); font-weight: 700; color: var(--ink); line-height: 1.2; margin: 0 0 10px; }
+    h3 { font-family: var(--sans); font-size: 0.82rem; font-weight: 700; color: var(--muted); letter-spacing: 2.5px; text-transform: uppercase; margin: 0 0 14px; }
+    p  { margin-bottom: 16px; }
+    .intro-text { font-size: 1.05rem; line-height: 1.82; }
+    .role-line  { font-family: var(--sans); font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 22px; }
+    .divider    { border: 0; height: 1px; background: var(--line); margin: 28px 0; }
 
-      /* prevents shimmer overlay from creating horizontal overflow on iOS */
-      overflow: hidden;
+    .text-link { font-family: var(--sans); font-weight: 700; font-size: 0.95rem; color: var(--link); text-decoration: underline; text-underline-offset: 3px; transition: color .15s; }
+    .text-link:hover { color: var(--accent-2); }
+    .cta-link { display: inline-flex; align-items: center; gap: 6px; font-family: var(--sans); font-weight: 700; font-size: 1rem; color: var(--link); text-decoration: underline; text-underline-offset: 3px; transition: color .15s, gap .15s; }
+    .cta-link::after { content: "→"; }
+    .cta-link:hover  { color: var(--accent-2); gap: 10px; }
+
+    /* Video */
+    .video-wrap { position: relative; width: 100%; max-width: 480px; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 50px rgba(15,23,42,.16), 0 4px 12px rgba(15,23,42,.10); background: #0b1220; margin: 24px 0; }
+    .video-wrap video { width: 100%; height: auto; display: block; }
+    .video-wrap::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), #60a5fa, var(--accent)); }
+
+
+}
+
+
+
+    /* Feature list — plain, no cards */
+    .feature-list { list-style: none; padding: 0; margin: 0 0 4px; }
+    .feature-list li { padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 0.97rem; }
+    .feature-list li:last-child { border-bottom: 0; }
+    .feature-list a { font-weight: 700; color: var(--link); text-decoration: none; }
+    .feature-list a:hover { color: var(--accent-2); text-decoration: underline; text-underline-offset: 3px; }
+    .feat-label { font-weight: 700; color: var(--ink); }
+    .feat-desc  { display: block; font-size: 0.88rem; color: var(--muted); margin-top: 2px; }
+
+    .right-col { padding-top: 6px; }
+    .right-col h2 { margin-top: 0; }
+
+    /* FOOTER */
+    footer { background: var(--header); color: var(--header-ink); border-top: 1px solid rgba(255,255,255,.08); padding: 20px 0 calc(20px + var(--safe-bottom)); }
+    .footer-inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; text-align: center; font-family: var(--sans); font-size: 0.87rem; color: rgba(248,250,252,.60); }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; width: 100%; margin-top: 6px; }
+    .footer-links a { color: rgba(248,250,252,.75); text-decoration: underline; text-underline-offset: 4px; font-size: 0.87rem; transition: color .15s; }
+    .footer-links a:hover { color: #fff; }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) { .two-col { grid-template-columns: 1fr; gap: 36px; } }
+    @media (max-width: 540px) { .header-inner { padding-block: 20px 24px; } .video-wrap { max-width: 100%; } }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-word { animation: none; opacity: 1; transform: none; }
+      .hero-word:nth-child(2)::after { animation: none; transform: scaleX(1); }
+      .brand-top { animation: none; }
+      header::before, header::after { animation: none; }
     }
-
-    .intro p::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -120%;
-      width: 60%;
-      height: 100%;
-      background: linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(255,255,255,0.18) 50%,
-        transparent 100%
-      );
-      transform: skewX(-20deg);
-      animation: text-shimmer 5s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    @keyframes text-shimmer {
-      0% { left: -120%; }
-      60% { left: 120%; }
-      100% { left: 120%; }
-    }
-
-    /* ===================== TILES (robust colour system) ===================== */
-
-    .tiles{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: clamp(18px, 3vw, 60px);
-      margin-top: 40px;
-    }
-
-    .tile-link{
-      display:block;
-      text-decoration:none;
-      color:inherit;
-      min-width: 0;
-    }
-
-    .tile{
-      position:relative;
-      aspect-ratio: 1 / 1;
-      border-radius: 12px;
-      overflow:hidden;
-      text-align:center;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    /* Fallback for older browsers */
-    @supports not (aspect-ratio: 1 / 1){
-      .tile{ height: 0; padding-top: 100%; }
-      .tile-content{ position:absolute; inset:0; }
-    }
-
-    .tile:hover{
-      transform: translateY(-6px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-    }
-
-    .tile-content{
-      position:absolute;
-      inset:0;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      padding: clamp(16px, 3vw, 40px);
-    }
-
-    .tile img{
-      width: min(62%, 260px);
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: clamp(16px, 3vw, 48px);
-      background: rgba(255,255,255,0.3);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-      display:block;
-    }
-
-    .tile h3{
-      margin:0;
-      font-size: clamp(0.95rem, 1.2vw, 1.15rem);
-      line-height: 1.35;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-    }
-
-    /* Robust per-tile colouring (no nth-child dependency) */
-    .tile-learning .tile{
-      background:
-        radial-gradient(circle at center,
-          rgba(255, 255, 255, 0.18) 0%,
-          rgba(0, 0, 0, 0.10) 70%,
-          rgba(0, 0, 0, 0.25) 100%
-        ),
-        var(--accent2);
-    }
-
-    .tile-music .tile{
-      background:
-        radial-gradient(circle at center,
-          rgba(255, 255, 255, 0.18) 0%,
-          rgba(0, 0, 0, 0.10) 70%,
-          rgba(0, 0, 0, 0.25) 100%
-        ),
-        var(--accent1);
-    }
-
-    .tile-writing .tile{
-      background:
-        radial-gradient(circle at center,
-          rgba(255, 255, 255, 0.18) 0%,
-          rgba(0, 0, 0, 0.10) 70%,
-          rgba(0, 0, 0, 0.25) 100%
-        ),
-        var(--accent3);
-      color: var(--ink-dark);
-    }
-
-    .tile-illustration .tile{
-      background:
-        radial-gradient(circle at center,
-          rgba(255, 255, 255, 0.18) 0%,
-          rgba(0, 0, 0, 0.10) 70%,
-          rgba(0, 0, 0, 0.25) 100%
-        ),
-        var(--accent4);
-    }
-
-    /* Tablets */
-    @media (max-width: 1199px) and (min-width: 768px) {
-      .tiles { gap: 28px; }
-    }
-
-    /* Phones */
-    @media (max-width: 767px) {
-      .tiles {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-      .tile h3 { font-size: 0.95rem; }
-    }
-
-    .copyright p {
-      margin: 18px 0 0;
-      font-size: 1rem;
-      line-height: 1.6;
-      color: var(--ink-muted);
-      text-align: center;
-    }
-
-    /* ===== Inline link buttons (row) ===== */
-    .link-buttons{
-      max-width: 900px;
-      margin: 26px auto 6px;
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .link-buttons a{
-      flex: 1 1 220px;
-      min-width: 0;
-      text-align: center;
-      padding: 14px 16px;
-      background: #ffffff;
-      color: #1e1e1e;
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing: 1.1px;
-      border-radius: 14px;
-      border: 1px solid rgba(0,0,0,0.10);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.10);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .link-buttons a:hover{
-      transform: translateY(-2px);
-      background: #f7f7f7;
-      box-shadow: 0 12px 26px rgba(0,0,0,0.14);
-    }
-
-    /* Mobile: stack neatly */
-    @media (max-width: 700px){
-      .link-buttons{
-        flex-direction: column;
-        gap: 14px;
-      }
-      .link-buttons a{
-        flex: 1 1 auto;
-      }
-    }
-
-    footer {
-      margin-top: 20px;
-      background: var(--light-bg);
-      color: var(--ink-dark);
-      text-align: center;
-      padding: 12px 10px;
-    }
-
-    footer nav{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap: 10px 18px;
-    }
-
-    footer nav a {
-      color: var(--ink-dark);
-      text-decoration: none;
-      font-weight: bold;
-      letter-spacing: 5px;
-    }
-
-    @media (max-width: 480px){
-      footer nav a{ letter-spacing: 2px; }
-    }
-
-    footer nav a:hover { text-decoration: underline; }
   </style>
 </head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G4RJ8H2H2V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-G4RJ8H2H2V');
-</script>
-
 <body>
-  <header>Koala Spies Sydney</header>
 
-  <main>
-    <section class="intro">
-      <p>
-        Welcome to my UX and Learning Design portfolio. I bring together experience in adult education, English examining, freelance writing, and media production. I teach, I code, I use AI ethically and I design.
-      </p>
-    </section>
+<header>
+  <div class="wrap">
+    <div class="header-inner">
+      <div class="brand">
+        <a href="index.html" class="brand-top">Modern English Au</a>
+        <a href="https://koalaspiessydney.github.io/KoalaSpiesSyd/" class="kss-label">Koala Spies Sydney</a>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <section class="tiles">
+<main>
+  <section class="section">
+    <div class="wrap two-col">
 
-           <a href="instructionaldesign.html"
-         class="tile-link tile-illustration"
-         target="_blank" rel="noopener noreferrer">
-        <div class="tile">
-          <div class="tile-content">
-            <img src="Koalaspiesquared.png" alt="Instructional design for curriculum & courses">
-            <h3>Instructional Design for curriculum & Cour</h3>
-          </div>
+      <!-- LEFT COLUMN -->
+      <div>
+        <h3>UX &amp; Learning Design Portfolio</h3>
+
+        <div class="hero-headline" aria-label="meaningful english">
+          <span class="hero-word">meaningful&nbsp;</span><span class="hero-word">English</span>
         </div>
-      </a>
+
+        <p class="role-line">EdTech Designer&nbsp;·&nbsp;UX Designer&nbsp;·&nbsp;Creative Educator</p>
+
+        <p class="intro-text">
+          Welcome to my UX and Learning Design portfolio. I bring together experience in adult
+          education, English examining, freelance writing, and media production. I teach, I code,
+          I use AI ethically and I design — building learning experiences that are clear,
+          engaging, and purposeful.
+        </p>
 
 
-      <a href="offbeatplayer.html" class="tile-link tile-music">
-        <div class="tile">
-          <div class="tile-content">
-            <img src="Ayeeyaposter.png" alt="Offline Music EPs">
-            <h3>Offbeat -Offline Music & Video Player</h3>
-          </div>
-        </div>
-      </a>
-      
-      <a href="LearningDesign.html" class="tile-link tile-learning">
-        <div class="tile">
-          <div class="tile-content">
-            <img src="ModernEnglish.png" alt="Learning Design">
-            <h3>Learning Design- for language acquisition</h3>
-          </div>
-        </div>
-      </a>
+        <a class="cta-link" href="https://koalaspiessydney.github.io/KoalaSpiesSyd/about.html">More about me</a>
+      </div>
 
+      <!-- RIGHT COLUMN -->
+      <div class="right-col">
 
-      <a href="https://justinerkelly64d9.myportfolio.com/work" class="tile-link tile-writing">
-        <div class="tile">
-          <div class="tile-content">
-            <img src="Writings.png" alt="Writing Portfolio">
-            <h3>Writing Portfolio</h3>
-          </div>
-        </div>
-      </a>
+        <h2>Bespoke Learning Tools</h2>
+        <p style="color:var(--muted); font-size:.95rem; margin-bottom:4px;"></p>
 
-      <!-- FIXED: missing ">" in your original <a ...> tag was breaking the tile order/colouring -->
-   
-    </section>
+        <ul class="feature-list">
+          <li>
+            <a href="interactivegames.html"> Vocab Games</a>
+            <span class="feat-desc">Drag-and-drop, vocabulary and grammar systems</span>
+          </li>
+          <li>
+            <a href="automatedtesting.html">Testing</a>
+            <span class="feat-desc">Tests with built-in reporting and scoring</span>
+          </li>
+          <li>
+            <a href="audiovisualcontent.html">Courses </a>
+            <span class="feat-desc">A series of lesson to encourage students to expand their academic vocabulary in English by understanding of words of Greek & Latin origin</span>
+          </li>
+            <li>
+            <a href="audiovisualcontent.html">Learning through Music </a>
+            <span class="feat-desc">A song to help...</span>
+          </li>
+            <li>
+            <a href="automatedtesting.html">Study Tour Presentation</a>
+            <span class="feat-desc">Tests with built-in reporting and scoring</span>
+          </li>
+          <li>
+            <a href="audiovisualcontent.html">Onboarding </a>
+            <span class="feat-desc">Coming soon</span>
+          </li>
+        </ul>
 
-    <section class="copyright">
-      <p>copyright Koala Spies Sydney</p>
-    </section>
+        <hr class="divider">
 
-    <!-- Keep your link-buttons/footer if you want; your snippet cut off mid-file earlier -->
-  </main>
+        <a class="cta-link" href="contact.html">Contact me today</a>
 
-  <footer>
-    <nav>
-      <a href="https://koalaspies.myportfolio.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnbQYZoEK7jqDiZuyeKUGXDouMdSAr5qLnXv-N3jox_WbwWvBDjx-UUKOwPjw_aem_yHYrwc5jC2ftvPzjkb4Row">Koala Spy Art & Merch</a> // </a>
-      <a href="http://modernenglish.au/index.html">MODERN ENGLISH AU //</a>
-      <a href="about.html">About Justine//</a>
-      <a href="contact.html">Contact </a>
-    </nav>
-  </footer>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>© Koala Spies Sydney · Modern English Australia · All Rights Reserved</div>
+    <div class="footer-links">
+      <a href="https://koalaspiessydney.github.io/KoalaSpiesSyd/">Koala Spies Sydney</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
-
-
-
 
 
 
