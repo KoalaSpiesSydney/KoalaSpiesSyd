@@ -81,23 +81,15 @@
     }
 
     .header-links a{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:8px 18px;
-      border-radius:8px;
-      border:1px solid rgba(0,0,0,0.18);
       color: var(--ink-dark);
       font-weight:700;
       font-size:.85rem;
       letter-spacing:.3px;
-      transition:background .2s ease, border-color .2s ease, transform .12s ease;
+      text-decoration:none;
     }
 
     .header-links a:hover{
-      background: rgba(0,0,0,0.05);
-      border-color: rgba(0,0,0,0.3);
-      transform:translateY(-1px);
+      text-decoration:underline;
     }
 
     /* MAIN */
@@ -161,38 +153,31 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:12px 26px;
-      border-radius:8px;
-      background:transparent;
+      background:none;
+      border:none;
+      padding:4px 0;
       color: var(--ink-light);
       font-weight:700;
       font-family:inherit;
       font-size:1rem;
       letter-spacing:.3px;
-      border:1px solid var(--line);
       cursor:pointer;
-      transition:background .2s ease, transform .12s ease, border-color .2s ease;
+      text-decoration:none;
+      transition: opacity .15s ease;
     }
 
     .btn:hover{
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.28);
-      transform:translateY(-1px);
+      text-decoration:underline;
     }
 
     .btn.primary{
-      background: var(--light-bg);
-      color: var(--ink-dark);
-      border-color:transparent;
+      color: var(--ink-light);
     }
 
-    .btn.primary:hover{ background:#ffffff; }
-
     .btn:disabled{
-      opacity:.6;
+      opacity:.55;
       cursor:default;
-      transform:none;
-      box-shadow:none;
+      text-decoration:none;
     }
 
     .notice{
@@ -261,8 +246,7 @@
       }
       .header-links{ width:100%; }
       main{ padding:28px 20px 16px; }
-      .actions{ flex-direction:column; }
-      .btn{ width:100%; }
+      .actions{ flex-direction:column; gap:16px; }
     }
 
     @media (max-width:380px){
@@ -358,7 +342,7 @@
       </svg>
     </a>
 
-    <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
+    <a href="https://www.linkedin.com/in/justine-kelly-bbb5134a/" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
       <svg viewBox="0 0 24 24" fill="none">
         <rect x="2" y="2" width="20" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
         <rect x="6" y="10" width="2.5" height="8" fill="currentColor"/>
@@ -444,4 +428,3 @@ document.getElementById("revealPhoneBtn").addEventListener("click", function () 
 
 </body>
 </html>
-
