@@ -3,22 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact · Modern English Australia · Koala Spies Sydney</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,600;6..72,700&display=swap" rel="stylesheet">
-
+  <title>Contact | Modern English Australia | Koala Spies Sydney</title>
+  <meta name="description" content="Contact Modern English Australia / Koala Spies Sydney for professional enquiries, quotes, and questions via email or WhatsApp." />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G4RJ8H2H2V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G4RJ8H2H2V');
+  </script>
   <style>
     :root{
-      --bg:#f6f7f5;
-      --ink:#111111;
-      --muted:#5f6a66;
-      --accent:#0f6f6a;
-      --line:rgba(194, 192, 192, 0.1);
-      --header:#2b2a2a;
-      --max:1120px;
-      --narrow:760px;
+      --bg-dark:#1e1e1e;
+      --ink-light:#f5f5f5;
+      --ink-muted:#bbbbbb;
+      --light-bg:#f4f4f4;
+      --ink-dark:#222;
+      --line: rgba(255,255,255,0.12);
     }
 
     *{ box-sizing:border-box; }
@@ -26,137 +28,107 @@
 
     body{
       margin:0;
-      font-family:"Newsreader", Georgia, serif;
-      font-size:20px;
-      background:var(--bg);
-      color:var(--ink);
-      line-height:1.9;
+      font-family: Arial, sans-serif;
+      background: var(--bg-dark);
+      color: var(--ink-light);
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
     }
 
     a{ color:inherit; text-decoration:none; }
-
-    .wrap{ max-width:var(--max); margin:0 auto; padding:0 20px; }
-    .wrap-narrow{ max-width:var(--narrow); margin:0 auto; padding:0 20px; }
-
-    .muted{ color:var(--muted); }
-    .small{ font-size:.95rem; }
+    .muted{ color: var(--ink-muted); }
 
     /* HEADER */
     header{
-      background:var(--header);
-      color:#fff;
-      border-bottom:1px solid rgba(255,255,255,.10);
+      background: var(--light-bg);
+      color: var(--ink-dark);
     }
 
     .header-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding:18px 0;
-      padding-left:20px;
-    }
-
-    .brand{
+      max-width:1000px;
+      margin:0 auto;
       display:flex;
       flex-direction:column;
-      gap:2px;
-    }
-
-    .brand-top{
-      color:var(--accent);
-      letter-spacing:2px;
-      font-weight:900;
-      text-transform:uppercase;
-      font-size:1.25rem;
-      line-height:1.1;
-    }
-
-    .kss-font{
-      font-family:"tt-modernoir", sans-serif;
-      font-weight:900;
-      font-size:15px;
-      letter-spacing:2px;
-      color:#ffffff;
-    }
-
-    nav{
-      display:flex;
       align-items:center;
-      gap:10px;
+      justify-content:center;
+      gap:12px;
+      padding:24px 20px;
+      text-align:center;
+    }
+
+    .header-title{
+      font-weight:900;
+      letter-spacing:2px;
+      font-size:1.4rem;
+      line-height:1.2;
+      color: var(--ink-dark);
+      text-align:center;
+    }
+
+    .header-title .divider{
+      font-weight:300;
+      color:#999;
+      margin:0 10px;
+    }
+
+    .header-links{
+      display:flex;
+      gap:12px;
       flex-wrap:wrap;
-      justify-content:flex-end;
+      justify-content:center;
+      margin-top:4px;
     }
 
-    nav a{
-      color:#ffffff;
-      opacity:.9;
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid transparent;
-      font-size:0.95rem;
-      font-weight:600;
-      transition:opacity .12s ease, border-color .12s ease, color .12s ease;
+    .header-links a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 18px;
+      border-radius:8px;
+      border:1px solid rgba(0,0,0,0.18);
+      color: var(--ink-dark);
+      font-weight:700;
+      font-size:.85rem;
+      letter-spacing:.3px;
+      transition:background .2s ease, border-color .2s ease, transform .12s ease;
     }
 
-    nav a:hover{
-      opacity:1;
-      border-color:rgba(255,255,255,.22);
-      color:#ffffff;
+    .header-links a:hover{
+      background: rgba(0,0,0,0.05);
+      border-color: rgba(0,0,0,0.3);
+      transform:translateY(-1px);
     }
 
-    nav a.active{
-      opacity:1;
-      border-color:rgba(255,255,255,.35);
-      color:#ffffff;
+    /* MAIN */
+    main{
+      flex:1;
+      max-width:1000px;
+      margin:0 auto;
+      padding:40px 20px 20px;
+      width:100%;
     }
 
-    nav a.cta{
-      background:var(--accent);
-      color:#ffffff;
-      font-weight:900;
-      border-color:transparent !important;
+    h2{
+      font-size:1.8rem;
+      margin:0 0 20px;
+      text-align:center;
     }
 
-    /* SECTION */
-    .section{
-      padding:64px 0;
-      border-bottom:1px solid var(--line);
-    }
+    p{ margin:0 0 16px; line-height:1.65; }
 
-    /* TYPOGRAPHY */
-    .kicker{
-      color:var(--accent);
-      font-weight:900;
-      letter-spacing:1.6px;
-      text-transform:uppercase;
-      font-size:.9rem;
-      margin:0 0 10px;
-    }
-
-    h1,h2,h3{
-      margin:0 0 12px;
-      line-height:1.22;
-      color:var(--ink);
-    }
-
-    h1{ font-size:clamp(2rem, 1.4rem + 2.2vw, 3rem); }
-    h2{ font-size:clamp(1.35rem, 1.1rem + 1vw, 2rem); margin-top:26px; }
-
-    p{ margin:0 0 16px; }
-
-    /* CARD */
-    .card{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:12px;
-      padding:28px;
-      margin-top:28px;
+    /* CONTACT BLOCK (mirrors .about-text / .video-section divider pattern) */
+    .contact-block{
+      margin-top:34px;
+      padding-top:26px;
+      border-top:1px solid var(--line);
     }
 
     .contact-grid{
       display:grid;
-      gap:32px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:28px;
+      align-items:start;
       margin-top:20px;
     }
 
@@ -167,8 +139,13 @@
 
     .hint{
       font-size:.9rem;
-      color:var(--muted);
+      color: var(--ink-muted);
       margin-top:8px;
+    }
+
+    /* stack contact rows on mobile */
+    @media (max-width:760px){
+      .contact-grid{ grid-template-columns:1fr; gap:22px; }
     }
 
     /* BUTTONS */
@@ -176,6 +153,7 @@
       display:flex;
       gap:12px;
       flex-wrap:wrap;
+      justify-content:center;
       margin-top:14px;
     }
 
@@ -183,195 +161,242 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:10px 28px;
+      padding:12px 26px;
       border-radius:8px;
-      background:#fff;
-      color:var(--ink);
-      font-weight:600;
-      border:1px solid var(--line);
+      background:transparent;
+      color: var(--ink-light);
+      font-weight:700;
+      font-family:inherit;
+      font-size:1rem;
       letter-spacing:.3px;
-      transition:background .2s ease, transform .12s ease, box-shadow .2s ease, color .2s ease;
+      border:1px solid var(--line);
+      cursor:pointer;
+      transition:background .2s ease, transform .12s ease, border-color .2s ease;
     }
 
     .btn:hover{
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.28);
       transform:translateY(-1px);
-      box-shadow:0 4px 12px rgba(0,0,0,0.08);
     }
 
     .btn.primary{
-      background:var(--accent);
-      color:#111;
+      background: var(--light-bg);
+      color: var(--ink-dark);
       border-color:transparent;
     }
 
-    .btn.primary:hover{
-      background:#0d5c58;
+    .btn.primary:hover{ background:#ffffff; }
+
+    .btn:disabled{
+      opacity:.6;
+      cursor:default;
+      transform:none;
+      box-shadow:none;
     }
 
     .notice{
       margin-top:28px;
-      padding:18px;
-      background:rgba(15,111,106,.06);
-      border-left:3px solid var(--accent);
-      border-radius:6px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color: var(--ink-muted);
       font-size:.95rem;
+    }
+
+    /* ---------- SOCIALS (same as about.html) ---------- */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin: 18px 0 0;
+      padding: 14px 0 6px;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-light);
+      opacity: 0.9;
+      transition: opacity 0.15s ease;
+    }
+
+    .social-icons a:hover {
+      opacity: 1;
+    }
+
+    .social-icons svg {
+      width: 36px;
+      height: 36px;
+      display: block;
     }
 
     /* FOOTER */
     footer{
-      background:var(--header);
-      color:#ffffff;
-      border-top:1px solid rgba(255,255,255,.10);
-      padding:18px 0;
+      background: var(--light-bg);
+      color: var(--ink-dark);
+      text-align:center;
+      padding:15px;
     }
 
-    .footer-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
+    footer nav a{
+      color: var(--ink-dark);
+      margin:0 10px;
+      text-decoration:none;
+      font-weight:bold;
     }
 
-    .footer-links{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
+    footer nav a:hover{ text-decoration:underline; }
+
+    /* RESPONSIVE: tablet */
+    @media (max-width:900px){
+      body{ font-size:.98rem; }
     }
 
-    .footer-links a{
-      color:#ffffff;
-      opacity:.9;
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid transparent;
+    /* RESPONSIVE: phone */
+    @media (max-width:620px){
+      .header-inner{
+        gap:10px;
+        padding:16px 20px;
+      }
+      .header-links{ width:100%; }
+      main{ padding:28px 20px 16px; }
+      .actions{ flex-direction:column; }
+      .btn{ width:100%; }
     }
 
-    .footer-links a:hover{
-      opacity:1;
-      border-color:rgba(255,255,255,.22);
-      color:#ffffff;
+    @media (max-width:380px){
+      .header-title{ font-size:1.1rem; }
     }
   </style>
 </head>
-
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G4RJ8H2H2V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-G4RJ8H2H2V');
-</script>
-
 <body>
 
 <header>
-  <div class="wrap header-inner">
-    <div class="brand">
-      <div class="brand-top">Modern English Australia</div>
-      <div class="kss-font">Koala Spies Sydney</div>
+  <div class="header-inner">
+    <div class="header-title">
+      Contact <span class="divider">|</span> Justine Leigh Kelly <span class="divider">|</span> Instructional Designer
     </div>
-
-    <nav>
-      <a href="index.html">HOME</a>
-      <a href="MEAtests">IELTS/PTE+</a>
-      <a href="microlesson.html">Lessons & Games</a>
+    <nav class="header-links">
+      <a href="https://koalaspiessydney.au/" target="_blank" rel="noopener noreferrer">Koala Spies Sydney</a>
+      <a href="http://modernenglish.au/index.html" target="_blank" rel="noopener noreferrer">Modern English Australia</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <section class="section">
-    <div class="wrap-narrow">
+  <h2>Get in Touch</h2>
 
-      <p class="kicker">Contact</p>
-      <h1>Get in touch</h1>
+  <p class="muted" style="text-align:center;">
+    Professional enquiries only. If you're a teacher, school, or organisation, include your context and timeline
+    so I can respond quickly.
+  </p>
 
-      <p class="muted">
-        Professional enquiries only. If you’re a teacher, school, or organisation, include your context and timeline
-        so I can respond quickly.
-      </p>
+  <div class="contact-block">
+    <div class="contact-grid">
 
-      <div class="card">
-        <h2 style="margin-top:0;">Quick contact</h2>
+      <!-- EMAIL OPTIONS -->
+      <div class="row">
+        <p class="label">Email</p>
+        <p class="value">
+          <span id="emailText">Choose an option below</span>
+        </p>
 
-        <div class="contact-grid">
+        <!-- Honeypot: hidden from real users, tempting for bots -->
+        <input type="text" id="hp" name="hp" autocomplete="off" tabindex="-1" aria-hidden="true"
+          style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;">
 
-          <!-- EMAIL OPTIONS -->
-          <div class="row">
-            <p class="label">Email</p>
-            <p class="value">
-              <span id="emailText">Choose an option below</span>
-            </p>
-
-            <!-- Honeypot -->
-            <input type="text" id="hp" style="display:none;">
-
-            <div class="actions">
-              <button class="btn" type="button" onclick="sendFeedback()">Feedback</button>
-              <button class="btn" type="button" onclick="sendQuote()">Request a Quote</button>
-              <button class="btn" type="button" onclick="sendQuestion()">Ask a Question</button>
-            </div>
-
-            <p class="hint">
-              Your email address is only generated when you click a button — this prevents spam bots.
-            </p>
-          </div>
-
-          <!-- WHATSAPP -->
-          <div class="row">
-            <p class="label">WhatsApp Business</p>
-            <p class="value">Fastest for quick questions and scheduling.</p>
-
-            <div class="actions">
-              <a
-                class="btn primary"
-                href="https://wa.me/610450539335?text=Hi%20Justine%2C%20I%E2%80%99m%20enquiring%20about..."
-                target="_blank"
-                rel="noopener"
-              >
-                Message on WhatsApp
-              </a>
-
-              <button class="btn" type="button" id="revealPhoneBtn">Show number</button>
-            </div>
-
-            <p class="hint" id="phoneText" style="display:none;">
-              +61 X XXX XXX XXX
-            </p>
-          </div>
-
+        <div class="actions">
+          <button class="btn" type="button" onclick="sendFeedback()">Feedback</button>
+          <button class="btn" type="button" onclick="sendQuote()">Request a Quote</button>
+          <button class="btn" type="button" onclick="sendQuestion()">Ask a Question</button>
         </div>
 
-        <div class="notice">
-          <strong>Boundary note:</strong> This contact info is for professional enquiries only.
-          Spam and sales pitches won’t get a reply.
+        <p class="hint">
+          Your email address is only generated when you click a button — this prevents spam bots.
+        </p>
+      </div>
+
+      <!-- WHATSAPP -->
+      <div class="row">
+        <p class="label">WhatsApp Business</p>
+        <p class="muted">Fastest for quick questions and scheduling.</p>
+
+        <div class="actions">
+          <a
+            class="btn primary"
+            href="https://wa.me/61414199644?text=Hi%20Justine%2C%20I%E2%80%99m%20enquiring%20about..."
+            target="_blank"
+            rel="noopener"
+          >
+            Message on WhatsApp
+          </a>
+
+          <button class="btn" type="button" id="revealPhoneBtn">Show number</button>
         </div>
+
+        <p class="hint" id="phoneText" style="display:none;">
+          +61 XXX XXX 644
+        </p>
       </div>
 
     </div>
-  </section>
+
+    <div class="notice">
+      <strong>Boundary note:</strong> This contact info is for professional enquiries only.
+      Spam and sales pitches won't get a reply.
+    </div>
+  </div>
+
+  <!-- socials at bottom -->
+  <nav class="social-icons" aria-label="Social links">
+    <a href="https://www.instagram.com/koalaspies_by_justine" target="_blank" aria-label="Instagram" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+        <circle cx="17" cy="7" r="1.2" fill="currentColor"/>
+      </svg>
+    </a>
+
+    <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none">
+        <rect x="2" y="2" width="20" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
+        <rect x="6" y="10" width="2.5" height="8" fill="currentColor"/>
+        <circle cx="7.25" cy="7" r="1.25" fill="currentColor"/>
+        <path d="M12 10h2v1.2c.6-.9 1.5-1.4 2.6-1.4 2 0 3.4 1.3 3.4 3.9V18h-2.5v-3.8c0-1.3-.5-2-1.6-2-1 0-1.7.7-1.7 2V18H12v-8z" fill="currentColor"/>
+      </svg>
+    </a>
+
+    <a href="https://justinerkelly64d9.myportfolio.com/work" aria-label="Writing portfolio" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="20" height="20" rx="3" stroke="white" stroke-width="2"/>
+        <path d="M8 16L16.5 7.5L14.5 5.5L6 14L5 19L10 18L18.5 9.5"
+              stroke="white" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <a href="https://koalaspies.myportfolio.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio" aria-label="Design portfolio" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="20" height="20" rx="3" stroke="white" stroke-width="2"/>
+        <path d="M7 17L17 7V17H7Z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
+        <path d="M10 14L14 10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </a>
+  </nav>
 </main>
 
 <footer>
-  <div class="wrap footer-inner">
-    <div>© Koala Spies Sydney · Modern English Australia</div>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-    </div>
-  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+  </nav>
 </footer>
-
-</body>
-</html>
 
 <script>
 // Build email only in JS — never in HTML
 function buildEmail() {
-  const user = "ModernEnglishAU";
+  const user = "justine.leigh.kelly";
   const domain = "outlook.com";
   return user + "@" + domain;
 }
@@ -417,5 +442,6 @@ document.getElementById("revealPhoneBtn").addEventListener("click", function () 
 });
 </script>
 
-
+</body>
+</html>
 
