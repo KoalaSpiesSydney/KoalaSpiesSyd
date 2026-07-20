@@ -3,8 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact | Modern English Australia | Koala Spies Sydney</title>
-  <meta name="description" content="Contact Modern English Australia / Koala Spies Sydney for professional enquiries, quotes, and questions via email or WhatsApp." />
+
+  <title>Contact | Justine Leigh Kelly | Instructional Designer</title>
+  <meta
+    name="description"
+    content="Contact Justine Leigh Kelly for professional enquiries, quotes, and questions."
+  />
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-G4RJ8H2H2V"></script>
   <script>
@@ -13,6 +18,7 @@
     gtag('js', new Date());
     gtag('config', 'G-G4RJ8H2H2V');
   </script>
+
   <style>
     :root{
       --bg-dark:#1e1e1e;
@@ -20,370 +26,321 @@
       --ink-muted:#bbbbbb;
       --light-bg:#f4f4f4;
       --ink-dark:#222;
-      --line: rgba(255,255,255,0.12);
+      --line:rgba(255,255,255,.12);
+      --content:760px;
     }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
+    *{box-sizing:border-box}
+
+    html,body{height:100%}
 
     body{
       margin:0;
-      font-family: Arial, sans-serif;
-      background: var(--bg-dark);
-      color: var(--ink-light);
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg-dark);
+      color:var(--ink-light);
       display:flex;
       flex-direction:column;
       min-height:100vh;
+      line-height:1.6;
     }
 
-    a{ color:inherit; text-decoration:none; }
-    .muted{ color: var(--ink-muted); }
+    a{color:inherit;text-decoration:none}
 
-    /* HEADER */
+    /* Header */
     header{
-      background: var(--light-bg);
-      color: var(--ink-dark);
-      padding: 20px;
-      font-size: 2rem;
-      font-weight: bold;
-      letter-spacing: 2px;
+      background:var(--light-bg);
+      color:var(--ink-dark);
+      border-bottom:1px solid rgba(0,0,0,.08);
     }
 
- 
     .header-inner{
-      max-width:1000px;
+      max-width:1100px;
       margin:0 auto;
+      padding:22px 20px 18px;
       display:flex;
       flex-direction:column;
       align-items:center;
-      justify-content:center;
-      gap:12px;
-      padding:24px 20px;
+      gap:10px;
       text-align:center;
     }
 
     .header-title{
-      font-weight:900;
-      letter-spacing:2px;
-      font-size:1.4rem;
-      line-height:1.2;
-      color: var(--ink-dark);
-      text-align:center;
+      font-size:clamp(1.15rem, 2vw, 1.6rem);
+      font-weight:800;
+      letter-spacing:.3px;
+      line-height:1.25;
     }
 
-    .header-title .divider{
-      font-weight:300;
-      color:#999;
-      margin:0 6px;
+    .divider{
+      color:#888;
+      font-weight:400;
+      margin:0 .35rem;
+    }
 
     .header-links{
       display:flex;
-      gap:12px;
       flex-wrap:wrap;
       justify-content:center;
-      margin-top:4px;
+      gap:18px;
     }
 
     .header-links a{
-      color: var(--ink-dark);
+      font-size:.92rem;
       font-weight:700;
-      font-size:.85rem;
-      letter-spacing:.3px;
-      text-decoration:none;
     }
 
     .header-links a:hover{
       text-decoration:underline;
     }
 
-    /* MAIN */
+    /* Main */
     main{
       flex:1;
-      max-width:1000px;
-      margin:0 auto;
-      padding:40px 20px 20px;
       width:100%;
+      max-width:var(--content);
+      margin:0 auto;
+      padding:48px 20px 28px;
     }
 
-    h2{
-      font-size:1.8rem;
-      margin:0 0 20px;
+    h1{
+      margin:0 0 14px;
+      text-align:center;
+      font-size:clamp(1.8rem, 4vw, 2.4rem);
+      line-height:1.2;
+    }
+
+    .intro{
+      max-width:640px;
+      margin:0 auto 34px;
+      text-align:center;
+      color:var(--ink-muted);
+      font-size:1.05rem;
+    }
+
+    .contact-card{
+      max-width:520px;
+      margin:0 auto;
+      padding:28px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
       text-align:center;
     }
 
-    p{ margin:0 0 16px; line-height:1.65; }
-
-    /* CONTACT BLOCK (mirrors .about-text / .video-section divider pattern) */
-    .contact-block{
-      margin-top:34px;
-      padding-top:26px;
-      border-top:1px solid var(--line);
-    }
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap:28px;
-      align-items:start;
-      margin-top:20px;
-    }
-
-    .row .label{
-      font-weight:700;
-      margin-bottom:4px;
-    }
-
-    .hint{
+    .label{
+      margin:0 0 8px;
       font-size:.9rem;
-      color: var(--ink-muted);
-      margin-top:8px;
-    }
-
-    /* stack contact rows on mobile */
-    @media (max-width:760px){
-      .contact-grid{ grid-template-columns:1fr; gap:22px; }
-    }
-
-    /* BUTTONS */
-    .actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      justify-content:center;
-      margin-top:14px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      background:none;
-      border:none;
-      padding:4px 0;
-      color: var(--ink-light);
       font-weight:700;
-      font-family:inherit;
-      font-size:1rem;
-      letter-spacing:.3px;
-      cursor:pointer;
-      text-decoration:none;
-      transition: opacity .15s ease;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--ink-muted);
     }
 
-    .btn:hover{
+    .email-link{
+      display:inline-block;
+      font-size:1.08rem;
+      font-weight:700;
+      word-break:break-word;
+    }
+
+    .email-link:hover{
       text-decoration:underline;
     }
 
-    .btn.primary{
-      color: var(--ink-light);
-    }
-
-    .btn:disabled{
-      opacity:.55;
-      cursor:default;
-      text-decoration:none;
-    }
-
     .notice{
-      margin-top:28px;
+      max-width:640px;
+      margin:28px auto 0;
       padding-top:18px;
       border-top:1px solid var(--line);
-      color: var(--ink-muted);
+      color:var(--ink-muted);
       font-size:.95rem;
-    }
-
-    /* ---------- SOCIALS (same as about.html) ---------- */
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      margin: 18px 0 0;
-      padding: 14px 0 6px;
-    }
-
-    .social-icons a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--ink-light);
-      opacity: 0.9;
-      transition: opacity 0.15s ease;
-    }
-
-    .social-icons a:hover {
-      opacity: 1;
-    }
-
-    .social-icons svg {
-      width: 36px;
-      height: 36px;
-      display: block;
-    }
-
-    /* FOOTER */
-    footer{
-      background: var(--light-bg);
-      color: var(--ink-dark);
       text-align:center;
-      padding:15px;
+    }
+
+    /* Socials */
+    .social-icons{
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      margin:34px 0 8px;
+      padding:0;
+    }
+
+    .social-icons a{
+      width:48px;
+      height:48px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:14px;
+      color:var(--ink-light);
+      background:rgba(255,255,255,.03);
+      transition:transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+    .social-icons a:hover{
+      transform:translateY(-2px);
+      background:rgba(255,255,255,.06);
+      border-color:rgba(255,255,255,.22);
+    }
+
+    .social-icons svg{
+      width:24px;
+      height:24px;
+      display:block;
+    }
+
+    /* Footer */
+    footer{
+      background:var(--light-bg);
+      color:var(--ink-dark);
+      border-top:1px solid rgba(0,0,0,.08);
+      padding:16px 20px 22px;
+      text-align:center;
+    }
+
+    footer nav{
+      display:flex;
+      justify-content:center;
+      gap:24px;
+      flex-wrap:wrap;
+      margin-bottom:8px;
     }
 
     footer nav a{
-      color: var(--ink-dark);
-      margin:0 10px;
-      text-decoration:none;
-      font-weight:bold;
+      font-weight:700;
     }
 
-    footer nav a:hover{ text-decoration:underline; }
-
-    /* RESPONSIVE: tablet */
-    @media (max-width:900px){
-      body{ font-size:.98rem; }
+    footer nav a:hover{
+      text-decoration:underline;
     }
 
-    /* RESPONSIVE: phone */
-    @media (max-width:620px){
-      .header-inner{
-        gap:10px;
-        padding:16px 20px;
-      }
-      .header-links{ width:100%; }
-      main{ padding:28px 20px 16px; }
-      .actions{ flex-direction:column; gap:16px; }
+    footer p{
+      margin:0;
+      font-size:.9rem;
+      color:#555;
     }
 
-    @media (max-width:380px){
-      .header-title{ font-size:1.1rem; }
+    @media (max-width:640px){
+      .header-inner{padding:18px 16px 14px}
+      main{padding:36px 16px 24px}
+      .contact-card{padding:22px 18px;border-radius:16px}
+      .social-icons{gap:12px}
+      .social-icons a{width:44px;height:44px}
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <div class="header-inner">
-    <div class="header-title">
-      Contact <span class="divider">|</span> Justine Leigh Kelly <span class="divider">|</span> Instructional Designer
+  <header>
+    <div class="header-inner">
+      <div class="header-title">
+        Contact <span class="divider">|</span>
+        Justine Leigh Kelly <span class="divider">|</span>
+        Instructional Designer
+      </div>
+
+      <nav class="header-links" aria-label="External links">
+        <a href="https://koalaspiessydney.au/" target="_blank" rel="noopener noreferrer">
+          Koala Spies Sydney
+        </a>
+        <a href="https://modernenglish.au/index.html" target="_blank" rel="noopener noreferrer">
+          Modern English Australia
+        </a>
+      </nav>
     </div>
-    <nav class="header-links">
-      <a href="https://koalaspiessydney.au/" target="_blank" rel="noopener noreferrer">Koala Spies Sydney</a>
-      <a href="http://modernenglish.au/index.html" target="_blank" rel="noopener noreferrer">Modern English Australia</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
-  <div class="contact-block">
-    <div class="contact-grid">
+  <main>
+    <h1>Get in touch</h1>
 
-      <!-- EMAIL OPTIONS -->
-      <div class="row">
-        <p class="label">Email</p>
-      
-        <p> justine.leigh.kelly@outlook.com</p>
+    <p class="intro">
+      For professional enquiries, collaboration opportunities, quotes, or general questions,
+      please contact me by email.
+    </p>
 
-        
+    <section class="contact-card" aria-labelledby="email-heading">
+      <p id="email-heading" class="label">Email</p>
 
-    </div>
+      <a class="email-link" href="mailto:justine.leigh.kelly@outlook.com">
+        justine.leigh.kelly@outlook.com
+      </a>
+    </section>
 
     <div class="notice">
-      <strong>Boundary note:</strong> This contact info is for professional enquiries only.
-      Spam and sales pitches won't get a reply.
+      <strong>Boundary note:</strong>
+      This contact information is for professional enquiries only.
+      Spam and unsolicited sales messages will not receive a response.
     </div>
-  </div>
 
-  <!-- socials at bottom -->
-  <nav class="social-icons" aria-label="Social links">
-    <a href="https://www.instagram.com/koalaspies_by_justine" target="_blank" aria-label="Instagram" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
-        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
-        <circle cx="17" cy="7" r="1.2" fill="currentColor"/>
-      </svg>
-    </a>
+    <nav class="social-icons" aria-label="Social links">
 
-    <a href="https://www.linkedin.com/in/justine-kelly-bbb5134a/" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="2" y="2" width="20" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
-        <rect x="6" y="10" width="2.5" height="8" fill="currentColor"/>
-        <circle cx="7.25" cy="7" r="1.25" fill="currentColor"/>
-        <path d="M12 10h2v1.2c.6-.9 1.5-1.4 2.6-1.4 2 0 3.4 1.3 3.4 3.9V18h-2.5v-3.8c0-1.3-.5-2-1.6-2-1 0-1.7.7-1.7 2V18H12v-8z" fill="currentColor"/>
-      </svg>
-    </a>
+      <a href="https://www.instagram.com/koalaspies_by_justine"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="2" width="20" height="20" rx="5"
+                stroke="currentColor" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4"
+                  stroke="currentColor" stroke-width="2"/>
+          <circle cx="17" cy="7" r="1.2" fill="currentColor"/>
+        </svg>
+      </a>
 
-    <a href="https://justinerkelly64d9.myportfolio.com/work" aria-label="Writing portfolio" target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="2" width="20" height="20" rx="3" stroke="white" stroke-width="2"/>
-        <path d="M8 16L16.5 7.5L14.5 5.5L6 14L5 19L10 18L18.5 9.5"
-              stroke="white" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
+      <a href="https://www.linkedin.com/in/justine-kelly-bbb5134a/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="2" width="20" height="20" rx="2"
+                stroke="currentColor" stroke-width="2"/>
+          <rect x="6" y="10" width="2.5" height="8" fill="currentColor"/>
+          <circle cx="7.25" cy="7" r="1.25" fill="currentColor"/>
+          <path d="M12 10h2v1.2c.6-.9 1.5-1.4 2.6-1.4 2 0 3.4 1.3 3.4 3.9V18h-2.5v-3.8c0-1.3-.5-2-1.6-2-1 0-1.7.7-1.7 2V18H12v-8z"
+                fill="currentColor"/>
+        </svg>
+      </a>
 
-    <a href="https://koalaspies.myportfolio.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio" aria-label="Design portfolio" target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="2" width="20" height="20" rx="3" stroke="white" stroke-width="2"/>
-        <path d="M7 17L17 7V17H7Z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
-        <path d="M10 14L14 10" stroke="white" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </a>
-  </nav>
-</main>
+      <a href="https://justinerkelly64d9.myportfolio.com/work"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Writing portfolio">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="2" width="20" height="20" rx="3"
+                stroke="currentColor" stroke-width="2"/>
+          <path d="M8 16L16.5 7.5L14.5 5.5L6 14L5 19L10 18L18.5 9.5"
+                stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
 
-<footer>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-  </nav>
-</footer>
+      <a href="https://koalaspies.myportfolio.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Design portfolio">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="2" width="20" height="20" rx="3"
+                stroke="currentColor" stroke-width="2"/>
+          <path d="M7 17L17 7V17H7Z"
+                stroke="currentColor" stroke-width="2"
+                stroke-linejoin="round"/>
+          <path d="M10 14L14 10"
+                stroke="currentColor" stroke-width="2"
+                stroke-linecap="round"/>
+        </svg>
+      </a>
 
-<script>
-// Build email only in JS — never in HTML
-function buildEmail() {
-  const user = "justine.leigh.kelly";
-  const domain = "outlook.com";
-  return user + "@" + domain;
-}
+    </nav>
+  </main>
 
-// Honeypot check + email reveal + mailto
-function revealAndSend(subject) {
-  const honeypot = document.getElementById("hp").value;
+  <footer>
+    <nav aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+    </nav>
 
-  // If honeypot filled → bot → block silently
-  if (honeypot.trim() !== "") return;
-
-  const email = buildEmail();
-  document.getElementById("emailText").textContent = email;
-
-  const link = document.createElement("a");
-  link.href = "mailto:" + email + "?subject=" + encodeURIComponent(subject);
-  link.style.display = "none";
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-}
-
-// Three separate functions (harder for bots)
-function sendFeedback() {
-  revealAndSend("Feedback for Modern English Australia");
-}
-
-function sendQuote() {
-  revealAndSend("Request for Quote");
-}
-
-function sendQuestion() {
-  revealAndSend("General Question");
-}
-
-// Phone reveal
-document.getElementById("revealPhoneBtn").addEventListener("click", function () {
-  const phoneText = document.getElementById("phoneText");
-  phoneText.style.display = "block";
-
-  this.textContent = "Number shown";
-  this.disabled = true;
-});
-</script>
+    <p>© 2026 Justine Leigh Kelly · Koala Spies Sydney · Modern English Australia</p>
+  </footer>
 
 </body>
 </html>
