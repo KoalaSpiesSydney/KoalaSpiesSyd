@@ -4,13 +4,10 @@
   <meta charset="UTF-8" />
   <title>(Project Title Here)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-
   <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css" />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
-
   <style>
     /* ---------------- ROOT + BASE ---------------- */
-
     :root {
       --bg-dark: #0f1f35;
       --bg-mid: #162840;
@@ -19,23 +16,18 @@
       --ink-muted: #c8c4bc;
       --ink-dark: #0f1f35;
       --light-bg: #f0ede8;
-
       --accent1: #2a6496;
       --accent2: #1a4a6e;
       --accent3: #e8e0d4;
       --accent4: #4a90b8;
       --accent5: #cbd2dd;
       --accent6: #7ab3d0;
-
       --radius: 14px;
       --space: 24px;
-
       --font-main: "Source Sans 3", "Source Sans Pro", "Open Sans", "Segoe UI", Verdana, Helvetica, Arial, sans-serif;
     }
-
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; height: 100%; }
-
     body {
       font-family: var(--font-main);
       line-height: 1.75;
@@ -48,11 +40,8 @@
       -webkit-text-size-adjust: 100%;
       text-rendering: optimizeLegibility;
     }
-
     img { max-width: 100%; height: auto; display: block; }
-
     /* ---------------- HEADER ---------------- */
-
     header {
       background: var(--accent6);
       color: var(--ink-light);
@@ -67,9 +56,7 @@
       word-break: break-word;
       border-bottom: 3px solid #4a90b8;
     }
-
     /* ---------------- MAIN WRAPPER ---------------- */
-
     main {
       flex: 1;
       width: 100%;
@@ -79,9 +66,7 @@
       padding-left: max(clamp(16px, 3vw, var(--space)), env(safe-area-inset-left));
       padding-right: max(clamp(16px, 3vw, var(--space)), env(safe-area-inset-right));
     }
-
     /* ---------------- TILE HEADER ---------------- */
-
     .tile-header {
       background: var(--bg-card);
       padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 20px);
@@ -91,7 +76,6 @@
       box-shadow: 0 0 0 1px rgba(74,144,184,0.25);
       overflow: hidden;
     }
-
     .tile-header h2 {
       margin: 0 0 10px;
       font-family: var(--font-main);
@@ -102,7 +86,6 @@
       -webkit-font-smoothing: antialiased;
       text-wrap: balance;
     }
-
     .tile-header p {
       margin: 0;
       font-size: clamp(0.98rem, 2.8vw, 1.1rem);
@@ -111,9 +94,7 @@
       overflow-wrap: anywhere;
       line-height: 1.75;
     }
-
     /* ---------------- PROBLEM BLOCK ---------------- */
-
     .problem-block {
       margin: 40px 0;
       background: var(--bg-mid);
@@ -123,16 +104,13 @@
       overflow: hidden;
       border-left: 4px solid #4a90b8;
     }
-
     .problem-block p {
       line-height: 1.6;
       color: var(--ink-muted);
       margin: 0;
       overflow-wrap: anywhere;
     }
-
     /* ---------------- HEADINGS + LISTS ---------------- */
-
     h1 {
       margin: 0 0 14px;
       font-size: clamp(1.35rem, 4vw, 2rem);
@@ -140,34 +118,27 @@
       font-family: var(--font-main);
       font-weight: 700;
     }
-
     ul.aligned > li > strong {
       color: #a8d4e8;
       font-weight: 700;
     }
-
     ul.aligned {
       list-style-type: none;
       padding-left: 24px;
       margin: 0 0 40px;
       overflow-wrap: anywhere;
     }
-
     ul.aligned li {
       margin-bottom: 14px;
       line-height: 1.6;
     }
-
     ul.aligned li a {
       color: var(--accent6);
       font-weight: 700;
       text-decoration: none;
     }
-
     ul.aligned li a:hover { text-decoration: underline; }
-
     /* ---------------- CASE STUDY ---------------- */
-
     .case-study {
       background: var(--light-bg);
       color: var(--ink-dark);
@@ -181,9 +152,7 @@
       overflow: hidden;
       min-width: 0;
     }
-
     .case-study > * { min-width: 0; }
-
     .case-study iframe {
       width: 100%;
       aspect-ratio: 12/16;
@@ -194,29 +163,24 @@
       display: block;
       overflow: hidden;
     }
-
     .case-study aside {
       display: flex;
       flex-direction: column;
       gap: 16px;
       min-width: 0;
     }
-
     .case-study aside h1 {
       margin: 0;
       font-size: clamp(1.25rem, 3.6vw, 1.8rem);
       color: #1a4a6e;
     }
-
     .case-study aside p,
     .case-study aside li,
     .case-study .left-column p,
     .case-study .left-column li {
       color: var(--ink-dark);
     }
-
     /* ---------------- BUTTONS ---------------- */
-
     .iframe-buttons {
       display: flex;
       flex-direction: column;
@@ -224,7 +188,6 @@
       margin-top: 10px;
       align-items: flex-start;
     }
-
     .pill-toggle {
       background: #2a6496;
       color: #f0ede8;
@@ -238,12 +201,10 @@
       transition: 0.2s ease;
       max-width: 100%;
     }
-
     .pill-toggle:hover {
       background: #1a4a6e;
       color: #f0ede8;
     }
-
     .contact-link {
       display: inline-block;
       padding: 10px 22px;
@@ -257,9 +218,28 @@
       transition: 0.2s ease;
       max-width: 100%;
     }
-
     .contact-link:hover { background: #0f1f35; }
-
+    /* Open-in-new-tab link shown under each embedded iframe */
+    .iframe-open-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      border-radius: 40px;
+      background: transparent;
+      color: #1a4a6e;
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      font-family: var(--font-main);
+      border: 2px solid #1a4a6e;
+      transition: 0.2s ease;
+      max-width: 100%;
+    }
+    .iframe-open-link:hover {
+      background: #1a4a6e;
+      color: #f0ede8;
+    }
     .pill-content {
       display: none;
       margin-top: 20px;
@@ -269,11 +249,8 @@
       overflow-wrap: anywhere;
       border-left: 3px solid #4a90b8;
     }
-
     .pill { margin: 0 0 30px; }
-
     /* ---------------- PRE-FOOTER LINKS ---------------- */
-
     .pre-footer {
       background: var(--bg-dark);
       padding: 32px 16px 40px;
@@ -282,7 +259,6 @@
       margin: 10px auto 0;
       overflow: hidden;
     }
-
     .pre-footer h3 {
       margin: 0 0 18px;
       font-family: var(--font-main);
@@ -292,7 +268,6 @@
       color: var(--ink-muted);
       -webkit-font-smoothing: antialiased;
     }
-
     .pre-footer-description {
       max-width: 600px;
       margin: 0 auto 24px;
@@ -302,7 +277,6 @@
       text-align: center;
       overflow-wrap: anywhere;
     }
-
     .link-centered {
       display: block;
       text-align: center;
@@ -312,9 +286,7 @@
       text-decoration: none;
     }
     .link-centered:hover { text-decoration: underline; }
-
     /* ---------------- FOOTER ---------------- */
-
     footer {
       background: #0f1f35;
       color: var(--ink-light);
@@ -325,14 +297,12 @@
       padding-right: max(14px, env(safe-area-inset-right));
       border-top: 3px solid #4a90b8;
     }
-
     footer nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px 14px;
     }
-
     footer nav a {
       color: var(--ink-light);
       text-decoration: none;
@@ -341,21 +311,16 @@
       border-radius: 10px;
       overflow-wrap: anywhere;
     }
-
     footer nav a:hover { text-decoration: underline; }
-
     /* ---------------- RESPONSIVE ---------------- */
-
     @media (min-width: 900px) {
       .case-study { grid-template-columns: 1.1fr 0.9fr; align-items: start; }
       .case-study.reverse { grid-template-columns: 0.9fr 1.1fr; }
-
       .right-column p, .right-column li { color: var(--ink-dark); line-height: 1.7; }
       .right-column strong { color: #1a4a6e; font-weight: 700; }
       .right-column ul.aligned > li { margin-bottom: 26px; }
       .right-column ul ul { margin-top: 8px; padding-left: 20px; opacity: 0.9; }
     }
-
     @media (max-width: 600px) {
       main { padding: 16px; }
       .case-study { gap: 18px; }
@@ -363,48 +328,39 @@
       ul.aligned { padding-left: 20px; }
       .problem-block { padding: 18px; }
     }
-
     /* ============================================================
        FINAL SECTION
     ============================================================ */
-
     .case-study.final-iframe {
       grid-template-columns: 1fr;
     }
-
     .case-study.final-iframe iframe {
       aspect-ratio: 4 / 3;
     }
-
     @media (min-width: 900px) {
       .case-study.final-iframe {
         grid-template-columns: 1fr !important;
       }
     }
-
     @media (max-width: 600px) {
       .case-study.final-iframe iframe {
         aspect-ratio: 4 / 3;
       }
     }
-
     .final-text-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 22px;
     }
-
     @media (min-width: 900px) {
       .final-text-grid {
         grid-template-columns: 1fr 1fr;
         gap: 28px;
       }
     }
-
     .final-text-grid h1 { margin-top: 0; }
     .final-text-grid p { margin: 0 0 12px; }
     .final-text-grid ul { margin: 0; padding-left: 24px; }
-
     .quick-links {
       display: flex;
       flex-wrap: wrap;
@@ -412,7 +368,6 @@
       justify-content: center;
       margin: 1rem 0;
     }
-
     .quick-link {
       display: inline-flex;
       align-items: center;
@@ -429,7 +384,6 @@
       border: 1px solid #4a90b8;
       transition: opacity .2s ease, transform .2s ease;
     }
-
     .quick-link:hover {
       opacity: .92;
       transform: translateY(-1px);
@@ -445,17 +399,14 @@
   gtag('js', new Date());
   gtag('config', 'G-G4RJ8H2H2V');
 </script>
-
 <body>
   <header>KOALA SPIES SYDNEY</header>
-
   <main>
     <!-- SECTION 1 -->
     <section class="tile-header">
       <h2>Digital Updatable Tests</h2>
       <p><q>Standardized tests are useful for ranking, but not for learning.</q><br><cite>— Sir Ken Robinson</cite></p>
     </section>
-
     <section class="problem-block">
       <h1>Problems</h1>
       <p>
@@ -466,7 +417,6 @@
         and compliance-driven assessment practices often reduce testing to a box-ticking exercise rather than a meaningful measure of progress.
       </p>
     </section>
-
     <section class="case-study reverse" aria-label="Digital updatable tests case study">
       <!-- LEFT COLUMN -->
       <div class="left-column">
@@ -475,12 +425,11 @@
           title="CAE Use of English Demo"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
-
         <div class="iframe-buttons">
+          <a class="iframe-open-link" href="https://koalaspiessydney.github.io/CAEuseofeng13/" target="_blank" rel="noopener noreferrer">Open Full Lesson ↗</a>
           <button class="pill-toggle" type="button" onclick="toggleById('research-content')">Research</button>
           <a class="contact-link" href="contact.html">Contact me for a quote</a>
         </div>
-
         <div id="research-content" class="pill-content" aria-label="Research content">
           <h1>Research</h1>
           <p>
@@ -488,7 +437,6 @@
             in several Sydney language schools. Student feedback was consistent and highlighted
             several clear advantages.
           </p>
-
           <ul class="aligned">
             <li><strong>Higher engagement on phones</strong><br />Students overwhelmingly preferred the mobile version over paper.</li>
             <li><strong>Preferred hybrid mode</strong><br />Most liked questions on phones but answers on paper.</li>
@@ -498,17 +446,14 @@
           </ul>
         </div>
       </div>
-
       <!-- RIGHT COLUMN -->
       <aside class="right-column">
         <h1>Solution</h1>
-
         <p>
           Design the assessment system around
           <strong>simple, modular templates</strong>
           that teachers can adapt instantly, without technical friction or platform lock-in.
         </p>
-
         <ul class="aligned">
           <li>
             <strong>1. Flexible Delivery Modes</strong>
@@ -518,7 +463,6 @@
               <li>Projected test + phone responses</li>
             </ul>
           </li>
-
           <li>
             <strong>2. Easy Teacher Editing and Localisation</strong>
             <ul>
@@ -527,14 +471,12 @@
               <li>Edit via Word → paste into template</li>
             </ul>
           </li>
-
           <li>
             <strong>3. Consistency With Textbook Pedagogy</strong>
             <ul>
               <li>It is the same test but with updates</li>
             </ul>
           </li>
-
           <li>
             <strong>4. High-Stakes Exam Alignment</strong>
             <ul>
@@ -542,7 +484,6 @@
               <li>Summaries, reorderings, gap-fills</li>
             </ul>
           </li>
-
           <li>
             <strong>5. Time + Cost Savings</strong>
             <ul>
@@ -553,7 +494,6 @@
         </ul>
       </aside>
     </section>
-
     <!-- ADAPTIVE LESSONS -->
     <section class="tile-header">
       <h2>Adaptive Lessons</h2>
@@ -562,7 +502,6 @@
         <br><cite>— George Couros</cite>
       </p>
     </section>
-
     <section class="problem-block">
       <h1>Problems</h1>
       <p>
@@ -570,16 +509,13 @@
         as a result English as a second language students are confused about how to pronounce words and it will drag their score down in tests like Pearsons PTE
       </p>
     </section>
-
     <section class="case-study reverse" aria-label="Adaptive lessons case study">
       <!-- LEFT COLUMN (TEXT) -->
       <aside class="left-column">
         <h1>Pedagogy</h1>
-
         <p>
           Here is a sample of how this could be done at an intermediate level, but it could be graded down with the last activities dropped, or graded up with the first activity dropped.
         </p>
-
         <ul class="aligned">
           <li>
             <strong>1. Listen and Watch</strong>
@@ -588,7 +524,6 @@
               <li>Can be done as a class or individually on students' phones</li>
             </ul>
           </li>
-
           <li>
             <strong>2. Play the Game</strong>
             <ul>
@@ -596,7 +531,6 @@
               <li>Teacher may check in with students individually or drill the words as a class at any point</li>
             </ul>
           </li>
-
           <li>
             <strong>3. Extension Activities</strong>
             <ul>
@@ -604,7 +538,6 @@
               <li>Gap-fill activities</li>
             </ul>
           </li>
-
           <li>
             <strong>4. Group Competition</strong>
             <ul>
@@ -613,11 +546,9 @@
             </ul>
           </li>
         </ul>
-
         <div class="iframe-buttons" style="margin-top: 12px;">
           <button class="pill-toggle" type="button" onclick="toggleById('adaptive-research')">Observation</button>
         </div>
-
         <div id="adaptive-research" class="pill-content" aria-label="Adaptive lessons research content">
           <h1>Observations in the Classroom</h1>
           <ul>
@@ -630,7 +561,6 @@
           </ul>
         </div>
       </aside>
-
       <!-- RIGHT COLUMN (IFRAME) -->
       <div class="right-column">
         <iframe
@@ -638,32 +568,35 @@
           title="Adaptive lesson demo"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="iframe-buttons" style="margin-top: 12px;">
+          <a class="iframe-open-link" href="https://koalaspiessydney.github.io/Vowelsoundgame/" target="_blank" rel="noopener noreferrer">Open Full Lesson ↗</a>
+        </div>
       </div>
     </section>
-
     <!-- SECTION 2 -->
     <section class="tile-header">
       <h2>Class Soundtrack</h2>
       <p><q>Tell me and I forget, teach me and I may remember, involve me and I learn.</q><br><cite>— Benjamin Franklin</cite></p>
     </section>
-
     <section class="case-study reverse" aria-label="Class soundtrack case study">
-      <iframe
-        src="https://koalaspiessydney.github.io/Int4/"
-        title="Class Soundtrack Demo"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+      <div>
+        <iframe
+          src="https://koalaspiessydney.github.io/Int4/"
+          title="Class Soundtrack Demo"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="iframe-buttons" style="margin-top: 12px;">
+          <a class="iframe-open-link" href="https://koalaspiessydney.github.io/Int4/" target="_blank" rel="noopener noreferrer">Open Full Lesson ↗</a>
+        </div>
+      </div>
       <aside>
         <h1>Creative Classroom</h1>
         <p>
           A Class Soundtrack, a soundtrack to learning - This is an adaptive, easy-to-use template designed
           for active language production rather than passive practice.
         </p>
-
         <h1>A Case Study</h1>
         <p>This is an activity I did in an intermediate class last year.</p>
-
         <ul class="aligned">
           <li>
             Students wrote their own sentences and selected genres, then their ideas were transformed into full songs using Suno,
@@ -679,16 +612,12 @@
             The students leave your class with a memory and an achievement, which can only be good for the teachers and schools word-of-mouth.
           </li>
         </ul>
-
         <p>Teachers! Let me teach you how to build this app. and begin to build other lessons. </p>
         <a class="contact-link" href="contact.html">Contact me for a quote</a>
-
         <section class="music-pill" aria-label="Learning through music">
           <button class="pill-toggle" type="button" onclick="toggleById('music-content')">Learning Through Music</button>
-
           <div id="music-content" class="pill-content">
             <h1>Learning Through Music</h1>
-
             <p>
               For most of human history, music functioned as a memory technology. Long before writing existed,
               ancient civilisations used rhythm, melody, and repetition to preserve knowledge across generations.
@@ -698,7 +627,6 @@
               vast networks of knowledge through <strong>songlines</strong>—musical maps encoding geography, law,
               spirituality, and survival skills. A songline wasn't just a song; it was a living archive.
             </p>
-
             <p>
               Even classical philosophers recognised the cognitive power of music. In Plato's dialogue
               <em>Phaedrus</em>, Socrates warns that the new technology of writing would weaken human memory.
@@ -706,7 +634,6 @@
               supported by rhythm, recitation, and song. Whether or not he was right, the anxiety reveals how
               deeply music was tied to memory and learning.
             </p>
-
             <p>
               Modern research continues to show why music is so effective for learning. Writing lyrics, shaping
               rhythm, and choosing melody require deeper processing of vocabulary, structure, stress, and
@@ -718,7 +645,6 @@
         </section>
       </aside>
     </section>
-
     <!-- CHALLENGE STUDENTS -->
     <section class="tile-header">
       <h2>Challenge Students</h2>
@@ -727,206 +653,7 @@
         <br><cite>— Aristotle</cite>
       </p>
     </section>
-
-    <section class="problem-block">
-      <h1>Problems</h1>
-      <p>
-        <strong>Many students plateau at around intermediate level of their language acquisition:</strong>
-        held back by small grammar errors (often partly caused by boredom and a lack of attention), low confidence, and a cycle of repetition without retention. Teachers sometimes keep them on material that is unchallenging and uninteresting, I've seen teachers use materials made for native children on international adults. All this only reinforces the plateau, the feeling that they will never be fluent, instead of helping them move forward.
-      </p>
-    </section>
-
-    <section class="case-study reverse" aria-label="Challenge students case study">
-      <!-- LEFT COLUMN (TEXT) -->
-      <aside class="left-column">
-        <h1>Assumed Knowledge</h1>
-        <p>The students have seen all the past and present verb tenses but have not yet mastered them.</p>
-
-        <h1>Mixed Language Points</h1>
-        <ul>
-          <li>Listening, Writing and Speaking</li>
-          <li>Grammar: revision of all past and present verb forms</li>
-          <li>Guidance on how and when to use these verbs in biography writing</li>
-          <li>Optional extension activity to review verb structure if needed</li>
-          <li>Listening task based on an interview</li>
-          <li>Writing a biography or speaking about a well-known person</li>
-          <li>Technology and business vocabulary</li>
-        </ul>
-
-        <div class="iframe-buttons" style="margin-top: 12px;">
-          <button class="pill-toggle" type="button" onclick="toggleById('challenge-theory')">Krashen's Input Hypothesis</button>
-        </div>
-
-        <div id="challenge-theory" class="pill-content" aria-label="Challenge students theory content">
-          <p>
-            Krashen's Input Hypothesis is a key theory in second language acquisition. It proposes that learners
-            make the most progress when they are exposed to language that is understandable but slightly beyond
-            their current level. This balance between familiarity and challenge creates ideal conditions for
-            natural language growth and has strongly influenced modern approaches to reading, listening, and
-            curriculum design.
-          </p>
-          <ul>
-            <li>It emphasises that learners acquire language through <strong>comprehensible input</strong>, not by memorising grammar rules in isolation.</li>
-            <li>It states that progress occurs when input is <strong>just above the learner's current level</strong> (i+1), creating productive challenge.</li>
-            <li>It focuses on <strong>meaningful communication</strong>, where learners understand the message even if some language is new.</li>
-            <li>It supports using <strong>authentic materials</strong>, as long as they are scaffolded enough to remain understandable.</li>
-            <li>It highlights the power of <strong>extensive reading and listening</strong> for long-term language development.</li>
-            <li>It underlines that <strong>low anxiety and high motivation</strong> help learners engage with slightly challenging input more effectively.</li>
-          </ul>
-        </div>
-      </aside>
-
-      <!-- RIGHT COLUMN (IFRAME) -->
-      <div class="right-column">
-        <iframe
-          src="https://koalaspiessydney.github.io/BiographyCanvapastverbs/"
-          title="Challenge lesson demo"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </section>
-
-    <!-- READING IN THE AGE OF TIKTOK BRAIN -->
-    <section class="tile-header">
-      <h2>Reading in the Age of TikTok brain</h2>
-      <p>
-        <q>None of us are as smart as all of us.</q>
-        <br><cite>— Japanese Proverb</cite>
-      </p>
-    </section>
-
-    <section class="problem-block">
-      <h1>Problems</h1>
-      <p>
-        <strong>TikTok brain, social media fatigue, and shrinking attention spans mean many people no longer read more than a few lines at a time. I've noticed this especially with students taking long reading tests like IELTS. Younger generations' brains have been wired differently, and many struggle to sit and read a single article for even five minutes — yet the IELTS requires thirty minutes of sustained focus.</strong>
-      </p>
-    </section>
-
-    <div class="pill">
-      <button class="pill-toggle" type="button"
-        onclick="this.nextElementSibling.style.display = (this.nextElementSibling.style.display === 'block' ? 'none' : 'block')">
-        Short-Form Media &amp; Reading Focus
-      </button>
-      <div class="pill-content">
-        <p><strong>Intro:</strong> Short-form platforms like TikTok, X, Instagram Reels, and YouTube Shorts deliver rapid, high-stimulation content. Research shows that heavy use of these apps reduces sustained attention and makes long-form reading significantly harder.</p>
-
-        <ul>
-          <li><strong>Short-form platforms train the brain to expect constant stimulation</strong><br>
-            Fast, high-novelty videos condition users to seek instant reward rather than slow, effortful processing.
-          </li>
-
-          <li><strong>Continuous micro-distractions weaken focus</strong><br>
-            Rapid switching between short clips reduces the ability to stay on a single task.
-          </li>
-
-          <li><strong>Reading stamina declines with heavy short-form video use</strong><br>
-            Long texts feel mentally "heavy" compared to rapid-fire content, making tasks like IELTS reading more challenging.
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- FINAL SECTION: 4:3 iframe + structured columns underneath -->
-    <section class="case-study reverse final-iframe" aria-label="Reading whiteboard case study">
-      <iframe
-        src="https://koalaspiessydney.github.io/readingpallete.html/"
-        title="Reading whiteboard demo"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-      <div class="final-text-grid" aria-label="Solution method feedback">
-        <div>
-          <h1>Solution</h1>
-          <p>
-            Guided reading: reading aloud keeps students focused. Read a paragraph aloud, pause and give them time to reread and discuss questions before you move on. Move around the class and the teacher can take a turn too.
-          </p>
-
-          <ul class="aligned">
-            <li>
-              <strong>Shared digital palette</strong><br>
-              Teachers can upload the reading lesson and project it on the whiteboard or share it with a QR code. *** If you are viewing this on a computer you will see teacher access, the full palette of tools for marking and manipulating. If you are on a phone you will get the basic view and the PDF.
-            </li>
-
-            <li>
-              <strong>Paper-like interaction</strong><br>
-              The palette behaves like real paper and pen, allowing free-hand drawing and annotation.
-            </li>
-
-            <li>
-              <strong>Flexible text control</strong><br>
-              Teachers can pinch and pull the text to focus attention on specific paragraphs on the white board. Students can do the same on their phone.
-            </li>
-
-            <li>
-              <strong>Multi-format support</strong><br>
-              PDFs, Word documents, and images can be uploaded, manipulated in real time, and annotated.
-            </li>
-
-            <li>
-              <strong>Teacher Input and Personalisation</strong><br>
-              The teacher writes the questions (before or during the class). The teacher can also use the tool bar to highlight, circle and draw on the text and images.
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h1>Feedback</h1>
-          <p>
-            Overall student response was extremely positive, with high levels of participation and sustained focus throughout the lesson.
-          </p>
-
-          <ul class="aligned">
-            <li>
-              <strong>High engagement</strong><br>
-              Students enjoyed reading aloud and receiving immediate feedback and correction from a native-speaking teacher. Participation was enthusiastic across the whole class.
-            </li>
-
-            <li>
-              <strong>Stronger vocabulary retention</strong><br>
-              Vocabulary was remembered more effectively because new words were discussed at the moment they appeared in the text.
-            </li>
-
-            <li>
-              <strong>Contextual grammar reinforcement</strong><br>
-              Grammar points previously studied were naturally highlighted and reinforced within a meaningful reading context.
-            </li>
-
-            <li>
-              <strong>Reduced reliance on translation</strong><br>
-              Pausing after each paragraph encouraged students to ask questions directly rather than turning to their phones for translations.
-            </li>
-
-            <li>
-              <strong>Communicative classroom dynamic</strong><br>
-              Group reading transformed what could have been a solitary task into a collaborative activity that naturally led to discussion.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRE-FOOTER -->
-    <section class="pre-footer" aria-label="Modern English Australia links">
-      <h3>Modern English Australia</h3>
-
-      <p class="pre-footer-description">
-        Please feel free to take a look at my dedicated Learning Design &amp; EdTech site.
-        It includes free micro-lessons, games, assessments, and examples of how
-        I integrate technology into practical classroom workflows.
-      </p>
-
-      <div class="quick-links">
-        <a class="quick-link" href="http://modernenglish.au/Microlessons%26Games.html">
-          Micro Lessons // Pronunciation // Games
-        </a>
-
-        <a class="quick-link" href="http://modernenglish.au/IELTSPTEPLUS.html">
-          IELTS // PTE +
-        </a>
-      </div>
-    </section>
-  </main>
-
+ 
   <footer>
     <nav>
       <a href="index.html">Home</a>
@@ -934,7 +661,6 @@
       <a href="contact.html">Contact</a>
     </nav>
   </footer>
-
   <script>
     function toggleById(id) {
       const box = document.getElementById(id);
