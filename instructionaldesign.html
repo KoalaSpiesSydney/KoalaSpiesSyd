@@ -4,40 +4,30 @@
   <meta charset="UTF-8" />
   <title>(Project Title Here)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-
   <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css" />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
-
   <style>
     /* ---------------- ROOT + BASE ---------------- */
-
     :root {
       --bg-dark: #2a0f0f;
       --bg-mid: #3a1717;
       --bg-card: #4a1f1f;
-
       --ink-light: #f7f2ee;
       --ink-muted: #d2c4b8;
       --ink-dark: #2a0f0f;
-
       --light-bg: #f7f2ee;
-
       --accent1: #8c3b2f;
       --accent2: #6e2a23;
       --accent3: #e8d8cf;
       --accent4: #b45a4a;
       --accent5: #d9c7c2;
       --accent6: #a86a5c;
-
       --radius: 14px;
       --space: 24px;
-
       --font-main: "Source Sans 3", "Source Sans Pro", "Open Sans", "Segoe UI", Verdana, Helvetica, Arial, sans-serif;
     }
-
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; height: 100%; }
-
     body {
       font-family: var(--font-main);
       line-height: 1.75;
@@ -50,11 +40,8 @@
       -webkit-text-size-adjust: 100%;
       text-rendering: optimizeLegibility;
     }
-
     img { max-width: 100%; height: auto; display: block; }
-
     /* ---------------- HEADER ---------------- */
-
     header {
       background: var(--accent6);
       color: var(--ink-light);
@@ -69,9 +56,7 @@
       word-break: break-word;
       border-bottom: 3px solid #4a90b8;
     }
-
     /* ---------------- MAIN WRAPPER ---------------- */
-
     main {
       flex: 1;
       width: 100%;
@@ -81,9 +66,7 @@
       padding-left: max(clamp(16px, 3vw, var(--space)), env(safe-area-inset-left));
       padding-right: max(clamp(16px, 3vw, var(--space)), env(safe-area-inset-right));
     }
-
     /* ---------------- TILE HEADER ---------------- */
-
     .tile-header {
       background: var(--bg-card);
       padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 20px);
@@ -93,7 +76,6 @@
       box-shadow: 0 0 0 1px rgba(74,144,184,0.25);
       overflow: hidden;
     }
-
     .tile-header h2 {
       margin: 0 0 10px;
       font-family: var(--font-main);
@@ -104,7 +86,6 @@
       -webkit-font-smoothing: antialiased;
       text-wrap: balance;
     }
-
     .tile-header p {
       margin: 0;
       font-size: clamp(0.98rem, 2.8vw, 1.1rem);
@@ -113,9 +94,7 @@
       overflow-wrap: anywhere;
       line-height: 1.75;
     }
-
     /* ---------------- PROBLEM BLOCK ---------------- */
-
     .problem-block {
       margin: 40px 0;
       background: var(--bg-mid);
@@ -125,16 +104,13 @@
       overflow: hidden;
       border-left: 4px solid #4a90b8;
     }
-
     .problem-block p {
       line-height: 1.6;
       color: var(--ink-muted);
       margin: 0;
       overflow-wrap: anywhere;
     }
-
     /* ---------------- HEADINGS + LISTS ---------------- */
-
     h1 {
       margin: 0 0 14px;
       font-size: clamp(1.35rem, 4vw, 2rem);
@@ -142,34 +118,27 @@
       font-family: var(--font-main);
       font-weight: 700;
     }
-
     ul.aligned > li > strong {
       color: #a8d4e8;
       font-weight: 700;
     }
-
     ul.aligned {
       list-style-type: none;
       padding-left: 24px;
       margin: 0 0 40px;
       overflow-wrap: anywhere;
     }
-
     ul.aligned li {
       margin-bottom: 14px;
       line-height: 1.6;
     }
-
     ul.aligned li a {
       color: var(--accent6);
       font-weight: 700;
       text-decoration: none;
     }
-
     ul.aligned li a:hover { text-decoration: underline; }
-
     /* ---------------- CASE STUDY ---------------- */
-
     .case-study {
       background: var(--light-bg);
       color: var(--ink-dark);
@@ -183,9 +152,7 @@
       overflow: hidden;
       min-width: 0;
     }
-
     .case-study > * { min-width: 0; }
-
     .case-study iframe {
       width: 100%;
       aspect-ratio: 12/16;
@@ -196,29 +163,24 @@
       display: block;
       overflow: hidden;
     }
-
     .case-study aside {
       display: flex;
       flex-direction: column;
       gap: 16px;
       min-width: 0;
     }
-
     .case-study aside h1 {
       margin: 0;
       font-size: clamp(1.25rem, 3.6vw, 1.8rem);
       color: #1a4a6e;
     }
-
     .case-study aside p,
     .case-study aside li,
     .case-study .left-column p,
     .case-study .left-column li {
       color: var(--ink-dark);
     }
-
     /* ---------------- BUTTONS ---------------- */
-
     .iframe-buttons {
       display: flex;
       flex-direction: column;
@@ -226,7 +188,6 @@
       margin-top: 10px;
       align-items: flex-start;
     }
-
     .pill-toggle {
       background: #2a6496;
       color: #f0ede8;
@@ -240,12 +201,10 @@
       transition: 0.2s ease;
       max-width: 100%;
     }
-
     .pill-toggle:hover {
       background: #1a4a6e;
       color: #f0ede8;
     }
-
     .contact-link {
       display: inline-block;
       padding: 10px 22px;
@@ -259,9 +218,28 @@
       transition: 0.2s ease;
       max-width: 100%;
     }
-
     .contact-link:hover { background: #0f1f35; }
-
+    /* Open-in-new-tab link shown under each embedded iframe */
+    .iframe-open-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      border-radius: 40px;
+      background: transparent;
+      color: #1a4a6e;
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      font-family: var(--font-main);
+      border: 2px solid #1a4a6e;
+      transition: 0.2s ease;
+      max-width: 100%;
+    }
+    .iframe-open-link:hover {
+      background: #1a4a6e;
+      color: #f0ede8;
+    }
     .pill-content {
       display: none;
       margin-top: 20px;
@@ -271,11 +249,8 @@
       overflow-wrap: anywhere;
       border-left: 3px solid #4a90b8;
     }
-
     .pill { margin: 0 0 30px; }
-
     /* ---------------- PRE-FOOTER LINKS ---------------- */
-
     .pre-footer {
       background: var(--bg-dark);
       padding: 32px 16px 40px;
@@ -284,7 +259,6 @@
       margin: 10px auto 0;
       overflow: hidden;
     }
-
     .pre-footer h3 {
       margin: 0 0 18px;
       font-family: var(--font-main);
@@ -294,7 +268,6 @@
       color: var(--ink-muted);
       -webkit-font-smoothing: antialiased;
     }
-
     .pre-footer-description {
       max-width: 600px;
       margin: 0 auto 24px;
@@ -304,7 +277,6 @@
       text-align: center;
       overflow-wrap: anywhere;
     }
-
     .link-centered {
       display: block;
       text-align: center;
@@ -314,9 +286,7 @@
       text-decoration: none;
     }
     .link-centered:hover { text-decoration: underline; }
-
     /* ---------------- FOOTER ---------------- */
-
     footer {
       background: #0f1f35;
       color: var(--ink-light);
@@ -327,14 +297,12 @@
       padding-right: max(14px, env(safe-area-inset-right));
       border-top: 3px solid #4a90b8;
     }
-
     footer nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px 14px;
     }
-
     footer nav a {
       color: var(--ink-light);
       text-decoration: none;
@@ -343,21 +311,16 @@
       border-radius: 10px;
       overflow-wrap: anywhere;
     }
-
     footer nav a:hover { text-decoration: underline; }
-
     /* ---------------- RESPONSIVE ---------------- */
-
     @media (min-width: 900px) {
       .case-study { grid-template-columns: 1.1fr 0.9fr; align-items: start; }
       .case-study.reverse { grid-template-columns: 0.9fr 1.1fr; }
-
       .right-column p, .right-column li { color: var(--ink-dark); line-height: 1.7; }
       .right-column strong { color: #1a4a6e; font-weight: 700; }
       .right-column ul.aligned > li { margin-bottom: 26px; }
       .right-column ul ul { margin-top: 8px; padding-left: 20px; opacity: 0.9; }
     }
-
     @media (max-width: 600px) {
       main { padding: 16px; }
       .case-study { gap: 18px; }
@@ -365,48 +328,39 @@
       ul.aligned { padding-left: 20px; }
       .problem-block { padding: 18px; }
     }
-
     /* ============================================================
        FINAL SECTION
     ============================================================ */
-
     .case-study.final-iframe {
       grid-template-columns: 1fr;
     }
-
     .case-study.final-iframe iframe {
       aspect-ratio: 4 / 3;
     }
-
     @media (min-width: 900px) {
       .case-study.final-iframe {
         grid-template-columns: 1fr !important;
       }
     }
-
     @media (max-width: 600px) {
       .case-study.final-iframe iframe {
         aspect-ratio: 4 / 3;
       }
     }
-
     .final-text-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 22px;
     }
-
     @media (min-width: 900px) {
       .final-text-grid {
         grid-template-columns: 1fr 1fr;
         gap: 28px;
       }
     }
-
     .final-text-grid h1 { margin-top: 0; }
     .final-text-grid p { margin: 0 0 12px; }
     .final-text-grid ul { margin: 0; padding-left: 24px; }
-
     .quick-links {
       display: flex;
       flex-wrap: wrap;
@@ -414,7 +368,6 @@
       justify-content: center;
       margin: 1rem 0;
     }
-
     .quick-link {
       display: inline-flex;
       align-items: center;
@@ -431,7 +384,6 @@
       border: 1px solid #4a90b8;
       transition: opacity .2s ease, transform .2s ease;
     }
-
     .quick-link:hover {
       opacity: .92;
       transform: translateY(-1px);
@@ -447,17 +399,14 @@
   gtag('js', new Date());
   gtag('config', 'G-G4RJ8H2H2V');
 </script>
-
 <body>
   <header>KOALA SPIES SYDNEY</header>
-
   <main>
     <!-- SECTION 1 -->
     <section class="tile-header">
       <h2>Curriculum Design & Software Samples</h2>
       <p><q>Design creates culture. Culture shapes values. Values determine the future.</q><br><cite>- Robert L Peters</cite></p>
     </section>
-
     <section class="problem-block">
       <h1>Articule 360 Presentation</h1>
       <p>
@@ -465,7 +414,6 @@
         I designed the study tour to emphasise <strong></strong>cultural continuity, historical philosophy, and modern innovation,</strong> enabling students to engage with Japan as a living system of <strong>interconnected STEM, design, and cultural practices </strong> rather than a tourism destination. I developed a distinctive visual identity using AI-generated cinematic imagery and hand-drawn animated blue kanji linework to create an immersive learning experience that reinforces systems thinking, interpretation, and cross-disciplinary understanding.
       </p>
     </section>
-
     <section class="case-study reverse" aria-label="Digital updatable tests case study">
       <!-- LEFT COLUMN (iframe) -->
       <div class="left-column">
@@ -474,12 +422,11 @@
           title="A Study Tour of Japan"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
-
         <div class="iframe-buttons">
+          <a class="iframe-open-link" href="https://koalaspiessydney.github.io/BlueSkyStudyTour/#/" target="_blank" rel="noopener noreferrer">Open Full Lesson ↗</a>
           <button class="pill-toggle" type="button" onclick="toggleById('research-content')">Research</button>
           <a class="contact-link" href="contact.html">Contact me for a quote</a>
         </div>
-
         <div id="research-content" class="pill-content" aria-label="Research content">
           <h1>Research</h1>
           <p>
@@ -489,7 +436,6 @@
             as "TikTok brain" due to shortened attention spans, rapid content switching, and Fear of Missing Out (FOMO) —
             Zen-informed approaches may offer a way to counter attention fragmentation and restore sustained focus.
           </p>
-
           <ul class="aligned">
             <li>
               <strong>Training sustained attention</strong><br />
@@ -508,28 +454,24 @@
               Developing the ability to notice when attention has drifted and intentionally return focus to the task at hand.
             </li>
           </ul>
-
           <p>
             This kind of learning environment encourages students to think more deeply, not only about what they are learning,
             but how they think — strengthening both wellbeing and intellectual independence.
           </p>
         </div>
       </div>
-
       <!-- RIGHT COLUMN (text) -->
       <aside class="right-column">
         <h1>Curriculum </h1>
-
         <p>
           I design a study tour around
           <strong>cultural continuity, historical philosophy, and modern innovation</strong>
           so students experience Japan as more than a tourism destination. I created a distinctive visual identity using AI-generated cinematic imagery and hand-drawn animated blue kanji linework to produce an immersive and memorable presentation style.
         </p>
-
         <ul class="aligned">
           <li>
-      
-          
+
+
             <strong>Educational Outcomes</strong>
             <ul>
               <li>Use critical and creative thinking to connect historical design principles with contemporary STEM fields such as engineering, robotics, digital media, and computational design.</li>
@@ -539,7 +481,6 @@
         </ul>
       </aside>
     </section>
-
     <!-- ADAPTIVE LESSONS -->
     <section class="tile-header">
       <h2>Discovery-based Learning</h2>
@@ -548,26 +489,21 @@
         <br><cite>— Plutarch</cite>
       </p>
     </section>
-
     <section class="problem-block">
       <h1>Problem</h1>
       <p>
         A major challenge in English language learning is the expectation that students must memorise thousands of individual words in order to achieve fluency or succeed in high-stakes testing. This approach often leads to heavy cognitive load, low retention, and inefficient use of study time, particularly for adolescent learners who are already managing multiple academic demands.
       </p>
     </section>
-
     <section class="case-study reverse" aria-label="Adaptive lessons case study">
       <!-- LEFT COLUMN (text) -->
       <aside class="left-column">
         <h1>A Course - learning English through Latin & Greek</h1>
-
         <p>
           Rather than treating English as a list of disconnected words, students are guided to understand how language is built through <strong>recurring Greek and Latin roots, prefixes, and suffixes.</strong> <br> <br> This enables learners to actively "work out" unfamiliar language for themselves, strengthening autonomy and long-term retention. <br> <br> I used a variety of fun activities and AI media to make this potentially dry topic more fun and memorable.
         </p>
 
-    
       </aside>
-
       <!-- RIGHT COLUMN (iframe + Observation button below it) -->
       <div class="right-column">
         <iframe
@@ -576,12 +512,11 @@
   loading="lazy"
   referrerpolicy="no-referrer-when-downgrade">
 </iframe>
-
         <!-- ✅ FIX: Observation button now sits below the iframe -->
         <div class="iframe-buttons" style="margin-top: 12px;">
+          <a class="iframe-open-link" href="https://koalaspiessydney.github.io/greek-latinroots-curriculum/#/lessons/cmm432g7o002h3j7qocdttwxu" target="_blank" rel="noopener noreferrer">Open Full Lesson ↗</a>
           <button class="pill-toggle" type="button" onclick="toggleById('adaptive-research')">Observation</button>
         </div>
-
         <div id="adaptive-research" class="pill-content" aria-label="Adaptive lessons research content">
           <h1>Observations in the Classroom</h1>
           <ul>
@@ -613,17 +548,14 @@
         </div>
       </div>
     </section>
-
     <!-- PRE-FOOTER -->
     <section class="pre-footer" aria-label="Modern English Australia links">
       <h3>Modern English Australia</h3>
-
       <p class="pre-footer-description">
         Please feel free to take a look at my dedicated Learning Design &amp; EdTech site.
         It includes free micro-lessons, games, assessments, and examples of how
         I integrate technology into practical classroom workflows.
       </p>
-
       <div class="quick-links">
         <a class="quick-link" href="http://modernenglish.au/Microlessons%26Games.html">
           Micro Lessons // Pronunciation // Games
@@ -634,7 +566,6 @@
       </div>
     </section>
   </main>
-
   <footer>
     <nav>
       <a href="index.html">Home</a>
@@ -642,7 +573,6 @@
       <a href="contact.html">Contact</a>
     </nav>
   </footer>
-
   <script>
     function toggleById(id) {
       const box = document.getElementById(id);
@@ -651,4 +581,4 @@
     }
   </script>
 </body>
-</html>
+</html
