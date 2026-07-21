@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Sedgwick+Ave&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-
   <style>
 :root {
   --bg-page: #f5f9fd;
@@ -17,22 +16,17 @@
   --ink-dark: #0d2e44;
   --ink-body: #1a3a52;
   --ink-muted: #4a6e8a;
-
   --cerulean: #2e8bc9;
   --cerulean-dark: #1a5e8a;
   --cerulean-light: #bdd9f5;
   --cerulean-xlight: #f0f7ff;
-
   --font-main: "Source Sans 3", "Source Sans Pro", "Open Sans", "Segoe UI", Arial, sans-serif;
-
   --radius: 16px;
   --radius-sm: 12px;
   --shadow: 0 4px 20px rgba(13,46,68,0.10);
 }
-
 * { box-sizing: border-box; }
 html, body { height: 100%; }
-
 body {
   margin: 0;
   font-family: var(--font-main);
@@ -45,9 +39,7 @@ body {
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
 }
-
 img { max-width: 100%; height: auto; display: block; }
-
 header {
   background: var(--bg-header);
   color: #f0f7ff;
@@ -62,7 +54,6 @@ header {
   overflow-wrap: anywhere;
   border-bottom: 4px solid var(--cerulean);
 }
-
 main {
   width: 100%;
   max-width: 1200px;
@@ -71,7 +62,6 @@ main {
   padding-left: max(clamp(14px, 3vw, 20px), env(safe-area-inset-left));
   padding-right: max(clamp(14px, 3vw, 20px), env(safe-area-inset-right));
 }
-
 .tile-header {
   background: var(--bg-card);
   padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 20px);
@@ -82,7 +72,6 @@ main {
   border: 1px solid var(--cerulean-light);
   overflow: hidden;
 }
-
 .tile-header h2 {
   margin: 0 0 10px;
   font-family: var(--font-main);
@@ -93,7 +82,6 @@ main {
   -webkit-font-smoothing: antialiased;
   overflow-wrap: anywhere;
 }
-
 .tile-header h3 {
   margin: 0 0 8px;
   font-family: var(--font-main);
@@ -102,7 +90,6 @@ main {
   color: var(--ink-muted);
   letter-spacing: 0.1em;
 }
-
 .tile-header p {
   margin: 12px 0 0;
   font-size: clamp(0.98rem, 2.8vw, 1.1rem);
@@ -110,7 +97,6 @@ main {
   color: var(--ink-muted);
   overflow-wrap: anywhere;
 }
-
 .problem-block {
   margin: 40px 0;
   background: var(--bg-card);
@@ -120,7 +106,6 @@ main {
   border-left: 4px solid var(--cerulean);
   overflow: hidden;
 }
-
 .problem-block p {
   line-height: 1.75;
   color: var(--ink-body);
@@ -128,7 +113,6 @@ main {
   letter-spacing: 0.02em;
   overflow-wrap: anywhere;
 }
-
 h1 {
   color: var(--cerulean-dark);
   font-family: var(--font-main);
@@ -137,13 +121,11 @@ h1 {
   margin: 20px 0 20px;
   overflow-wrap: anywhere;
 }
-
 ul.aligned {
   list-style: disc;
   padding-left: 28px;
   margin: 0 0 16px;
 }
-
 ul.aligned li {
   font-family: var(--font-main);
   color: var(--ink-body);
@@ -151,7 +133,6 @@ ul.aligned li {
   line-height: 1.75;
   overflow-wrap: anywhere;
 }
-
 /* Aye eyA — red, preserved exactly */
 .case-aside .ayeeya-title {
   font-family: "Sedgwick Ave", system-ui, sans-serif;
@@ -163,7 +144,6 @@ ul.aligned li {
   position: relative;
   display: inline-block;
 }
-
 .case-aside .ayeeya-title::before,
 .case-aside .ayeeya-title::after {
   content: "";
@@ -175,7 +155,6 @@ ul.aligned li {
 }
 .case-aside .ayeeya-title::before { top: 58%; }
 .case-aside .ayeeya-title::after  { top: 74%; }
-
 /* Brea — Josefin Sans */
 .case-aside .brea-title {
   font-family: "Josefin Sans", sans-serif;
@@ -185,7 +164,6 @@ ul.aligned li {
   text-transform: none;
   color: var(--cerulean-dark);
 }
-
 /* Nineteen to 90s — rainbow gradient preserved */
 .case-aside .ninety-title {
   font-family: "Special Elite", serif;
@@ -203,7 +181,6 @@ ul.aligned li {
   -webkit-background-clip: text;
   color: transparent;
 }
-
 .case-study {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
@@ -219,9 +196,7 @@ ul.aligned li {
   min-width: 0;
   margin-bottom: 32px;
 }
-
 .case-study > * { min-width: 0; }
-
 .case-study iframe {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -232,7 +207,6 @@ ul.aligned li {
   display: block;
   overflow: hidden;
 }
-
 .case-aside {
   display: flex;
   flex-direction: column;
@@ -242,7 +216,6 @@ ul.aligned li {
   overflow-wrap: anywhere;
   font-family: var(--font-main);
 }
-
 .case-aside h2 {
   font-family: var(--font-main);
   font-size: 2rem;
@@ -250,36 +223,57 @@ ul.aligned li {
   color: var(--cerulean-dark);
   letter-spacing: 1px;
 }
-
 .case-aside p { color: var(--ink-body); }
-
 .case-aside .listen-note {
   color: var(--cerulean-dark);
   font-weight: bold;
   margin-top: 4px;
 }
-
 .case-aside a {
   font-weight: 600;
   color: var(--cerulean);
   text-decoration: none;
 }
 .case-aside a:hover { text-decoration: underline; }
-
 .case-study:nth-of-type(even) { grid-template-columns: 1.15fr 1fr; }
 .case-study:nth-of-type(even) iframe { order: 2; }
 .case-study:nth-of-type(even) .case-aside { order: 1; }
-
+/* Open-in-new-tab button shown under each embedded iframe */
+.iframe-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 12px;
+}
+.iframe-open-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border-radius: 40px;
+  background: transparent;
+  color: var(--cerulean-dark);
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  font-family: var(--font-main);
+  border: 2px solid var(--cerulean-dark);
+  transition: 0.2s ease;
+  max-width: 100%;
+}
+.iframe-open-link:hover {
+  background: var(--cerulean-dark);
+  color: #f0f7ff;
+}
+.case-study:nth-of-type(even) .iframe-buttons { order: 2; }
 .make-your-own-app {
   margin-top: 40px;
   padding: 8px;
   border-radius: var(--radius);
   overflow: hidden;
 }
-
 .make-your-own-app .tile-header { margin-bottom: 0; }
 .make-your-own-app .tile-header p a { color: var(--cerulean); font-weight: 700; }
-
 .future-cases {
   margin: 60px auto 0;
   max-width: 1200px;
@@ -290,7 +284,6 @@ ul.aligned li {
   border: 1px solid var(--cerulean-light);
   overflow: hidden;
 }
-
 .future-cases h1 {
   text-align: center;
   font-size: 2.2rem;
@@ -298,7 +291,6 @@ ul.aligned li {
   color: var(--cerulean-dark);
   letter-spacing: 0.05em;
 }
-
 .future-item {
   display: flex;
   align-items: center;
@@ -306,9 +298,7 @@ ul.aligned li {
   margin-bottom: 60px;
   min-width: 0;
 }
-
 .future-item.reverse { flex-direction: row-reverse; }
-
 .future-item img {
   flex: 1;
   width: 100%;
@@ -316,20 +306,17 @@ ul.aligned li {
   border-radius: var(--radius-sm);
   box-shadow: 0 4px 16px rgba(13,46,68,0.15);
 }
-
 .future-item .text {
   flex: 1;
   color: var(--ink-body);
   overflow-wrap: anywhere;
   font-family: var(--font-main);
 }
-
 .future-item .text h2 {
   font-size: 1.6rem;
   color: var(--cerulean-dark);
   margin: 0 0 10px;
 }
-
 footer {
   background: var(--bg-header);
   color: #f0f7ff;
@@ -339,14 +326,12 @@ footer {
   margin-top: 60px;
   border-top: 4px solid var(--cerulean);
 }
-
 footer nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px 14px;
 }
-
 footer nav a {
   color: #f0f7ff;
   margin: 0 10px;
@@ -356,20 +341,19 @@ footer nav a {
   border-radius: 10px;
   font-family: var(--font-main);
 }
-
 footer nav a:hover { text-decoration: underline; }
-
 @media (max-width: 900px) {
   header { font-size: 2.6rem; letter-spacing: 6px; }
   .case-study { grid-template-columns: 1fr; gap: 2rem; padding: 24px; }
   .case-study:nth-of-type(even) { grid-template-columns: 1fr; }
   .case-study:nth-of-type(even) iframe,
-  .case-study:nth-of-type(even) .case-aside { order: initial; }
+  .case-study:nth-of-type(even) .case-aside,
+  .case-study:nth-of-type(even) .iframe-buttons { order: initial; }
   .case-aside { text-align: center; align-items: center; }
+  .iframe-buttons { align-items: center; }
   .future-item, .future-item.reverse { flex-direction: column; text-align: center; }
   .future-item img { max-width: 220px; }
 }
-
 @media (max-width: 520px) {
   main { padding: 22px 14px; }
   .problem-block { padding: 18px; }
@@ -385,25 +369,20 @@ footer nav a:hover { text-decoration: underline; }
   gtag('js', new Date());
   gtag('config', 'G-G4RJ8H2H2V');
 </script>
-
 <body>
   <header>Koala Spies Sydney</header>
-
   <main>
-
     <section class="tile-header">
       <h2>Offbeat</h2>
       <h3>DIRECT from ARTIST to AUDIENCE</h3>
       <p>Accessible through QR codes at gigs or shared directly by artists.</p>
     </section>
-
     <section class="problem-block">
       <h1>Problems</h1>
       <p>
         New Australian musicians are doing it hard. AI systems are increasingly scraping and reproducing music without compensating the creators; the streaming economy is broken, with artists earning only cents per play and forced to rely on live performance to survive; major platforms like Spotify and YouTube Music act as gatekeepers, rarely surfacing local or emerging acts; and algorithm-driven recommendations overwhelmingly favour overseas artists, leaving Australia's music scene underexposed and culturally diminished.
       </p>
     </section>
-
     <!-- CASE STUDY 1 -->
     <section class="case-study">
       <aside class="case-aside">
@@ -411,19 +390,27 @@ footer nav a:hover { text-decoration: underline; }
         <p>Aye eyA has carved out a cult-level following across Western Sydney's youth — the ones who live outside the lines and don't apologise for it. Dropping onto Spotify or the big platforms would kill the whole mythos. Their power comes from being underground, hard to track down, and proudly untamed — the kind of act you hear about in alleyways, not algorithms.</p>
         <p>Click on a song in the frame to listen, or click <a href="https://koalaspiessydney.github.io/Aye-eyA/">Aye eyA</a>.</p>
       </aside>
-      <iframe src="https://koalaspiessydney.github.io/Aye-eyA/" title="Aye eyA"></iframe>
+      <div>
+        <iframe src="https://koalaspiessydney.github.io/Aye-eyA/" title="Aye eyA"></iframe>
+        <div class="iframe-buttons">
+          <a class="iframe-open-link" href="https://koalaspiessydney.github.io/Aye-eyA/" target="_blank" rel="noopener noreferrer">Open Full Player ↗</a>
+        </div>
+      </div>
     </section>
-
     <h1>Solution</h1>
     <ul class="aligned">
       <li><strong>Digital EPs via QR Codes:</strong> Artists hand their music directly to fans at gigs or wherever they choose.</li>
       <li><strong>No Gatekeepers:</strong> Listeners access the music instantly — no algorithm or platform interference.</li>
       <li><strong>Support Local:</strong> Fans connect directly with emerging and independent Australian talent.</li>
     </ul>
-
     <!-- CASE STUDY 2 -->
     <section class="case-study">
-      <iframe src="https://koalaspiessydney.github.io/umdot/" title="Clovelly Kirtan"></iframe>
+      <div>
+        <iframe src="https://koalaspiessydney.github.io/umdot/" title="Clovelly Kirtan"></iframe>
+        <div class="iframe-buttons">
+          <a class="iframe-open-link" href="https://koalaspiessydney.github.io/umdot/" target="_blank" rel="noopener noreferrer">Open Full Player ↗</a>
+        </div>
+      </div>
       <aside class="case-aside">
         <h2 class="brea-title"><strong>Meditations</strong> with <strong>Brea</strong> &amp; friends</h2>
         <p>
@@ -434,7 +421,6 @@ footer nav a:hover { text-decoration: underline; }
         <p class="listen-note">Click on a song to listen or go to <a href="https://koalaspiessydney.github.io/umdot/" target="_blank" rel="noopener noreferrer">umdot</a>.</p>
       </aside>
     </section>
-
     <h1>Benefits</h1>
     <ul class="aligned">
       <li><strong>Artists keep creative and financial control.</strong></li>
@@ -442,7 +428,6 @@ footer nav a:hover { text-decoration: underline; }
       <li>Communities strengthen cultural identity through direct artist–audience connection.</li>
       <li>Australia preserves its music industry against algorithmic gatekeeping.</li>
     </ul>
-
     <!-- CASE STUDY 3 -->
     <section class="case-study">
       <aside class="case-aside">
@@ -450,9 +435,13 @@ footer nav a:hover { text-decoration: underline; }
         <p>Forming in high school in their early teens, these three teens from Sydney blend grunge distortion with Gen Z pop. They created this app to share their creativity with younger fans under the social media ban for teens in Australia. Not only can they bypass the social media ban, but they have more creativity and control.</p>
         <p>Click on a song in the frame to listen, or click <a href="https://koalaspiessydney.github.io/Nineteento90s/">Nineteen to 90s</a>.</p>
       </aside>
-      <iframe src="https://koalaspiessydney.github.io/Nineteento90s/" title="Nineteen to 90s"></iframe>
+      <div>
+        <iframe src="https://koalaspiessydney.github.io/Nineteento90s/" title="Nineteen to 90s"></iframe>
+        <div class="iframe-buttons">
+          <a class="iframe-open-link" href="https://koalaspiessydney.github.io/Nineteento90s/" target="_blank" rel="noopener noreferrer">Open Full Player ↗</a>
+        </div>
+      </div>
     </section>
-
     <!-- MAKE YOUR OWN APP -->
     <section class="make-your-own-app">
       <section class="tile-header">
@@ -465,11 +454,9 @@ footer nav a:hover { text-decoration: underline; }
         </p>
       </section>
     </section>
-
     <!-- FUTURE CASES -->
     <section class="future-cases">
       <h1>Future Case Studies &amp; Possibilities</h1>
-
       <div class="future-item reverse">
         <img src="Jazzuninterrupted.png" alt="Community Vinyl Revival">
         <div class="text">
@@ -477,7 +464,6 @@ footer nav a:hover { text-decoration: underline; }
           <p>If you love an artist, an era or a theme or purpose, upload their songs and create an environment. The possibilities are endless.</p>
         </div>
       </div>
-
       <div class="future-item">
         <img src="FestivalPreView.png" alt="Teasers and Takeaways">
         <div class="text">
@@ -485,7 +471,6 @@ footer nav a:hover { text-decoration: underline; }
           <p>Give away teasers to entice people to come to your music festival or create a takeaway with the songs (perhaps live) from the event to keep fans engaged.</p>
         </div>
       </div>
-
       <div class="future-item reverse">
         <img src="playlistforMum.png" alt="A Gift of Song">
         <div class="text">
@@ -494,9 +479,7 @@ footer nav a:hover { text-decoration: underline; }
         </div>
       </div>
     </section>
-
   </main>
-
   <footer>
     <nav>
       <a href="index.html">Home</a>
@@ -504,6 +487,6 @@ footer nav a:hover { text-decoration: underline; }
       <a href="contact.html">Contact</a>
     </nav>
   </footer>
-
 </body>
 </html>
+
