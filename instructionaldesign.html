@@ -8,31 +8,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     /* ---------------- ROOT + BASE ---------------- */
+    /* Professional, minimalist palette: ivory/white surfaces, near-black ink,
+       a single deep-navy accent, and a thin brass hairline for a restrained
+       Art Deco touch. tt-modernoir (display) + Libre Baskerville (serif)
+       carry the Deco character instead of colour or heavy shadow. */
     :root {
-      --bg-dark: #2a0f0f;
-      --bg-mid: #3a1717;
-      --bg-card: #4a1f1f;
-      --ink-light: #f7f2ee;
-      --ink-muted: #d2c4b8;
-      --ink-dark: #2a0f0f;
-      --light-bg: #f7f2ee;
-      --accent1: #8c3b2f;
-      --accent2: #6e2a23;
-      --accent3: #e8d8cf;
-      --accent4: #b45a4a;
-      --accent5: #d9c7c2;
-      --accent6: #a86a5c;
-      --radius: 14px;
+      --bg-page: #f7f5f1;
+      --surface: #ffffff;
+      --ink: #1c1c1c;
+      --ink-muted: #5c5a56;
+      --line: #ddd7cb;
+      --accent: #14314f;
+      --accent-hover: #0c2138;
+      --accent-brass: #9c7d3f;
+      --radius: 6px;
       --space: 24px;
       --font-main: "Source Sans 3", "Source Sans Pro", "Open Sans", "Segoe UI", Verdana, Helvetica, Arial, sans-serif;
+      --font-display: "tt-modernoir", "Source Sans 3", "Segoe UI", sans-serif;
+      --font-serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; height: 100%; }
     body {
       font-family: var(--font-main);
       line-height: 1.75;
-      background: var(--ink-muted);
-      color: var(--ink-light);
+      background: var(--bg-page);
+      color: var(--ink);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -43,18 +44,19 @@
     img { max-width: 100%; height: auto; display: block; }
     /* ---------------- HEADER ---------------- */
     header {
-      background: var(--accent6);
-      color: var(--ink-light);
+      background: var(--surface);
+      color: var(--ink);
       text-align: center;
       padding: clamp(16px, 3vw, 28px) 16px;
-      font-family: "Source Sans 3", "Source Sans Pro", "Open Sans", sans-serif;
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: clamp(2rem, 7vw, 5rem);
       letter-spacing: clamp(2px, 1.8vw, 10px);
       line-height: 1.05;
       white-space: normal;
       word-break: break-word;
-      border-bottom: 3px solid #4a90b8;
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 1px 0 var(--accent-brass);
     }
     /* ---------------- MAIN WRAPPER ---------------- */
     main {
@@ -68,26 +70,27 @@
     }
     /* ---------------- TILE HEADER ---------------- */
     .tile-header {
-      background: var(--bg-card);
+      background: var(--surface);
       padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 20px);
-      border-radius: var(--radius);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
       text-align: center;
       margin-bottom: clamp(22px, 5vw, 40px);
-      box-shadow: 0 0 0 1px rgba(74,144,184,0.25);
       overflow: hidden;
     }
     .tile-header h2 {
       margin: 0 0 10px;
-      font-family: var(--font-main);
+      font-family: var(--font-display);
       font-weight: 700;
-      letter-spacing: 0.04em;
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      color: var(--accent6);
+      letter-spacing: 0.06em;
+      font-size: clamp(1.6rem, 4.4vw, 2.6rem);
+      color: var(--accent);
       -webkit-font-smoothing: antialiased;
       text-wrap: balance;
     }
     .tile-header p {
       margin: 0;
+      font-family: var(--font-serif);
       font-size: clamp(0.98rem, 2.8vw, 1.1rem);
       font-style: italic;
       color: var(--ink-muted);
@@ -97,12 +100,11 @@
     /* ---------------- PROBLEM BLOCK ---------------- */
     .problem-block {
       margin: 40px 0;
-      background: var(--bg-mid);
+      background: var(--surface);
       padding: 24px;
-      border-radius: var(--radius);
-      box-shadow: 0 0 0 1px rgba(74,144,184,0.2);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent);
       overflow: hidden;
-      border-left: 4px solid #4a90b8;
     }
     .problem-block p {
       line-height: 1.6;
@@ -113,13 +115,14 @@
     /* ---------------- HEADINGS + LISTS ---------------- */
     h1 {
       margin: 0 0 14px;
-      font-size: clamp(1.35rem, 4vw, 2rem);
-      color: var(--accent6);
-      font-family: var(--font-main);
+      font-size: clamp(1.3rem, 3.6vw, 1.8rem);
+      color: var(--accent);
+      font-family: var(--font-display);
       font-weight: 700;
+      letter-spacing: 0.01em;
     }
     ul.aligned > li > strong {
-      color: #a8d4e8;
+      color: var(--accent);
       font-weight: 700;
     }
     ul.aligned {
@@ -133,33 +136,32 @@
       line-height: 1.6;
     }
     ul.aligned li a {
-      color: var(--accent6);
+      color: var(--accent);
       font-weight: 700;
       text-decoration: none;
     }
     ul.aligned li a:hover { text-decoration: underline; }
     /* ---------------- CASE STUDY ---------------- */
     .case-study {
-      background: var(--light-bg);
-      color: var(--ink-dark);
+      background: var(--surface);
+      color: var(--ink);
       display: grid;
       grid-template-columns: 1fr;
       gap: 28px;
       padding: clamp(16px, 4vw, 32px);
+      border: 1px solid var(--line);
       border-radius: var(--radius);
       margin: 30px 0 40px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
       overflow: hidden;
       min-width: 0;
     }
     .case-study > * { min-width: 0; }
     .case-study iframe {
       width: 100%;
-      aspect-ratio: 12/16;
-      border: 3px solid #c8c4bc;
+      aspect-ratio: 1 / 1;
+      border: 1px solid var(--line);
       border-radius: var(--radius);
       background: #000;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
       display: block;
       overflow: hidden;
     }
@@ -171,14 +173,14 @@
     }
     .case-study aside h1 {
       margin: 0;
-      font-size: clamp(1.25rem, 3.6vw, 1.8rem);
-      color: #1a4a6e;
+      font-size: clamp(1.2rem, 3.2vw, 1.6rem);
+      color: var(--accent);
     }
     .case-study aside p,
     .case-study aside li,
     .case-study .left-column p,
     .case-study .left-column li {
-      color: var(--ink-dark);
+      color: var(--ink);
     }
     /* ---------------- BUTTONS ---------------- */
     .iframe-buttons {
@@ -189,70 +191,72 @@
       align-items: flex-start;
     }
     .pill-toggle {
-      background: #2a6496;
-      color: #f0ede8;
-      border: none;
-      padding: 10px 22px;
-      border-radius: 40px;
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 9px 20px;
+      border-radius: var(--radius);
       font-weight: 700;
+      letter-spacing: 0.02em;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-family: var(--font-main);
       transition: 0.2s ease;
       max-width: 100%;
     }
     .pill-toggle:hover {
-      background: #1a4a6e;
-      color: #f0ede8;
+      background: var(--accent);
+      color: var(--surface);
     }
     .contact-link {
       display: inline-block;
       padding: 10px 22px;
-      border-radius: 40px;
-      background: #1a4a6e;
-      color: #f0ede8;
+      border-radius: var(--radius);
+      background: var(--accent);
+      color: var(--surface);
       text-decoration: none;
       font-weight: 700;
+      letter-spacing: 0.02em;
       text-align: center;
       font-family: var(--font-main);
       transition: 0.2s ease;
       max-width: 100%;
     }
-    .contact-link:hover { background: #0f1f35; }
+    .contact-link:hover { background: var(--accent-hover); }
     /* Open-in-new-tab link shown under each embedded iframe */
     .iframe-open-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 10px 22px;
-      border-radius: 40px;
+      padding: 9px 20px;
+      border-radius: var(--radius);
       background: transparent;
-      color: #1a4a6e;
+      color: var(--accent);
       text-decoration: none;
       font-weight: 700;
+      letter-spacing: 0.02em;
       text-align: center;
       font-family: var(--font-main);
-      border: 2px solid #1a4a6e;
+      border: 1px solid var(--accent);
       transition: 0.2s ease;
       max-width: 100%;
     }
     .iframe-open-link:hover {
-      background: #1a4a6e;
-      color: #f0ede8;
+      background: var(--accent);
+      color: var(--surface);
     }
     .pill-content {
       display: none;
       margin-top: 20px;
       padding: 20px;
-      background: rgba(15,31,53,0.07);
-      border-radius: var(--radius);
+      background: var(--bg-page);
       overflow-wrap: anywhere;
-      border-left: 3px solid #4a90b8;
+      border-left: 3px solid var(--accent);
     }
     .pill { margin: 0 0 30px; }
     /* ---------------- PRE-FOOTER LINKS ---------------- */
     .pre-footer {
-      background: var(--bg-dark);
+      background: var(--accent);
       padding: 32px 16px 40px;
       text-align: center;
       max-width: 1100px;
@@ -261,17 +265,17 @@
     }
     .pre-footer h3 {
       margin: 0 0 18px;
-      font-family: var(--font-main);
+      font-family: var(--font-display);
       font-weight: 700;
-      letter-spacing: 0.08em;
-      font-size: 1.2rem;
-      color: var(--ink-muted);
+      letter-spacing: 0.1em;
+      font-size: 1.15rem;
+      color: var(--surface);
       -webkit-font-smoothing: antialiased;
     }
     .pre-footer-description {
       max-width: 600px;
       margin: 0 auto 24px;
-      color: var(--ink-muted);
+      color: #d7dde3;
       line-height: 1.6;
       font-size: 1rem;
       text-align: center;
@@ -281,21 +285,21 @@
       display: block;
       text-align: center;
       margin: 6px auto 0;
-      color: var(--accent6);
+      color: var(--surface);
       font-weight: 700;
       text-decoration: none;
     }
     .link-centered:hover { text-decoration: underline; }
     /* ---------------- FOOTER ---------------- */
     footer {
-      background: #0f1f35;
-      color: var(--ink-light);
+      background: var(--ink);
+      color: var(--surface);
       text-align: center;
       padding: 20px 14px;
       padding-bottom: max(20px, env(safe-area-inset-bottom));
       padding-left: max(14px, env(safe-area-inset-left));
       padding-right: max(14px, env(safe-area-inset-right));
-      border-top: 3px solid #4a90b8;
+      border-top: 1px solid var(--accent-brass);
     }
     footer nav {
       display: flex;
@@ -304,11 +308,11 @@
       gap: 10px 14px;
     }
     footer nav a {
-      color: var(--ink-light);
+      color: var(--surface);
       text-decoration: none;
       font-weight: 700;
       padding: 8px 10px;
-      border-radius: 10px;
+      border-radius: var(--radius);
       overflow-wrap: anywhere;
     }
     footer nav a:hover { text-decoration: underline; }
@@ -316,15 +320,15 @@
     @media (min-width: 900px) {
       .case-study { grid-template-columns: 1.1fr 0.9fr; align-items: start; }
       .case-study.reverse { grid-template-columns: 0.9fr 1.1fr; }
-      .right-column p, .right-column li { color: var(--ink-dark); line-height: 1.7; }
-      .right-column strong { color: #1a4a6e; font-weight: 700; }
+      .right-column p, .right-column li { color: var(--ink); line-height: 1.7; }
+      .right-column strong { color: var(--accent); font-weight: 700; }
       .right-column ul.aligned > li { margin-bottom: 26px; }
       .right-column ul ul { margin-top: 8px; padding-left: 20px; opacity: 0.9; }
     }
     @media (max-width: 600px) {
       main { padding: 16px; }
       .case-study { gap: 18px; }
-      .case-study iframe { aspect-ratio: 10/14; }
+      .case-study iframe { aspect-ratio: 1 / 1; }
       ul.aligned { padding-left: 20px; }
       .problem-block { padding: 18px; }
     }
@@ -372,22 +376,140 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: .7rem 1.1rem;
-      border-radius: 10px;
-      background: #2a6496;
-      color: #f0ede8;
+      padding: .65rem 1.1rem;
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--surface);
       text-decoration: none;
       font-weight: 700;
+      letter-spacing: 0.02em;
       font-family: var(--font-main);
       line-height: 1.2;
       text-align: center;
-      border: 1px solid #4a90b8;
-      transition: opacity .2s ease, transform .2s ease;
+      border: 1px solid var(--surface);
+      transition: opacity .2s ease, transform .2s ease, background .2s ease;
     }
     .quick-link:hover {
-      opacity: .92;
+      background: rgba(255,255,255,0.12);
       transform: translateY(-1px);
-      background: #1a4a6e;
+    }
+    /* ---------------- VIDEO WALKTHROUGHS ---------------- */
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      margin: 30px 0 40px;
+    }
+    @media (min-width: 700px) {
+      .video-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .video-card {
+      background: var(--surface);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .video-embed {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      background: #12222f;
+      overflow: hidden;
+    }
+    .video-embed iframe,
+    .video-embed video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #000;
+      object-fit: contain;
+    }
+    /* Click-to-play thumbnail facade — defers loading the YouTube iframe
+       until the user actually wants to watch, and shows a real thumbnail
+       instead of a blank/error player on first paint. */
+    .video-facade {
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+    }
+    .video-facade::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(12,22,35,0.18);
+      transition: background 0.2s ease;
+    }
+    .video-facade:hover::after { background: rgba(12,22,35,0.32); }
+    .video-play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(20,49,79,0.88);
+      border: 2px solid #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .video-facade:hover .video-play-button {
+      transform: translate(-50%, -50%) scale(1.08);
+      background: var(--accent);
+    }
+    /* Shown until a real video src is added — see HTML comment beside each card */
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px;
+      color: #b9c6d1;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .video-body {
+      padding: 20px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .video-category {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-brass);
+    }
+    .video-card h1 {
+      margin: 0;
+      font-size: clamp(1.1rem, 3vw, 1.35rem);
+      color: var(--accent);
+    }
+    .video-card p {
+      margin: 0;
+      color: var(--ink);
+      line-height: 1.6;
+      font-size: 0.95rem;
+      overflow-wrap: anywhere;
+    }
+    .video-card .iframe-open-link {
+      align-self: flex-start;
+      margin-top: 4px;
     }
   </style>
 </head>
@@ -400,8 +522,103 @@
   gtag('config', 'G-G4RJ8H2H2V');
 </script>
 <body>
-  <header>KOALA SPIES SYDNEY</header>
+  <header>Justine Leigh Kelly</header>
   <main>
+    <!-- VIDEO WALKTHROUGHS -->
+    <section class="tile-header">
+      <h2>Video Walkthroughs</h2>
+      <p><q>Show, don't just tell.</q></p>
+    </section>
+    <section class="problem-block">
+      <h1>Sample Builds</h1>
+      <p>
+        Short walkthrough videos of tools and courses I've built across Articulate 360, H5P, Moodle,
+        and custom-coded solutions — showing how each one works in practice, not just what it looks like
+        as a screenshot. Live interactive builds are linked under each video where available.
+      </p>
+    </section>
+    <section class="video-grid" aria-label="Video walkthrough samples">
+
+      <!-- MOODLE + H5P ONBOARDING -->
+      <div class="video-card">
+        <div class="video-embed">
+          <video controls preload="metadata" poster="img/onboarding-poster.jpg" playsinline title="Moodle onboarding course walkthrough">
+            <source src="video/onboarding-walkthrough.mp4" type="video/mp4" />
+            Your browser doesn't support embedded video. <a href="video/onboarding-walkthrough.mp4">Download the video</a> instead.
+          </video>
+        </div>
+        <div class="video-body">
+          <div class="video-category">Moodle</div>
+          <h1>Onboarding Course — Moodle + Interactive H5P Books</h1>
+          <p>
+            A staff onboarding course built in Moodle, combining AI-generated video presenters (Synthesia)
+            with interactive, book-style H5P content so new starters can move through key information at
+            their own pace.
+          </p>
+        </div>
+      </div>
+
+      <!-- MOODLE BESPOKE REPORT GENERATOR -->
+      <div class="video-card">
+        <div class="video-embed">
+          <video controls preload="metadata" playsinline title="Bespoke Moodle report generator walkthrough">
+            <source src="video/bespoke-generator.mp4" type="video/mp4" />
+            Your browser doesn't support embedded video. <a href="video/bespoke-generator.mp4">Download the video</a> instead.
+          </video>
+        </div>
+        <div class="video-body">
+          <div class="video-category">Moodle</div>
+          <h1>Bespoke Report Generator</h1>
+          <p>
+            A client was struggling against the limits of Moodle's native plug-ins: teachers were stuck
+            manually filling in details, compiling reports, and printing them one by one. I built a bespoke
+            report generator that automates the data entry and produces finished, ready-to-print reports in
+            seconds. This Moodle app leaves teachers to do what they do best — teach.
+          </p>
+        </div>
+      </div>
+
+      <!-- H5P-STYLE SCORM LESSON -->
+      <div class="video-card">
+        <div class="video-embed">
+          <video controls preload="metadata" poster="img/h5p-scorm-poster.jpg" playsinline title="H5P-style SCORM lesson walkthrough">
+            <source src="video/h5p-scorm-walkthrough.mp4" type="video/mp4" />
+            Your browser doesn't support embedded video. <a href="video/h5p-scorm-walkthrough.mp4">Download the video</a> instead.
+          </video>
+        </div>
+        <div class="video-body">
+          <div class="video-category">H5P</div>
+          <h1>Custom-Coded H5P-Style SCORM Lesson</h1>
+          <p>
+            An H5P-style interactive lesson built for a client who wanted to avoid ongoing subscription
+            costs. Rather than licensing H5P, I coded the same interactive book/quiz experience from
+            scratch and packaged it as a standard SCORM file, so it drops straight into any LMS with no
+            recurring fees.
+          </p>
+        </div>
+      </div>
+
+      <!-- CUSTOM-CODED SOLUTIONS -->
+      <div class="video-card">
+        <div class="video-embed">
+          <video controls preload="metadata" playsinline title="Weather idioms matching game walkthrough">
+            <source src="video/Matchinggameweatheridioms.mp4" type="video/mp4" />
+            Your browser doesn't support embedded video. <a href="video/Matchinggameweatheridioms.mp4">Download the video</a> instead.
+          </video>
+        </div>
+        <div class="video-body">
+          <div class="video-category">Custom-Coded Solution</div>
+          <h1>Weather Idioms — Matching Game</h1>
+          <p>
+            A custom-coded matching game for weather idioms, playable projected on a whiteboard for team
+            play or individually from a phone. A follow-up listen-and-dictation exercise reinforces the
+            vocabulary — a fun way to learn idioms and stretch your brain.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
     <!-- SECTION 1 -->
     <section class="tile-header">
       <h2>Curriculum Design & Software Samples</h2>
@@ -548,6 +765,7 @@
         </div>
       </div>
     </section>
+
     <!-- PRE-FOOTER -->
     <section class="pre-footer" aria-label="Modern English Australia links">
       <h3>Modern English Australia</h3>
@@ -579,6 +797,30 @@
       if (!box) return;
       box.style.display = (box.style.display === "block") ? "none" : "block";
     }
+    // Click-to-play facade: builds the YouTube iframe only when the user
+    // clicks the thumbnail, which avoids showing a blank/error player on
+    // page load and keeps the page lighter until the video is wanted.
+    function playVideo(el, videoId, title) {
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+      iframe.title = title || 'Video';
+      iframe.loading = 'lazy';
+      iframe.allow = 'autoplay; encrypted-media; picture-in-picture; clipboard-write; gyroscope; accelerometer';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      el.replaceChildren(iframe);
+      el.classList.remove('video-facade');
+      el.style.backgroundImage = '';
+      el.removeAttribute('onclick');
+      el.removeAttribute('role');
+      el.removeAttribute('tabindex');
+    }
+    // Allow Enter/Space to trigger play for keyboard users on facades
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const el = e.target.closest && e.target.closest('.video-facade');
+      if (el) { e.preventDefault(); el.click(); }
+    });
   </script>
 </body>
 </html
