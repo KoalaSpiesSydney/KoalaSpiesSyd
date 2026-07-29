@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About | Justine Leigh Kelly | Instructional Designer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G4RJ8H2H2V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G4RJ8H2H2V');
+  </script>
+
+  <style>
+    /* Same minimal system as the rest of the site: ivory/white surfaces,
+       near-black ink, one deep-navy accent, thin brass hairline.
+       tt-modernoir (display) + Libre Baskerville (serif) carry the Deco note. */
+    :root {
+      --bg-page: #f7f5f1;
+      --surface: #ffffff;
+      --ink: #1c1c1c;
+      --ink-muted: #5c5a56;
+      --line: #ddd7cb;
+      --accent: #14314f;
+      --accent-hover: #0c2138;
+      --accent-brass: #9c7d3f;
+      --radius: 6px;
+      --space: 24px;
+      --font-main: "Source Sans 3", "Source Sans Pro", "Open Sans", "Segoe UI", Verdana, Helvetica, Arial, sans-serif;
+      --font-display: "tt-modernoir", "Source Sans 3", "Segoe UI", sans-serif;
+      --font-serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; height: 100%; }
+    body {
+      font-family: var(--font-main);
+      line-height: 1.75;
+      background: var(--bg-page);
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    /* ---------------- HEADER ---------------- */
+    header {
+      background: var(--surface);
+      color: var(--ink);
+      text-align: center;
+      padding: clamp(16px, 3vw, 28px) 16px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2rem, 7vw, 5rem);
+      letter-spacing: clamp(2px, 1.8vw, 10px);
+      line-height: 1.05;
+      white-space: normal;
+      word-break: break-word;
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 1px 0 var(--accent-brass);
+    }
+    /* ---------------- MAIN WRAPPER ---------------- */
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: clamp(16px, 3vw, var(--space));
+      padding-left: max(clamp(16px, 3vw, var(--space)), env(safe-area-inset-left));
+      padding-right: max(clamp(16px, 3vw, var(--space)), env(safe-area-inset-right));
+    }
+    /* ---------------- SECTION HEADINGS ---------------- */
+    .tile-header {
+      background: var(--surface);
+      padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 20px);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+      margin: 0 0 clamp(22px, 5vw, 40px);
+      overflow: hidden;
+    }
+    .tile-header h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      font-size: clamp(1.6rem, 4.4vw, 2.6rem);
+      color: var(--accent);
+      -webkit-font-smoothing: antialiased;
+      text-wrap: balance;
+    }
+    /* ---------------- ABOUT TEXT ---------------- */
+    .about-text {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent);
+      padding: clamp(20px, 4vw, 30px);
+      margin: 0 0 40px;
+    }
+    .about-text p {
+      margin: 0 0 18px;
+      line-height: 1.75;
+      color: var(--ink-muted);
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-text a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-brass);
+    }
+    .about-text a:hover { color: var(--accent-hover); }
+    /* ---------------- IMAGE GALLERY ---------------- */
+    .gallery {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0 0 40px;
+    }
+    .gallery figure {
+      margin: 0;
+      text-align: center;
+      flex: 1 1 240px;
+      max-width: 300px;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .gallery figcaption {
+      margin-top: 10px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--ink-muted);
+    }
+    /* ---------------- EDUCATION ---------------- */
+    .edu-list {
+      list-style: none;
+      margin: 0 0 40px;
+      padding: 0;
+      text-align: center;
+      color: var(--ink-muted);
+    }
+    .edu-list li {
+      margin-bottom: 22px;
+      line-height: 1.7;
+    }
+    .edu-list li strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1.05rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    /* ---------------- TOOLS / SKILLS / QUALIFICATIONS ----------------
+       Previously staggered left / right / centre. Now all three are
+       centred in a single column for a calmer, more even rhythm. */
+    .skills-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .block {
+      width: 100%;
+      max-width: 640px;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .block ul {
+      list-style: none;
+      margin: 0 0 34px;
+      padding: 0;
+      text-align: center;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+    .block ul li {
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .block ul li:last-child { border-bottom: 0; }
+    /* ---------------- SOCIAL ICONS ---------------- */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 10px 0 0;
+      padding: 24px 0 10px;
+      border-top: 1px solid var(--line);
+    }
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      opacity: 0.85;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .social-icons a:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+    .social-icons svg {
+      width: 32px;
+      height: 32px;
+      display: block;
+    }
+    /* ---------------- FOOTER ---------------- */
+    footer {
+      background: var(--ink);
+      color: var(--surface);
+      text-align: center;
+      padding: 20px 14px;
+      padding-bottom: max(20px, env(safe-area-inset-bottom));
+      border-top: 1px solid var(--accent-brass);
+    }
+    footer nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 14px;
+    }
+    footer nav a {
+      color: var(--surface);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: var(--radius);
+    }
+    footer nav a:hover { text-decoration: underline; }
+    @media (max-width: 600px) {
+      main { padding: 16px; }
+      .gallery { gap: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>About Justine Leigh Kelly</header>
+
+  <main>
+    <section class="tile-header">
+      <h2>Why Me?</h2>
+    </section>
+
+    <section class="about-text">
+      <p>
+        My work in learning design and educational technology is grounded in extensive experience as a qualified language teacher and teacher trainer, combined with a strong focus on UX-informed digital learning design. Having worked directly in language classrooms, I design flexible, teacher-centred systems that reflect real teaching conditions rather than idealised workflows.
+      </p>
+    </section>
+
+    <section class="gallery">
+      <figure>
+        <img src="Amristar.png" alt="Amristar market in India">
+        <figcaption>Amristar market — a day off while IELTS examining in India</figcaption>
+      </figure>
+      <figure>
+        <img src="Guetamala.png" alt="Guatemala">
+        <figcaption>Guetamala — travel writing in Central America</figcaption>
+      </figure>
+      <figure>
+        <img src="Intheclassrom.png" alt="Classroom teaching in Sydney">
+        <figcaption>Classroom teaching at Albright in Sydney</figcaption>
+      </figure>
+    </section>
+
+    <section class="tile-header">
+      <h2>Life So Far</h2>
+    </section>
+
+    <section class="about-text">
+      <p>
+        I spent several years living and travelling throughout Latin America and Asia as a freelance journalist, writing for both print and digital publications, including Virgin Airline's magazine, Private Air Magazine and Australian Traveller. I also ghost-wrote for a photographer, produced a lifestyle journal for a British footwear brand, and created content for adventure and luxury travel agencies. During this period, I began learning to decipher basic code, as some clients required me to work in the back end of their websites to upload images, update text and handle basic formatting. Please check at my work: <a href="https://justinerkelly64d9.myportfolio.com/work" target="_blank" rel="noopener noreferrer">Justine's Writing Portfolio</a>
+      </p>
+      <p>
+        In 2018, I moved to India to work as an IELTS examiner, later returning to Sydney to examine for my former university, UTS, where I also conducted IELTS Masterclasses. During this time, I worked as a private tutor and carried out research into the PTE exam, which I also taught privately.
+      </p>
+      <p>
+        After Covid, I returned to classroom teaching for nearly four years while studying UX design. My main project during the course was a social media app designed without algorithmic feeds.
+      </p>
+      <p>
+        Frustrated by outdated classroom materials and the poor quality of many online resources, I began coding my own activities and tests. I attended every relevant industry seminar I could—from Duolingo to Pearson—to stay across developments in educational technology.
+      </p>
+    </section>
+
+    <section class="tile-header">
+      <h2>Education</h2>
+    </section>
+
+    <ul class="edu-list">
+      <li><strong>UX Design Professional Certificate</strong>Microsoft | 2025</li>
+      <li><strong>Master of Media Arts &amp; Production</strong>University of Technology Sydney | 2006</li>
+    </ul>
+
+    <section class="gallery">
+      <figure>
+        <img src="wireframe1.jpg" alt="Storyboard wireframe">
+        <figcaption>Storyboard</figcaption>
+      </figure>
+      <figure>
+        <img src="wireframe2.jpg" alt="User journey wireframe">
+        <figcaption>User Journey</figcaption>
+      </figure>
+      <figure>
+        <img src="wireframe3.jpg" alt="App wireframe for class progress tests">
+        <figcaption>An app for putting class progress tests on phones</figcaption>
+      </figure>
+    </section>
+
+    <div class="skills-wrap">
+      <section class="block tools">
+        <div class="tile-header"><h2>Tools</h2></div>
+        <ul>
+          <li>Articulate 360, H5P, Moodle and Learning Management Systems (LMSs)</li>
+          <li>Adobe Creative Suite: Photoshop, Premiere Pro</li>
+          <li>Microsoft Suite, Powerpoints</li>
+          <li>HTML &amp; CSS for UX design, websites and basic web applications</li>
+          <li>Moodle expert — designing from the ground up (and other LMSs)</li>
+          <li>Pencil and Paper</li>
+          <li>Github</li>
+        </ul>
+      </section>
+
+      <section class="block skills">
+        <div class="tile-header"><h2>Skills</h2></div>
+        <ul>
+          <li>HTML, CSS, Js for basic coding</li>
+          <li>A Native editing AI audio and images</li>
+          <li>Languages: English (Native), Spanish (Advanced), Japanese (Basic)</li>
+          <li>Teaching and training in Japan, Mexico, Peru and Australia</li>
+          <li>IELTS Facilitator – UTS Sydney &amp; IDP India</li>
+          <li>Trainer of ELICOS teachers (online and face-to-face) – Teach Australia &amp; TEFL Online (2008–2009)</li>
+        </ul>
+      </section>
+
+      <section class="block quals">
+        <div class="tile-header"><h2>Qualifications &amp; Professional Activity</h2></div>
+        <ul>
+          <li>Media Arts &amp; Production - UTS Sydney</li>
+          <li>UX Design Certificate - Microsoft</li>
+          <li>Cambridge CELTA Certificate – International House</li>
+          <li>Certificate in AI Marketing – RMIT Melbourne</li>
+          <li>Judge, ATOM Awards (2019–2022)</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- socials at bottom -->
+    <nav class="social-icons" aria-label="Social links">
+      <a href="https://www.instagram.com/koalaspies_by_justine" target="_blank" aria-label="Instagram" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+          <circle cx="17" cy="7" r="1.2" fill="currentColor"/>
+        </svg>
+      </a>
+      <!-- TODO: replace YOUR-LINKEDIN-USERNAME with your actual LinkedIn handle -->
+      <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
+          <rect x="6" y="10" width="2.5" height="8" fill="currentColor"/>
+          <circle cx="7.25" cy="7" r="1.25" fill="currentColor"/>
+          <path d="M12 10h2v1.2c.6-.9 1.5-1.4 2.6-1.4 2 0 3.4 1.3 3.4 3.9V18h-2.5v-3.8c0-1.3-.5-2-1.6-2-1 0-1.7.7-1.7 2V18H12v-8z" fill="currentColor"/>
+        </svg>
+      </a>
+      <a href="https://justinerkelly64d9.myportfolio.com/work" aria-label="Writing portfolio" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="2"/>
+          <path d="M8 16L16.5 7.5L14.5 5.5L6 14L5 19L10 18L18.5 9.5"
+                stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="https://koalaspies.myportfolio.com/?utm_source=ig&amp;utm_medium=social&amp;utm_content=link_in_bio" aria-label="Design portfolio" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="2"/>
+          <path d="M7 17L17 7V17H7Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+          <path d="M10 14L14 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </nav>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </footer>
+</body>
+</html>
