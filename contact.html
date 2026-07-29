@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact · Justine Leigh Kelly</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G4RJ8H2H2V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G4RJ8H2H2V');
+  </script>
+
+  <style>
+    /* Same minimal system as the rest of the site: ivory/white surfaces,
+       near-black ink, one deep-navy accent, thin brass hairline.
+       tt-modernoir (display) + Libre Baskerville (serif) carry the Deco note. */
+    :root {
+      --bg-page: #f7f5f1;
+      --surface: #ffffff;
+      --ink: #1c1c1c;
+      --ink-muted: #5c5a56;
+      --line: #ddd7cb;
+      --accent: #14314f;
+      --accent-hover: #0c2138;
+      --accent-brass: #9c7d3f;
+      --radius: 6px;
+      --space: 24px;
+      --font-main: "Source Sans 3", "Source Sans Pro", "Open Sans", "Segoe UI", Verdana, Helvetica, Arial, sans-serif;
+      --font-display: "tt-modernoir", "Source Sans 3", "Segoe UI", sans-serif;
+      --font-serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; height: 100%; }
+    body {
+      font-family: var(--font-main);
+      line-height: 1.75;
+      background: var(--bg-page);
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
+    /* ---------------- HEADER ---------------- */
+    header {
+      background: var(--surface);
+      color: var(--ink);
+      text-align: center;
+      padding: clamp(16px, 3vw, 28px) 16px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2rem, 7vw, 5rem);
+      letter-spacing: clamp(2px, 1.8vw, 10px);
+      line-height: 1.05;
+      white-space: normal;
+      word-break: break-word;
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 1px 0 var(--accent-brass);
+    }
+    /* ---------------- MAIN ---------------- */
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: clamp(16px, 3vw, var(--space));
+      padding-left: max(clamp(16px, 3vw, var(--space)), env(safe-area-inset-left));
+      padding-right: max(clamp(16px, 3vw, var(--space)), env(safe-area-inset-right));
+    }
+    .tile-header {
+      background: var(--surface);
+      padding: clamp(20px, 5vw, 32px) clamp(16px, 4vw, 20px);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+      margin-bottom: clamp(22px, 5vw, 40px);
+    }
+    .tile-header h2 {
+      margin: 0 0 10px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      font-size: clamp(1.6rem, 4.4vw, 2.6rem);
+      color: var(--accent);
+      -webkit-font-smoothing: antialiased;
+    }
+    .tile-header p {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: clamp(0.98rem, 2.8vw, 1.1rem);
+      font-style: italic;
+      color: var(--ink-muted);
+      line-height: 1.75;
+    }
+    /* ---------------- CONTACT PANEL ---------------- */
+    .contact-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent);
+      padding: clamp(22px, 5vw, 34px);
+      margin-bottom: 40px;
+    }
+    .contact-panel h1 {
+      margin: 0 0 14px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.3rem, 3.6vw, 1.8rem);
+      letter-spacing: 0.01em;
+      color: var(--accent);
+    }
+    .contact-panel p {
+      margin: 0 0 18px;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+    .email-display {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      color: var(--ink);
+      word-break: break-all;
+      margin: 0 0 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+      min-height: 1.7em;
+    }
+    .email-display a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-brass);
+    }
+    .email-display a:hover { color: var(--accent-hover); }
+    .contact-link {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      background: var(--accent);
+      color: var(--surface);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-align: center;
+      font-family: var(--font-main);
+      font-size: 0.95rem;
+      border: 1px solid var(--accent);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+    .contact-link:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+    .hint {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      margin: 16px 0 0;
+      line-height: 1.6;
+    }
+    /* ---------------- FOOTER ---------------- */
+    footer {
+      background: var(--ink);
+      color: var(--surface);
+      text-align: center;
+      padding: 20px 14px;
+      padding-bottom: max(20px, env(safe-area-inset-bottom));
+      border-top: 1px solid var(--accent-brass);
+    }
+    footer nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 14px;
+    }
+    footer nav a {
+      color: var(--surface);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: var(--radius);
+    }
+    footer nav a:hover { text-decoration: underline; }
+    @media (max-width: 600px) {
+      main { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>Justine Leigh Kelly</header>
+
+  <main>
+    <section class="tile-header">
+      <h2>Contact</h2>
+      <p><q>Design creates culture.</q></p>
+    </section>
+
+    <section class="contact-panel">
+      <h1>Get in touch</h1>
+      <p>
+        For learning design, EdTech, curriculum or course-build enquiries — including quotes,
+        questions and collaborations. Please include your context and timeline so I can respond
+        usefully.
+      </p>
+
+      <!-- The address is assembled by JavaScript on click, so it never appears
+           in the page source for scrapers to harvest. -->
+      <p class="email-display" id="emailDisplay">Click below to reveal my email address</p>
+
+      <!-- Honeypot: invisible to people, tempting to bots. If it gets filled in,
+           the click is ignored. -->
+      <input type="text" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none;">
+
+      <button class="contact-link" type="button" id="emailBtn">Show email address</button>
+
+      <p class="hint">
+        Your mail app will open automatically. If it doesn't, the address stays on screen
+        so you can copy it.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </footer>
+
+  <script>
+    // Built in two halves so the full string never sits in the HTML source.
+    function buildEmail() {
+      var user = "justine.leigh.kelly";
+      var domain = "outlook.com";
+      return user + "@" + domain;
+    }
+
+    document.getElementById("emailBtn").addEventListener("click", function () {
+      // Honeypot check — a real person never sees or fills this field.
+      if (document.getElementById("hp").value.trim() !== "") return;
+
+      var email = buildEmail();
+      var display = document.getElementById("emailDisplay");
+
+      // Show it as a clickable mailto link, so it can be clicked again or copied.
+      display.innerHTML = '<a href="mailto:' + email + '">' + email + '</a>';
+
+      this.textContent = "Email address shown";
+      this.disabled = true;
+      this.style.opacity = "0.6";
+      this.style.cursor = "default";
+
+      // Open the visitor's mail app with a subject already filled in.
+      window.location.href = "mailto:" + email +
+        "?subject=" + encodeURIComponent("Enquiry via justineleighkelly.com.au");
+    });
+  </script>
+</body>
+</html>
