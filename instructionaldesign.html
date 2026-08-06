@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Articulate, SCORM &amp; Other Samples · Justine Leigh Kelly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Interactive learning samples by Justine Leigh Kelly — Articulate 360, SCORM packages, branching scenarios, Moodle, H5P and custom-coded lessons." />
+  <meta name="description" content="Interactive learning samples by Justine Leigh Kelly — Articulate 360, SCORM packages, branching scenarios and custom-coded lessons." />
   <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css" />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
   <!-- Google tag (gtag.js) -->
@@ -222,9 +222,6 @@
       background: #000;
       display: block;
     }
-    /* Inner mat drawn ON TOP of the player, trimming the outer few pixels of the
-       video so recordings with inconsistent edges all read as the same size.
-       pointer-events:none keeps clicks passing through to the player beneath. */
     .video-embed::before {
       content: "";
       position: absolute;
@@ -312,7 +309,6 @@
       align-self: flex-start;
       margin-top: 4px;
     }
-
     /* ---------------- PENDING PLACEHOLDER ----------------
        Shown in place of an embed while a sample is still being finished.
        Deliberately quiet — reads as "in progress", not as a broken element. */
@@ -405,6 +401,44 @@
     .pill-content ul { margin: 0; padding-left: 20px; }
     .pill-content li { margin-bottom: 8px; line-height: 1.6; }
 
+    /* ---------------- TOUCH DEVICES ----------------
+       Apple's HIG asks for a 44px minimum hit area. Scoped to coarse pointers
+       so the desktop proportions are untouched. */
+    @media (pointer: coarse) {
+      .iframe-open-link,
+      .pill-toggle,
+      .contact-link {
+        min-height: 44px;
+        padding-top: 11px;
+        padding-bottom: 11px;
+      }
+      .back-link {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 16px;
+        font-size: 0.95rem;
+      }
+      footer nav a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+      /* no hover on touch — don't leave elements stuck in a hover state */
+      .video-facade:hover::after { background: rgba(12,22,35,0.18); }
+      .video-facade:hover .video-play-button { transform: translate(-50%, -50%); }
+    }
+
+    /* ---------------- REDUCED MOTION ---------------- */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
     /* ---------------- PRE-FOOTER ---------------- */
     .pre-footer {
       background: var(--accent);
@@ -457,7 +491,7 @@
 
     @media (max-width: 600px) {
       main { padding: 16px; }
-      .sample iframe.live { aspect-ratio: 4 / 3; }
+      .sample iframe.live { aspect-ratio: 3 / 4; min-height: 420px; }
     }
   </style>
 </head>
@@ -466,12 +500,10 @@
 <!-- ═══════════════════════════════════════════════════════════════════════
      THINGS TO FILL IN  — search for  TODO  to find each one.
 
-       1. Toxic Triangle  · YouTube ID  (data-vid + onclick)
-       2. Toxic Triangle  · web build URL
-       3. The Spill       · YouTube ID and/or live URL + description
-       4. Public Speaking · YouTube ID and/or live URL + description
-
-     Samples 3 and 4 are wired to your existing live builds.
+       1. Toxic Triangle  · GitHub Pages URL (appears twice in sample 1)
+       2. The Spill       · YouTube ID and/or live URL + description
+       3. Public Speaking · YouTube ID and/or live URL + description
+     Samples 1, 3 and 4 embed live builds.
      The four video walkthroughs at the bottom are all live.
      ═══════════════════════════════════════════════════════════════════════ -->
 
@@ -491,43 +523,56 @@
   <!-- ═══════════ SAMPLE 1 · THE TOXIC TRIANGLE ═══════════ -->
   <section class="sample" aria-label="The Toxic Triangle branching scenario">
     <div class="sample-media">
-      <!-- TODO 1: replace VIDEO_ID_1 in both places below with the YouTube ID -->
-      <div class="video-embed video-facade" data-vid="VIDEO_ID_1" role="button" tabindex="0"
-           aria-label="Play video: The Toxic Triangle walkthrough"
-           onclick="playVideo(this,'VIDEO_ID_1','The Toxic Triangle walkthrough')">
-        <div class="video-play-button" aria-hidden="true">
-          <svg width="20" height="22" viewBox="0 0 20 22" aria-hidden="true">
-            <polygon points="1,1 19,11 1,21" fill="#ffffff" />
-          </svg>
-        </div>
-      </div>
+      <!-- TODO 1: paste your GitHub Pages URL in BOTH places below -->
+      <iframe class="live"
+        src="https://TODO-your-github-pages-url/"
+        title="The Toxic Triangle — interactive branching scenario"
+        scrolling="yes"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
       <div class="actions">
-        <!-- TODO 2: replace with your GitHub Pages URL once the web build is live -->
-        <a class="iframe-open-link" href="#TODO-toxic-triangle-web-url"
-           target="_blank" rel="noopener noreferrer">Try the interactive version ↗</a>
+        <!-- Primary call to action: the embed above is a preview, this is where
+             the scenario is actually meant to be played. -->
+        <a class="contact-link" href="https://TODO-your-github-pages-url/"
+           target="_blank" rel="noopener noreferrer">Play the full scenario ↗</a>
         <button class="pill-toggle" type="button" onclick="toggleById('toxic-notes')">Design notes</button>
       </div>
       <div id="toxic-notes" class="pill-content">
         <h2>Design notes</h2>
         <ul>
-          <li><strong>Scored without a variable.</strong> PowerPoint can't hold a running total, so the score is carried by <em>position</em> — each decision branches to a different copy of the next slide, and where you land encodes what you've earned.</li>
-          <li><strong>Three parts.</strong> Parts 1–2 are scored and converging; Part 3 branches genuinely by exit choice, resolving to one of five endings.</li>
-          <li><strong>Built on the Toxic Triangle model</strong> (Padilla, Hogan &amp; Kaiser) — destructive leader, susceptible followers, conducive environment — with Karpman's Rescuer role for the learner's own part in it.</li>
+          <li><strong>Built first in PowerPoint, where there are no variables.</strong> A deck can't
+            hold a running total, so the score was carried by <em>position</em> — each decision
+            branches to a different copy of the next slide, and where you land encodes what you've
+            earned. That cost 30 duplicated slides to track a number from 0 to 6.</li>
+          <li><strong>Then rebuilt for the browser</strong> so it runs without PowerPoint, without a
+            download, and without the duplication. Same scenario, same scoring, a fraction of the
+            machinery.</li>
+          <li><strong>Structure.</strong> Parts 1–2 are scored and converging; Part 3 branches
+            genuinely by exit choice, resolving to one of five endings.</li>
+          <li><strong>Grounded in published models</strong> — Padilla, Hogan &amp; Kaiser's toxic
+            triangle (destructive leader, susceptible followers, conducive environment) and Karpman's
+            Rescuer role for the learner's own part in sustaining it. Both cited on the final screen.</li>
+          <li><strong>Read-aloud and step-back.</strong> Any screen can be played as audio, and the
+            back control rewinds the score with the screen rather than leaving points banked.</li>
         </ul>
       </div>
     </div>
     <div class="sample-body">
-      <div class="sample-category">Branching Scenario · PowerPoint</div>
+      <div class="sample-category">Branching Scenario · Interactive Web Build</div>
       <h1>The Toxic Triangle</h1>
       <p>
         A workplace dynamics scenario for team leads who recognise themselves as
-        <strong>the one who fixes everything</strong>. You play Nadia, a Creative Manager in a
-        small startup, across eight decision points and five possible endings.
+        <strong>the one who fixes everything</strong>. You play Nadia, a Creative Manager in a small
+        startup, across eight decision points and five possible endings.
       </p>
       <p>
-        The build carries a hidden <strong>Boundary Score of 0–6</strong> that reflects how much
-        of the dysfunction you're still quietly absorbing — and it does this in plain PowerPoint,
-        with no macros and nothing to install.
+        A hidden <strong>Boundary Score of 0–6</strong> tracks how much of the dysfunction you're
+        still quietly absorbing. It isn't a knowledge test — the same choice can be right in one
+        week and costly in another, and the endings turn on how you leave, not just whether you do.
+      </p>
+      <p>
+        The frame above is a preview — it runs best full screen, where the three
+        choices sit side by side. Nothing to install.
       </p>
     </div>
   </section>
@@ -693,7 +738,6 @@
 
   <section class="video-grid" aria-label="Video walkthrough samples">
 
-    <!-- MOODLE + H5P ONBOARDING -->
     <div class="video-card">
       <div class="video-embed video-facade" data-vid="tGAk_DOYUvw" role="button" tabindex="0"
            aria-label="Play video: Moodle onboarding course walkthrough"
@@ -715,7 +759,6 @@
       </div>
     </div>
 
-    <!-- BESPOKE CERTIFICATE GENERATOR -->
     <div class="video-card">
       <div class="video-embed video-facade" data-vid="a0iB7V6ZSNI" role="button" tabindex="0"
            aria-label="Play video: Bespoke certificate generator walkthrough"
@@ -738,7 +781,6 @@
       </div>
     </div>
 
-    <!-- H5P-STYLE SCORM LESSON -->
     <div class="video-card">
       <div class="video-embed video-facade" data-vid="QIf8jfMwM9A" role="button" tabindex="0"
            aria-label="Play video: H5P-style SCORM lesson walkthrough"
@@ -761,7 +803,6 @@
       </div>
     </div>
 
-    <!-- CUSTOM-CODED SOLUTIONS -->
     <div class="video-card">
       <div class="video-embed video-facade" data-vid="e8sJVtR07xQ" role="button" tabindex="0"
            aria-label="Play video: Weather idioms matching game walkthrough"
