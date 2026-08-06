@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Instructional Design · Justine Leigh Kelly</title>
+  <title>Articulate, SCORM &amp; Other Samples · Justine Leigh Kelly</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Interactive learning samples by Justine Leigh Kelly — Articulate 360, SCORM packages, branching scenarios, Moodle, H5P and custom-coded lessons." />
   <link rel="stylesheet" href="https://use.typekit.net/lfp3llb.css" />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
   <!-- Google tag (gtag.js) -->
@@ -15,11 +16,9 @@
     gtag('config', 'G-G4RJ8H2H2V');
   </script>
   <style>
-    /* ---------------- ROOT + BASE ---------------- */
-    /* Professional, minimalist palette: ivory/white surfaces, near-black ink,
-       a single deep-navy accent, and a thin brass hairline for a restrained
-       Art Deco touch. tt-modernoir (display) + Libre Baskerville (serif)
-       carry the Deco character instead of colour or heavy shadow. */
+    /* ---------------- ROOT + BASE ----------------
+       Same palette and type system as the Instructional Design page so the two
+       sit together. Trimmed of anything this page doesn't use. */
     :root {
       --bg-page: #f7f5f1;
       --surface: #ffffff;
@@ -31,7 +30,7 @@
       --accent-brass: #9c7d3f;
       --radius: 6px;
       --space: 24px;
-      --video-frame: 9px;   /* thickness of the mat trimming each video's edge */
+      --video-frame: 9px;
       --font-main: "Source Sans 3", "Source Sans Pro", "Open Sans", "Segoe UI", Verdana, Helvetica, Arial, sans-serif;
       --font-display: "tt-modernoir", "Source Sans 3", "Segoe UI", sans-serif;
       --font-serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
@@ -52,11 +51,7 @@
     }
     img { max-width: 100%; height: auto; display: block; }
 
-    /* ---------------- BACK LINK ----------------
-       Fixed to the top-left, above page content. It needs its own opaque
-       background and a z-index, otherwise it sits unstyled over whatever is
-       beneath it and can become unreadable or get covered by later content.
-       Uses safe-area insets so it clears the notch on iOS. */
+    /* ---------------- BACK LINK ---------------- */
     .back-wrap {
       position: fixed;
       top: max(10px, env(safe-area-inset-top));
@@ -71,7 +66,6 @@
       border: 1px solid var(--line);
       box-shadow: 0 1px 3px rgba(0,0,0,0.08);
       color: var(--accent);
-      font-family: var(--font-main);
       font-weight: 700;
       font-size: 1rem;
       line-height: 1.4;
@@ -85,15 +79,8 @@
       color: var(--surface);
       border-color: var(--accent);
     }
-    /* Smaller on phones so it doesn't crowd the centred page title. */
     @media (max-width: 600px) {
       .back-link { padding: 4px 10px; font-size: 0.85rem; }
-    }
-    /* The header is centred text; on narrow screens the fixed chip would
-       otherwise overlap the first line of the title. */
-    header { padding-top: 56px; }
-    @media (min-width: 601px) {
-      header { padding-top: clamp(16px, 3vw, 28px); }
     }
 
     /* ---------------- HEADER ---------------- */
@@ -101,20 +88,21 @@
       background: var(--surface);
       color: var(--ink);
       text-align: center;
-      padding-right: 16px;
-      padding-bottom: clamp(16px, 3vw, 28px);
-      padding-left: 16px;
+      padding: 56px 16px clamp(16px, 3vw, 28px);
       font-family: var(--font-display);
       font-weight: 700;
       font-size: clamp(2rem, 7vw, 5rem);
       letter-spacing: clamp(2px, 1.8vw, 10px);
       line-height: 1.05;
-      white-space: normal;
       word-break: break-word;
       border-bottom: 1px solid var(--line);
       box-shadow: 0 1px 0 var(--accent-brass);
     }
-    /* ---------------- MAIN WRAPPER ---------------- */
+    @media (min-width: 601px) {
+      header { padding-top: clamp(16px, 3vw, 28px); }
+    }
+
+    /* ---------------- MAIN ---------------- */
     main {
       flex: 1;
       width: 100%;
@@ -124,6 +112,7 @@
       padding-left: max(clamp(16px, 3vw, var(--space)), env(safe-area-inset-left));
       padding-right: max(clamp(16px, 3vw, var(--space)), env(safe-area-inset-right));
     }
+
     /* ---------------- TILE HEADER ---------------- */
     .tile-header {
       background: var(--surface);
@@ -145,317 +134,141 @@
       text-wrap: balance;
     }
     .tile-header p {
-      margin: 0;
+      margin: 0 auto;
+      max-width: 68ch;
       font-family: var(--font-serif);
       font-size: clamp(0.98rem, 2.8vw, 1.1rem);
       font-style: italic;
       color: var(--ink-muted);
-      overflow-wrap: anywhere;
       line-height: 1.75;
     }
-    /* ---------------- PROBLEM BLOCK ---------------- */
-    .problem-block {
-      margin: 40px 0;
+
+    /* ---------------- SAMPLE CARD ----------------
+       One repeating pattern for every sample: media on the left, text on the
+       right at desktop width; stacked on narrow screens. No alternating
+       layouts — keeps the page calm and the markup short. */
+    .sample {
       background: var(--surface);
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-left: 3px solid var(--accent);
-      overflow: hidden;
-    }
-    .problem-block p {
-      line-height: 1.6;
-      color: var(--ink-muted);
-      margin: 0;
-      overflow-wrap: anywhere;
-    }
-    .problem-block strong { color: var(--accent); }
-    /* ---------------- HEADINGS + LISTS ---------------- */
-    h1 {
-      margin: 0 0 14px;
-      font-size: clamp(1.3rem, 3.6vw, 1.8rem);
-      color: var(--accent);
-      font-family: var(--font-display);
-      font-weight: 700;
-      letter-spacing: 0.01em;
-    }
-    ul.aligned > li > strong {
-      color: var(--accent);
-      font-weight: 700;
-    }
-    ul.aligned {
-      list-style-type: none;
-      padding-left: 24px;
-      margin: 0 0 40px;
-      overflow-wrap: anywhere;
-    }
-    ul.aligned li {
-      margin-bottom: 14px;
-      line-height: 1.6;
-    }
-    ul.aligned li a {
-      color: var(--accent);
-      font-weight: 700;
-      text-decoration: none;
-    }
-    ul.aligned li a:hover { text-decoration: underline; }
-    /* ---------------- CASE STUDY ---------------- */
-    .case-study {
-      background: var(--surface);
-      color: var(--ink);
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-      padding: clamp(16px, 4vw, 32px);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      margin: 30px 0 40px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(18px, 3vw, 30px);
+      padding: clamp(16px, 4vw, 30px);
+      margin: 0 0 clamp(24px, 5vw, 38px);
       overflow: hidden;
       min-width: 0;
     }
-    .case-study > * { min-width: 0; }
-    .case-study iframe {
+    .sample > * { min-width: 0; }
+    @media (min-width: 900px) {
+      .sample { grid-template-columns: 1.05fr 0.95fr; align-items: start; }
+    }
+    .sample-media { display: flex; flex-direction: column; gap: 14px; }
+    .sample-body { display: flex; flex-direction: column; gap: 12px; }
+
+    .sample-category, .video-category {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-brass);
+    }
+    .sample h1 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      font-size: clamp(1.2rem, 3.2vw, 1.55rem);
+      color: var(--accent);
+    }
+    .sample p { margin: 0; color: var(--ink); line-height: 1.7; overflow-wrap: anywhere; }
+    .sample ul {
+      margin: 4px 0 0;
+      padding-left: 20px;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    .sample ul li { margin-bottom: 8px; }
+    .sample strong { color: var(--accent); font-weight: 700; }
+
+    /* Embedded live builds */
+    .sample iframe.live {
       width: 100%;
       aspect-ratio: 1 / 1;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: #000;
       display: block;
+    }
+    .sample iframe.live.wide { aspect-ratio: 16 / 9; }
+
+    /* ---------------- VIDEO FACADE ----------------
+       Click-to-play: no YouTube player, cookies or requests until the visitor
+       actually asks for it. */
+    .video-embed {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      background: #000;
       overflow: hidden;
-    }
-    .case-study aside {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      min-width: 0;
-    }
-    .case-study aside h1 {
-      margin: 0;
-      font-size: clamp(1.2rem, 3.2vw, 1.6rem);
-      color: var(--accent);
-    }
-    .case-study aside p,
-    .case-study aside li,
-    .case-study .left-column p,
-    .case-study .left-column li {
-      color: var(--ink);
-    }
-    /* ---------------- BUTTONS ---------------- */
-    .iframe-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 10px;
-      align-items: flex-start;
-    }
-    .pill-toggle {
-      background: transparent;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      padding: 9px 20px;
       border-radius: var(--radius);
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      cursor: pointer;
-      font-size: 0.95rem;
-      font-family: var(--font-main);
-      transition: 0.2s ease;
-      max-width: 100%;
     }
-    .pill-toggle:hover {
-      background: var(--accent);
-      color: var(--surface);
-    }
-    .contact-link {
-      display: inline-block;
-      padding: 10px 22px;
-      border-radius: var(--radius);
-      background: var(--accent);
-      color: var(--surface);
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      text-align: center;
-      font-family: var(--font-main);
-      transition: 0.2s ease;
-      max-width: 100%;
-    }
-    .contact-link:hover { background: var(--accent-hover); }
-    /* Open-in-new-tab link shown under each embedded iframe */
-    .iframe-open-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 9px 20px;
-      border-radius: var(--radius);
-      background: transparent;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      text-align: center;
-      font-family: var(--font-main);
-      border: 1px solid var(--accent);
-      transition: 0.2s ease;
-      max-width: 100%;
-    }
-    .iframe-open-link:hover {
-      background: var(--accent);
-      color: var(--surface);
-    }
-    .pill-content {
-      display: none;
-      margin-top: 20px;
-      padding: 20px;
-      background: var(--bg-page);
-      overflow-wrap: anywhere;
-      border-left: 3px solid var(--accent);
-    }
-    .pill { margin: 0 0 30px; }
-    /* ---------------- PRE-FOOTER LINKS ---------------- */
-    .pre-footer {
-      background: var(--accent);
-      padding: 32px 16px 40px;
-      text-align: center;
-      max-width: 1100px;
-      margin: 10px auto 0;
-      overflow: hidden;
-    }
-    .pre-footer h3 {
-      margin: 0 0 18px;
-      font-family: var(--font-display);
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      font-size: 1.15rem;
-      color: var(--surface);
-      -webkit-font-smoothing: antialiased;
-    }
-    .pre-footer-description {
-      max-width: 600px;
-      margin: 0 auto 24px;
-      color: #d7dde3;
-      line-height: 1.6;
-      font-size: 1rem;
-      text-align: center;
-      overflow-wrap: anywhere;
-    }
-    .link-centered {
+    .video-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #000;
       display: block;
-      text-align: center;
-      margin: 6px auto 0;
-      color: var(--surface);
-      font-weight: 700;
-      text-decoration: none;
     }
-    .link-centered:hover { text-decoration: underline; }
-    /* ---------------- FOOTER ---------------- */
-    footer {
-      background: var(--ink);
-      color: var(--surface);
-      text-align: center;
-      padding: 20px 14px;
-      padding-bottom: max(20px, env(safe-area-inset-bottom));
-      padding-left: max(14px, env(safe-area-inset-left));
-      padding-right: max(14px, env(safe-area-inset-right));
-      border-top: 1px solid var(--accent-brass);
-    }
-    footer nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px 14px;
-    }
-    footer nav a {
-      color: var(--surface);
-      text-decoration: none;
-      font-weight: 700;
-      padding: 8px 10px;
+    /* Inner mat drawn ON TOP of the player, trimming the outer few pixels of the
+       video so recordings with inconsistent edges all read as the same size.
+       pointer-events:none keeps clicks passing through to the player beneath. */
+    .video-embed::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      border: var(--video-frame) solid var(--surface);
       border-radius: var(--radius);
-      overflow-wrap: anywhere;
+      box-shadow: inset 0 0 0 1px var(--line);
+      transition: box-shadow 0.2s ease;
     }
-    footer nav a:hover { text-decoration: underline; }
-    /* ---------------- RESPONSIVE ---------------- */
-    @media (min-width: 900px) {
-      .case-study { grid-template-columns: 1.1fr 0.9fr; align-items: start; }
-      .case-study.reverse { grid-template-columns: 0.9fr 1.1fr; }
-      .right-column p, .right-column li { color: var(--ink); line-height: 1.7; }
-      .right-column strong { color: var(--accent); font-weight: 700; }
-      .right-column ul.aligned > li { margin-bottom: 26px; }
-      .right-column ul ul { margin-top: 8px; padding-left: 20px; opacity: 0.9; }
+    .video-facade:hover::before { box-shadow: inset 0 0 0 1px var(--accent); }
+    .video-facade { background-size: cover; background-position: center; cursor: pointer; }
+    .video-facade::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(12,22,35,0.18);
+      transition: background 0.2s ease;
     }
-    @media (max-width: 600px) {
-      main { padding: 16px; }
-      .case-study { gap: 18px; }
-      .case-study iframe { aspect-ratio: 1 / 1; }
-      ul.aligned { padding-left: 20px; }
-      .problem-block { padding: 18px; }
+    .video-facade:hover::after { background: rgba(12,22,35,0.32); }
+    .video-play-button {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: rgba(20,49,79,0.88);
+      border: 2px solid #fff;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 2;
+      transition: transform 0.2s ease, background 0.2s ease;
     }
-    /* ============================================================
-       FINAL SECTION
-    ============================================================ */
-    .case-study.final-iframe {
-      grid-template-columns: 1fr;
+    .video-facade:hover .video-play-button {
+      transform: translate(-50%, -50%) scale(1.08);
+      background: var(--accent);
     }
-    .case-study.final-iframe iframe {
-      aspect-ratio: 4 / 3;
-    }
-    @media (min-width: 900px) {
-      .case-study.final-iframe {
-        grid-template-columns: 1fr !important;
-      }
-    }
-    @media (max-width: 600px) {
-      .case-study.final-iframe iframe {
-        aspect-ratio: 4 / 3;
-      }
-    }
-    .final-text-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 22px;
-    }
-    @media (min-width: 900px) {
-      .final-text-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 28px;
-      }
-    }
-    .final-text-grid h1 { margin-top: 0; }
-    .final-text-grid p { margin: 0 0 12px; }
-    .final-text-grid ul { margin: 0; padding-left: 24px; }
-    .quick-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin: 1rem 0;
-    }
-    .quick-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: .65rem 1.1rem;
-      border-radius: var(--radius);
-      background: transparent;
-      color: var(--surface);
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      font-family: var(--font-main);
-      line-height: 1.2;
-      text-align: center;
-      border: 1px solid var(--surface);
-      transition: opacity .2s ease, transform .2s ease, background .2s ease;
-    }
-    .quick-link:hover {
-      background: rgba(255,255,255,0.12);
-      transform: translateY(-1px);
-    }
-    /* ---------------- VIDEO WALKTHROUGHS ---------------- */
+
+    /* ---------------- VIDEO WALKTHROUGH GRID ---------------- */
     .video-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 28px;
-      margin: 30px 0 40px;
+      margin: 0 0 clamp(24px, 5vw, 38px);
     }
     @media (min-width: 700px) {
       .video-grid { grid-template-columns: 1fr 1fr; }
@@ -470,79 +283,9 @@
       flex-direction: column;
       min-width: 0;
     }
-    /* The video window, inset from the card edge. Background is pure black so it
-       matches YouTube's own letterbox/pillarbox bars instead of showing a seam. */
-    .video-embed {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      background: #000;
-      overflow: hidden;
-      margin: 14px 14px 0;
-      border-radius: var(--radius);
-    }
-    .video-embed iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      background: #000;
-      display: block;
-    }
-    /* Inner mat: an opaque frame drawn ON TOP of the player, trimming the outer
-       few pixels of the video itself. This hides the inconsistent edges baked
-       into the source recordings, so all four windows read as the same size.
-       pointer-events:none keeps clicks passing through to the player beneath.
-       Adjust --video-frame to trim more or less. */
-    .video-embed::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      pointer-events: none;
-      border: var(--video-frame) solid var(--surface);
-      border-radius: var(--radius);
-      box-shadow: inset 0 0 0 1px var(--line);
-      transition: box-shadow 0.2s ease;
-    }
-    .video-facade:hover::before { box-shadow: inset 0 0 0 1px var(--accent); }
-    /* Click-to-play thumbnail facade — defers loading the YouTube player
-       until the user actually wants to watch, and shows a real thumbnail
-       instead of a blank player on first paint. */
-    .video-facade {
-      background-size: cover;
-      background-position: center;
-      cursor: pointer;
-    }
-    .video-facade::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(12,22,35,0.18);
-      transition: background 0.2s ease;
-    }
-    .video-facade:hover::after { background: rgba(12,22,35,0.32); }
-    .video-play-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: rgba(20,49,79,0.88);
-      border: 2px solid #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-    .video-facade:hover .video-play-button {
-      transform: translate(-50%, -50%) scale(1.08);
-      background: var(--accent);
-    }
+    /* Inset the video window from the card edge (the sample cards above use
+       .video-embed flush, so this margin is scoped to cards only). */
+    .video-card .video-embed { margin: 14px 14px 0; }
     .video-body {
       padding: 20px 22px 24px;
       display: flex;
@@ -550,15 +293,11 @@
       gap: 10px;
       flex: 1;
     }
-    .video-category {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent-brass);
-    }
     .video-card h1 {
       margin: 0;
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: 0.01em;
       font-size: clamp(1.1rem, 3vw, 1.35rem);
       color: var(--accent);
     }
@@ -573,368 +312,562 @@
       align-self: flex-start;
       margin-top: 4px;
     }
+
+    /* ---------------- PENDING PLACEHOLDER ----------------
+       Shown in place of an embed while a sample is still being finished.
+       Deliberately quiet — reads as "in progress", not as a broken element. */
+    .pending {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      background: var(--bg-page);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-align: center;
+      padding: 20px;
+    }
+    .pending span {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-brass);
+    }
+    .pending p {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+    }
+
+    /* ---------------- BUTTONS ---------------- */
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .iframe-open-link, .pill-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 20px;
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-family: var(--font-main);
+      font-size: 0.95rem;
+      border: 1px solid var(--accent);
+      cursor: pointer;
+      transition: 0.2s ease;
+      max-width: 100%;
+    }
+    .iframe-open-link:hover, .pill-toggle:hover {
+      background: var(--accent);
+      color: var(--surface);
+    }
+    .contact-link {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      background: var(--accent);
+      color: var(--surface);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-family: var(--font-main);
+      transition: 0.2s ease;
+    }
+    .contact-link:hover { background: var(--accent-hover); }
+    .pill-content {
+      display: none;
+      margin-top: 14px;
+      padding: 18px 20px;
+      background: var(--bg-page);
+      border-left: 3px solid var(--accent);
+      overflow-wrap: anywhere;
+    }
+    .pill-content h2 {
+      margin: 0 0 10px;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+      color: var(--accent);
+    }
+    .pill-content ul { margin: 0; padding-left: 20px; }
+    .pill-content li { margin-bottom: 8px; line-height: 1.6; }
+
+    /* ---------------- PRE-FOOTER ---------------- */
+    .pre-footer {
+      background: var(--accent);
+      padding: 32px 16px 40px;
+      text-align: center;
+      max-width: 1100px;
+      margin: 10px auto 0;
+      overflow: hidden;
+    }
+    .pre-footer h3 {
+      margin: 0 0 14px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      font-size: 1.15rem;
+      color: var(--surface);
+      -webkit-font-smoothing: antialiased;
+    }
+    .pre-footer p {
+      max-width: 600px;
+      margin: 0 auto 22px;
+      color: #d7dde3;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* ---------------- FOOTER ---------------- */
+    footer {
+      background: var(--ink);
+      color: var(--surface);
+      text-align: center;
+      padding: 20px 14px;
+      padding-bottom: max(20px, env(safe-area-inset-bottom));
+      border-top: 1px solid var(--accent-brass);
+    }
+    footer nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 14px;
+    }
+    footer nav a {
+      color: var(--surface);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: var(--radius);
+    }
+    footer nav a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      main { padding: 16px; }
+      .sample iframe.live { aspect-ratio: 4 / 3; }
+    }
   </style>
 </head>
 <body>
-  <!-- BACK LINK ------------------------------------------------------------
-       This wrapper must be closed here. Leaving it open makes the browser
-       auto-close it at </body>, which swallows the header, main and footer
-       into a position:fixed box and breaks the whole page layout.
 
-       The href is a real fallback destination, not javascript:history.back().
-       The script at the bottom of the page upgrades it to a genuine "go back"
-       only when there is same-site history to go back to. -->
-  <div class="back-wrap">
-    <a href="index.html" id="backLink" class="back-link" rel="nofollow">&larr; Back</a>
-  </div>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     THINGS TO FILL IN  — search for  TODO  to find each one.
 
-  <header>Justine Leigh Kelly</header>
-  <main>
-    <!-- VIDEO WALKTHROUGHS -->
-    <section class="tile-header">
-      <h2>Video Walkthroughs</h2>
-      <p><q>Show, don't just tell.</q></p>
-    </section>
-    <section class="problem-block">
-      <h1>Sample Builds</h1>
-      <p>
-        Short walkthrough videos of tools and courses I've built across Articulate 360, H5P, Moodle,
-        and custom-coded solutions — showing how each one works in practice, not just what it looks like
-        as a screenshot. Live interactive builds are linked under each video where available.
-      </p>
-    </section>
-    <section class="video-grid" aria-label="Video walkthrough samples">
-      <!-- MOODLE + H5P ONBOARDING -->
-      <div class="video-card">
-        <div class="video-embed video-facade" data-vid="tGAk_DOYUvw" role="button" tabindex="0"
-             aria-label="Play video: Moodle onboarding course walkthrough"
-             onclick="playVideo(this,'tGAk_DOYUvw','Moodle onboarding course walkthrough')">
-          <div class="video-play-button" aria-hidden="true">
-            <svg width="20" height="22" viewBox="0 0 20 22" aria-hidden="true">
-              <polygon points="1,1 19,11 1,21" fill="#ffffff" />
-            </svg>
-          </div>
-        </div>
-        <div class="video-body">
-          <div class="video-category">Moodle</div>
-          <h1>Onboarding Course — Moodle + Interactive H5P Books</h1>
-          <p>
-            A staff onboarding course built in Moodle, combining AI-generated video presenters (Synthesia)
-            with interactive, book-style H5P content so new starters can move through key information at
-            their own pace.
-          </p>
+       1. Toxic Triangle  · YouTube ID  (data-vid + onclick)
+       2. Toxic Triangle  · web build URL
+       3. The Spill       · YouTube ID and/or live URL + description
+       4. Public Speaking · YouTube ID and/or live URL + description
+
+     Samples 3 and 4 are wired to your existing live builds.
+     The four video walkthroughs at the bottom are all live.
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<div class="back-wrap">
+  <a href="index.html" id="backLink" class="back-link" rel="nofollow">&larr; Back</a>
+</div>
+
+<header>Justine Leigh Kelly</header>
+
+<main>
+
+  <section class="tile-header">
+    <h2>Articulate, SCORM &amp; Other Samples</h2>
+    <p><q>Show, don't just tell.</q> Interactive builds you can click through — not screenshots.</p>
+  </section>
+
+  <!-- ═══════════ SAMPLE 1 · THE TOXIC TRIANGLE ═══════════ -->
+  <section class="sample" aria-label="The Toxic Triangle branching scenario">
+    <div class="sample-media">
+      <!-- TODO 1: replace VIDEO_ID_1 in both places below with the YouTube ID -->
+      <div class="video-embed video-facade" data-vid="VIDEO_ID_1" role="button" tabindex="0"
+           aria-label="Play video: The Toxic Triangle walkthrough"
+           onclick="playVideo(this,'VIDEO_ID_1','The Toxic Triangle walkthrough')">
+        <div class="video-play-button" aria-hidden="true">
+          <svg width="20" height="22" viewBox="0 0 20 22" aria-hidden="true">
+            <polygon points="1,1 19,11 1,21" fill="#ffffff" />
+          </svg>
         </div>
       </div>
-      <!-- BESPOKE CERTIFICATE GENERATOR -->
-      <div class="video-card">
-        <div class="video-embed video-facade" data-vid="a0iB7V6ZSNI" role="button" tabindex="0"
-             aria-label="Play video: Bespoke certificate generator walkthrough"
-             onclick="playVideo(this,'a0iB7V6ZSNI','Bespoke certificate generator walkthrough')">
-          <div class="video-play-button" aria-hidden="true">
-            <svg width="20" height="22" viewBox="0 0 20 22" aria-hidden="true">
-              <polygon points="1,1 19,11 1,21" fill="#ffffff" />
-            </svg>
-          </div>
-        </div>
-        <div class="video-body">
-          <div class="video-category">Moodle</div>
-          <h1>Bespoke Certificate Generator</h1>
-          <p>
-            Moodle's native plug-ins couldn't produce the course completion certificates a client needed,
-            and no one had found a way to print them cleanly. I built a bespoke generator that fills in
-            each student's details and outputs finished, print-ready certificates in seconds — no design
-            work, no manual formatting, and no per-course rebuild.
-          </p>
-        </div>
+      <div class="actions">
+        <!-- TODO 2: replace with your GitHub Pages URL once the web build is live -->
+        <a class="iframe-open-link" href="#TODO-toxic-triangle-web-url"
+           target="_blank" rel="noopener noreferrer">Try the interactive version ↗</a>
+        <button class="pill-toggle" type="button" onclick="toggleById('toxic-notes')">Design notes</button>
       </div>
-      <!-- H5P-STYLE SCORM LESSON -->
-      <div class="video-card">
-        <div class="video-embed video-facade" data-vid="QIf8jfMwM9A" role="button" tabindex="0"
-             aria-label="Play video: H5P-style SCORM lesson walkthrough"
-             onclick="playVideo(this,'QIf8jfMwM9A','H5P-style SCORM lesson walkthrough')">
-          <div class="video-play-button" aria-hidden="true">
-            <svg width="20" height="22" viewBox="0 0 20 22" aria-hidden="true">
-              <polygon points="1,1 19,11 1,21" fill="#ffffff" />
-            </svg>
-          </div>
-        </div>
-        <div class="video-body">
-          <div class="video-category">H5P</div>
-          <h1>Custom-Coded H5P-Style SCORM Lesson</h1>
-          <p>
-            An H5P-style interactive lesson built for a client who wanted to avoid ongoing subscription
-            costs. Rather than licensing H5P, I coded the same interactive book/quiz experience from
-            scratch and packaged it as a standard SCORM file, so it drops straight into any LMS with no
-            recurring fees.
-          </p>
-        </div>
-      </div>
-      <!-- CUSTOM-CODED SOLUTIONS -->
-      <div class="video-card">
-        <div class="video-embed video-facade" data-vid="e8sJVtR07xQ" role="button" tabindex="0"
-             aria-label="Play video: Weather idioms matching game walkthrough"
-             onclick="playVideo(this,'e8sJVtR07xQ','Weather idioms matching game walkthrough')">
-          <div class="video-play-button" aria-hidden="true">
-            <svg width="20" height="22" viewBox="0 0 20 22" aria-hidden="true">
-              <polygon points="1,1 19,11 1,21" fill="#ffffff" />
-            </svg>
-          </div>
-        </div>
-        <div class="video-body">
-          <div class="video-category">Custom-Coded Solution</div>
-          <h1>Weather Idioms — Matching Game</h1>
-          <p>
-            A custom-coded matching game for weather idioms, playable projected on a whiteboard for team
-            play or individually from a phone. A follow-up listen-and-dictation exercise reinforces the
-            vocabulary — a fun way to learn idioms and stretch your brain.
-          </p>
-          <a class="iframe-open-link"
-             href="http://modernenglish.au/Microlessons%26Games.html"
-             target="_blank" rel="noopener noreferrer">More Lessons &amp; Games ↗</a>
-        </div>
-      </div>
-    </section>
-    <!-- SECTION 1 -->
-    <section class="tile-header">
-      <h2>Curriculum Design &amp; Software Samples</h2>
-      <p><q>Design creates culture. Culture shapes values. Values determine the future.</q><br><cite>- Robert L Peters</cite></p>
-    </section>
-    <section class="problem-block">
-      <h1>Articulate 360 Presentation</h1>
-      <p>
-        <strong>A Study Tour of Japan:</strong>
-        I designed the study tour to emphasise <strong>cultural continuity, historical philosophy, and modern innovation,</strong> enabling students to engage with Japan as a living system of <strong>interconnected STEM, design, and cultural practices</strong> rather than a tourism destination. I developed a distinctive visual identity using AI-generated cinematic imagery and hand-drawn animated blue kanji linework to create an immersive learning experience that reinforces systems thinking, interpretation, and cross-disciplinary understanding.
-      </p>
-    </section>
-    <section class="case-study reverse" aria-label="Digital updatable tests case study">
-      <!-- LEFT COLUMN (iframe) -->
-      <div class="left-column">
-        <iframe
-          src="https://koalaspiessydney.github.io/BlueSkyStudyTour/#/"
-          title="A Study Tour of Japan"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="iframe-buttons">
-          <a class="iframe-open-link" href="https://koalaspiessydney.github.io/BlueSkyStudyTour/#/" target="_blank" rel="noopener noreferrer">Open Full Lesson ↗</a>
-          <button class="pill-toggle" type="button" onclick="toggleById('research-content')">Research</button>
-          <a class="contact-link" href="contact.html">Contact me for a quote</a>
-        </div>
-        <div id="research-content" class="pill-content" aria-label="Research content">
-          <h1>Research</h1>
-          <p>
-            Scholar D. T. Suzuki, a major interpreter of Zen for Western audiences, described Zen as
-            "looking into the nature of one's own being," highlighting its emphasis on direct awareness
-            and introspection. In the context of modern adolescent media environments — often described
-            as "TikTok brain" due to shortened attention spans, rapid content switching, and Fear of Missing Out (FOMO) —
-            Zen-informed approaches may offer a way to counter attention fragmentation and restore sustained focus.
-          </p>
-          <ul class="aligned">
-            <li>
-              <strong>Training sustained attention</strong><br />
-              Encouraging focus on a single object or task, reducing cognitive "switching cost" associated with rapid digital stimuli.
-            </li>
-            <li>
-              <strong>Interrupting automatic behaviour</strong><br />
-              Strengthening awareness of impulse before action, helping reduce habitual or unconscious scrolling patterns.
-            </li>
-            <li>
-              <strong>Improving tolerance of stillness</strong><br />
-              Building comfort with silence, slower pacing, and reduced stimulation in contrast to high-frequency digital feeds.
-            </li>
-            <li>
-              <strong>Supporting metacognition</strong><br />
-              Developing the ability to notice when attention has drifted and intentionally return focus to the task at hand.
-            </li>
-          </ul>
-          <p>
-            This kind of learning environment encourages students to think more deeply, not only about what they are learning,
-            but how they think — strengthening both wellbeing and intellectual independence.
-          </p>
-        </div>
-      </div>
-      <!-- RIGHT COLUMN (text) -->
-      <aside class="right-column">
-        <h1>Curriculum</h1>
-        <p>
-          I design a study tour around
-          <strong>cultural continuity, historical philosophy, and modern innovation</strong>
-          so students experience Japan as more than a tourism destination. I created a distinctive visual identity using AI-generated cinematic imagery and hand-drawn animated blue kanji linework to produce an immersive and memorable presentation style.
-        </p>
-        <ul class="aligned">
-          <li>
-            <strong>Educational Outcomes</strong>
-            <ul>
-              <li>Use critical and creative thinking to connect historical design principles with contemporary STEM fields such as engineering, robotics, digital media, and computational design.</li>
-              <li>Investigate how principles such as balance, minimalism, and function (e.g., Zen-influenced design) inform real-world engineering and architectural solutions.</li>
-            </ul>
-          </li>
+      <div id="toxic-notes" class="pill-content">
+        <h2>Design notes</h2>
+        <ul>
+          <li><strong>Scored without a variable.</strong> PowerPoint can't hold a running total, so the score is carried by <em>position</em> — each decision branches to a different copy of the next slide, and where you land encodes what you've earned.</li>
+          <li><strong>Three parts.</strong> Parts 1–2 are scored and converging; Part 3 branches genuinely by exit choice, resolving to one of five endings.</li>
+          <li><strong>Built on the Toxic Triangle model</strong> (Padilla, Hogan &amp; Kaiser) — destructive leader, susceptible followers, conducive environment — with Karpman's Rescuer role for the learner's own part in it.</li>
         </ul>
-      </aside>
-    </section>
-    <!-- ADAPTIVE LESSONS -->
-    <section class="tile-header">
-      <h2>Discovery-based Learning</h2>
+      </div>
+    </div>
+    <div class="sample-body">
+      <div class="sample-category">Branching Scenario · PowerPoint</div>
+      <h1>The Toxic Triangle</h1>
       <p>
-        <q>The mind is not a vessel to be filled, but a fire to be kindled.</q>
-        <br><cite>— Plutarch</cite>
+        A workplace dynamics scenario for team leads who recognise themselves as
+        <strong>the one who fixes everything</strong>. You play Nadia, a Creative Manager in a
+        small startup, across eight decision points and five possible endings.
       </p>
-    </section>
-    <section class="problem-block">
-      <h1>Problem</h1>
       <p>
-        A major challenge in English language learning is the expectation that students must memorise thousands of individual words in order to achieve fluency or succeed in high-stakes testing. This approach often leads to heavy cognitive load, low retention, and inefficient use of study time, particularly for adolescent learners who are already managing multiple academic demands.
+        The build carries a hidden <strong>Boundary Score of 0–6</strong> that reflects how much
+        of the dysfunction you're still quietly absorbing — and it does this in plain PowerPoint,
+        with no macros and nothing to install.
       </p>
-    </section>
-    <section class="case-study reverse" aria-label="Adaptive lessons case study">
-      <!-- LEFT COLUMN (text) -->
-      <aside class="left-column">
-        <h1>A Course - learning English through Latin &amp; Greek</h1>
+    </div>
+  </section>
+
+  <!-- ═══════════ SAMPLE 2 · THE SPILL ═══════════ -->
+  <section class="sample" aria-label="The Spill lab safety onboarding">
+    <div class="sample-media">
+      <!-- TODO 3: swap this placeholder for a video facade or live iframe -->
+      <div class="pending">
+        <span>In progress</span>
+        <p>Walkthrough coming shortly.</p>
+      </div>
+      <div class="actions">
+        <button class="pill-toggle" type="button" onclick="toggleById('spill-notes')">Design notes</button>
+      </div>
+      <div id="spill-notes" class="pill-content">
+        <h2>Design notes</h2>
+        <ul>
+          <li><strong>Regulatory basis.</strong> Each decision links out to the specific
+            standard behind it, so learners see the rule, not just the instruction.</li>
+          <li>TODO — add the rest of your notes for this one.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sample-body">
+      <div class="sample-category">SCORM · Compliance Onboarding</div>
+      <h1>The Spill</h1>
+      <p>
+        Part of a lab assistant onboarding programme: a chemical spill scenario that takes a
+        new starter through the decisions of the first few minutes, where the instinctive
+        response and the correct one often differ.
+      </p>
+      <p>
+        <em>TODO — replace this paragraph with the outcome or the problem it solved.</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════ SAMPLE 3 · STUDY TOUR OF JAPAN ═══════════ -->
+  <section class="sample" aria-label="A Study Tour of Japan, Articulate presentation">
+    <div class="sample-media">
+      <iframe class="live"
+        src="https://koalaspiessydney.github.io/BlueSkyStudyTour/#/"
+        title="A Study Tour of Japan"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="actions">
+        <a class="iframe-open-link" href="https://koalaspiessydney.github.io/BlueSkyStudyTour/#/"
+           target="_blank" rel="noopener noreferrer">Open full lesson ↗</a>
+        <button class="pill-toggle" type="button" onclick="toggleById('japan-notes')">Research</button>
+      </div>
+      <div id="japan-notes" class="pill-content">
+        <h2>Research</h2>
         <p>
-          Rather than treating English as a list of disconnected words, students are guided to understand how language is built through <strong>recurring Greek and Latin roots, prefixes, and suffixes.</strong> <br> <br> This enables learners to actively "work out" unfamiliar language for themselves, strengthening autonomy and long-term retention. <br> <br> I used a variety of fun activities and AI media to make this potentially dry topic more fun and memorable.
+          D. T. Suzuki described Zen as "looking into the nature of one's own being" — an emphasis
+          on direct awareness that sits in sharp contrast to the fragmented attention of current
+          adolescent media environments. Zen-informed pacing was used deliberately here to:
         </p>
-      </aside>
-      <!-- RIGHT COLUMN (iframe + Observation button below it) -->
-      <div class="right-column">
-        <iframe
-          src="https://koalaspiessydney.github.io/greek-latinroots-curriculum/#/lessons/cmm432g7o002h3j7qocdttwxu"
-          title="Adaptive lesson demo"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="iframe-buttons" style="margin-top: 12px;">
-          <a class="iframe-open-link" href="https://koalaspiessydney.github.io/greek-latinroots-curriculum/#/lessons/cmm432g7o002h3j7qocdttwxu" target="_blank" rel="noopener noreferrer">Open Full Lesson ↗</a>
-          <button class="pill-toggle" type="button" onclick="toggleById('adaptive-research')">Observation</button>
-        </div>
-        <div id="adaptive-research" class="pill-content" aria-label="Adaptive lessons research content">
-          <h1>Observations in the Classroom</h1>
-          <ul>
-            <li>
-              <strong>Memorisation alone was not sufficient for durable learning</strong><br />
-              Students relying on word lists and repetition showed limited long-term retention compared to those engaging with language in context and through problem-solving.
-            </li>
-            <li>
-              <strong>Meaning-based and functional learning improved engagement</strong><br />
-              When students used language for communication, cultural interpretation, or task-based activities, they demonstrated higher motivation and stronger recall of vocabulary.
-            </li>
-            <li>
-              <strong>Multimodal input supported deeper learning</strong><br />
-              Combining music, visual content, games, and interactive tasks helped reinforce patterns and improved memory encoding compared to single-mode instruction.
-            </li>
-            <li>
-              <strong>Understanding word origins strengthened independent learning</strong><br />
-              Students who were introduced to Greek and Latin roots showed greater ability to infer the meaning of unfamiliar words, reducing reliance on memorisation.
-            </li>
-            <li>
-              <strong>Active engagement was essential for retention</strong><br />
-              Passive exposure to explanations or presentations produced limited recall, while tasks requiring decision-making, analysis, or interaction significantly improved understanding.
-            </li>
-            <li>
-              <strong>Contextual repetition outperformed rote review</strong><br />
-              Concepts revisited through varied contexts over time were retained more effectively than isolated revision of vocabulary lists.
-            </li>
-          </ul>
-        </div>
+        <ul>
+          <li><strong>Train sustained attention</strong> — focus on one object or task, reducing the cognitive switching cost of rapid digital stimuli.</li>
+          <li><strong>Interrupt automatic behaviour</strong> — build awareness of impulse before action.</li>
+          <li><strong>Improve tolerance of stillness</strong> — comfort with silence and slower pacing.</li>
+          <li><strong>Support metacognition</strong> — noticing when attention has drifted, and returning it deliberately.</li>
+        </ul>
       </div>
-    </section>
-    <!-- PRE-FOOTER -->
-    <section class="pre-footer" aria-label="Modern English Australia links">
-      <h3>Scorm Samlples</h3>
-      <p class="pre-footer-description">
-        Please feel free to take a look at my dedicated Scorm samples for different industries.
+    </div>
+    <div class="sample-body">
+      <div class="sample-category">Articulate 360 · Presentation</div>
+      <h1>A Study Tour of Japan</h1>
+      <p>
+        Designed around <strong>cultural continuity, historical philosophy and modern innovation</strong>,
+        so students engage with Japan as a living system of interconnected STEM, design and cultural
+        practice rather than a tourism destination.
       </p>
-      <div class="quick-links">
-        <a class="quick-link" href="scormsamples.html">
-          SCORMS - coming soon
-        </a>
-      
+      <p>
+        I developed a distinctive visual identity using AI-generated cinematic imagery and hand-drawn
+        animated blue kanji linework, reinforcing systems thinking and cross-disciplinary interpretation.
+      </p>
+      <ul>
+        <li>Connects historical design principles to contemporary engineering, robotics and computational design.</li>
+        <li>Investigates how balance, minimalism and function inform real architectural and engineering solutions.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════ SAMPLE 4 · GREEK &amp; LATIN ROOTS ═══════════ -->
+  <section class="sample" aria-label="Greek and Latin roots course">
+    <div class="sample-media">
+      <iframe class="live"
+        src="https://koalaspiessydney.github.io/greek-latinroots-curriculum/#/lessons/cmm432g7o002h3j7qocdttwxu"
+        title="Learning English through Latin and Greek roots"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="actions">
+        <a class="iframe-open-link"
+           href="https://koalaspiessydney.github.io/greek-latinroots-curriculum/#/lessons/cmm432g7o002h3j7qocdttwxu"
+           target="_blank" rel="noopener noreferrer">Open full lesson ↗</a>
+        <button class="pill-toggle" type="button" onclick="toggleById('roots-notes')">Observation</button>
       </div>
-    </section>
-  </main>
-  <footer>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </footer>
-  <script>
-    /* ---------------- BACK LINK ----------------
-       Progressive enhancement. The anchor already points at index.html, so it
-       works with JavaScript disabled, for crawlers, and on middle-click.
-       We only intercept the click when going back is actually the right thing:
-       there is history to go back to AND the previous page was on this site.
+      <div id="roots-notes" class="pill-content">
+        <h2>Observations in the classroom</h2>
+        <ul>
+          <li><strong>Memorisation alone wasn't durable.</strong> Students relying on word lists showed weaker long-term retention than those working with language in context.</li>
+          <li><strong>Word origins strengthened independence.</strong> Students introduced to Greek and Latin roots could infer unfamiliar words, reducing reliance on memorisation.</li>
+          <li><strong>Multimodal input deepened encoding.</strong> Music, visuals, games and interactive tasks outperformed single-mode instruction.</li>
+          <li><strong>Contextual repetition beat rote review.</strong> Concepts revisited in varied contexts were retained better than isolated revision.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sample-body">
+      <div class="sample-category">Articulate 360 · Course</div>
+      <h1>Learning English through Greek &amp; Latin Roots</h1>
+      <p>
+        A major obstacle in English language learning is the expectation that students memorise
+        thousands of individual words — producing heavy cognitive load and poor retention,
+        particularly for adolescents already managing competing academic demands.
+      </p>
+      <p>
+        Rather than treating English as disconnected vocabulary, students are guided to see how it is
+        built from <strong>recurring roots, prefixes and suffixes</strong>, so they can work out
+        unfamiliar language themselves. Autonomy replaces memorisation.
+      </p>
+    </div>
+  </section>
 
-       This is what fixes the "works on some pages, not others" behaviour of
-       javascript:history.back() — a visitor arriving from a search result, a
-       bookmark, or a link opened in a new tab has no same-site history, so
-       history.back() would either do nothing or eject them from the site.
-       Here they land on the home page instead. */
-    (function () {
-      var link = document.getElementById('backLink');
-      if (!link) return;
+  <!-- ═══════════ SAMPLE 5 · PUBLIC SPEAKING ═══════════ -->
+  <section class="sample" aria-label="Public speaking interactive lesson">
+    <div class="sample-media">
+      <!-- TODO 4: swap this placeholder for a video facade or live iframe -->
+      <div class="pending">
+        <span>In progress</span>
+        <p>Walkthrough coming shortly.</p>
+      </div>
+      <div class="actions">
+        <button class="pill-toggle" type="button" onclick="toggleById('speaking-notes')">Design notes</button>
+      </div>
+      <div id="speaking-notes" class="pill-content">
+        <h2>Design notes</h2>
+        <ul>
+          <li>TODO — add your notes for this one.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sample-body">
+      <div class="sample-category">H5P-style · Interactive Lesson</div>
+      <h1>Why Sport Matters — Nelson Mandela</h1>
+      <p>
+        An interactive public speaking lesson built around Mandela's 2000 Laureus Awards address:
+        <em>"Sport has the power to change the world. It has the power to inspire, it has the power
+        to unite people in a way that little else does."</em>
+      </p>
+      <p>
+        <em>TODO — replace with what learners do here and what it teaches.</em>
+      </p>
+    </div>
+  </section>
 
-      link.addEventListener('click', function (e) {
-        // Respect modifier-clicks and middle-clicks (open in new tab).
-        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+  <!-- ═══════════ VIDEO WALKTHROUGHS ═══════════ -->
+  <section class="tile-header">
+    <h2>Video Walkthroughs</h2>
+    <p>Short walkthroughs of tools and courses built across Moodle, H5P and custom code — how each one works in practice, not just how it looks.</p>
+  </section>
 
-        var sameSite = false;
-        try {
-          sameSite = !!document.referrer &&
-                     new URL(document.referrer).origin === window.location.origin;
-        } catch (err) {
-          sameSite = false;
-        }
+  <section class="video-grid" aria-label="Video walkthrough samples">
 
-        if (sameSite && window.history.length > 1) {
-          e.preventDefault();
-          window.history.back();
-        }
-        // else: let the href navigate to index.html
-      });
-    })();
+    <!-- MOODLE + H5P ONBOARDING -->
+    <div class="video-card">
+      <div class="video-embed video-facade" data-vid="tGAk_DOYUvw" role="button" tabindex="0"
+           aria-label="Play video: Moodle onboarding course walkthrough"
+           onclick="playVideo(this,'tGAk_DOYUvw','Moodle onboarding course walkthrough')">
+        <div class="video-play-button" aria-hidden="true">
+          <svg width="20" height="22" viewBox="0 0 20 22" aria-hidden="true">
+            <polygon points="1,1 19,11 1,21" fill="#ffffff" />
+          </svg>
+        </div>
+      </div>
+      <div class="video-body">
+        <div class="video-category">Moodle</div>
+        <h1>Onboarding Course — Moodle + Interactive H5P Books</h1>
+        <p>
+          A staff onboarding course built in Moodle, combining AI-generated video presenters (Synthesia)
+          with interactive, book-style H5P content so new starters can move through key information at
+          their own pace.
+        </p>
+      </div>
+    </div>
 
-    function toggleById(id) {
-      const box = document.getElementById(id);
-      if (!box) return;
-      box.style.display = (box.style.display === "block") ? "none" : "block";
-    }
-    // Click-to-play facade: the YouTube player is only created once the user
-    // asks for it. Keeps the page light, avoids YouTube cookies until playback,
-    // and shows a real thumbnail instead of an empty player on first paint.
-    function playVideo(el, videoId, title) {
-      const iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId +
-                   '?autoplay=1&rel=0&playsinline=1&modestbranding=1';
-      iframe.title = title || 'Video';
-      iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-      iframe.allowFullscreen = true;
-      iframe.referrerPolicy = 'no-referrer-when-downgrade';
-      el.replaceChildren(iframe);
-      el.classList.remove('video-facade');
-      el.style.backgroundImage = '';
-      el.removeAttribute('onclick');
-      el.removeAttribute('role');
-      el.removeAttribute('tabindex');
-      el.removeAttribute('aria-label');
-    }
-    // Enter/Space plays, for keyboard users
-    document.addEventListener('keydown', function (e) {
-      if (e.key !== 'Enter' && e.key !== ' ') return;
-      const el = e.target.closest && e.target.closest('.video-facade');
-      if (el) { e.preventDefault(); el.click(); }
+    <!-- BESPOKE CERTIFICATE GENERATOR -->
+    <div class="video-card">
+      <div class="video-embed video-facade" data-vid="a0iB7V6ZSNI" role="button" tabindex="0"
+           aria-label="Play video: Bespoke certificate generator walkthrough"
+           onclick="playVideo(this,'a0iB7V6ZSNI','Bespoke certificate generator walkthrough')">
+        <div class="video-play-button" aria-hidden="true">
+          <svg width="20" height="22" viewBox="0 0 20 22" aria-hidden="true">
+            <polygon points="1,1 19,11 1,21" fill="#ffffff" />
+          </svg>
+        </div>
+      </div>
+      <div class="video-body">
+        <div class="video-category">Moodle</div>
+        <h1>Bespoke Certificate Generator</h1>
+        <p>
+          Moodle's native plug-ins couldn't produce the course completion certificates a client needed,
+          and no one had found a way to print them cleanly. I built a bespoke generator that fills in
+          each student's details and outputs finished, print-ready certificates in seconds — no design
+          work, no manual formatting, and no per-course rebuild.
+        </p>
+      </div>
+    </div>
+
+    <!-- H5P-STYLE SCORM LESSON -->
+    <div class="video-card">
+      <div class="video-embed video-facade" data-vid="QIf8jfMwM9A" role="button" tabindex="0"
+           aria-label="Play video: H5P-style SCORM lesson walkthrough"
+           onclick="playVideo(this,'QIf8jfMwM9A','H5P-style SCORM lesson walkthrough')">
+        <div class="video-play-button" aria-hidden="true">
+          <svg width="20" height="22" viewBox="0 0 20 22" aria-hidden="true">
+            <polygon points="1,1 19,11 1,21" fill="#ffffff" />
+          </svg>
+        </div>
+      </div>
+      <div class="video-body">
+        <div class="video-category">H5P</div>
+        <h1>Custom-Coded H5P-Style SCORM Lesson</h1>
+        <p>
+          An H5P-style interactive lesson built for a client who wanted to avoid ongoing subscription
+          costs. Rather than licensing H5P, I coded the same interactive book/quiz experience from
+          scratch and packaged it as a standard SCORM file, so it drops straight into any LMS with no
+          recurring fees.
+        </p>
+      </div>
+    </div>
+
+    <!-- CUSTOM-CODED SOLUTIONS -->
+    <div class="video-card">
+      <div class="video-embed video-facade" data-vid="e8sJVtR07xQ" role="button" tabindex="0"
+           aria-label="Play video: Weather idioms matching game walkthrough"
+           onclick="playVideo(this,'e8sJVtR07xQ','Weather idioms matching game walkthrough')">
+        <div class="video-play-button" aria-hidden="true">
+          <svg width="20" height="22" viewBox="0 0 20 22" aria-hidden="true">
+            <polygon points="1,1 19,11 1,21" fill="#ffffff" />
+          </svg>
+        </div>
+      </div>
+      <div class="video-body">
+        <div class="video-category">Custom-Coded Solution</div>
+        <h1>Weather Idioms — Matching Game</h1>
+        <p>
+          A custom-coded matching game for weather idioms, playable projected on a whiteboard for team
+          play or individually from a phone. A follow-up listen-and-dictation exercise reinforces the
+          vocabulary — a fun way to learn idioms and stretch your brain.
+        </p>
+        <a class="iframe-open-link"
+           href="http://modernenglish.au/Microlessons%26Games.html"
+           target="_blank" rel="noopener noreferrer">More Lessons &amp; Games ↗</a>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="pre-footer">
+    <h3>Work with me</h3>
+    <p>Happy to talk through what any of these took to build, or scope something similar.</p>
+    <a class="contact-link" href="contact.html">Contact me for a quote</a>
+  </section>
+
+</main>
+
+<footer>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</footer>
+
+<script>
+  /* Back link — same progressive-enhancement pattern as the ID page: the href
+     is a real destination, and we only intercept when there is same-site
+     history to return to. */
+  (function () {
+    var link = document.getElementById('backLink');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      var sameSite = false;
+      try {
+        sameSite = !!document.referrer &&
+                   new URL(document.referrer).origin === window.location.origin;
+      } catch (err) { sameSite = false; }
+      if (sameSite && window.history.length > 1) {
+        e.preventDefault();
+        window.history.back();
+      }
     });
-    // Load the best thumbnail YouTube has: start on mqdefault (always exists,
-    // true 16:9) then upgrade to maxresdefault if that video has one.
-    document.querySelectorAll('.video-facade[data-vid]').forEach(function (el) {
-      const id = el.getAttribute('data-vid');
-      el.style.backgroundImage = "url('https://i.ytimg.com/vi/" + id + "/mqdefault.jpg')";
-      const hi = new Image();
-      hi.onload = function () {
-        if (hi.naturalWidth > 320) {
-          el.style.backgroundImage = "url('https://i.ytimg.com/vi/" + id + "/maxresdefault.jpg')";
-        }
-      };
-      hi.src = 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg';
-    });
-  </script>
+  })();
+
+  function toggleById(id) {
+    const box = document.getElementById(id);
+    if (!box) return;
+    box.style.display = (box.style.display === "block") ? "none" : "block";
+  }
+
+  function playVideo(el, videoId, title) {
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId +
+                 '?autoplay=1&rel=0&playsinline=1&modestbranding=1';
+    iframe.title = title || 'Video';
+    iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    el.replaceChildren(iframe);
+    el.classList.remove('video-facade');
+    el.style.backgroundImage = '';
+    el.removeAttribute('onclick');
+    el.removeAttribute('role');
+    el.removeAttribute('tabindex');
+    el.removeAttribute('aria-label');
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const el = e.target.closest && e.target.closest('.video-facade');
+    if (el) { e.preventDefault(); el.click(); }
+  });
+
+  /* Thumbnails: start on mqdefault (always exists), upgrade to maxres if present.
+     Skips any facade still holding a TODO placeholder ID. */
+  document.querySelectorAll('.video-facade[data-vid]').forEach(function (el) {
+    const id = el.getAttribute('data-vid');
+    if (!id || id.indexOf('VIDEO_ID') === 0) return;
+    el.style.backgroundImage = "url('https://i.ytimg.com/vi/" + id + "/mqdefault.jpg')";
+    const hi = new Image();
+    hi.onload = function () {
+      if (hi.naturalWidth > 320) {
+        el.style.backgroundImage = "url('https://i.ytimg.com/vi/" + id + "/maxresdefault.jpg')";
+      }
+    };
+    hi.src = 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg';
+  });
+</script>
 </body>
 </html>
